@@ -1,0 +1,16 @@
+node_modules/
+client/node_modules/
+client/dist/
+dist/
+.vercel/
+.env*
+*.bak
+*.apk
+scratch/
+*.log
+.DS_Store
+
+# Security & Build Exclusions
+build/
+.env.local
+.env.*.local

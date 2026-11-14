@@ -1,0 +1,3375 @@
+:root,
+[data-theme="dark"],
+body.theme-dark {
+  --bg-primary: #07090e;
+  --bg-secondary: #0e121d;
+  --bg-card: #0d121f;
+  --bg-card-hover: #141b2d;
+  --border-glow: rgba(0, 240, 255, 0.3);
+  --border-dim: rgba(255, 255, 255, 0.08);
+  
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff2a6d;
+  --neon-amber: #ffaa00;
+  --neon-green: #05ffa1;
+  --neon-purple: #9d4edd;
+  
+  --text-main: #f0f4fc;
+  --text-muted: #8e9bb3;
+  --text-dim: #5a647a;
+
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+[data-theme="light"],
+body.theme-light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --border-glow: rgba(2, 132, 199, 0.35);
+  --border-dim: #e2e8f0;
+  
+  --neon-cyan: #0284c7;
+  --neon-pink: #e11d48;
+  --neon-amber: #d97706;
+  --neon-green: #059669;
+  --neon-purple: #7c3aed;
+  
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+[data-theme="dark"],
+body.theme-dark {
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] .glass-panel,
+body.theme-light .glass-panel {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .glass-panel:hover,
+body.theme-light .glass-panel:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .subject-catalog-card,
+body.theme-light .subject-catalog-card {
+  border: 1px solid #e2e8f0;
+}
+
+[data-theme="light"] .subject-catalog-card:not(.dead):hover,
+body.theme-light .subject-catalog-card:not(.dead):hover {
+  border-color: #0284c7;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, button, a, input, select, textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3650;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}
+
+/* High-visibility scrollbar for Studio modal, code boxes, and lists */
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-cyan) rgba(10, 15, 26, 0.85);
+  -webkit-overflow-scrolling: touch;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: rgba(10, 15, 26, 0.85);
+  border-radius: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan) 0%, #0284c7 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.35);
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 14px var(--neon-cyan);
+}
+
+/* Responsive styles for Lab Studio Modal */
+@media (max-width: 820px) {
+  .lab-studio-body {
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    height: 100% !important;
+  }
+  .lab-studio-sidebar {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-height: 200px !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    flex-shrink: 0 !important;
+  }
+  .lab-studio-content {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 14px 16px !important;
+    box-sizing: border-box !important;
+    touch-action: pan-y !important;
+  }
+}
+
+/* Typography Helpers */
+h1, h2, h3, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+}
+
+/* Glow Badges */
+.badge-neon {
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--neon-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-crimson {
+  background: rgba(255, 42, 109, 0.15);
+  color: var(--neon-pink);
+  border: 1px solid rgba(255, 42, 109, 0.35);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-amber {
+  background: rgba(255, 170, 0, 0.12);
+  color: var(--neon-amber);
+  border: 1px solid rgba(255, 170, 0, 0.35);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--neon-cyan), #00a8ff);
+  color: #030a16;
+  border: none;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+}
+
+.btn-secondary {
+  background: rgba(15, 23, 42, 0.9) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(0, 240, 255, 0.35) !important;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 240, 255, 0.15) !important;
+  border-color: var(--neon-cyan) !important;
+  color: var(--neon-cyan) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.35);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-dim);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+/* =========================================================================
+   4DX GLOWING REVIEW BUTTON (.btn-review-glow)
+   ========================================================================= */
+.btn-review-glow {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.18) 0%, rgba(157, 78, 221, 0.28) 100%) !important;
+  color: #00f0ff !important;
+  border: 1.5px solid rgba(0, 240, 255, 0.7) !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 800 !important;
+  border-radius: 8px !important;
+  letter-spacing: 0.3px !important;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.8), 0 0 20px rgba(0, 240, 255, 0.4) !important;
+  box-shadow: 
+    0 0 16px rgba(0, 240, 255, 0.35),
+    inset 0 0 12px rgba(0, 240, 255, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  animation: reviewBtnPulse 3s infinite ease-in-out !important;
+  z-index: 1;
+}
+
+.btn-review-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-review-glow:hover {
+  transform: translateY(-3px) scale(1.03) translateZ(10px) !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.35) 0%, rgba(157, 78, 221, 0.45) 100%) !important;
+  border-color: #00f0ff !important;
+  box-shadow: 
+    0 0 28px rgba(0, 240, 255, 0.8),
+    0 0 50px rgba(157, 78, 221, 0.5),
+    inset 0 0 16px rgba(0, 240, 255, 0.4) !important;
+  text-shadow: 0 0 14px #00f0ff, 0 0 30px #00f0ff !important;
+}
+
+.btn-review-glow:hover::before {
+  left: 100%;
+}
+
+@keyframes reviewBtnPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 14px rgba(0, 240, 255, 0.35),
+      inset 0 0 10px rgba(0, 240, 255, 0.15),
+      0 4px 12px rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 240, 255, 0.7);
+  }
+  50% {
+    box-shadow: 
+      0 0 24px rgba(0, 240, 255, 0.6),
+      0 0 36px rgba(157, 78, 221, 0.35),
+      inset 0 0 16px rgba(0, 240, 255, 0.3),
+      0 6px 16px rgba(0, 0, 0, 0.6);
+    border-color: #00f0ff;
+  }
+}
+
+
+/* Glass Card - High Performance Hardware Accelerated */
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 14px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.2s ease, 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* High-performance solid card styling (Zero GPU texture-blur recompositing overhead) */
+.glass-panel {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.glass-panel:hover {
+  border-color: var(--border-glow);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 28px -6px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(0, 240, 255, 0.18);
+}
+
+/* Subject Catalog Card Styles (Pure CSS Hover - Zero React Re-render Lag) */
+.subject-catalog-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  opacity: 1;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.22s ease;
+  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.subject-catalog-card:not(.dead):hover {
+  transform: translateY(-4px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 8px 24px rgba(0, 240, 255, 0.22);
+}
+
+.subject-catalog-card.dead {
+  cursor: not-allowed;
+  opacity: 0.45;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.subject-catalog-card.dead:hover {
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: none;
+}
+
+/* =========================================================================
+   MOBILE RESPONSIVE GRIDS & VIEWPORT CONTAINMENT (Fixes Overflowing Buttons)
+   ========================================================================= */
+
+/* Global Button & Link Viewport Safety */
+button, 
+.btn-primary, 
+.btn-secondary, 
+.btn-outline, 
+.btn-review-holo,
+.btn-review-glow {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hero Spotlight Banner Responsive Rules */
+.hero-spotlight-panel {
+  padding: 36px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .hero-spotlight-panel {
+    padding: 20px 16px !important;
+    min-height: auto !important;
+  }
+  .hero-btn-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+  .hero-btn-group button {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 10px 14px !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* Catalog Search Bar Wrapper */
+.catalog-search-wrapper {
+  position: relative;
+  width: 280px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .catalog-search-wrapper {
+    width: 100% !important;
+  }
+}
+
+/* Subject Catalog Cards Grid */
+.subject-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 22px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 680px) {
+  .subject-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* Hand-Crafted Master Notebooks Grid */
+.notebooks-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .notebooks-catalog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+/* Lab Manuals & Solved Codes 2-Column Grid (Collapses cleanly on Mobile) */
+.lab-manuals-layout-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.7fr) minmax(280px, 1.3fr);
+  gap: 28px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .lab-manuals-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* Short Notes & Exam Revision Sheets Grid */
+.short-notes-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .short-notes-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+.short-note-card-actions {
+  margin-top: auto;
+  padding-top: 8px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .short-note-card-actions {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .short-note-card-actions a,
+  .short-note-card-actions button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* Syllabus & Curriculum Cards Grid */
+.syllabus-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 680px) {
+  .syllabus-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* Circuit Simulator Modal Split Grid */
+.circuit-sim-body-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  flex: 1;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 850px) {
+  .circuit-sim-body-grid {
+    grid-template-columns: 1fr !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* Interactive Notes Reader Action Bar Responsive Controls */
+.sensory-action-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .sensory-action-bar {
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .sensory-action-bar button,
+  .sensory-action-bar a {
+    font-size: 0.76rem !important;
+    padding: 7px 10px !important;
+  }
+  .sensory-theme-toggle-group {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  .sensory-theme-toggle-group button {
+    flex: 1 1 auto !important;
+    justify-content: center !important;
+    padding: 6px 8px !important;
+    font-size: 0.72rem !important;
+  }
+}
+
+/* Sensory FX Animations (Disabled for high-performance normal experience) */
+.shake-active,
+.strobe-active::after,
+.wind-streak {
+  display: none !important;
+  animation: none !important;
+}
+
+/* =========================================================================
+   NOTEBOOK & MULTI-THEME ENGINE (CYBER NEON, REAL NOTEBOOK, CLEAN DIGITAL)
+   ========================================================================= */
+
+.handwritten-font {
+  font-family: 'Caveat', cursive, sans-serif !important;
+  font-size: 1.35rem !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0.4px !important;
+}
+
+.handwritten-heading {
+  font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif !important;
+  letter-spacing: 0.8px !important;
+}
+
+/* =========================================================================
+   THEME 1: âš¡ CYBER NEON (Electric Sci-Fi Dark Terminal)
+   ========================================================================= */
+.theme-cyber {
+  background: #060913 !important;
+  background-image: 
+    radial-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
+  background-size: 24px 24px, 100% 32px !important;
+  border: 1px solid rgba(0, 240, 255, 0.35) !important;
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.12), 0 12px 40px rgba(0, 0, 0, 0.85) !important;
+  color: #f1f5f9 !important;
+  padding: 36px 44px !important;
+}
+
+.theme-cyber h1, .theme-cyber h2 {
+  color: #fef08a !important;
+  text-shadow: 0 0 16px rgba(254, 240, 138, 0.3);
+}
+
+.theme-cyber h3, .theme-cyber .note-h3 {
+  color: #00f0ff !important;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+  font-size: 1.45rem;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-weight: 900;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  padding-bottom: 8px;
+}
+
+.theme-cyber h4, .theme-cyber .note-h4 {
+  color: #38bdf8 !important;
+  font-size: 1.25rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.theme-cyber h5, .theme-cyber .note-h5 {
+  color: #fde047 !important;
+  font-size: 1.1rem;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.theme-cyber p, .theme-cyber li {
+  color: #cbd5e1 !important;
+}
+
+.theme-cyber .katex-display-box {
+  margin: 18px 0;
+  padding: 16px 22px;
+  background: rgba(10, 15, 29, 0.95) !important;
+  border: 1px solid rgba(0, 240, 255, 0.4) !important;
+  border-radius: 10px;
+  overflow-x: auto;
+  text-align: center;
+  color: #67e8f9 !important;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.15) !important;
+}
+
+.theme-cyber .katex {
+  color: #a5f3fc !important;
+}
+
+.exam-trap-box,
+.topper-mnemonic-box,
+.green-law-box,
+.blue-analogy-box,
+.cyan-keytakeaway-box,
+.orange-warning-box,
+.purple-exam-goal-box,
+.rainbow-concept-box,
+.analytical-derivation-box,
+.academic-derivation-box,
+.worked-example-box,
+.sticky-postit,
+.handwritten-diagram-container,
+.circuit-diagram-card {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+.theme-cyber .exam-trap-box {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.18), rgba(153, 27, 27, 0.12));
+  border-left: 5px solid #ef4444;
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #fca5a5;
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.15);
+}
+
+.theme-cyber .topper-mnemonic-box {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.18), rgba(107, 33, 168, 0.12));
+  border-left: 5px solid #a855f7;
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #e9d5ff;
+  box-shadow: 0 4px 18px rgba(168, 85, 247, 0.15);
+}
+
+.theme-cyber .green-law-box {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.18), rgba(20, 83, 45, 0.12));
+  border-left: 5px solid #22c55e;
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #86efac;
+  box-shadow: 0 4px 18px rgba(34, 197, 94, 0.15);
+}
+
+.theme-cyber .sticky-postit {
+  background: linear-gradient(135deg, #fef08a, #fde047);
+  color: #713f12;
+  padding: 18px 24px;
+  border-radius: 6px;
+  box-shadow: 6px 8px 20px rgba(0, 0, 0, 0.45);
+  transform: rotate(-1deg);
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 1.15rem;
+  margin: 22px 0;
+  position: relative;
+  border-left: 8px solid #eab308;
+}
+
+.theme-cyber .sticky-postit::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  border-radius: 2px;
+}
+
+.theme-cyber .sticky-margin-note {
+  background: rgba(255, 170, 0, 0.12);
+  border-left: 4px solid var(--neon-amber);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+
+.theme-cyber .yellow-highlighter {
+  background: rgba(250, 204, 21, 0.22);
+  color: #fef08a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border-bottom: 2px solid #facc15;
+  font-weight: 700;
+}
+
+
+/* =========================================================================
+   THEME 2: ðŸ“  REAL NOTEBOOK (Handwritten Class Ruled Paper with Margin)
+   ========================================================================= */
+.theme-paper {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid #e2e8f0 !important;
+  border-left: 6px solid #2563eb !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
+  position: relative !important;
+  padding-top: 32px !important;
+  padding-bottom: 48px !important;
+  padding-right: 28px !important;
+  padding-left: 54px !important;
+}
+
+/* Crisp Red Margin Line */
+.theme-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 38px;
+  width: 2px;
+  background: #f87171;
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Left Margin Label - Hidden for Clean White Reader */
+.theme-paper::after {
+  display: none !important;
+}
+
+.theme-paper h1, .theme-paper h2 {
+  color: #1e3a8a !important; /* Rich ballpoint royal blue ink */
+  font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif !important;
+  letter-spacing: 0.5px !important;
+}
+
+.theme-paper h3, .theme-paper .note-h3 {
+  color: #0369a1 !important;
+  font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif !important;
+  font-size: 1.5rem;
+  margin-top: 26px;
+  margin-bottom: 12px;
+  font-weight: 900;
+  border-bottom: 1.5px dashed #cbd5e1 !important;
+  padding-bottom: 6px;
+}
+
+.theme-paper h4, .theme-paper .note-h4 {
+  color: #1d4ed8 !important;
+  font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif !important;
+  font-size: 1.3rem;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.theme-paper h5, .theme-paper .note-h5 {
+  color: #b45309 !important;
+  font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif !important;
+  font-size: 1.15rem;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.theme-paper p, .theme-paper li {
+  color: #1e293b !important;
+  line-height: 1.85 !important;
+  font-size: 1.02rem;
+}
+
+.theme-paper .katex-display-box {
+  margin: 18px 0;
+  padding: 16px 20px !important;
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-left: 5px solid #2563eb !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+  text-align: center;
+  color: #0f172a !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.theme-paper .katex {
+  color: #1e1b4b !important; /* Deep navy pen ink */
+}
+
+.theme-paper .exam-trap-box {
+  background: #fef2f2 !important;
+  border: 1px solid #fecdd3 !important;
+  border-left: 5px solid #f43f5e !important;
+  border-radius: 0 10px 10px 0 !important;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #9f1239 !important;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+.theme-paper .topper-mnemonic-box {
+  background: #f5f3ff !important;
+  border: 1px solid #e9d5ff !important;
+  border-left: 5px solid #a855f7 !important;
+  border-radius: 0 10px 10px 0 !important;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #6b21a8 !important;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+.theme-paper .green-law-box {
+  background: #f0fdf4 !important;
+  border: 1px solid #bbf7d0 !important;
+  border-left: 5px solid #22c55e !important;
+  border-radius: 0 10px 10px 0 !important;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #15803d !important;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+.theme-paper .sticky-postit {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  padding: 18px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 1.15rem;
+  margin: 22px 0;
+  position: relative;
+  border: 1px solid #e2e8f0 !important;
+  border-left: 6px solid #f59e0b !important;
+}
+
+.theme-paper .sticky-postit::before {
+  display: none !important;
+}
+
+.theme-paper .sticky-margin-note {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-left: 4px solid #2563eb !important;
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  color: #1e3a8a !important;
+}
+
+.theme-paper .yellow-highlighter {
+  background: rgba(254, 240, 138, 0.4) !important;
+  color: #0f172a !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border-bottom: 2px solid #eab308 !important;
+  font-weight: 800;
+}
+
+
+/* =========================================================================
+   THEME 3: ðŸ“– CLEAN DIGITAL (Modern Crisp White University Reader / Notion)
+   ========================================================================= */
+.theme-clean {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08) !important;
+  color: #334155 !important;
+  padding: 38px 48px !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.theme-clean::before, 
+.theme-clean::after {
+  display: none !important;
+}
+
+.theme-clean h1, .theme-clean h2 {
+  color: #0f172a !important; /* Deep solid black-slate */
+  font-weight: 800 !important;
+  font-family: 'Inter', sans-serif !important;
+  letter-spacing: -0.5px !important;
+  text-shadow: none !important;
+}
+
+.theme-clean h3, .theme-clean .note-h3 {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.38rem;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding-bottom: 8px;
+  text-shadow: none !important;
+}
+
+.theme-clean h4, .theme-clean .note-h4 {
+  color: #2563eb !important; /* Clean modern royal blue */
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: none !important;
+}
+
+.theme-clean h5, .theme-clean .note-h5 {
+  color: #475569 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.05rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.theme-clean p, .theme-clean li {
+  color: #334155 !important;
+  line-height: 1.75 !important;
+  font-size: 1rem;
+}
+
+.theme-clean .katex-display-box {
+  margin: 18px 0;
+  padding: 16px 24px;
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  text-align: center;
+  color: #0f172a !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+}
+
+.theme-clean .katex {
+  color: #0f172a !important;
+}
+
+.theme-clean .exam-trap-box {
+  background: #fef2f2 !important;
+  border: 1px solid #fecaca !important;
+  border-left: 4px solid #ef4444 !important;
+  border-radius: 6px !important;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #991b1b !important;
+  box-shadow: none !important;
+}
+
+.theme-clean .topper-mnemonic-box {
+  background: #f5f3ff !important;
+  border: 1px solid #ddd6fe !important;
+  border-left: 4px solid #8b5cf6 !important;
+  border-radius: 6px !important;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #5b21b6 !important;
+  box-shadow: none !important;
+}
+
+.theme-clean .green-law-box {
+  background: #ecfdf5 !important;
+  border: 1px solid #a7f3d0 !important;
+  border-left: 4px solid #10b981 !important;
+  border-radius: 6px !important;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #065f46 !important;
+  box-shadow: none !important;
+}
+
+.theme-clean .sticky-postit {
+  background: #fffbeb !important;
+  border: 1px solid #fde68a !important;
+  border-left: 4px solid #f59e0b !important;
+  border-radius: 6px !important;
+  padding: 16px 20px;
+  margin: 18px 0;
+  color: #92400e !important;
+  transform: none !important;
+  box-shadow: none !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem;
+}
+
+.theme-clean .sticky-postit::before {
+  display: none !important;
+}
+
+.theme-clean .sticky-margin-note {
+  background: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  border-left: 4px solid #3b82f6 !important;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 16px 0;
+  color: #1e40af !important;
+}
+
+.theme-clean .yellow-highlighter {
+  background: #fef9c3 !important;
+  color: #713f12 !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border-bottom: 2px solid #eab308 !important;
+  font-weight: 700;
+}
+
+
+/* =========================================================================
+   DIAGRAM CARDS & RESPONSIVE ALIGNMENT FIXES
+   ========================================================================= */
+
+.handwritten-diagram-container {
+  margin: 22px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.handwritten-svg path:not([fill]) {
+  fill: none;
+}
+
+.theme-cyber .handwritten-diagram-container {
+  border: 1.5px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.12);
+  background: rgba(8, 12, 24, 0.95);
+}
+
+.theme-paper .handwritten-diagram-container {
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  background: #fefcf6;
+}
+
+.theme-clean .handwritten-diagram-container {
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  background: #ffffff;
+}
+
+.diagram-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.theme-cyber .diagram-header {
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.18), rgba(168, 85, 247, 0.18));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a5f3fc;
+}
+
+.theme-paper .diagram-header {
+  background: #fef3c7;
+  border-bottom: 1px solid #fde68a;
+  color: #92400e;
+}
+
+.theme-clean .diagram-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.diagram-header .exam-tag {
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.theme-cyber .exam-tag {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fef08a;
+  border: 1px solid #f59e0b;
+}
+
+.theme-paper .exam-tag {
+  background: #fef08a;
+  color: #713f12;
+  border: 1px solid #eab308;
+}
+
+.theme-clean .exam-tag {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.study-deck-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.study-deck-grid.units-collapsed {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .study-deck-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+.notes-reader-panel {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.notes-html-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================================
+   KATEX MATHEMATICAL ENGINE TYPOGRAPHY & LAYOUT INTEGRATION
+   ========================================================================= */
+.katex {
+  max-width: 100%;
+}
+
+
+.katex-display-box {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  overscroll-behavior-y: auto !important;
+  touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch;
+  padding: 14px 18px !important;
+  margin: 16px 0 !important;
+  display: block !important;
+  text-align: center !important;
+  border-radius: 10px;
+}
+
+.katex-display-box > .katex-display {
+  display: inline-block !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  text-align: center !important;
+  padding: 4px 0 !important;
+}
+
+.katex {
+  max-width: 100%;
+}
+
+/* =========================================================================
+   STACKED MATHEMATICAL FRACTIONS (HORIZONTAL VINCULUM BAR)
+   ========================================================================= */
+.frac {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding: 0 0.25em !important;
+  font-style: normal !important;
+  font-family: KaTeX_Main, "Times New Roman", serif, sans-serif !important;
+  line-height: 1.1 !important;
+}
+.frac-num {
+  border-bottom: 1.5px solid currentColor !important;
+  padding: 0 3px 2px 3px !important;
+  display: block !important;
+  font-size: 0.92em !important;
+  font-weight: 600;
+}
+.frac-den {
+  padding: 2px 3px 0 3px !important;
+  display: block !important;
+  font-size: 0.92em !important;
+  font-weight: 600;
+}
+
+.analytical-derivation-box {
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-left: 4px solid #0284c7;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-family: inherit;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.theme-cyber .analytical-derivation-box {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+.theme-paper .analytical-derivation-box {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+.derivation-math-step {
+  display: block;
+  margin: 6px 0;
+  padding: 4px 8px;
+  background: rgba(2, 132, 199, 0.06);
+  border-radius: 6px;
+}
+
+.handwritten-diagram-container {
+  margin: 22px 0;
+  border-radius: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-y: auto !important;
+  touch-action: pan-y !important;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  -webkit-overflow-scrolling: touch;
+}
+
+.handwritten-svg {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* Tablet & Mobile responsive padding & margin line adjustments */
+@media (max-width: 1200px) {
+  .theme-cyber, 
+  .theme-clean {
+    padding: 26px 22px !important;
+  }
+  .theme-paper {
+    padding-left: 68px !important;
+    padding-right: 20px !important;
+    padding-top: 26px !important;
+    padding-bottom: 36px !important;
+  }
+  .theme-paper::before {
+    left: 48px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-paper {
+    padding-left: 52px !important;
+    padding-right: 14px !important;
+    padding-top: 20px !important;
+    padding-bottom: 28px !important;
+  }
+  .theme-paper::before {
+    left: 36px !important;
+  }
+  .theme-paper::after {
+    display: none !important;
+  }
+  .theme-cyber, 
+  .theme-clean {
+    padding: 20px 14px !important;
+  }
+}
+
+/* =========================================================================
+   WORKED NUMERICAL EXAMPLES STYLING (THEME-ADAPTIVE)
+   ========================================================================= */
+.worked-example-box {
+  margin: 26px 0;
+  border-radius: 12px;
+  padding: 20px 22px;
+  position: relative;
+  line-height: 1.8;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.theme-cyber .worked-example-box {
+  background: linear-gradient(135deg, rgba(14, 23, 44, 0.95), rgba(7, 12, 26, 0.95));
+  border: 1.5px solid rgba(0, 240, 255, 0.4);
+  border-left: 6px solid #00f0ff;
+  box-shadow: 0 8px 30px rgba(0, 240, 255, 0.12);
+  color: #e2e8f0;
+}
+
+.theme-paper .worked-example-box {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-left: 6px solid #2563eb !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  color: #0f172a !important;
+}
+
+.theme-clean .worked-example-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #2563eb;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  color: #1e293b;
+}
+
+.example-tag-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.difficulty-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.difficulty-pill.level-easy {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.difficulty-pill.level-medium {
+  background: #fef9c3;
+  color: #a16207;
+  border: 1px solid #fde047;
+}
+
+.difficulty-pill.level-hard {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.worked-example-box.level-easy {
+  border-left: 6px solid #22c55e !important;
+}
+
+.worked-example-box.level-medium {
+  border-left: 6px solid #eab308 !important;
+}
+
+.worked-example-box.level-hard {
+  border-left: 6px solid #ef4444 !important;
+}
+
+.theme-cyber .example-tag-header {
+  background: rgba(0, 240, 255, 0.18);
+  color: #38bdf8;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+}
+
+.theme-paper .example-tag-header {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.theme-clean .example-tag-header {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.example-answer-box {
+  margin-top: 18px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.95rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.theme-cyber .example-answer-box {
+  background: rgba(34, 197, 94, 0.16);
+  border: 1px solid #22c55e;
+  color: #86efac;
+}
+
+.theme-paper .example-answer-box {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  color: #15803d;
+}
+
+.theme-clean .example-answer-box {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+}
+
+/* =========================================================================
+   FORMAL UNIVERSITY ACADEMIC DERIVATION & PROOF CARDS
+   ========================================================================= */
+.academic-derivation-box {
+  margin: 28px 0;
+  border-radius: 14px;
+  padding: 24px 28px;
+  position: relative;
+  line-height: 1.85;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.theme-cyber .academic-derivation-box {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(8, 14, 30, 0.98)) !important;
+  border: 1.5px solid rgba(99, 102, 241, 0.45) !important;
+  border-left: 6px solid #818cf8 !important;
+  box-shadow: 0 10px 32px rgba(99, 102, 241, 0.18), 0 0 20px rgba(0, 240, 255, 0.08) !important;
+  color: #e2e8f0 !important;
+}
+
+.theme-paper .academic-derivation-box {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  border-left: 6px solid #4f46e5 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
+}
+
+.theme-clean .academic-derivation-box {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-left: 5px solid #4f46e5 !important;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05) !important;
+  color: #1e293b !important;
+}
+
+.derivation-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1.5px dashed rgba(148, 163, 184, 0.35);
+  flex-wrap: wrap;
+}
+
+.derivation-pill {
+  background: #4f46e5;
+  color: #ffffff;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.derivation-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.theme-cyber .derivation-title {
+  color: #c7d2fe !important;
+}
+
+.theme-paper .derivation-title {
+  color: #312e81 !important;
+  font-family: 'Patrick Hand', 'Caveat', cursive !important;
+  font-size: 1.35rem !important;
+}
+
+.theme-clean .derivation-title {
+  color: #1e1b4b !important;
+}
+
+.derivation-marks-pill {
+  margin-left: auto;
+  background: rgba(245, 158, 11, 0.18);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 14px;
+}
+
+.academic-derivation-box .katex-display-box {
+  background: rgba(241, 245, 249, 0.6) !important;
+  border: 1px solid rgba(203, 213, 225, 0.8) !important;
+  box-shadow: none !important;
+  margin: 14px 0 !important;
+  padding: 14px 18px !important;
+  border-radius: 8px !important;
+}
+
+.theme-cyber .academic-derivation-box .katex-display-box {
+  background: rgba(10, 15, 29, 0.7) !important;
+  border: 1px solid rgba(99, 102, 241, 0.3) !important;
+  color: #a5f3fc !important;
+}
+
+.theme-paper .academic-derivation-box .katex-display-box {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+.academic-derivation-box p {
+  margin: 10px 0;
+  line-height: 1.8;
+}
+
+.katex .boxed {
+  border: 2px solid #2563eb !important;
+  background: rgba(37, 99, 235, 0.08) !important;
+  padding: 4px 12px !important;
+  border-radius: 6px !important;
+  display: inline-block !important;
+  font-weight: 700 !important;
+}
+
+.theme-cyber .katex .boxed {
+  border: 2px solid #00f0ff !important;
+  background: rgba(0, 240, 255, 0.15) !important;
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.35) !important;
+  color: #ffffff !important;
+}
+
+.theme-paper .katex .boxed {
+  border: 2px solid #b45309 !important;
+  background: rgba(245, 158, 11, 0.1) !important;
+  color: #0f172a !important;
+}
+
+
+/* =========================================================================
+   UNIVERSITY-GRADE CIRCUIT SCHEMATIC CARDS FOR WORKED EXAMPLES
+   ========================================================================= */
+.circuit-diagram-card {
+  white-space: normal !important;
+  margin: 18px 0 22px 0 !important;
+  padding: 14px !important;
+  background: rgba(11, 19, 43, 0.7);
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  border-radius: 12px;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.circuit-diagram-card svg,
+.circuit-svg {
+  display: block !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+}
+
+.circuit-diagram-card text,
+.circuit-diagram-card tspan {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  letter-spacing: 0px !important;
+}
+
+.circuit-diagram-caption {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  text-align: center;
+  color: #38bdf8;
+  font-family: 'Inter', system-ui, sans-serif !important;
+}
+
+/* Paper Notebook Theme Adaptation */
+.theme-paper .circuit-diagram-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-paper .circuit-diagram-card .schematic-bg {
+  fill: #ffffff !important;
+  stroke: #cbd5e1 !important;
+}
+
+.theme-paper .circuit-diagram-card .schematic-wire {
+  stroke: #1e3a8a !important;
+}
+
+.theme-paper .circuit-diagram-card .schematic-resistor {
+  stroke: #b45309 !important;
+}
+
+.theme-paper .circuit-diagram-card .schematic-title {
+  fill: #1e40af !important;
+}
+
+.theme-paper .circuit-diagram-card .schematic-subtext {
+  fill: #475569 !important;
+}
+
+.theme-paper .circuit-diagram-card .schematic-node-label {
+  fill: #0f172a !important;
+}
+
+.theme-paper .circuit-diagram-card .schematic-pill-box {
+  fill: #f1f5f9 !important;
+  stroke: #94a3b8 !important;
+}
+
+.theme-paper .circuit-diagram-card .schematic-pill-text {
+  fill: #0f172a !important;
+}
+
+/* Paper mode SVG text & box readability safeguards */
+.theme-paper .circuit-diagram-card rect[fill*="rgba(15,23,42"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(14,23,42"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(10,15,29"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(10, 15, 29"],
+.theme-paper .circuit-diagram-card rect[fill="#334155"] {
+  fill: #f8fafc !important;
+  stroke: #64748b !important;
+}
+
+.theme-paper .circuit-diagram-card rect[fill*="rgba(56,189,248"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(56, 189, 248"] {
+  fill: #eff6ff !important;
+  stroke: #3b82f6 !important;
+}
+
+.theme-paper .circuit-diagram-card rect[fill*="rgba(236,72,153"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(236, 72, 153"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(244,63,94"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(244, 63, 94"],
+.theme-paper .circuit-diagram-card .schematic-pink-box {
+  fill: #fdf2f8 !important;
+  stroke: #db2777 !important;
+}
+
+.theme-paper .circuit-diagram-card rect[fill*="rgba(16,185,129"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(16, 185, 129"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(34,197,94"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(34, 197, 94"] {
+  fill: #f0fdf4 !important;
+  stroke: #16a34a !important;
+}
+
+.theme-paper .circuit-diagram-card rect[fill*="rgba(245,158,11"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(245, 158, 11"] {
+  fill: #fffbeb !important;
+  stroke: #d97706 !important;
+}
+
+.theme-paper .circuit-diagram-card rect[fill*="rgba(168,85,247"],
+.theme-paper .circuit-diagram-card rect[fill*="rgba(168, 85, 247"] {
+  fill: #faf5ff !important;
+  stroke: #9333ea !important;
+}
+
+/* Paper theme text contrast: deep, saturated, crisp readable ink */
+.theme-paper .circuit-diagram-card text[fill="#e2e8f0"],
+.theme-paper .circuit-diagram-card text[fill="#cbd5e1"],
+.theme-paper .circuit-diagram-card text[fill="#f8fafc"],
+.theme-paper .circuit-diagram-card text[fill="#94a3b8"],
+.theme-paper .circuit-diagram-card text[fill="#64748b"] {
+  fill: #0f172a !important;
+}
+
+.theme-paper .circuit-diagram-card text[fill="#fbcfe8"],
+.theme-paper .circuit-diagram-card text[fill="#f472b6"],
+.theme-paper .circuit-diagram-card text[fill="#fda4af"],
+.theme-paper .circuit-diagram-card text[fill="#ec4899"],
+.theme-paper .circuit-diagram-card .schematic-pink-text {
+  fill: #831843 !important; /* Deep bold berry crimson */
+}
+
+.theme-paper .circuit-diagram-card text[fill="#86efac"],
+.theme-paper .circuit-diagram-card text[fill="#a7f3d0"],
+.theme-paper .circuit-diagram-card text[fill="#34d399"],
+.theme-paper .circuit-diagram-card text[fill="#10b981"] {
+  fill: #14532d !important; /* Deep forest emerald */
+}
+
+.theme-paper .circuit-diagram-card text[fill="#00f0ff"],
+.theme-paper .circuit-diagram-card text[fill="#67e8f9"],
+.theme-paper .circuit-diagram-card text[fill="#a5f3fc"] {
+  fill: #0369a1 !important;
+}
+
+.theme-paper .circuit-diagram-card text[fill="#38bdf8"] {
+  fill: #0284c7 !important;
+}
+
+.theme-paper .circuit-diagram-card text[fill="#fbbf24"],
+.theme-paper .circuit-diagram-card text[fill="#fef08a"],
+.theme-paper .circuit-diagram-card text[fill="#fde047"],
+.theme-paper .circuit-diagram-card text[fill="#eab308"],
+.theme-paper .circuit-diagram-card text[fill="#f59e0b"] {
+  fill: #78350f !important; /* Deep amber brown */
+}
+
+.theme-paper .circuit-diagram-card text[fill="#c084fc"],
+.theme-paper .circuit-diagram-card text[fill="#a855f7"],
+.theme-paper .circuit-diagram-card text[fill="#e9d5ff"],
+.theme-paper .circuit-diagram-card text[fill="#d8b4fe"] {
+  fill: #581c87 !important; /* Deep royal violet */
+}
+
+.theme-paper .circuit-diagram-caption {
+  color: #1e40af !important;
+}
+
+/* Clean Digital Theme Adaptation */
+.theme-clean .circuit-diagram-card {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+.theme-clean .circuit-diagram-card .schematic-bg {
+  fill: #ffffff !important;
+  stroke: #e2e8f0 !important;
+}
+
+.theme-clean .circuit-diagram-card .schematic-wire {
+  stroke: #1e40af !important;
+}
+
+.theme-clean .circuit-diagram-card .schematic-resistor {
+  stroke: #b45309 !important;
+}
+
+.theme-clean .circuit-diagram-card .schematic-title {
+  fill: #1d4ed8 !important;
+}
+
+.theme-clean .circuit-diagram-card .schematic-subtext {
+  fill: #475569 !important;
+}
+
+.theme-clean .circuit-diagram-card .schematic-node-label {
+  fill: #0f172a !important;
+}
+
+.theme-clean .circuit-diagram-card .schematic-pill-box {
+  fill: #f8fafc !important;
+  stroke: #94a3b8 !important;
+}
+
+.theme-clean .circuit-diagram-card .schematic-pill-text {
+  fill: #0f172a !important;
+}
+
+.theme-clean .circuit-diagram-card rect[fill*="rgba(15,23,42"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(14,23,42"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(10,15,29"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(10, 15, 29"],
+.theme-clean .circuit-diagram-card rect[fill="#334155"] {
+  fill: #f8fafc !important;
+  stroke: #64748b !important;
+}
+
+.theme-clean .circuit-diagram-card rect[fill*="rgba(56,189,248"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(56, 189, 248"] {
+  fill: #eff6ff !important;
+  stroke: #3b82f6 !important;
+}
+
+.theme-clean .circuit-diagram-card rect[fill*="rgba(236,72,153"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(236, 72, 153"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(244,63,94"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(244, 63, 94"],
+.theme-clean .circuit-diagram-card .schematic-pink-box {
+  fill: #fdf2f8 !important;
+  stroke: #db2777 !important;
+}
+
+.theme-clean .circuit-diagram-card rect[fill*="rgba(16,185,129"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(16, 185, 129"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(34,197,94"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(34, 197, 94"] {
+  fill: #f0fdf4 !important;
+  stroke: #16a34a !important;
+}
+
+.theme-clean .circuit-diagram-card rect[fill*="rgba(245,158,11"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(245, 158, 11"] {
+  fill: #fffbeb !important;
+  stroke: #d97706 !important;
+}
+
+.theme-clean .circuit-diagram-card rect[fill*="rgba(168,85,247"],
+.theme-clean .circuit-diagram-card rect[fill*="rgba(168, 85, 247"] {
+  fill: #faf5ff !important;
+  stroke: #9333ea !important;
+}
+
+/* Clean theme text contrast: deep, saturated, crisp readable text */
+.theme-clean .circuit-diagram-card text[fill="#e2e8f0"],
+.theme-clean .circuit-diagram-card text[fill="#cbd5e1"],
+.theme-clean .circuit-diagram-card text[fill="#f8fafc"],
+.theme-clean .circuit-diagram-card text[fill="#94a3b8"],
+.theme-clean .circuit-diagram-card text[fill="#64748b"] {
+  fill: #0f172a !important;
+}
+
+.theme-clean .circuit-diagram-card text[fill="#fbcfe8"],
+.theme-clean .circuit-diagram-card text[fill="#f472b6"],
+.theme-clean .circuit-diagram-card text[fill="#fda4af"],
+.theme-clean .circuit-diagram-card text[fill="#ec4899"],
+.theme-clean .circuit-diagram-card .schematic-pink-text {
+  fill: #9d174d !important; /* Deep bold berry crimson */
+}
+
+.theme-clean .circuit-diagram-card text[fill="#86efac"],
+.theme-clean .circuit-diagram-card text[fill="#a7f3d0"],
+.theme-clean .circuit-diagram-card text[fill="#34d399"],
+.theme-clean .circuit-diagram-card text[fill="#10b981"] {
+  fill: #166534 !important; /* Deep forest emerald */
+}
+
+.theme-clean .circuit-diagram-card text[fill="#00f0ff"],
+.theme-clean .circuit-diagram-card text[fill="#67e8f9"],
+.theme-clean .circuit-diagram-card text[fill="#a5f3fc"] {
+  fill: #0369a1 !important;
+}
+
+.theme-clean .circuit-diagram-card text[fill="#38bdf8"] {
+  fill: #0284c7 !important;
+}
+
+.theme-clean .circuit-diagram-card text[fill="#fbbf24"],
+.theme-clean .circuit-diagram-card text[fill="#fef08a"],
+.theme-clean .circuit-diagram-card text[fill="#fde047"],
+.theme-clean .circuit-diagram-card text[fill="#eab308"],
+.theme-clean .circuit-diagram-card text[fill="#f59e0b"] {
+  fill: #78350f !important; /* Deep amber brown */
+}
+
+.theme-clean .circuit-diagram-card text[fill="#c084fc"],
+.theme-clean .circuit-diagram-card text[fill="#a855f7"],
+.theme-clean .circuit-diagram-card text[fill="#e9d5ff"],
+.theme-clean .circuit-diagram-card text[fill="#d8b4fe"] {
+  fill: #6b21a8 !important; /* Deep royal violet */
+}
+
+.theme-clean .circuit-diagram-caption {
+  color: #2563eb !important;
+}
+
+/* =========================================================================
+   AUTH IMMERSION ANIMATIONS (Disabled for normal experience)
+   ========================================================================= */
+.rumble-shake,
+.pulse-glow {
+  animation: none !important;
+}
+
+/* =========================================================================
+   UNIVERSAL PRINT & SAVE AS PDF STYLESHEET
+   Ensures multi-page, unobstructed, high-contrast, clean academic printing
+   ========================================================================= */
+@page {
+  size: A4 portrait;
+  margin: 14mm 12mm 14mm 12mm;
+}
+
+@media print {
+  /* 1. Hide all non-printable UI chrome, sidebars, headers, and controls */
+  .sidebar,
+  .top-navbar,
+  .sidebar-toggle-btn,
+  .top-actions,
+  .quick-unit-switcher,
+  .study-deck-grid > div:first-child:not(.notes-reader-panel),
+  .forensic-watermark-overlay,
+  .sticky-margin-note,
+  .ambient-canvas,
+  .canvas-background,
+  .audio-player-bar,
+  .immersion-controls,
+  .security-guard,
+  button,
+  .btn-outline,
+  .badge-neon,
+  .badge-crimson,
+  .badge-amber,
+  header,
+  nav,
+  footer,
+  .card-4dx-glow-wrap::before {
+    display: none !important;
+  }
+
+  /* 2. Reset layout and eliminate Chromium multi-page overflow truncation */
+  html,
+  body,
+  #root,
+  .app-wrapper,
+  .main-viewport,
+  .study-deck-grid,
+  .notes-reader-panel {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    display: block !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    position: static !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    text-shadow: none !important;
+  }
+
+  /* 3. Notes Content Typography & Legibility */
+  .notes-html-content {
+    color: #0f172a !important;
+    font-size: 11pt !important;
+    line-height: 1.65 !important;
+    white-space: normal !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif !important;
+  }
+
+  h1, h2, h3, h4, .handwritten-heading {
+    color: #0f172a !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif !important;
+  }
+
+  /* 4. Avoid breaking diagrams and worked examples across pages */
+  .circuit-diagram-card,
+  .worked-example-box,
+  .academic-derivation-box,
+  .custom-table-wrap,
+  .exam-trap-box,
+  .topper-mnemonic-box,
+  .green-law-box,
+  .blue-analogy-box,
+  .cyan-keytakeaway-box,
+  .orange-warning-box,
+  .purple-exam-goal-box,
+  .katex-display-box {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    box-shadow: none !important;
+    margin: 14px 0 !important;
+  }
+
+  .circuit-diagram-card,
+  .flowchart-card {
+    background: #0b1329 !important;
+    border: 1.5px solid #0284c7 !important;
+    border-radius: 12px !important;
+    padding: 14px 12px !important;
+    margin: 18px 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .circuit-diagram-card svg,
+  .flowchart-card svg,
+  .handwritten-diagram-container svg {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .handwritten-diagram-container {
+    background: #ffffff !important;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    margin: 18px 0 !important;
+    padding: 14px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 5. Clean discreet academic footer */
+  body::after {
+    content: "OFFICIAL UNIVERSITY LECTURE STUDY MATERIAL";
+    display: block;
+    text-align: center;
+    font-size: 8pt;
+    color: #94a3b8 !important;
+    margin-top: 24px;
+    padding-top: 8px;
+    border-top: 1px solid #e2e8f0;
+  }
+}
+
+/* =========================================================================
+   CLEAN, STATIC CARD & AUTH STYLING (Zero Continuous Animations)
+   ========================================================================= */
+.card-4dx-glow-wrap,
+.auth-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-4dx-glow-wrap::before {
+  display: none !important;
+}
+
+.card-4dx-content {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.scanline-sweep,
+.orbital-ring-1,
+.orbital-ring-2,
+.cyber-grid-floor,
+.btn-shimmer-wrap::after,
+.eq-bar-1,
+.eq-bar-2,
+.eq-bar-3,
+.eq-bar-4 {
+  display: none !important;
+}
+
+
+/* =========================================================================
+   SUPER COLORFUL STUDY NOTES SUITE (ANALOGY, KEY TAKEAWAY, TABLES, PILLS)
+   ========================================================================= */
+
+.blue-analogy-box,
+.cyan-keytakeaway-box,
+.rainbow-concept-box,
+.orange-warning-box,
+.purple-exam-goal-box {
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  margin: 18px 0;
+  padding: 16px 20px;
+  border-radius: 0 12px 12px 0;
+  line-height: 1.7;
+}
+
+/* --- THEME CYBER (Vibrant Neon Glow) --- */
+.theme-cyber .blue-analogy-box {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.22), rgba(30, 58, 138, 0.15));
+  border-left: 5px solid #3b82f6;
+  color: #bfdbfe;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+}
+
+.theme-cyber .cyan-keytakeaway-box {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.22), rgba(8, 51, 68, 0.18));
+  border-left: 5px solid #06b6d4;
+  color: #a5f3fc;
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.2);
+}
+
+.theme-cyber .orange-warning-box {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.22), rgba(124, 45, 18, 0.15));
+  border-left: 5px solid #f97316;
+  color: #fed7aa;
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.2);
+}
+
+.theme-cyber .purple-exam-goal-box {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.22), rgba(88, 28, 135, 0.18));
+  border-left: 5px solid #c084fc;
+  color: #f3e8ff;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+}
+
+.theme-cyber .rainbow-concept-box {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.18), rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.18));
+  border-left: 5px solid #ec4899;
+  border-radius: 12px;
+  border-top: 1px solid rgba(236, 72, 153, 0.35);
+  color: #fdf2f8;
+  box-shadow: 0 4px 25px rgba(236, 72, 153, 0.25);
+}
+
+/* --- THEME PAPER (Handwritten warm notebook palette) --- */
+.theme-paper .blue-analogy-box {
+  background: #eff6ff;
+  color: #1e3a8a;
+  border: 1px solid #bfdbfe;
+  border-left: 5px solid #2563eb;
+}
+
+.theme-paper .cyan-keytakeaway-box {
+  background: #ecfeff;
+  color: #164e63;
+  border: 1px solid #a5f3fc;
+  border-left: 5px solid #0891b2;
+}
+
+.theme-paper .orange-warning-box {
+  background: #fff7ed;
+  color: #7c2d12;
+  border: 1px solid #fed7aa;
+  border-left: 5px solid #ea580c;
+}
+
+.theme-paper .purple-exam-goal-box {
+  background: #faf5ff;
+  color: #581c87;
+  border: 1px solid #e9d5ff;
+  border-left: 5px solid #9333ea;
+}
+
+.theme-paper .rainbow-concept-box {
+  background: #fdf2f8;
+  border: 1.5px dashed #f472b6;
+  border-left: 5px solid #db2777;
+  color: #831843;
+}
+
+/* --- THEME CLEAN (Crisp modern textbook palette) --- */
+.theme-clean .blue-analogy-box {
+  background: #f0f9ff;
+  color: #0c4a6e;
+  border: 1px solid #bae6fd;
+  border-left: 5px solid #0284c7;
+}
+
+.theme-clean .cyan-keytakeaway-box {
+  background: #f0fdfa;
+  color: #134e4a;
+  border: 1px solid #99f6e4;
+  border-left: 5px solid #0d9488;
+}
+
+.theme-clean .orange-warning-box {
+  background: #fffbeb;
+  color: #78350f;
+  border: 1px solid #fde68a;
+  border-left: 5px solid #d97706;
+}
+
+.theme-clean .purple-exam-goal-box {
+  background: #f5f3ff;
+  color: #4c1d95;
+  border: 1px solid #ddd6fe;
+  border-left: 5px solid #7c3aed;
+}
+
+.theme-clean .rainbow-concept-box {
+  background: #fdf4ff;
+  color: #701a75;
+  border: 1px solid #f5d0fe;
+  border-left: 5px solid #c026d3;
+}
+
+/* --- COLORFUL PILL BADGES --- */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
+.pill-cyan { background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.5); }
+.pill-green { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.5); }
+.pill-pink { background: rgba(236, 72, 153, 0.2); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.5); }
+.pill-amber { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.5); }
+.pill-purple { background: rgba(168, 85, 247, 0.2); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.5); }
+.pill-blue { background: rgba(59, 130, 246, 0.2); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.5); }
+.pill-rainbow {
+  background: linear-gradient(135deg, rgba(236,72,153,0.35), rgba(59,130,246,0.35));
+  color: #fbcfe8;
+  border: 1px solid #f472b6;
+}
+
+/* High-contrast paper and clean mode overrides for pill badges */
+.theme-paper .pill-cyan, .theme-clean .pill-cyan { background: #ecfeff; color: #0e7490; border: 1px solid #67e8f9; }
+.theme-paper .pill-green, .theme-clean .pill-green { background: #f0fdf4; color: #15803d; border: 1px solid #86efac; }
+.theme-paper .pill-pink, .theme-clean .pill-pink { background: #fdf2f8; color: #be185d; border: 1px solid #f472b6; }
+.theme-paper .pill-amber, .theme-clean .pill-amber { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.theme-paper .pill-purple, .theme-clean .pill-purple { background: #faf5ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+.theme-paper .pill-blue, .theme-clean .pill-blue { background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd; }
+.theme-paper .pill-rainbow, .theme-clean .pill-rainbow {
+  background: #fdf2f8;
+  color: #831843;
+  border: 1px solid #f472b6;
+}
+
+/* --- COLORFUL RESPONSIVE MARKDOWN TABLES --- */
+.custom-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 22px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  -webkit-overflow-scrolling: touch;
+  white-space: normal !important;
+}
+
+.colorful-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  text-align: left;
+  white-space: normal !important;
+}
+
+.colorful-table th,
+.colorful-table td {
+  vertical-align: top;
+  white-space: normal !important;
+}
+
+.theme-cyber .colorful-table {
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: rgba(15, 23, 42, 0.82);
+}
+
+.theme-cyber .colorful-table th {
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.28), rgba(168, 85, 247, 0.28));
+  color: #fff;
+  font-weight: 800;
+  padding: 13px 16px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-bottom: 2px solid #00f0ff;
+  letter-spacing: 0.4px;
+}
+
+.theme-cyber .colorful-table td {
+  padding: 12px 16px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  color: #e2e8f0;
+}
+
+.theme-cyber .colorful-table tr:nth-child(even) {
+  background: rgba(30, 41, 59, 0.55);
+}
+
+.theme-cyber .colorful-table tr:hover {
+  background: rgba(0, 240, 255, 0.1);
+}
+
+.theme-paper .colorful-table {
+  border: 1.5px solid #b45309;
+  background: #fffbeb;
+}
+
+.theme-paper .colorful-table th {
+  background: #fde68a;
+  color: #78350f !important;
+  font-weight: 800;
+  padding: 12px 16px;
+  border: 1.5px solid #d97706;
+  border-bottom: 2.5px solid #b45309;
+}
+
+.theme-paper .colorful-table td {
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  color: #1e293b !important;
+}
+
+.theme-paper .colorful-table tr:nth-child(even) {
+  background: #fefce8;
+}
+
+.theme-clean .colorful-table {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+}
+
+.theme-clean .colorful-table th {
+  background: #eff6ff;
+  color: #1e40af;
+  font-weight: 800;
+  padding: 12px 16px;
+  border: 1px solid #bfdbfe;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.theme-clean .colorful-table td {
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.theme-clean .colorful-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* --- VISUAL FLOWCHART PILL CARDS --- */
+.visual-flowchart-card {
+  margin: 16px 0;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.92));
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  white-space: normal !important;
+}
+
+.visual-flow-header {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: #38bdf8 !important;
+  margin-bottom: 12px;
+  line-height: 1.4 !important;
+}
+
+.visual-flow-chain {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.visual-flow-node {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+  color: #f8fafc !important;
+  background: rgba(30, 58, 138, 0.75);
+  border: 1.5px solid #60a5fa;
+  border-radius: 8px;
+  padding: 8px 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.visual-flow-arrow {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  color: #34d399 !important;
+  line-height: 1 !important;
+  padding: 0 2px;
+}
+
+
+/* =========================================================================
+   TRUE AUTHENTIC HUMAN HANDWRITING ENGINE (THEME-PAPER)
+   Uses genuine cursive penmanship fonts: Caveat & Homemade Apple
+   ========================================================================= */
+
+.theme-paper,
+.theme-paper .notes-html-content,
+.theme-paper .notes-html-content *:not(.katex):not(.katex *):not(.code-editor-box):not(.code-editor-box *):not(.inline-code-badge):not(.ascii-diagram-box):not(.ascii-diagram-box *):not(.visual-flowchart-card):not(.visual-flowchart-card *):not(pre):not(code):not(pre *):not(code *) {
+  font-family: 'Caveat', 'Homemade Apple', 'Patrick Hand', cursive !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Explicit KaTeX font protection to prevent font-clash and overlapping symbols */
+.katex,
+.katex * {
+  font-family: KaTeX_Main, 'Times New Roman', serif !important;
+  line-height: normal !important;
+}
+.katex-display-box,
+.katex-display {
+  margin: 16px 0 !important;
+  padding: 8px 0 !important;
+  line-height: normal !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+.theme-paper .notes-html-content {
+  font-family: 'Caveat', 'Homemade Apple', 'Patrick Hand', cursive !important;
+  font-size: 1.55rem !important;
+  line-height: 42px !important;
+  color: #1e3a8a !important; /* Royal blue student ballpoint ink */
+  letter-spacing: 0.3px !important;
+  font-weight: 600 !important;
+}
+
+.theme-paper .notes-html-content p,
+.theme-paper .notes-html-content li,
+.theme-paper .notes-html-content span:not(.code-editor-box *):not(.inline-code-badge):not(.visual-flowchart-card *):not(pre *):not(code *),
+.theme-paper .notes-html-content div:not(.katex *):not(.worked-example-box):not(.worked-example-box *):not(.academic-derivation-box):not(.academic-derivation-box *):not(.circuit-diagram-card):not(.circuit-diagram-card *):not(.visual-flowchart-card):not(.visual-flowchart-card *):not(.exam-trap-box):not(.green-law-box):not(.topper-mnemonic-box):not(.blue-analogy-box):not(.cyan-keytakeaway-box):not(.orange-warning-box):not(.purple-exam-goal-box):not(.rainbow-concept-box):not(.code-editor-box):not(.code-editor-box *):not(.ascii-diagram-box):not(.ascii-diagram-box *) {
+  font-family: 'Caveat', 'Homemade Apple', 'Patrick Hand', cursive !important;
+  font-size: 1.55rem !important;
+  line-height: 42px !important;
+  color: #1e3a8a !important;
+  letter-spacing: 0.3px !important;
+  font-weight: 600 !important;
+}
+
+.theme-paper strong,
+.theme-paper b {
+  color: #0c2340 !important; /* Heavy press ballpoint pen */
+  font-weight: 700 !important;
+}
+
+.theme-paper em,
+.theme-paper i {
+  font-style: italic !important;
+  color: #1d4ed8 !important;
+}
+
+.theme-paper h1, 
+.theme-paper h2 {
+  color: #0f2b5c !important;
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 2.3rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  text-decoration: underline wavy #b45309 2px;
+}
+
+.theme-paper h3, 
+.theme-paper .note-h3 {
+  color: #b91c1c !important; /* Red teacher/topper pen for main headings */
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.95rem !important;
+  margin-top: 24px !important;
+  margin-bottom: 10px !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid #ef4444 !important;
+  padding-bottom: 4px !important;
+}
+
+.theme-paper h4, 
+.theme-paper .note-h4 {
+  color: #0369a1 !important; /* Blue/Teal gel pen for subheadings */
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.7rem !important;
+  margin-top: 18px !important;
+  margin-bottom: 8px !important;
+  font-weight: 700 !important;
+}
+
+.theme-paper h5, 
+.theme-paper .note-h5 {
+  color: #7c2d12 !important; /* Amber gel pen */
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.5rem !important;
+  margin-top: 16px !important;
+  margin-bottom: 6px !important;
+  font-weight: 700 !important;
+}
+
+/* Authentic chisel-tip fluorescent highlighter stroke */
+.theme-paper .yellow-highlighter {
+  background: rgba(254, 240, 138, 0.88) !important;
+  color: #0c2340 !important;
+  padding: 1px 7px !important;
+  border-radius: 3px !important;
+  box-shadow: 0 0 0 2px rgba(254, 240, 138, 0.8) !important;
+  transform: rotate(-0.5deg) !important;
+  display: inline-block !important;
+  font-weight: 700 !important;
+}
+
+/* Handwritten List Item Styling */
+.handwritten-list-item,
+.theme-paper .handwritten-list-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  margin: 6px 0 !important;
+  line-height: 42px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.handwritten-list-item > span:last-child,
+.theme-paper .handwritten-list-item > span:last-child {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+  white-space: normal !important;
+}
+
+.theme-paper .handwritten-num {
+  color: #b91c1c !important; /* Teacher red pen numbers */
+  font-weight: 700 !important;
+  font-size: 1.55rem !important;
+  min-width: 26px !important;
+  flex-shrink: 0 !important;
+}
+
+.theme-paper .handwritten-bullet {
+  color: #0284c7 !important;
+  font-size: 1.4rem !important;
+  flex-shrink: 0 !important;
+}
+
+
+/* =========================================================================
+   ASCII / CODE DIAGRAM BOX STYLING
+   ========================================================================= */
+
+/* Default (dark) theme */
+.ascii-diagram-box {
+  margin: 20px 0;
+  border-radius: 10px;
+  border: 2px solid rgba(99, 102, 241, 0.4);
+  background: rgba(15, 23, 42, 0.7);
+  overflow-x: auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.ascii-diagram-pre {
+  margin: 0;
+  padding: 16px 20px;
+  font-family: 'Courier New', 'Lucida Console', monospace !important;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #a5f3fc;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* Paper (handwritten) theme - clean dark terminal diagram box */
+.theme-paper .ascii-diagram-box {
+  margin: 20px 0 !important;
+  border-radius: 8px !important;
+  border: 1px solid #334155 !important;
+  background: #0f172a !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+  overflow-x: auto !important;
+}
+
+.theme-paper .ascii-diagram-pre {
+  margin: 0 !important;
+  padding: 14px 18px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', 'Courier New', monospace !important;
+  font-size: 0.84rem !important;
+  line-height: 1.55 !important;
+  color: #38bdf8 !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
+  font-weight: 500 !important;
+}
+
+/* =========================================================================
+   AUTHENTIC MODERN CODE EDITOR (VS Code / Dark IDE Theme)
+   Exempt from handwriting fonts across all themes and subjects
+   ========================================================================= */
+
+.code-editor-box,
+.code-editor-box *,
+.inline-code-badge,
+.ascii-diagram-box,
+.ascii-diagram-pre,
+.ascii-diagram-pre * {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+}
+
+.code-editor-box {
+  margin: 24px 0 !important;
+  border-radius: 10px !important;
+  background: #0d1117 !important; /* Authentic GitHub / VS Code Dark */
+  border: 1px solid #30363d !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+  overflow: hidden !important;
+  text-align: left !important;
+  position: relative !important;
+  display: block !important;
+}
+
+.code-editor-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 14px !important;
+  background: #161b22 !important;
+  border-bottom: 1px solid #21262d !important;
+  user-select: none !important;
+}
+
+.code-editor-header-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.code-editor-dots {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.code-editor-dot {
+  width: 11px !important;
+  height: 11px !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+}
+.code-editor-dot.red { background: #ff5f56 !important; }
+.code-editor-dot.yellow { background: #ffbd2e !important; }
+.code-editor-dot.green { background: #27c93f !important; }
+
+.code-editor-file-tab {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 3px 10px !important;
+  background: #0d1117 !important;
+  border: 1px solid #30363d !important;
+  border-radius: 6px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+  font-size: 0.78rem !important;
+  color: #c9d1d9 !important;
+  font-weight: 500 !important;
+}
+
+.code-editor-file-icon {
+  width: 14px !important;
+  height: 14px !important;
+  flex-shrink: 0 !important;
+  color: #79c0ff !important;
+}
+
+.code-editor-header-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.code-editor-lang-badge {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  color: #58a6ff !important;
+  background: rgba(56, 139, 253, 0.15) !important;
+  border: 1px solid rgba(56, 139, 253, 0.3) !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+}
+
+.code-copy-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 4px 10px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  color: #c9d1d9 !important;
+  background: #21262d !important;
+  border: 1px solid #363b42 !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+.code-copy-btn:hover {
+  background: #30363d !important;
+  color: #58a6ff !important;
+  border-color: #58a6ff !important;
+}
+.code-copy-btn.copied {
+  background: rgba(46, 160, 67, 0.2) !important;
+  color: #3fb950 !important;
+  border-color: #2ea043 !important;
+}
+
+.code-run-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 4px 10px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  color: #22c55e !important;
+  background: rgba(34, 197, 94, 0.12) !important;
+  border: 1px solid rgba(34, 197, 94, 0.35) !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+.code-run-btn:hover {
+  background: rgba(34, 197, 94, 0.25) !important;
+  border-color: #22c55e !important;
+  color: #4ade80 !important;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.3) !important;
+}
+
+.code-console-drawer {
+  background: #090d13 !important;
+  border-top: 1px solid #30363d !important;
+  animation: fadeIn 0.2s ease-in-out !important;
+}
+
+.code-console-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 14px !important;
+  background: rgba(13, 17, 23, 0.8) !important;
+  border-bottom: 1px solid rgba(48, 54, 61, 0.6) !important;
+}
+
+.console-title-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.console-dot {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #10b981 !important;
+  box-shadow: 0 0 6px #10b981 !important;
+}
+
+.console-title {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  color: #c9d1d9 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.console-status-pill {
+  font-size: 0.68rem !important;
+  padding: 1px 6px !important;
+  border-radius: 4px !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 600 !important;
+}
+
+.console-close-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #8b949e !important;
+  font-size: 0.85rem !important;
+  cursor: pointer !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  transition: all 0.15s ease !important;
+}
+.console-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #f85149 !important;
+}
+
+.code-console-body {
+  padding: 10px 14px !important;
+  max-height: 200px !important;
+  overflow-y: auto !important;
+}
+
+.code-console-pre {
+  margin: 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 0.8rem !important;
+  line-height: 1.5 !important;
+  color: #38bdf8 !important;
+  white-space: pre-wrap !important;
+}
+
+.code-editor-body {
+  display: flex !important;
+  background: #0d1117 !important;
+  overflow-x: auto !important;
+  padding: 12px 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+  font-size: 0.88rem !important;
+  line-height: 1.6 !important;
+}
+
+.code-editor-gutter {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 12px 0 14px !important;
+  border-right: 1px solid #21262d !important;
+  user-select: none !important;
+  text-align: right !important;
+  color: #484f58 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+  font-size: 0.82rem !important;
+  line-height: 1.6 !important;
+  min-width: 44px !important;
+  box-sizing: border-box !important;
+}
+
+.code-editor-content {
+  flex: 1 !important;
+  padding: 0 16px !important;
+  margin: 0 !important;
+  overflow-x: auto !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+  font-size: 0.88rem !important;
+  line-height: 1.6 !important;
+  color: #e6edf3 !important;
+  white-space: pre !important;
+}
+
+.code-editor-content pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  white-space: pre !important;
+}
+
+.code-line {
+  min-height: 1.6em !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+}
+
+/* Syntax Token Highlighting */
+.tok-keyword   { color: #ff7b72 !important; font-weight: 600 !important; }
+.tok-builtin   { color: #79c0ff !important; font-weight: 500 !important; }
+.tok-func      { color: #d2a8ff !important; font-weight: 600 !important; }
+.tok-string    { color: #a5d6ff !important; }
+.tok-comment   { color: #8b949e !important; font-style: italic !important; }
+.tok-number    { color: #ffa657 !important; }
+.tok-operator  { color: #ff7b72 !important; }
+.tok-type      { color: #7ee787 !important; font-weight: 600 !important; }
+
+/* Inline Code Badge */
+.inline-code-badge {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace !important;
+  font-size: 0.82em !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+  background: #1e293b !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  font-weight: 600 !important;
+  vertical-align: baseline !important;
+  white-space: nowrap !important;
+}
+.theme-paper .inline-code-badge {
+  background: #0f172a !important;
+  color: #38bdf8 !important;
+  border: 1px solid #334155 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* =========================================================================
+   STACKED VERTICAL FRACTIONS (Numerator over Denominator with Vinculum)
+   ========================================================================= */
+.frac {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  vertical-align: -0.5em !important;
+  text-align: center !important;
+  padding: 0 0.25em !important;
+  font-size: 0.95em !important;
+  line-height: 1.1 !important;
+}
+
+.frac-num {
+  border-bottom: 1.5px solid currentColor !important;
+  padding-bottom: 2px !important;
+  display: block !important;
+}
+
+.frac-den {
+  padding-top: 2px !important;
+  display: block !important;
+}
+
+/* =========================================================================
+   4DX GLOWING FLUID & POP-OUT AMBIENT ANIMATIONS
+   ========================================================================= */
+
+/* High-Performance GPU Ambient Background (Eliminates continuous 80px blur animation lag) */
+.fluid-bg-container,
+.fluid-orb {
+  display: none !important;
+}
+
+/* 4DX Subtle Floating Pop-Out on Viewport */
+.content-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* 4DX Button Pop Effect */
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* =========================================================================
+   EXAM REVISION MASTER & UNIVERSITY QUESTION PAPERS PRINT ENGINE
+   ========================================================================= */
+.revision-print-document {
+  display: none;
+}
+
+@media print {
+  /* 0. Hide non-printable controls & buttons */
+  .no-print {
+    display: none !important;
+  }
+
+  /* 1. Hide the underlying website/app chrome completely when any reader modal is active */
+  body.revision-modal-active #root,
+  body.exam-paper-modal-active #root {
+    display: none !important;
+  }
+
+  body.revision-modal-active,
+  body.exam-paper-modal-active {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* -------------------------------------------------------------------------
+     FAST-TRACK EXAM REVISION MASTER PRINT OPTIMIZATION
+     ------------------------------------------------------------------------- */
+  /* Hide interactive screen UI (tabs, buttons, close, single-unit switchers) */
+  .revision-screen-content {
+    display: none !important;
+  }
+
+  /* Neutralize fixed modal positioning & viewport clipping */
+  .revision-portal-overlay {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    z-index: auto !important;
+  }
+
+  .revision-modal-panel {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: none !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    color: #0f172a !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  /* Render complete multi-page document */
+  .revision-print-document {
+    display: block !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 10mm 12mm !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 10.5pt !important;
+    line-height: 1.5 !important;
+  }
+
+  .rev-print-unit-block {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .rev-print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* -------------------------------------------------------------------------
+     EXPECTED QUESTION PAPERS PRINT OPTIMIZATION
+     ------------------------------------------------------------------------- */
+  .exam-paper-portal-overlay {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    z-index: auto !important;
+  }
+
+  .exam-paper-modal-panel {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: none !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  .paper-scroll-area {
+    position: static !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 8mm 12mm !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .paper-scroll-area * {
+    color: #000000 !important;
+    border-color: #cbd5e1 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .paper-scroll-area h2,
+  .paper-scroll-area h3,
+  .paper-scroll-area span,
+  .paper-scroll-area div,
+  .paper-scroll-area p {
+    color: #000000 !important;
+  }
+
+  .paper-scroll-area [style*="borderLeft"],
+  .paper-scroll-area [style*="border-left"] {
+    border-left-color: #475569 !important;
+  }
+
+  .katex,
+  .katex * {
+    color: #000000 !important;
+  }
+
+  /* -------------------------------------------------------------------------
+     SENSORY LAB NOTES PRINT OPTIMIZATION
+     ------------------------------------------------------------------------- */
+  body.sensory-printing nav,
+  body.sensory-printing header,
+  body.sensory-printing footer,
+  body.sensory-printing .study-deck-grid > div:first-child,
+  body.sensory-printing .sensory-lab-header,
+  body.sensory-printing .no-print,
+  body.sensory-printing .mobile-bottom-nav,
+  body.sensory-printing .floating-action-buttons,
+  body.sensory-printing button {
+    display: none !important;
+  }
+
+  body.sensory-printing,
+  body.sensory-printing #root {
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.sensory-printing .study-deck-grid {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  body.sensory-printing .notes-reader-panel {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 6mm 10mm !important;
+    margin: 0 !important;
+  }
+
+  body.sensory-printing .notes-reader-panel * {
+    color: #000000 !important;
+    background: transparent !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body.sensory-printing .notes-reader-panel h1,
+  body.sensory-printing .notes-reader-panel h2,
+  body.sensory-printing .notes-reader-panel h3 {
+    color: #0f172a !important;
+    border-bottom-color: #94a3b8 !important;
+  }
+}
+
+
+/* =========================================================================
+   KATEX MATHEMATICAL TYPOGRAPHY STYLING (GLOBAL & REVISION)
+   ========================================================================= */
+.katex-formula-container,
+.katex-inline-wrapper {
+  color: inherit;
+  font-size: 1.04em;
+  padding: 0 1px;
+  vertical-align: middle;
+}
+
+.katex-display-wrapper {
+  margin: 10px 0;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+}
+
+.math-text-container {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.math-text-container .katex {
+  color: inherit;
+  font-size: 1.05em;
+}
+
+.final-boxed-formula-content .katex {
+  color: var(--neon-cyan) !important;
+  font-size: 1.15em;
+}
+
+.essential-formula-math .katex {
+  color: #ffaa00 !important;
+  font-size: 1.1em;
+}
+
+
