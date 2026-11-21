@@ -1,42 +1,128 @@
-### Structural Semantic Architecture of a Modern HTML5 Webpage
+### 2. Semantic Structural Elements Layout Blueprint
 
-HTML5 introduces structural semantic elements that explicitly describe their meaning to both browser rendering engines and screen readers:
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="670" height="240" rx="12" class="schematic-bg" fill="rgba(15,23,42,0.75)" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 4" />
-    <!-- <header> -->
-    <rect x="25" y="16" width="630" height="36" rx="6" fill="rgba(30,58,138,0.85)" stroke="#60a5fa" stroke-width="1.8" />
-    <text x="340" y="38" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">&lt;header&gt; — Brand Logo, Site Title &amp; Global Search Utility</text>
-    <!-- <nav> -->
-    <rect x="25" y="58" width="630" height="30" rx="6" fill="rgba(15,118,110,0.85)" stroke="#2dd4bf" stroke-width="1.8" />
-    <text x="340" y="77" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="bold">&lt;nav&gt; — Primary Navigation Links: Home • Syllabus • Faculty • Exams</text>
-    <!-- <main> -->
-    <rect x="25" y="95" width="445" height="104" rx="8" fill="rgba(88,28,135,0.55)" stroke="#c084fc" stroke-width="2" />
-    <text x="247" y="114" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">&lt;main&gt; — Dominant Central Document Content</text>
-    <!-- <article> & <section> inside <main> -->
-    <rect x="40" y="124" width="200" height="64" rx="6" fill="rgba(88,28,135,0.9)" stroke="#e879f9" stroke-width="1.5" />
-    <text x="140" y="148" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="bold">&lt;article&gt;</text>
-    <text x="140" y="166" text-anchor="middle" fill="#f5d0fe" font-size="9.5">Self-contained syndicatable post</text>
-    <rect x="255" y="124" width="200" height="64" rx="6" fill="rgba(30,58,138,0.9)" stroke="#38bdf8" stroke-width="1.5" />
-    <text x="355" y="148" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="bold">&lt;section&gt;</text>
-    <text x="355" y="166" text-anchor="middle" fill="#bae6fd" font-size="9.5">Thematic chapter grouping</text>
-    <!-- <aside> -->
-    <rect x="482" y="95" width="173" height="104" rx="8" fill="rgba(124,45,18,0.85)" stroke="#fb923c" stroke-width="1.8" />
-    <text x="568" y="135" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">&lt;aside&gt;</text>
-    <text x="568" y="155" text-anchor="middle" fill="#fed7aa" font-size="10">Sidebar Callouts,</text>
-    <text x="568" y="170" text-anchor="middle" fill="#fed7aa" font-size="10">Related Links &amp; Bio</text>
-    <!-- <footer> -->
-    <rect x="25" y="206" width="630" height="30" rx="6" fill="rgba(6,78,59,0.85)" stroke="#34d399" stroke-width="1.8" />
-    <text x="340" y="225" text-anchor="middle" fill="#a7f3d0" font-size="11.5" font-weight="bold">&lt;footer&gt; — Copyright © 2026 MMU Mullana • Privacy Policy • Terms of Service</text>
-  </svg>
-</div>
+4. <article> (Self-Contained Independent Content)
+Represents a complete, independent, self-contained composition that still makes full sense if
+syndicated or shared elsewhere on its own (e.g., a news story, blog post, forum comment, or e-
+commerce product card).
+Nesting Relationship (<section> vs. <article>): Both directions are valid! A news
+<section> ("Sports") can hold multiple <article> stories, AND a long <article> can be
+split internally into thematic <section> chapters.
+5. <footer> (Closing Metadata Container)
+Defines the closing region of a page or an individual <section>/<article> — typically holding
+copyright notices, author bio, contact links, privacy policy, and sitemap links.
+<header> — Website Logo, Main Title & Tagline
+<nav> — Home | Courses | Notes | Contact
+<section> — Thematic Topic Group
+<article> #1
+(Independent Post)
+<article> #2
+(Independent Post)
+<aside>
+Sidebar / Ads /
+Related Links
+<footer> — Copyright, Author Info & Legal Links
+**Figure 3:** Standard HTML5 Semantic Layout Wireframe
+Fundamentals of Web Technologies • UNIT–3: HTML5
 
-#### Detailed Definitions of Semantic Tags:
-- **`<header>`:** Represents introductory content, branding logos, navigational search utilities, or author headings.
-- **`<nav>`:** Encloses the major primary navigation blocks containing links to other pages or sections.
-- **`<main>`:** Contains the central dominant content unique to that document; must not be duplicated inside headers or footers.
-- **`<article>`:** A complete, self-contained composition that is independently distributable or reusable (e.g. blog post, news story).
-- **`<section>`:** Represents a standalone thematic grouping of content, typically with its own heading (e.g. chapters, tabs).
-- **`<aside>`:** Content tangentially related to the main content (e.g. sidebars, callout boxes, related article links).
-- **`<footer>`:** Houses author information, copyright notices, terms of service, and back-to-top links.
+
+#### 3.3 Clean HTML5 Semantic Page Skeleton (Exam Code Template)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML5 Semantic Page</title>
+</head>
+<body>
+<header><h1>Tech Portal</h1></header>
+<nav><a href="#home">Home</a> | <a href="#blog">Blog</a></nav>
+<main>
+<section>
+<h2>Latest News</h2>
+<article>
+<h3>HTML5 Overview</h3>
+<p>Self-contained article content goes here.</p>
+</article>
+</section>
+</main>
+<footer><p>&copy; 2026 Tech Portal</p></footer>
+</body>
+</html>
+
+### 4. HTML5 Elements (New Additions & Deprecated Tags)
+
+
+#### 4.1 Categorized Guide to New HTML5 Elements
+
+
+### 1. Structural & Figure Elements
+
+<main>: Wraps the unique dominant content of the document (use only once per page).
+<aside>: Holds tangentially related side content (sidebars, pull quotes, related links).
+<figure> & <figcaption>: Groups self-contained diagrams, photos, or code blocks together
+with an official caption.
+
+### 2. Text-Level Semantic & Measurement Elements
+
+<mark>: Highlights relevant text (similar to a yellow highlighter marker for search terms).
+<time datetime="...">: Encodes human-readable dates/times with a machine-readable ISO
+timestamp.
+<progress value="70" max="100">: Displays real-time completion progress of an active task
+(e.g., file upload).
+<meter value="0.8" min="0" max="1">: Displays a static scalar measurement within a known
+range (e.g., disk quota or battery level).
+Fundamentals of Web Technologies • UNIT–3: HTML5
+
+
+### 3. Interactive, Media, Graphics & Form Elements
+
+<details> & <summary>: Native clickable accordion that expands/collapses hidden notes with
+zero JavaScript.
+<dialog>: Built-in modal popup dialog container.
+**Media, Graphics & Forms:** <audio>, <video>, <source>, <track>; <canvas> & <svg>;
+<datalist> & <output>.
+
+#### 4.2 Summary of New HTML5 Elements & Deprecated HTML4 Tags
+
+HTML5 Element Category Purpose / Exam Example
+<main> / <aside> Layout Primary page body vs. secondary sidebar content
+<figure> + <figcaption> Media Grouping Pairs an image or diagram with a semantic caption
+<progress> vs. <meter> Indicators Task completion bar (upload) vs. static gauge (disk %)
+<details> + <summary> Interactive Native collapsible FAQ / disclosure widget
+<mark> / <time> Inline Semantics Highlighted keyword / machine-readable timestamp
+Removed / Deprecated HTML4
+Tag
+Reason Removed Modern HTML5 / CSS Replacement
+<font>, <center>,
+<big>, <strike>
+Purely presentational (mixed
+style into markup)
+CSS (font-family, text-align,
+text-decoration)
+<frameset>, <frame>,
+<noframes>
+Broke Back button, URLs &
+accessibility
+CSS Flexbox / Grid layouts or
+<iframe>
+<applet>, <acronym> Obsolete Java plugins;
+redundant tag
+<object> / <canvas> and
+<abbr>
+
+## PART II: HTML5 MULTIMEDIA (AUDIO & VIDEO) AND HTML5 CANVAS
+
+
+### 5. HTML5 Multimedia: Audio and Video
+
+
+#### 5.1 Native Browser Multimedia Concept
+
+**Core Breakthrough:** HTML5 embeds sound and video directly inside standard web pages using
+<audio> and <video> tags — decoded natively by the browser with zero third-party plugins.
+Multi-Format Fallback Strategy (<source>): Developers list multiple <source> tags inside
+<audio> or <video>. The browser scans top-to-bottom and plays the first codec/format it
+supports; fallback text displays only on ancient unsupported browsers.
+Fundamentals of Web Technologies • UNIT–3: HTML5

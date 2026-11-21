@@ -1,125 +1,140 @@
-### University Examination Solved Questions (Unit II)
+### 5. University Solved Examination Questions (Unit 2)
 
-<example level="easy" title="Section A (1 Mark): Client-Side Image Map Rectangular Syntax">
-**University Question (1 Mark):**
-Given the clickable button area shown in Figure Q2, write the exact HTML `<area>` tag.
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 140" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="130" rx="8" fill="rgba(15,23,42,0.6)" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">FIGURE Q2: IMAGE MAP COORDINATE SYSTEM</text>
-    
-    <rect x="180" y="45" width="280" height="60" rx="4" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5" />
-    <circle cx="180" cy="45" r="4" fill="#38bdf8" />
-    <text x="175" y="38" text-anchor="end" fill="#38bdf8" font-size="10" font-weight="bold">(x1=20, y1=30)</text>
-    
-    <circle cx="460" cy="105" r="4" fill="#f43f5e" />
-    <text x="465" y="122" text-anchor="start" fill="#f43f5e" font-size="10" font-weight="bold">(x2=150, y2=120)</text>
-    
-    <text x="320" y="80" text-anchor="middle" fill="#86efac" font-size="12" font-weight="bold">Clickable Target: "info.html"</text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig Q2: Rectangular Area Bounding Box on Image Surface</div>
-</div>
+**Figure 9:** Pixel Coordinate Geometry for Client-Side Image Mapping Shapes (rect, circle, poly)
+<!-- Complete Client-Side Image Map Exam Code -->
+<img src="workspace.jpg" alt="Study Desk" usemap="#deskmap" width="500"
+height="300">
+<map name="deskmap">
+<area shape="rect"   coords="34,44,270,350" href="laptop.html" alt="Laptop">
+<area shape="circle" coords="337,150,44"    href="coffee.html" alt="Coffee Cup">
+<area shape="poly"   coords="400,50,460,90,440,180,380,140" href="notes.html"
+alt="Notes">
+</map>
+shape
+Value
+coords Format Geometric Meaning
+rect x1, y1, x2, y2 Top-left corner (x1,y1) and bottom-right corner
+(x2,y2)
+circle cx, cy, radius Center pixel (cx,cy) and circular radius in pixels
+poly x1,y1, x2,y2, x3,y3,
+...
+List of all vertex coordinates closing an irregular polygon
+default (None needed) Covers the entire remaining unmapped area of the image
 
----
+### 12. Frames (<frameset>, <frame> & <iframe>)
 
-**Step-by-Step Solution:**
-For `shape="rect"`, coords takes 4 values: `x1, y1, x2, y2`:
-```html
-<area shape="rect" coords="20,30,150,120" href="info.html" alt="Information Portal">
-```
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 100" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="90" rx="8" fill="rgba(15,23,42,0.6)" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">FIGURE S2: AREA ATTRIBUTE MAPPING</text>
-    <rect x="60" y="38" width="520" height="38" rx="4" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5" />
-    <text x="320" y="62" text-anchor="middle" fill="#86efac" font-size="11" font-family="monospace">
-      &lt;area shape="rect" coords="20,30,150,120" href="info.html" alt="Info"&gt;
-    </text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig S2: Solved HTML Tag Coordinate Formulation</div>
-</div>
+#### 12.1 Classic HTML4 Frameset Architecture
 
-<div class="example-answer-box">
-🎯 `<area shape="rect" coords="20,30,150,120" href="info.html" alt="Information Portal">`
-</div>
-</example>
+**Definition:** HTML Frames divide a single browser window into multiple independent rectangular
+panes, where each pane loads its own separate .html document with its own scrollbar.
+Crucial Exam Rule (No <body> Tag!): A frameset document replaces <body> completely with
+<frameset>! You must NEVER put <body> around <frameset> (only inside <noframes> as
+fallback).
+**Core Frameset & Frame Tags:** 
+<frameset rows="..." cols="...">: Splits window horizontally (rows) or vertically
+(cols) using pixels (150), percentages (25%), or wildcard remaining space (*).
+<frame> (Empty Tag): Populates one pane inside <frameset>:
+src="menu.html": Webpage file loaded inside that pane.
+name="mainFrame": Gives the pane a target ID so links in a sidebar menu can open pages
+inside it (<a href="ch1.html" target="mainFrame">)!
+**noresize:** Locks frame divider so users cannot drag borders.
+scrolling="yes | no | auto" & frameborder="0 | 1": Controls scrollbars and
+divider lines.
+<noframes>: Displays fallback message on very old browsers that do not support frames.
+Fundamentals of Web Technologies • UNIT–2: Basics of HTML
 
-<example level="medium" title="Section C (4 Marks): University Course Schedule Table with Rowspan/Colspan">
-**University Question (4 Marks):**
-Write standard HTML markup to generate the multi-branch fee schedule table shown in Figure Q10.
+**Nested Framesets:** Placing a second <frameset cols="25%,75%"> inside a row of an outer
+<frameset rows="20%,80%"> creates a full top-banner + left-menu + right-content dashboard!
+Frame 1 (rows="20%"): src="banner.html" | name="topFrame"
+Frame 2 (cols="25%")
+src="menu.html"
+target="mainFrame"
+Frame 3 (cols="75%" / "*"): name="mainFrame"
+Initially loads src="welcome.html"
+Clicking sidebar link loads new page ONLY in this pane!
+**Figure 10:** Nested HTML Frameset Structure and Cross-Frame Link Targeting
+<!-- Complete Nested Frameset Exam Example -->
+<html>
+<head><title>Nested Frameset Demo</title></head>
+<frameset rows="20%, 80%">
+<frame src="banner.html" name="topFrame" noresize scrolling="no">
+<frameset cols="25%, *">
+<frame src="menu.html" name="leftFrame">
+<frame src="welcome.html" name="mainFrame">
+</frameset>
+<noframes><body>Your browser does not support frames.</body></noframes>
+</frameset>
+</html>
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 160" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="150" rx="8" fill="rgba(15,23,42,0.6)" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">FIGURE Q10: TARGET TABLE LAYOUT WIREFRAME</text>
-    
-    <rect x="40" y="40" width="160" height="30" fill="#1e293b" stroke="#cbd5e1" />
-    <text x="120" y="60" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">Course Code</text>
-    
-    <rect x="200" y="40" width="240" height="30" fill="#1e293b" stroke="#cbd5e1" />
-    <text x="320" y="60" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">Engineering Discipline</text>
-    
-    <rect x="440" y="40" width="160" height="30" fill="#1e293b" stroke="#cbd5e1" />
-    <text x="520" y="60" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">Semester Fee</text>
-    
-    <!-- Rowspan = 2 -->
-    <rect x="40" y="70" width="160" height="50" fill="rgba(56,189,248,0.1)" stroke="#cbd5e1" />
-    <text x="120" y="100" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">BCSE-012 (rowspan=2)</text>
-    
-    <rect x="200" y="70" width="240" height="25" fill="#f8fafc" stroke="#cbd5e1" />
-    <text x="320" y="87" text-anchor="middle" fill="#0f172a" font-size="9.5">Computer Science & Engineering</text>
-    <rect x="440" y="70" width="160" height="25" fill="#f8fafc" stroke="#cbd5e1" />
-    <text x="520" y="87" text-anchor="middle" fill="#0f172a" font-size="9.5">₹75,000</text>
-    
-    <rect x="200" y="95" width="240" height="25" fill="#f8fafc" stroke="#cbd5e1" />
-    <text x="320" y="112" text-anchor="middle" fill="#0f172a" font-size="9.5">Information Technology</text>
-    <rect x="440" y="95" width="160" height="25" fill="#f8fafc" stroke="#cbd5e1" />
-    <text x="520" y="112" text-anchor="middle" fill="#0f172a" font-size="9.5">₹75,000</text>
-    
-    <!-- Colspan = 2 -->
-    <rect x="40" y="120" width="400" height="25" fill="#f1f5f9" stroke="#cbd5e1" />
-    <text x="240" y="137" text-anchor="middle" fill="#334155" font-size="9.5" font-weight="bold">Total Tuition Fee (colspan=2):</text>
-    <rect x="440" y="120" width="160" height="25" fill="#f1f5f9" stroke="#cbd5e1" />
-    <text x="520" y="137" text-anchor="middle" fill="#059669" font-size="10" font-weight="bold">₹1,50,000</text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig Q10: Target HTML Table Grid with Rowspan and Colspan Partitions</div>
-</div>
+#### 12.2 Inline Frames (<iframe>) & Limitations of Classic Framesets
 
----
+Inline Frame (<iframe> — Supported in HTML5!): Embeds an external webpage, Google
+Map, or YouTube video directly inside a regular <body> without splitting the entire browser
+**window:** 
+**Syntax:** <iframe src="page.html" width="500" height="300" title="Embedded Page">
+</iframe>
+Why <frameset> Was Deprecated in HTML5:
+Breaks browser bookmarking (URL bar never updates when inner panes navigate).
+Confuses the browser Back button, printing, screen readers, and search engine indexing
+(SEO).
+Poor usability on small smartphone screens.
+Feature Classic <frameset> / <frame> Inline Frame (<iframe>)
+Placement in Document Replaces <body> completely Placed freely anywhere inside <body>
+Window Layout Splits entire viewport into fixed panes Acts like a floating embedded rectangle
+HTML5 Support Status Deprecated / Removed in HTML5 Fully Supported (used for maps, videos)
+Fundamentals of Web Technologies • UNIT–2: Basics of HTML
 
-**Step-by-Step Solution:**
-```html
-<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; width:100%;">
-  <thead style="background:#1e293b; color:#fff;">
-    <tr>
-      <th>Course Code</th>
-      <th>Engineering Discipline</th>
-      <th>Semester Fee (INR)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="2" align="center"><strong>BCSE-012</strong></td>
-      <td>Computer Science & Engineering</td>
-      <td align="right">&#8377;75,000</td>
-    </tr>
-    <tr>
-      <td>Information Technology</td>
-      <td align="right">&#8377;75,000</td>
-    </tr>
-  </tbody>
-  <tfoot style="background:#f1f5f9; font-weight:bold;">
-    <tr>
-      <td colspan="2" align="right">Total Tuition Fee:</td>
-      <td align="right">&#8377;1,50,000</td>
-    </tr>
-  </tfoot>
-</table>
-```
 
-<div class="example-answer-box">
-🎯 Solution produces valid semantic HTML `<table>`, `<thead>`, `<tbody>`, and `<tfoot>` structure.
-</div>
-</example>
+### 13. Quick Exam-Revision Cheat Sheet (Unit–2 Basics of HTML)
+
+Syllabus
+Topic
+Must-Memorize Syntax / Fact High-Yield Exam Tip
+Dev. Steps &
+Hosting
+**7 Steps:** Analyze → Plan → Design →
+Content → Code → Test → Deploy
+Homepage file must be named
+index.html; DNS maps Domain → IP.
+Static vs.
+Dynamic
+Static = Fixed HTML (No DB) | Dynamic =
+Server Script + Live DB
+**Give examples:** Resume site (Static) vs.
+Amazon / Portal (Dynamic).
+Structure &
+Tags
+<html> → <head>(<title>) +
+<body>(<p>, <h1>)
+Distinguish Paired tags (<p>...</p>) vs.
+Empty tags (<br>, <hr>, <img>).
+Lists <ol type="A" start="3"> | <ul
+type="square"> | <dl>/<dt>/<dd>
+Always nest inner lists strictly inside an outer
+<li> tag.
+Creating
+Links
+<a href="..." target="_blank">;
+Bookmarks use #id
+**Know all 4 targets:** _self, _blank,
+**_parent, _top + mailto:** .
+Text &
+Colors
+Physical (<b>, <i>) vs. Logical
+(<strong>, <em>); Hex #RRGGBB
+Remember #FFFFFF = White, #000000 =
+Black, <body bgcolor text>.
+Images &
+Mapping
+<img src alt usemap="#m"> +
+<map name="m"> + <area>
+**Coordinates:** rect(x1,y1,x2,y2),
+circle(cx,cy,r), poly(x1,y1,...).
+Frames <frameset rows cols> + <frame
+src name> (NO <body>!)
+Compare deprecated <frameset> against
+modern supported <iframe>.
+Fundamentals of Web Technologies • UNIT–2: Basics of HTML

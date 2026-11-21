@@ -1,125 +1,214 @@
-### University Examination Solved Questions (Unit III)
+### 5. HTML5 Smart Forms, Validation & Solved Exam Questions
 
-<example level="easy" title="Section A (1 Mark): LocalStorage vs SessionStorage Lifetimes">
-**University Question (1 Mark):**
-Differentiate the persistence lifetime of localStorage vs. sessionStorage as illustrated in Figure Q3.
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 130" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="120" rx="8" fill="rgba(15,23,42,0.6)" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">FIGURE Q3: CLIENT STORAGE PERSISTENCE BRANCHES</text>
-    
-    <rect x="50" y="45" width="150" height="40" rx="4" fill="rgba(56,189,248,0.15)" stroke="#38bdf8" stroke-width="1.5" />
-    <text x="125" y="70" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">Client Data Stored</text>
-    
-    <path d="M 200 55 L 300 45" stroke="#f43f5e" stroke-width="2" />
-    <text x="240" y="44" fill="#f43f5e" font-size="9">Tab Closes</text>
-    <rect x="300" y="30" width="280" height="30" rx="4" fill="rgba(244,63,94,0.15)" stroke="#f43f5e" stroke-width="1.5" />
-    <text x="440" y="50" text-anchor="middle" fill="#fda4af" font-size="10" font-weight="bold">sessionStorage ➔ Cleared Immediately!</text>
-    
-    <path d="M 200 75 L 300 85" stroke="#10b981" stroke-width="2" />
-    <text x="240" y="92" fill="#10b981" font-size="9">OS Restarts</text>
-    <rect x="300" y="70" width="280" height="30" rx="4" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5" />
-    <text x="440" y="90" text-anchor="middle" fill="#86efac" font-size="10" font-weight="bold">localStorage ➔ Persists Indefinitely!</text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig Q3: Storage Decision Lifecycle Paths</div>
-</div>
+Attribute What It Enforces / Does Usage Example
+autocomplete Enables or disables browser autofill
+(on/off)
+autocomplete="on"
+multiple /
+novalidate
+Allows multi-file selection; bypasses form
+check
+<input type="file"
+multiple>
 
----
+### 1. User Fills
 
-**Step-by-Step Solution:**
-- **`localStorage`:** Persists across browser sessions and computer reboots until explicitly cleared by the user or script (`localStorage.clear()`).
-- **`sessionStorage`:** Confined to the lifespan of the specific browser tab; automatically purged upon tab closure.
+HTML5 Form
 
-<div class="example-answer-box">
-🎯 `sessionStorage` = Tab Lifetime (Temporary) | `localStorage` = Permanent (Across Restarts).
-</div>
-</example>
+### 2. Clicks Submit
 
-<example level="hard" title="Section D (6 Marks): Dynamic Canvas Bar Chart Implementation">
-**University Question (6 Marks):**
-Develop complete JavaScript and HTML5 code to draw a dynamic comparison bar chart with three subject scores on a `<canvas>` as shown in Figure Q15.
+(Check novalidate)
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 180" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="170" rx="8" fill="rgba(15,23,42,0.6)" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="15" text-anchor="middle" fill="#38bdf8" font-size="10.5" font-weight="bold">FIGURE Q15: CANVAS ACADEMIC BAR CHART TARGET</text>
-    
-    <!-- Baseline Axis -->
-    <line x1="60" y1="130" x2="580" y2="130" stroke="#94a3b8" stroke-width="2" />
-    <text x="40" y="134" text-anchor="end" fill="#94a3b8" font-size="10">Baseline</text>
-    
-    <!-- Bar 1: Math-I 85% -->
-    <rect x="120" y="45" width="60" height="85" fill="#0284c7" />
-    <text x="150" y="38" text-anchor="middle" fill="#38bdf8" font-size="10" font-weight="bold">85%</text>
-    <text x="150" y="148" text-anchor="middle" fill="#e2e8f0" font-size="10">Math-I</text>
-    
-    <!-- Bar 2: BEEE 90% -->
-    <rect x="270" y="40" width="60" height="90" fill="#10b981" />
-    <text x="300" y="33" text-anchor="middle" fill="#86efac" font-size="10" font-weight="bold">90%</text>
-    <text x="300" y="148" text-anchor="middle" fill="#e2e8f0" font-size="10">BEEE</text>
-    
-    <!-- Bar 3: WebTech 95% -->
-    <rect x="420" y="35" width="60" height="95" fill="#7c3aed" />
-    <text x="450" y="28" text-anchor="middle" fill="#c4b5fd" font-size="10" font-weight="bold">95%</text>
-    <text x="450" y="148" text-anchor="middle" fill="#e2e8f0" font-size="10">WebTech</text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig Q15: Procedural Canvas Raster Visualization Target</div>
-</div>
+### 3. Native Validation
 
----
+required / type / pattern
+Valid 4. Send Data
+GET / POST Server
+Invalid → Block Submit & Show Browser Tooltip Warning
+**Figure 7:** HTML5 Native Form Validation & Submission Flowchart
 
-**Step-by-Step Solution:**
-```html
-<canvas id="chart" width="450" height="200" style="background:#f8fafc; border:1px solid #cbd5e1;"></canvas>
-<script>
-  const canvas = document.getElementById("chart");
-  const ctx = canvas.getContext("2d");
+#### 8.4 Complete HTML5 Form Example
 
-  const subjects = [
-    { name: "Math-I", marks: 85, color: "#0284c7" },
-    { name: "BEEE", marks: 90, color: "#10b981" },
-    { name: "WebTech", marks: 95, color: "#7c3aed" }
-  ];
+<form action="/register" method="post">
+<label>Email:</label>
+<input type="email" name="mail" placeholder="name@college.edu" required
+autofocus>
+<label>Birth Date:</label>
+<input type="date" name="dob" required>
+<label>Rating (1–10):</label>
+<input type="range" name="rate" min="1" max="10" value="8">
+<label>Branch:</label>
+<input list="branches" name="branch" placeholder="Select branch">
+<datalist id="branches">
+<option value="CSE"><option value="AIML"><option value="ECE">
+</datalist>
+<button type="submit">Register</button>
+</form>
 
-  const startX = 60;
-  const barWidth = 60;
-  const gap = 50;
-  const baselineY = 150;
+### 9. Creating Graphs & Charts in HTML5
 
-  // Draw Baseline Axis
-  ctx.beginPath();
-  ctx.moveTo(30, baselineY);
-  ctx.lineTo(420, baselineY);
-  ctx.strokeStyle = "#475569";
-  ctx.lineWidth = 2;
-  ctx.stroke();
 
-  // Draw Bars & Labels
-  subjects.forEach((sub, i) => {
-    const x = startX + i * (barWidth + gap);
-    const barHeight = sub.marks * 1.1;
-    const y = baselineY - barHeight;
+#### 9.1 Three Ways to Build Graphs & Charts in HTML5
 
-    // Bar Fill
-    ctx.fillStyle = sub.color;
-    ctx.fillRect(x, y, barWidth, barHeight);
+1. Native HTML5 Canvas Charts (Custom Pixel Drawing): Uses <canvas> and the 2D API
+(fillRect, lineTo, arc, fillText) to compute pixel coordinates mathematically and draw
+Bar, Line, or Pie charts from scratch — ideal for exams and live sensor plots.
+2. Native HTML5 SVG Charts (Scalable Vector Drawing): Uses declarative XML tags (<rect>
+for bars, <polyline> for trend lines, <path> for pie wedges); stays razor-sharp at any zoom
+level and supports mouse hover events on individual bars.
+Fundamentals of Web Technologies • UNIT–3: HTML5
 
-    // Score Text
-    ctx.fillStyle = "#0f172a";
-    ctx.font = "bold 12px sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(sub.marks + "%", x + barWidth / 2, y - 6);
+3. HTML5 Charting Libraries (Production Apps): Popular libraries layered over Canvas (e.g.,
+Chart.js) or SVG (e.g., D3.js, Google Charts) automate axis scaling, legends, tooltips, and
+smooth animations.
 
-    // Subject Name Text
-    ctx.font = "600 11px sans-serif";
-    ctx.fillStyle = "#334155";
-    ctx.fillText(sub.name, x + barWidth / 2, baselineY + 18);
-  });
-</script>
-```
+#### 9.2 Step-by-Step Mathematical Blueprint for Bar, Line & Pie Charts
 
-<div class="example-answer-box">
-🎯 Complete script renders baseline axis, scaled dynamic bars, and dual centered text annotations.
-</div>
-</example>
+A. Creating a Bar Chart (Comparing Discrete Categories)
+1. Store labels and numeric values in arrays (e.g., values = [60, 120, 90, 140]).
+2. Draw vertical Y-axis and horizontal X-axis baseline using moveTo() and lineTo().
+3. Because Canvas Y grows downward, compute each bar’s top-left Y-coordinate by subtracting
+**height from the baseline:** ytop = baselineY − scaledHeight.
+4. Loop through the data array calling ctx.fillRect(x, yTop, barWidth, scaledHeight) and
+render labels with ctx.fillText().
+B. Creating a Line Chart (Showing Trends Over Time)
+1. Draw axes and grid lines; convert each data point (xi, yi) to Canvas pixel coordinates.
+
+### 2. Call ctx.beginPath() and ctx.moveTo(x0, y0) at the first data point.
+
+3. Loop through remaining points calling ctx.lineTo(xi, yi), then call ctx.stroke() to
+connect the trend line.
+4. Mark each vertex with small circular dots using ctx.arc(xi, yi, 4, 0, 2 * Math.PI).
+C. Creating a Pie Chart (Showing Parts-of-a-Whole Proportions)
+
+### 1. Sum all values: Total = ∑ vi; initialize startAngle = 0.
+
+2. For each slice value vi, calculate its wedge angle in radians: sliceAngle = (vi / Total) × 2π.
+3. **Draw the filled wedge:** beginPath() → moveTo(cx, cy) → arc(cx, cy, r, startAngle,
+startAngle + sliceAngle) → closePath() → fill().
+4. Advance startAngle += sliceAngle and repeat for every slice with a distinct fillStyle
+color.
+(a) Bar Chart (fillRect)
+Q1 Q2 Q3 Q4
+y = baseY − height
+(b) Line Chart (lineTo)
+Time / Sequence →
+moveTo() → lineTo()
+(c) Pie Chart (arc)
+50%
+30%
+20%
+θ = (val / total) × 2π
+**Figure 8:** Geometric Construction Blueprints for Bar, Line, and Pie Charts in HTML5 Canvas
+Fundamentals of Web Technologies • UNIT–3: HTML5
+
+
+#### 9.3 Compact Canvas Bar Chart Logic Example
+
+// Draw a 4-bar chart inside <canvas id="barChart" width="320" height="180">
+const ctx = document.getElementById("barChart").getContext("2d");
+const values = [60, 120, 90, 140];
+const colors = ["#fb923c", "#0369a1", "#0f766e", "#c2410c"];
+for (let i = 0; i < values.length; i++) {
+ctx.fillStyle = colors[i];
+let x = 30 + i * 65;
+let y = 160 - values[i];      // Subtract height because Y grows downward
+ctx.fillRect(x, y, 40, values[i]);
+}
+
+### 1. Raw Data
+
+Arrays / JSON
+
+### 2. Scale Math
+
+Map to Pixels
+
+### 3. Draw Axes
+
+Grid & Ticks
+
+### 4. Plot Shapes
+
+Bars/Lines/Arcs
+
+### 5. Labels
+
+Text & Legend
+**Figure 9:** End-to-End HTML5 Data-to-Chart Rendering Pipeline
+Chart Type Best Data Scenario Primary Canvas API Method
+Bar / Column
+Chart
+Comparing quantities across distinct
+categories
+fillRect(x, y, w, h)
+Line Chart Visualizing continuous trends over time moveTo(), lineTo(), stroke()
+Pie / Donut Chart Showing parts-of-a-whole percentage share arc(cx, cy, r, start, end),
+fill()
+Scatter Plot Showing correlation between two numeric
+variables
+arc(x, y, radius, 0,
+2*Math.PI)
+
+### 10. Quick Exam-Revision Cheat Sheet (Unit–3 HTML5 Summary)
+
+Syllabus Topic Key Syntax / Fact to Memorize High-Yield Exam Tip
+HTML5 Intro &
+HTML4 Limits
+<!DOCTYPE html>; <meta
+charset="UTF-8">
+Highlight zero plugins (no Flash), semantic
+tags, 5–10 MB storage & native validation.
+Semantic Layout
+Tags
+<header>, <nav>, <section>,
+<article>, <footer>
+Always draw the HTML5 page wireframe
+and explain <section> vs.
+<article>.
+HTML5 Elements <figure>, <mark>, <time>,
+<progress>, <meter>,
+<details>
+Know deprecated HTML4 tags (<font>,
+<center>, <frameset>,
+<applet>).
+Fundamentals of Web Technologies • UNIT–3: HTML5
+
+Syllabus
+Topic
+Key Syntax / Fact to Memorize High-Yield Exam Tip
+Audio &
+Video
+<audio controls>, <video
+poster="...">, <source>,
+<track>
+**Remember formats:** MP3/WAV/Ogg (Audio) and
+MP4/WebM/Ogg (Video).
+HTML5
+Canvas
+Default 300 × 150; getContext("2d");
+origin (0,0) top-left
+Know Canvas (pixel/raster, fast games) vs. SVG
+(vector, crisp zoom, DOM events).
+Web
+Storage
+localStorage (permanent) vs.
+sessionStorage (tab close)
+**Methods:** setItem, getItem,
+removeItem, clear; use
+JSON.stringify for objects.
+HTML5
+Forms
+**Types:** email, date, number,
+range, color; <datalist>
+**Attributes:** required, placeholder,
+pattern, min/max, autofocus.
+Graphs &
+Charts
+**Bar:** fillRect | Line: lineTo | Pie: θ =
+(v/T)×2π + arc
+Explain subtracting bar height from baseline Y
+because Canvas Y increases downward!
+Fundamentals of Web Technologies • UNIT–3: HTML5

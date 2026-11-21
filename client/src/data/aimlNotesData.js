@@ -1,5 +1,5 @@
 // Auto-loaded from pure Markdown (.md) files in client/src/content/aiml/*.md
-// No note content or LaTeX strings are stored inside JavaScript string literals.
+// Strictly aligned with 2026–27 B.Tech Curriculum from C:\Notes\B.Tech Notes 2026-27
 import { getSectionMarkdown } from '../content/markdownLoader.js';
 
 export const aimlSubjectDetails = {
@@ -10,27 +10,27 @@ export const aimlSubjectDetails = {
   "code": "BCSE-011",
   "credits": 3,
   "instructor": "AI & ML Department Faculty",
-  "notesCount": "4 Units Simple & Colorful Illustrated Notes",
+  "notesCount": "4 Units Comprehensive 2026\u201327 Notes & Solved Papers",
   "rating": 5,
-  "description": "AI & Machine Learning made crystal clear! Google Maps analogies for A* search, 20-questions for Decision Trees, supermarket shopping carts for Apriori, and step-by-step solved university numericals in plain English.",
+  "description": "Official 2026\u201327 Syllabus: Foundations of AI, Turing Test, Intelligent Agents & PEAS, State-space search, BFS/DFS, Heuristic search & A*, FOPL, CNF conversion, Resolution refutation, Expert Systems architecture, Knowledge engineering, Supervised ML (Decision Trees, SVM), Unsupervised ML (k-Means), and Apriori Association Rules.",
   "banner": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80"
 };
 
 const unitsMeta = [
   {
     "unitNum": 1,
-    "title": "Foundations of Artificial Intelligence & Intelligent Agents (Made Simple)",
+    "title": "Foundations of Artificial Intelligence & Intelligent Agents",
     "examWeightage": "24 - 28 Marks",
     "readingTime": "35 mins",
-    "summary": "What is AI really? The Turing Test imitation game; Russell & Norvig 4 Approaches; AI vs ML vs Deep Learning concentric circles; Intelligent Agents as persons with eyes, brain & hands; The PEAS framework for Tesla/Waymo; Task environment dimensions.",
+    "summary": "Evolution & Definition of AI, Turing Test imitation game, Russell & Norvig 4 Approaches; AI vs ML vs Deep Learning concentric circles; Key domains (NLP, Computer Vision, Robotics); Intelligent Agents architecture and the PEAS framework for autonomous systems; Task environment dimensions.",
     "sections": [
       {
         "sectionId": "aiml-u1-s1",
-        "title": "1. Evolution, Definition & Taxonomies of AI (The Human vs Machine Story)"
+        "title": "1. Evolution, Definition & Taxonomies of AI"
       },
       {
         "sectionId": "aiml-u1-s2",
-        "title": "2. Intelligent Agents & The PEAS Framework (Eyes, Brain & Hands)"
+        "title": "2. Key Domains of AI & Intelligent Agents (PEAS Framework)"
       },
       {
         "sectionId": "aiml-u1-s3",
@@ -44,22 +44,22 @@ const unitsMeta = [
   },
   {
     "unitNum": 2,
-    "title": "Searching Algorithms & Knowledge Representation (Finding the Best Path)",
-    "examWeightage": "28 - 32 Marks",
-    "readingTime": "40 mins",
-    "summary": "State space 5-tuple; Blind search (BFS vs DFS vs UCS) compared; Google Maps heuristic A* algorithm with complete worked trace table; Logic & 8-step CNF conversion; Resolution Refutation courtroom proof; Semantic Nets, Frames, and Scripts.",
+    "title": "Searching Algorithms & Knowledge Representation",
+    "examWeightage": "26 - 30 Marks",
+    "readingTime": "35 mins",
+    "summary": "Problem formulation & state-space search; Uninformed search (BFS & DFS) completeness & complexity; Heuristic search & A* algorithm with admissibility proof; Data-driven vs Goal-driven reasoning; Logical KR: Propositional & Predicate logic, 8-step CNF conversion, and Resolution Refutation; Structured KR: Semantic Nets, Frames & Scripts.",
     "sections": [
       {
         "sectionId": "aiml-u2-s1",
-        "title": "1. State Space Search & Blind Search (BFS vs DFS)"
+        "title": "1. Problem Formulation & Uninformed Search (BFS vs DFS)"
       },
       {
         "sectionId": "aiml-u2-s2",
-        "title": "2. Heuristic Search & The A* Algorithm (Google Maps in Action)"
+        "title": "2. Heuristic Search & The A* Algorithm"
       },
       {
         "sectionId": "aiml-u2-s3",
-        "title": "3. Logic, 8-Step CNF Conversion & Resolution Refutation Proofs"
+        "title": "3. Logical Knowledge Representation & Resolution Refutation"
       },
       {
         "sectionId": "aiml-u2-s4",
@@ -73,10 +73,10 @@ const unitsMeta = [
   },
   {
     "unitNum": 3,
-    "title": "Expert Systems Architecture & Knowledge Acquisition (Cloning Human Experts)",
-    "examWeightage": "20 - 24 Marks",
-    "readingTime": "30 mins",
-    "summary": "Expert systems explained as cloning a doctor's brain; 5-part architecture; The difference between HOW and WHY explanations; The Expert System Triad (Domain Expert, Knowledge Engineer, End User); Feigenbaum's Knowledge Acquisition Bottleneck.",
+    "title": "Expert Systems Architecture & Knowledge Engineering",
+    "examWeightage": "24 - 28 Marks",
+    "readingTime": "35 mins",
+    "summary": "Expert Systems definition, characteristics, and comparison with conventional programs; Core Architecture: Knowledge Base, Inference Engine (Forward vs Backward chaining), Working Memory, and Explanation Engine (HOW & WHY); Expert System Triad (Expert, Engineer, User); Feigenbaum's Knowledge Acquisition Bottleneck and elicitation techniques.",
     "sections": [
       {
         "sectionId": "aiml-u3-s1",
@@ -98,18 +98,18 @@ const unitsMeta = [
   },
   {
     "unitNum": 4,
-    "title": "Machine Learning Concepts, Supervised Learning & Apriori Algorithm",
-    "examWeightage": "28 - 32 Marks",
-    "readingTime": "45 mins",
-    "summary": "Tom Mitchell (T, P, E) learning formulation; Supervised vs Unsupervised vs RL; Linear & Logistic Regression; Decision Trees ID3 with complete step-by-step Shannon Entropy and Information Gain calculations; Support Vector Machines (SVM) maximum margin; k-Means clustering; Apriori algorithm supermarket market basket analysis numerical solved completely.",
+    "title": "Introduction to Machine Learning Concepts",
+    "examWeightage": "26 - 30 Marks",
+    "readingTime": "35 mins",
+    "summary": "Machine Learning overview and Tom Mitchell's (T, P, E) formulation; Traditional programming vs ML; 6-Stage ML lifecycle; Supervised learning: Classification (Decision Trees, ID3, Information Gain, SVM) & Regression; Unsupervised learning: Clustering (k-Means, Elbow method) and Association Rule Mining (Apriori algorithm, Support, Confidence, Lift).",
     "sections": [
       {
         "sectionId": "aiml-u4-s1",
-        "title": "1. Machine Learning Foundations & Tom Mitchell's (T, P, E) Rule"
+        "title": "1. Machine Learning Foundations & Workflow Lifecycle"
       },
       {
         "sectionId": "aiml-u4-s2",
-        "title": "2. Supervised Learning: Decision Trees (ID3), SVM & Naive Bayes"
+        "title": "2. Supervised Learning: Classification & Regression"
       },
       {
         "sectionId": "aiml-u4-s3",
@@ -117,7 +117,7 @@ const unitsMeta = [
       },
       {
         "sectionId": "aiml-u4-s4",
-        "title": "4. Apriori Algorithm for Market Basket Analysis (The Supermarket Secret)"
+        "title": "4. Association Rule Mining & Apriori Algorithm"
       },
       {
         "sectionId": "aiml-u4-solved-exam",

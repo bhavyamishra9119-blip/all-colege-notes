@@ -1,74 +1,232 @@
-### 1. The HTML5 <canvas> 2D Context API
+### 4. Canvas 2D Graphics API & Web Storage (localStorage vs Cookies)
 
-The `<canvas>` tag provides an immediate-mode resolution-dependent bitmap surface scriptable via JavaScript:
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-```html
-<canvas id="barChart" width="400" height="180" style="border:1px solid #cbd5e1;"></canvas>
-<script>
-  const canvas = document.getElementById("barChart");
-  const ctx = canvas.getContext("2d");
 
-  // 1. Draw Rectangular Bar
-  ctx.fillStyle = "#0284c7";
-  ctx.fillRect(40, 50, 50, 100);
+#### 6.4 High-Yield Exam Comparison: HTML5 Canvas vs. SVG
 
-  // 2. Draw Second Bar
-  ctx.fillStyle = "#10b981";
-  ctx.fillRect(120, 30, 50, 120);
+Feature HTML5 Canvas (<canvas>) SVG (<svg>)
+Graphic Type Raster (Pixel-based) — blurs if
+zoomed far in
+Vector (Math-based) — stays razor-sharp
+at any zoom
+How It Is Drawn Drawn imperatively via JavaScript API Declared with XML tags (<rect>,
+<circle>, <path>)
+DOM & Events Single pixel bitmap (no individual
+shape events)
+Every shape is a DOM node supporting
+click/hover events
+Performance Sweet
+Spot
+High-speed 2D games, animations,
+10,000+ objects
+Logos, icons, maps, responsive UI charts
+(fewer nodes)
 
-  // 3. Draw Circle
-  ctx.beginPath();
-  ctx.arc(280, 90, 40, 0, 2 * Math.PI);
-  ctx.fillStyle = "#f59e0b";
-  ctx.fill();
-  ctx.stroke();
+## PART III: WEB STORAGE, HTML5 FORMS & CREATING GRAPHS AND
 
-  // 4. Render Text Label
-  ctx.font = "bold 13px Segoe UI, sans-serif";
-  ctx.fillStyle = "#0f172a";
-  ctx.fillText("Performance Chart", 40, 25);
-</script>
-```
+CHARTS
 
----
+### 7. HTML5 Web Storage
 
-### 2. Client-Side Web Storage: Cookies vs. LocalStorage vs. SessionStorage
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 680 230" width="100%" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="670" height="220" rx="12" class="schematic-bg" fill="rgba(15,23,42,0.75)" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 4" />
-    <!-- Top Question -->
-    <rect x="135" y="16" width="410" height="38" rx="8" fill="rgba(30,58,138,0.9)" stroke="#38bdf8" stroke-width="2" />
-    <text x="340" y="39" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="bold">Q1: Is data needed by the server on every HTTP request?</text>
-    <path d="M 340 54 L 340 68 M 155 68 L 485 68 M 155 68 L 155 86 M 485 68 L 485 86" stroke="#38bdf8" stroke-width="2" fill="none" />
-    <text x="155" y="81" text-anchor="middle" fill="#6ee7b7" font-size="10.5" font-weight="bold">YES</text>
-    <text x="485" y="81" text-anchor="middle" fill="#fda4af" font-size="10.5" font-weight="bold">NO (Client-Only)</text>
-    <!-- HTTP Cookies -->
-    <rect x="40" y="88" width="230" height="62" rx="8" fill="rgba(124,45,18,0.85)" stroke="#fb923c" stroke-width="2" />
-    <text x="155" y="109" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">HTTP COOKIES</text>
-    <text x="155" y="126" text-anchor="middle" fill="#fed7aa" font-size="10">• Max 4 KB capacity</text>
-    <text x="155" y="141" text-anchor="middle" fill="#fed7aa" font-size="10">• Sent on every HTTP Header</text>
-    <!-- Second Question -->
-    <rect x="330" y="88" width="310" height="42" rx="8" fill="rgba(88,28,135,0.85)" stroke="#c084fc" stroke-width="1.8" />
-    <text x="485" y="113" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="bold">Q2: Must data survive tab &amp; browser closure?</text>
-    <path d="M 485 130 L 485 144 M 385 144 L 585 144 M 385 144 L 385 160 M 585 144 L 585 160" stroke="#c084fc" stroke-width="1.8" fill="none" />
-    <text x="385" y="156" text-anchor="middle" fill="#6ee7b7" font-size="10" font-weight="bold">YES</text>
-    <text x="585" y="156" text-anchor="middle" fill="#fde047" font-size="10" font-weight="bold">NO</text>
-    <!-- localStorage -->
-    <rect x="295" y="162" width="180" height="54" rx="8" fill="rgba(6,78,59,0.9)" stroke="#34d399" stroke-width="1.8" />
-    <text x="385" y="182" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">localStorage</text>
-    <text x="385" y="198" text-anchor="middle" fill="#a7f3d0" font-size="9.5">5–10 MB • Permanent Persistence</text>
-    <!-- sessionStorage -->
-    <rect x="495" y="162" width="165" height="54" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8" />
-    <text x="577" y="182" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">sessionStorage</text>
-    <text x="577" y="198" text-anchor="middle" fill="#bae6fd" font-size="9.5">5 MB • Single Tab Lifetime</text>
-  </svg>
-</div>
+#### 7.1 Starting From Scratch: What Is Web Storage?
 
-| Dimension | HTTP Cookies | LocalStorage (HTML5) | SessionStorage (HTML5) |
-| :--- | :--- | :--- | :--- |
-| **Storage Capacity** | Strictly ~4 Kilobytes | ~5 to 10 Megabytes | ~5 Megabytes |
-| **Data Lifetime** | Configurable via `Expires` or `Max-Age` | **Permanent** (persists after browser restart) | **Session-Only** (cleared when browser tab closes) |
-| **Network Transmission** | Sent automatically on every HTTP header | **Never sent to server** (Client-only) | **Never sent to server** (Client-only) |
-| **Access Scope** | Domain & path scoped | Origin scoped (shared across all tabs) | Tab scoped (isolated to single window) |
-| **JavaScript API** | Complex string manipulation (`document.cookie`) | `setItem()`, `getItem()`, `removeItem()` | `setItem()`, `getItem()`, `removeItem()` |
+**Definition:** HTML5 Web Storage is a built-in browser API that allows web applications to store
+structured key–value string pairs locally inside the user’s browser.
+**Large Capacity:** Stores 5 MB to 10 MB per origin (versus only ~4 KB for HTTP Cookies).
+**Zero Network Overhead:** Data stays strictly on the client machine and is NEVER automatically
+attached to every HTTP server request — drastically boosting speed.
+**Same-Origin Security Isolation:** Pages from siteA.com cannot read storage written by
+siteB.com (Origin = Protocol + Domain + Port).
+
+#### 7.2 The Two Types of Web Storage
+
+1. window.localStorage (Persistent Storage)
+Stores data with NO expiration date; data remains intact even after closing the tab, closing the
+browser, or rebooting — cleared only via JavaScript or browser settings.
+Shared across all tabs/windows of the same website origin (e.g., Dark Mode preference, shopping
+cart items, offline draft notes).
+2. window.sessionStorage (Temporary Tab Storage)
+Stores data strictly for one single browser session (one tab) and is automatically deleted the
+instant that tab or window is closed (survives page reload, not tab close).
+Isolated per tab — opening the same site in two tabs creates two separate storage buckets (e.g.,
+multi-step form progress, temporary checkout wizard).
+Fundamentals of Web Technologies • UNIT–3: HTML5
+
+
+#### 7.3 Core Web Storage API Methods & JSON Rule
+
+Save / Update Value: localStorage.setItem("key", "value")
+**Read Value:** localStorage.getItem("key") (returns null if missing).
+**Delete Single Key:** localStorage.removeItem("key")  |  Wipe All Keys:
+localStorage.clear().
+Key Count / Lookup: localStorage.length and localStorage.key(index).
+**String-Only Rule:** Web Storage stores strings only — to save JavaScript objects or arrays,
+convert with JSON.stringify(obj) when saving and restore with JSON.parse(str) when
+reading!
+// Saving & Reading Plain Text and Objects in localStorage:
+localStorage.setItem("theme", "dark");
+const mode = localStorage.getItem("theme");     // "dark"
+const user = { name: "Riya", sem: 1 };
+localStorage.setItem("student", JSON.stringify(user));
+const loaded = JSON.parse(localStorage.getItem("student"));
+sessionStorage.setItem("step", "2");            // Cleared on tab close
+Need Data Sent on
+Every Server Request?
+No
+Yes
+Use HTTP Cookies
+(≤ 4 KB • Auth Tokens)
+Must Data Survive
+Closing Browser Tab?
+Yes
+No
+Use sessionStorage
+(5 MB • Cleared on Close)
+Use localStorage
+(5–10 MB • Permanent)
+
+**Security Rule:**
+
+Never store raw passwords!
+**Figure 6:** Client-Side Storage Decision Flowchart (Cookies vs. sessionStorage vs. localStorage)
+Feature HTTP Cookies localStorage sessionStorage
+Storage Capacity ~4 KB 5 MB – 10 MB 5 MB
+Expiration / Lifetime Manual expiry
+date
+Permanent (until deleted) Cleared when tab
+closes
+Sent With HTTP
+Requests?
+Yes (every
+request)
+No (client-side only) No (client-side only)
+Scope Across Tabs Shared per
+domain
+Shared across same-origin
+tabs
+Isolated to one tab only
+Fundamentals of Web Technologies • UNIT–3: HTML5
+
+
+### 8. HTML5 Forms
+
+
+#### 8.1 Why HTML5 Forms Are a Huge Upgrade
+
+**Native Client-Side Validation:** Browsers check required fields, email formats, URLs, numeric
+ranges, and regular-expression patterns automatically before form submission — cutting repetitive
+JavaScript validation code dramatically.
+Native UI Widgets & Smart Mobile Keyboards: Browsers render native calendar date pickers,
+range sliders, and color palettes automatically, and smartphones switch to context-aware
+keyboards (@ for email, numeric dialpad for phone).
+
+#### 8.2 New HTML5 Input Types & Form Elements
+
+Input Type / Element UI Widget / Purpose Built-In Behavior / Benefit
+type="email" / url Email address / Web link
+field
+**Validates @ domain syntax or https:** //
+prefix automatically
+type="number" / range Numeric spinner / Visual
+slider
+Restricts numeric input with min, max, and
+step
+type="date" / time /
+month
+Native calendar / clock
+picker
+Prevents ambiguous date formats (DD/MM vs.
+MM/DD)
+type="color" Interactive OS color
+picker
+Returns standard hex color string (e.g.,
+#c2410c)
+type="tel" / search Phone number / Search
+box
+Opens phone dialpad on mobile; adds quick-
+clear "×" icon
+<datalist> Autocomplete suggestion
+list
+Lets users choose a preset suggestion OR type
+custom text
+<output> Displays live calculated
+value
+Semantically binds computed outputs to form
+controls
+
+#### 8.3 Essential HTML5 Form Validation Attributes
+
+Attribute What It Enforces / Does Usage Example
+required Blocks submission if field is left empty <input type="text" required>
+placeholder Displays faint hint text inside empty field placeholder="Enter your email"
+pattern Validates text against a Regular
+Expression
+pattern="[0-9]{10}" (10 digits)
+min, max,
+step
+Sets numeric/date bounds & increments min="18" max="60" step="1"
+autofocus Places typing cursor in input on page
+load
+<input type="search"
+autofocus>
+Fundamentals of Web Technologies • UNIT–3: HTML5
+
+Attribute What It Enforces / Does Usage Example
+autocomplete Enables or disables browser autofill
+(on/off)
+autocomplete="on"
+multiple /
+novalidate
+Allows multi-file selection; bypasses form
+check
+<input type="file"
+multiple>
+
+### 1. User Fills
+
+HTML5 Form
+
+### 2. Clicks Submit
+
+(Check novalidate)
+
+### 3. Native Validation
+
+required / type / pattern
+Valid 4. Send Data
+GET / POST Server
+Invalid → Block Submit & Show Browser Tooltip Warning
+**Figure 7:** HTML5 Native Form Validation & Submission Flowchart
+
+#### 8.4 Complete HTML5 Form Example
+
+<form action="/register" method="post">
+<label>Email:</label>
+<input type="email" name="mail" placeholder="name@college.edu" required
+autofocus>
+<label>Birth Date:</label>
+<input type="date" name="dob" required>
+<label>Rating (1–10):</label>
+<input type="range" name="rate" min="1" max="10" value="8">
+<label>Branch:</label>
+<input list="branches" name="branch" placeholder="Select branch">
+<datalist id="branches">
+<option value="CSE"><option value="AIML"><option value="ECE">
+</datalist>
+<button type="submit">Register</button>
+</form>
+
+### 9. Creating Graphs & Charts in HTML5
+
+
+#### 9.1 Three Ways to Build Graphs & Charts in HTML5
+
+1. Native HTML5 Canvas Charts (Custom Pixel Drawing): Uses <canvas> and the 2D API
+(fillRect, lineTo, arc, fillText) to compute pixel coordinates mathematically and draw
+Bar, Line, or Pie charts from scratch — ideal for exams and live sensor plots.
+2. Native HTML5 SVG Charts (Scalable Vector Drawing): Uses declarative XML tags (<rect>
+for bars, <polyline> for trend lines, <path> for pie wedges); stays razor-sharp at any zoom
+level and supports mouse hover events on individual bars.
+Fundamentals of Web Technologies • UNIT–3: HTML5

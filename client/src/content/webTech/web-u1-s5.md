@@ -1,119 +1,186 @@
-### University Examination Solved Questions (Unit I)
+### 5. University Solved Examination Questions (Unit 1)
 
-The following questions feature diagrams in **both the question statement and the step-by-step solution**:
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-<example level="easy" title="Section A (1 Mark): Root Name Server Purpose in DNS">
-**University Question (1 Mark):**
-State the primary purpose of the Root Name Server in the DNS resolution hierarchy shown in Figure Q1.
+(A) Search Engine Three-Stage Pipeline
+WWW Pages
+Billions of URLs
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 130" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="120" rx="8" fill="rgba(15,23,42,0.6)" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">FIGURE Q1: GIVEN HIERARCHICAL DNS RESOLUTION TREE</text>
-    
-    <rect x="30" y="45" width="140" height="40" rx="4" fill="rgba(56,189,248,0.15)" stroke="#38bdf8" stroke-width="1.5" />
-    <text x="100" y="70" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">Root (.) Nameserver</text>
-    
-    <path d="M 170 65 L 240 65" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)" />
-    <text x="205" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Points to</text>
-    
-    <rect x="240" y="45" width="150" height="40" rx="4" fill="rgba(245,158,11,0.15)" stroke="#f59e0b" stroke-width="1.5" />
-    <text x="315" y="70" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="bold">TLD (.org/.in) Server</text>
-    
-    <path d="M 390 65 L 460 65" stroke="#38bdf8" stroke-width="2" marker-end="url(#arr)" />
-    <text x="425" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Points to</text>
-    
-    <rect x="460" y="45" width="150" height="40" rx="4" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5" />
-    <text x="535" y="70" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">Authoritative DNS</text>
-    
-    <text x="320" y="108" text-anchor="middle" fill="#e2e8f0" font-size="10">Question Focus: What specific function does the Root (.) perform when querying "mmumullana.org"?</text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig Q1: Hierarchical Domain Name System Nameserver Query Tree</div>
-</div>
+### 1. Web Crawler
 
----
+Spiders Fetch HTML
 
-**Step-by-Step Solution:**
-The **Root Name Server (`.`)** stands at the apex of the global DNS namespace. It does not contain end-user host IPs; instead, it parses the Top-Level Domain suffix (e.g. `.org`) and returns the IP address of the designated **TLD Nameserver** to the recursive resolver.
+### 2. Indexer
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 120" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="110" rx="8" fill="rgba(15,23,42,0.6)" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">FIGURE S1: SOLVED REDIRECTION VECTOR</text>
-    
-    <rect x="40" y="45" width="160" height="40" rx="4" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="1.5" />
-    <text x="120" y="65" text-anchor="middle" fill="#38bdf8" font-size="10" font-weight="bold">Query: mmumullana.org</text>
-    <text x="120" y="78" text-anchor="middle" fill="#94a3b8" font-size="8.5">Sent to Root (.)</text>
+Inverted Index DB
 
-    <path d="M 200 65 L 290 65" stroke="#10b981" stroke-width="2.5" />
-    
-    <rect x="290" y="40" width="310" height="50" rx="4" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="1.5" />
-    <text x="445" y="62" text-anchor="middle" fill="#86efac" font-size="11" font-weight="bold">Root Action: Evaluates suffix ".org"</text>
-    <text x="445" y="78" text-anchor="middle" fill="#a7f3d0" font-size="8.2">Returns: Delegated IPs for .org TLD Cluster ➔ Query Continues ✓</text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig S1: Solved Root Server Referral Mechanism</div>
-</div>
+### 3. Rank Engine
 
-<div class="example-answer-box">
-🎯 Root Name Server reads domain TLD (`.org`) and refers resolver to TLD Authoritative Cluster.
-</div>
-</example>
+PageRank & Score
+SERP
+User Results
+(B) Web-Casting Architecture (Live Encoding → Streaming Server / CDN → Multi-Client Delivery)
+Media Source
+Camera / Mic /
+News Publisher
+Encoder
+Compress (H.264)
+RTMP Ingest
+Streaming / CDN
+HLS / DASH / Multicast
+Push & Edge Caching
+Viewer 1 (Desktop)
+Viewer 2 (Mobile)
+Viewer N (Smart TV)
+**Figure 7:** (A) Search Engine three-stage indexing and retrieval pipeline; (B) Web-Casting media encoding and
+multi-client CDN distribution architecture.
+**Table 10:** Comparison Matrix — Pull Technology vs. Push Technology (Web-Casting)
+Feature Pull Technology (Standard Browsing) Push Technology (Web-Casting)
+Initiated By Client (user explicitly requests a URL) Server (automatically delivers updates to
+subscribers)
+User Effort Active searching, clicking, or manual
+refreshing
+One-time subscription; passive real-time
+reception
+Timeliness Data is fetched only when user checks Near real-time / instant delivery
+Network
+Examples
+Standard HTTP GET webpage loading,
+search queries
+Live webinars, breaking news alerts, stock
+tickers, WebSockets
 
-<example level="medium" title="Section B (2 Marks): TCP 3-Way Handshake Timing Sequence">
-**University Question (2 Marks):**
-Illustrate the 3-way handshake connection sequence between a client browser and an Apache web server.
+### 9. High-Yield Quick-Revision Cheat Sheet
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 140" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="130" rx="8" fill="rgba(15,23,42,0.6)" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">FIGURE Q5: ENDPOINT INITIAL STATES</text>
-    <rect x="40" y="45" width="180" height="55" rx="5" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="1.5" />
-    <text x="130" y="68" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">Client Browser</text>
-    <text x="130" y="85" text-anchor="middle" fill="#94a3b8" font-size="9">Socket State: CLOSED</text>
-    
-    <text x="320" y="78" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="bold">⚡ Handshake ?</text>
-    
-    <rect x="420" y="45" width="180" height="55" rx="5" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5" />
-    <text x="510" y="68" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">Web Server</text>
-    <text x="510" y="85" text-anchor="middle" fill="#94a3b8" font-size="9">Socket State: LISTEN (Port 80/443)</text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig Q5: Client-Server Socket Initial Endpoints</div>
-</div>
+**Table 11:** Must-Memorize Web Protocols, Full Forms & Default TCP/UDP Port Numbers
+Protocol Full Form Default Port Primary Role
+HTTP Hypertext Transfer Protocol 80 (TCP) Unencrypted web page transfer
+HTTPS Hypertext Transfer Protocol
+Secure
+443 (TCP/UDP) TLS-encrypted secure web transfer
+DNS Domain Name System 53 (UDP/TCP) Translates domain names to IP
+addresses
+FTP File Transfer Protocol 20 / 21 (TCP) File upload & download between hosts
+SMTP Simple Mail Transfer Protocol 25 / 587
+(TCP)
+Sending outgoing emails
+POP3 /
+IMAP
+Post Office / Internet Message
+Access
+110 / 143 Retrieving emails from mail server
+SSH Secure Shell 22 (TCP) Encrypted remote terminal login
+**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
 
----
 
-**Step-by-Step Solution:**
-1. **SYN:** Client sends initial sequence number $x$ with `SYN` flag set.
-2. **SYN-ACK:** Server responds with `SYN` (ISN $y$) and `ACK = x + 1`.
-3. **ACK:** Client confirms with `ACK = y + 1`. Connection established!
+#### 9.1 Rapid-Fire Exam Facts & Key Anchors
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 170" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="160" rx="8" fill="rgba(15,23,42,0.6)" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">FIGURE S5: SOLVED TCP 3-WAY HANDSHAKE FLOW</text>
-    
-    <line x1="120" y1="45" x2="120" y2="145" stroke="#38bdf8" stroke-width="2" />
-    <text x="120" y="40" text-anchor="middle" fill="#38bdf8" font-size="10" font-weight="bold">Client</text>
-    
-    <line x1="520" y1="45" x2="520" y2="145" stroke="#10b981" stroke-width="2" />
-    <text x="520" y="40" text-anchor="middle" fill="#10b981" font-size="10" font-weight="bold">Server</text>
-    
-    <!-- Step 1 SYN -->
-    <line x1="120" y1="65" x2="520" y2="85" stroke="#38bdf8" stroke-width="2" />
-    <text x="320" y="70" text-anchor="middle" fill="#38bdf8" font-size="9.5" font-weight="bold">1. SYN (seq = x) ──────▶</text>
-    
-    <!-- Step 2 SYN-ACK -->
-    <line x1="520" y1="95" x2="120" y2="115" stroke="#f59e0b" stroke-width="2" />
-    <text x="320" y="100" text-anchor="middle" fill="#fbbf24" font-size="9.5" font-weight="bold">◀────── 2. SYN-ACK (seq = y, ack = x + 1)</text>
-    
-    <!-- Step 3 ACK -->
-    <line x1="120" y1="125" x2="520" y2="140" stroke="#10b981" stroke-width="2" />
-    <text x="320" y="130" text-anchor="middle" fill="#86efac" font-size="9.5" font-weight="bold">3. ACK (ack = y + 1) + HTTP GET ──────▶</text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig S5: Solved 3-Way Handshake Connection Sequence</div>
-</div>
+**Key Pioneers & Years:** 1969 (ARPANET), 1983 (TCP/IP & DNS), 1989–1991 (Tim Berners-Lee
+invents WWW, HTML, HTTP, URL at CERN), 1993 (NCSA Mosaic graphical browser), 1994 (W3C
+founded).
+**Core Acronyms:** URL (Uniform Resource Locator), ISP (Internet Service Provider), DNS
+(Domain Name System), W3C (World Wide Web Consortium), DOM (Document Object Model),
+SERP (Search Engine Results Page), CDN (Content Delivery Network), RSS (Really Simple
+Syndication).
+**HTTP Status Mnemonic:** 1xx = Info, 2xx = Success (200), 3xx = Redirect (301/302), 4xx =
+Client's Fault (403/404), 5xx = Server's Fault (500/503).
+**Search Engine Pipeline:** Crawling (Spiders) → Indexing (Inverted Index) → Ranking
+(Relevance/PageRank) → SERP.
+**Table 12:** Top 10 Unit-I University Exam Traps & Common Mistakes to Avoid
+#
+Common Mistake /
+Exam Trap Why It Loses Marks Exam-Accurate Answer
+1 Writing that Internet and
+WWW are the same
+Confuses physical network
+infrastructure with one application
+running on it.
 
-<div class="example-answer-box">
-🎯 Handshake completes in 3 steps: SYN ➔ SYN-ACK ➔ ACK, transitioning sockets to ESTABLISHED state.
-</div>
-</example>
+$$Internet = global TCP/IP hardware$$
+
+network; WWW = hypertext service over
+it.
+2 Crediting Tim Berners-
+Lee with inventing the
+Internet
+Historically incorrect (ARPANET
+existed 20 years earlier).
+Berners-Lee invented the World Wide
+Web (1989), not the Internet.
+3 Confusing a Web
+Browser with a Search
+Engine
+Chrome/Firefox are client software;
+Google/Bing are remote websites.
+Browser = software that renders URLs;
+Search Engine = web service indexing
+pages.
+4 Calling HTTP a "stateful"
+protocol because logins
+work
+HTTP itself is strictly stateless;
+cookies/sessions maintain login
+state.
+Always state HTTP is stateless, using
+cookies/sessions for state persistence.
+5 Using HTTP GET for
+passwords or sensitive
+forms
+GET exposes form values directly
+in the URL bar and server logs!
+Always use POST over HTTPS for
+credentials and sensitive data.
+6 Swapping 404 and
+500 status code
+meanings
+4xx = client-side request problem;
+5xx = server-side crash/failure.
+404 Not Found (Client Error); 500
+Internal Server Error (Server
+Error).
+7 Forgetting default HTTP
+vs. HTTPS ports
+Frequently tested in 2-mark MCQs
+and viva questions.
+HTTP = Port 80; HTTPS = Port 443;
+
+$$DNS = Port 53.$$
+
+8 Confusing a Web Server
+with a Database Server
+Web servers handle HTTP;
+databases store/query structured
+records.
+Web server (Apache/Nginx) serves
+HTTP; dynamic sites connect it to a DB
+(MySQL).
+**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+
+#
+Common Mistake /
+Exam Trap Why It Loses Marks Exam-Accurate Answer
+9 Describing Web-Casting
+as "Pull-only" browsing
+Classic webcasting exemplifies
+Push / Streaming broadcast
+delivery.
+Contrast traditional Pull browsing against
+subscription/live Push webcasting.
+10 Writing HTML/CSS/JS as
+"server-only" languages
+Standard HTML, CSS, and
+browser JS are parsed and
+rendered on the client.
+Browser rendering engine parses
+HTML/CSS; server runs
+PHP/Node/Java/Python.
+Exam Presentation Checklist (Full-Marks Strategy for Web Technologies)
+Architecture Questions (Browsers, Web Servers, Search Engines, Web-Casting): Always sketch
+the clean labeled block diagram (e.g., Client → DNS → Web Server → App Server/DB, or Crawler →
+Indexer → Ranker) before listing bulleted explanations.
+**HTTP Protocol Questions:** Explicitly write out a sample 4-line GET request and 200 OK response
+message (showing the blank line!) and include a compact table of GET vs. POST and status code
+classes (1xx–5xx).
+Comparison Questions (Internet vs. WWW, Web 1.0–3.0, Push vs. Pull): Always present answers
+in a crisp side-by-side tabular matrix with named comparison criteria rather than loose paragraphs.
+**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes

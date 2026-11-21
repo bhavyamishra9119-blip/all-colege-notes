@@ -1,57 +1,167 @@
-### 1. Native Multimedia (<video> and <audio> APIs)
+### 3. Native Multimedia (Audio & Video) & Modern Form Controls
 
-HTML5 eliminates third-party plugins by embedding media directly in the DOM:
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-```html
-<!-- Native HTML5 Video Element with Multi-Codec Fallback & Subtitles -->
-<video width="640" height="360" controls poster="poster_image.jpg" preload="metadata">
-  <source src="lecture.mp4" type="video/mp4">
-  <source src="lecture.webm" type="video/webm">
-  <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
-  Your browser does not support native HTML5 video playback.
-</video>
 
-<!-- Native HTML5 Audio Element -->
-<audio controls preload="auto">
-  <source src="podcast.mp3" type="audio/mpeg">
-  <source src="podcast.ogg" type="audio/ogg">
-  Your browser does not support the audio element.
+#### 5.2 The HTML5 <audio> Element
+
+**Purpose:** Embeds sound tracks (music, podcasts, audio lectures) with native play/pause, timeline
+scrubber, and volume buttons.
+
+**Standard Audio Formats:**
+
+MP3 (audio/mpeg): Universal support across every browser; compact lossy compression.
+WAV (audio/wav): Uncompressed lossless studio quality; large file sizes.
+Ogg Vorbis (audio/ogg): Open-source, patent-free lossy audio format.
+**Key Attributes:** controls (shows player UI), autoplay, loop (replays automatically),
+muted, and preload (none | metadata | auto).
+<audio controls preload="metadata">
+<source src="lecture.mp3" type="audio/mpeg">
+<source src="lecture.ogg" type="audio/ogg">
+Your browser does not support the HTML5 audio element.
 </audio>
-```
 
----
+#### 5.3 The HTML5 <video> Element
 
-### 2. Modern HTML5 Form Inputs & Attributes
+**Purpose:** Embeds video clips or tutorials with native play/pause, seek bar, volume, and fullscreen
+controls.
 
-HTML5 modernized forms with built-in client-side validation without requiring custom JavaScript:
+**Standard Video Formats:**
 
-```html
-<form action="/submit_admission" method="POST">
-  <!-- Email validation with regex check -->
-  <label for="email">University Email:</label>
-  <input type="email" id="email" name="email" placeholder="student@mmumullana.org" required>
+MP4 / H.264 (video/mp4): Most widely supported industry standard across desktop and
+mobile.
+WebM (video/webm): Open-source, royalty-free high-efficiency web video format.
+Ogg Theora (video/ogg): Open-source fallback format.
+**Extra Video-Only Attributes:** width, height, and poster="thumb.jpg" (shows a preview
+thumbnail image before playback begins).
+Captions & Subtitles (<track>): Attaches WebVTT (.vtt) closed captions or multi-language
+subtitles directly to the player.
+**Modern Autoplay Policy:** Most modern browsers block autoplay with sound unless the
+muted attribute is also present.
+<video width="480" height="270" controls poster="preview.jpg">
+<source src="demo.mp4" type="video/mp4">
+<source src="demo.webm" type="video/webm">
+<track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+Your browser does not support HTML5 video.
+</video>
+Fundamentals of Web Technologies • UNIT–3: HTML5
 
-  <!-- Numeric bounds -->
-  <label for="age">Age (17-30):</label>
-  <input type="number" id="age" name="age" min="17" max="30" required>
+Parse <video>
+or <audio>
+Check Source #1
+(e.g., MP4 / MP3)
+No Check Source #2
+(e.g., WebM / Ogg)
+No Show Fallback
+Unsupported Text
+Yes Yes
+Decode & Play Media Natively
+**Figure 4:** Multi-Source Media Resolution and Fallback Flowchart in HTML5
+Attribute Applies To Exact Function
+controls Audio &
+Video
+Displays native play, pause, timeline, volume & fullscreen controls
+autoplay /
+muted
+Audio &
+Video
+Starts playback automatically (requires muted in modern
+browsers)
+loop Audio &
+Video
+Automatically restarts media from the beginning when it ends
+preload Audio &
+Video
+**Hints buffering strategy:** none, metadata, or auto
+poster Video only URL of thumbnail image shown before video playback starts
 
-  <!-- Slider input -->
-  <label for="scale">Skill Level (1-10):</label>
-  <input type="range" id="scale" name="skill" min="1" max="10" value="7">
+### 6. HTML5 Canvas
 
-  <!-- Native Date Picker -->
-  <label for="dob">Date of Birth:</label>
-  <input type="date" id="dob" name="dob">
 
-  <!-- Datalist Autocomplete -->
-  <label for="course">Choose Branch:</label>
-  <input list="branchList" id="course" name="branch">
-  <datalist id="branchList">
-    <option value="Computer Science & Engineering">
-    <option value="Information Technology">
-    <option value="Mechanical Engineering">
-  </datalist>
+#### 6.1 Starting From Scratch: What Is HTML5 Canvas?
 
-  <button type="submit">Submit Application</button>
-</form>
-```
+**Definition:** The <canvas> element creates a blank rectangular pixel-based drawing surface
+(bitmap) inside a web page on which shapes, paths, images, animations, and charts are painted
+dynamically using JavaScript.
+**Default Size:** If width and height attributes are omitted, a canvas defaults to 300 px × 150 px
+with no visible border.
+Coordinate System (Critical Exam Concept!):
+The origin (0, 0) sits at the TOP-LEFT corner of the canvas.
+X increases moving RIGHT; Y increases moving DOWNWARD (opposite of standard math
+graphs!).
+
+#### 6.2 The 4-Step Canvas Drawing Workflow
+
+1. **Step 1 — Declare Container:** Add <canvas id="myCanvas" width="400" height="200">
+</canvas> in the document.
+2. **Step 2 — Grab 2D Rendering Context:** Call const ctx = canvas.getContext("2d"); — this
+context object holds all drawing tools (brushes, colors, shapes).
+3. **Step 3 — Configure Paint Styles:** Set ctx.fillStyle (fill color/gradient), ctx.strokeStyle
+(outline color), and ctx.lineWidth.
+Fundamentals of Web Technologies • UNIT–3: HTML5
+
+4. **Step 4 — Invoke Drawing Commands:** Draw rectangles, lines, circular arcs, or text labels onto
+the pixel grid.
+<canvas id="board" width="300" height="150" style="border:1px solid #333;">
+</canvas>
+// JavaScript 2D Drawing Example:
+const c = document.getElementById("board");
+const ctx = c.getContext("2d");
+ctx.fillStyle = "#0369a1";
+ctx.fillRect(20, 20, 100, 60);             // Filled rectangle
+ctx.beginPath();
+ctx.arc(200, 75, 40, 0, 2 * Math.PI);      // Full circle (0 to 2π radians)
+ctx.stroke();                              // Draw circle outline
+(a) Canvas Coordinate System
+(0, 0) +X
++Y
+fillRect() arc()
+moveTo() → lineTo() → stroke()
+(b) 4-Step Drawing Pipeline
+
+### 1. Create <canvas id="c">
+
+
+### 2. Get ctx = c.getContext("2d")
+
+
+### 3. Set fillStyle / strokeStyle
+
+
+### 4. Draw Rects, Arcs, Paths, Text
+
+**Figure 5:** HTML5 Canvas Top-Left Coordinate Grid and 4-Step Drawing Pipeline
+
+#### 6.3 Essential Canvas 2D Context Methods Reference
+
+Category 2D Context Method / Property What It Draws / Does
+Rectangles fillRect(x, y, w, h)
+strokeRect(x, y, w, h)
+clearRect(x, y, w, h)
+Draws solid filled rectangle; draws outlined rectangle;
+erases rectangular area to transparent
+Paths &
+Lines
+beginPath(),
+moveTo(x,y),
+lineTo(x,y), stroke(),
+fill()
+Starts a fresh path, lifts pen to start point, connects line
+segments, then paints outline or interior
+Circles &
+Arcs
+arc(cx, cy, r, start,
+end)
+Draws circular arc centered at (cx, cy) with radius r; full
+
+$$circle = 0 to 2π (2 * Math.PI)$$
+
+Text &
+Styles
+fillStyle,
+strokeStyle,
+font, fillText(txt, x,
+y)
+Sets fill/stroke color or gradient, sets font size/family, and
+renders crisp text labels
+Fundamentals of Web Technologies • UNIT–3: HTML5

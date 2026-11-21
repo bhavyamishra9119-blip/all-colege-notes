@@ -1,63 +1,229 @@
-### 1. Fundamental Principles: The Internet vs. The World Wide Web
+### 1. Technical Definitions & 12-Point Internet vs. WWW Analysis
 
-Understanding the structural boundary between the Internet transport fabric and the World Wide Web hypermedia application is the cornerstone of web engineering.
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-> 🟢 **Rigorous Technical Definition: The Internet**
-> A globally coordinated, packet-switched network of interconnected computing hardware and communications infrastructure governed by the **TCP/IP protocol suite**. It provides transparent physical transport pipelines for routing raw binary datagrams across subsea fiber cables, satellite uplinks, and enterprise routers regardless of device hardware vendor.
+B.TECH • FUNDAMENTALS OF WEB TECHNOLOGIES • UNIT-I (6 HOURS)
+**Unit-I:** Internet, World Wide Web, Browsers,
+Servers, HTTP & Web-Casting
+**Official Syllabus Coverage:** Introduction to Internet & World Wide Web • Evolution & History of WWW • Application
+Areas of Internet • Requirements for Working with Internet & WWW • Web Browsers • Web Servers • Hypertext
+Transfer Protocol (HTTP) • Searching & Web-Casting Techniques
+**UNIT-I:** FUNDAMENTALS OF WEB TECHNOLOGIES (6 HRS)
 
-> 🟢 **Rigorous Technical Definition: The World Wide Web (WWW)**
-> An abstract cyberspace application and distributed hypermedia information retrieval system operating atop the physical Internet infrastructure. It consists of interlinked documents and multimedia resources addressed globally via **Uniform Resource Locators (URLs)** and transferred using **HTTP/HTTPS**.
+### 1. Internet & WWW Basics
 
----
+- Internet vs. WWW
+- History & Web 1.0–3.0
+- Application Areas
+- HW, SW, ISP & Protocols
+- IP, DNS & URL Anatomy
 
-### 2. Comprehensive 12-Point Comparative Matrix
+### 2. Core Web Architecture
 
-In university examinations, differentiating the Internet from the World Wide Web carries 6 to 10 marks:
+- Web Browsers & Engines
+- Web Servers (Static/Dyn)
+- HTTP Request & Response
+- HTTP Methods & Codes
+- HTTPS & HTTP/1.1–3
 
-| # | Dimension | The Internet | The World Wide Web (WWW) |
-| :--- | :--- | :--- | :--- |
-| **1** | **Fundamental Nature** | Vast physical & logical network of interconnected hardware, cables, and routers. | Cyberspace collection of hyperlinked multimedia documents and online software resources. |
-| **2** | **Year of Origin** | **1969** (Launch of ARPANET by US Department of Defense DARPA). | **1989** (Invented by Sir Tim Berners-Lee at CERN, Switzerland). |
-| **3** | **OSI Layer** | Operates across lower layers: Physical, Data Link, Network, and Transport. | Operates strictly at Layer 7: the **Application Layer**. |
-| **4** | **Governing Protocols** | Driven by IP (IPv4 / IPv6), TCP, UDP, BGP, ICMP, ARP, RIP. | Driven by HTTP, HTTPS, WebSockets, WebRTC. |
-| **5** | **Core Purpose** | Transports raw binary packets between endpoints reliably. | Structures, formats, and navigates multimedia hypermedia. |
-| **6** | **Dependency Relation** | **Completely independent.** It existed 20 years before the Web and functions without it. | **Completely dependent on the Internet.** The Web cannot exist without the Internet backbone. |
-| **7** | **Addressing Scheme** | Hardware MAC addresses (48-bit) and logical IP addresses (32/128 bit). | Uniform Resource Locators (URLs) and URIs (e.g. `https://mmumullana.org`). |
-| **8** | **Services Encompassed** | Encompasses the Web, Email (SMTP/IMAP), File Transfer (FTP), Shells (SSH), VoIP. | Encompasses websites, web applications, REST APIs, and hypermedia DOM trees. |
-| **9** | **Client Software** | Operating system networking stack, terminal clients, socket utilities. | Web Browsers (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari). |
-| **10** | **Physical Hardware** | Submarine fiber cables, repeaters, cellular towers, ISP core routers. | Web hosting server machines, disk arrays, HTTP daemons, database clusters. |
-| **11** | **Central Concept** | Packet switching, packet headers, hop-by-hop routing, congestion control. | Hypertext, hyperlinks, DOM trees, CSS cascades, rendering engines. |
-| **12** | **Governing Entities** | IETF (Internet Engineering Task Force), ICANN, IANA, ITU. | W3C (World Wide Web Consortium), WHATWG. |
+### 3. Discovery & Delivery
 
----
+- Search Engine Pipeline
+- Crawling, Indexing, Rank
+- Boolean Search Operators
+- Web-Casting (Push/Pull)
+- Streaming, RSS & Unicast
+**Figure 1:** Master Topic Map covering all eight syllabus modules of Unit-I: Fundamentals of Web Technologies.
 
-<example level="easy" title="Level 1 (Easy): Categorizing Internet Services vs Web Applications">
-**Problem Statement:**
-Categorize each of the following technologies as belonging strictly to the **Internet Infrastructure Layer** or the **World Wide Web (WWW) Application Layer**:
-1. Domain Name System (DNS) server operating on UDP port 53.
-2. A single-page interactive student portal loaded over HTTPS.
-3. An SSH terminal shell session connecting to a remote Linux server on port 22.
-4. An HTML5 video element streaming via native browser controls.
+### 1. Introduction to Internet and World Wide Web (WWW)
 
----
 
-**Step 1 🚀: Analyze DNS (Port 53)**
-- Operates at the transport/network abstraction level to translate domain names into IP addresses.
-- **Classification:** **Internet Infrastructure Layer**.
+#### 1.1 What Is the Internet?
 
-**Step 2 ⚡: Analyze HTTPS Student Portal**
-- Involves browser DOM rendering, HTML/CSS assets, and HTTP application transactions.
-- **Classification:** **World Wide Web Application Layer**.
+**Definition:** The Internet (short for Interconnected Network) is a massive, global "network of
+networks" linking billions of heterogeneous computers, servers, routers, smartphones, and IoT
+devices across the world using standardized communication protocols—primarily the TCP/IP
+protocol suite.
+**Decentralized Infrastructure:** No single company, country, or central computer owns or controls
+the Internet. Data travels across redundant physical links (undersea fiber-optic cables, copper
+lines, Wi-Fi, cellular towers, satellites) broken into small chunks called packets (Packet
+Switching).
+Key Services Running Over the Internet: The Internet is the underlying physical and networking
+highway supporting numerous independent services—including the World Wide Web
+(HTTP/HTTPS), Email (SMTP/IMAP/POP3), File Transfer (FTP/SFTP), Remote Login (SSH),
+and Voice/Video Calling (VoIP).
+**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
 
-**Step 3 🎯: Analyze SSH Terminal (Port 22)**
-- Runs directly over TCP transport independently of web browsers and HTTP.
-- **Classification:** **Internet Service (Non-Web)**.
 
-**Step 4 🏁: Analyze HTML5 Video Tag**
-- Embedded in HTML markup and parsed by the browser layout engine.
-- **Classification:** **World Wide Web Application Layer**.
+#### 1.2 What Is the World Wide Web (WWW)?
 
-<div class="example-answer-box">
-🎯 1: Internet Infrastructure | 2: World Wide Web | 3: Internet Service (Non-Web) | 4: World Wide Web.
-</div>
-</example>
+**Definition:** The World Wide Web (WWW or simply "the Web") is a global information-sharing
+system built on top of the Internet that allows users to access interlinked hypertext and
+hypermedia documents (web pages containing text, images, audio, video, and clickable
+hyperlinks) via a Web Browser.
+
+**Three Core Technical Pillars of the WWW:**
+
+1. **URL (Uniform Resource Locator):** A globally unique address specifying where a resource
+**resides on the Web (e.g., https:** //www.example.edu/notes/unit1.pdf).
+2. HTTP / HTTPS (Hypertext Transfer Protocol): The application-layer request–response
+protocol governing how browsers and web servers exchange web documents.
+3. **HTML (HyperText Markup Language):** The standard markup language defining the structure
+and hyperlinks of web pages.
+**Key Analogy (Exam Favorite):** Think of the Internet as the physical network of roads, highways,
+and traffic rules, while the World Wide Web is just one major service (like delivery trucks carrying
+hyperlinked books) traveling on top of those roads.
+**Table 1:** Core Comparison Matrix — Internet vs. World Wide Web (WWW)
+Comparison
+Parameter Internet World Wide Web (WWW)
+Nature Global hardware & networking
+infrastructure ("network of networks")
+Software-based information system running
+over the Internet
+Primary Purpose Connects devices worldwide for raw packet
+transmission
+Publishes, links, and retrieves
+hypertext/hypermedia web pages
+Core Protocols TCP/IP (Transmission Control Protocol /
+Internet Protocol)
+HTTP / HTTPS (built on top of TCP/IP)
+Origin / Pioneers ARPANET (1969, US DoD); TCP/IP by Vint
+Cerf & Bob Kahn (1974/1983)
+Invented by Sir Tim Berners-Lee at CERN
+(1989–1991)
+Dependency Can exist independently without the Web
+(e.g., Email, FTP, SSH)
+Strictly requires the Internet (or an IP
+network) to operate
+Governing
+Bodies
+IETF (protocols), ICANN (domains & IPs),
+ISOC
+W3C (World Wide Web Consortium —
+HTML, CSS, Web standards)
+**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+
+
+### 2. Evolution and History of the World Wide Web
+
+
+#### 2.1 Historical Milestones (From ARPANET to Modern Web)
+
+1969 — ARPANET (Precursor of the Internet): The U.S. Department of Defense's Advanced
+Research Projects Agency launched ARPANET, connecting four university computers (UCLA,
+Stanford, UCSB, Utah) using packet switching.
+1974–1983 — Birth of TCP/IP & DNS: Vint Cerf and Bob Kahn designed TCP/IP; on January 1,
+1983, ARPANET officially adopted TCP/IP as its standard protocol—widely regarded as the
+birthday of the modern Internet. Paul Mockapetris introduced the Domain Name System (DNS) in
+1983.
+1989 — Tim Berners-Lee's Proposal at CERN: British computer scientist Sir Tim Berners-Lee
+**wrote "Information Management:** A Proposal" at CERN (Geneva, Switzerland) to help scientists
+share linked documents seamlessly across incompatible computers.
+1990–1991 — First Web Browser, Server & Website: Berners-Lee built the first web
+browser/editor (WorldWideWeb, later renamed Nexus), the first web server (CERN httpd), and
+published the world's first webpage (info.cern.ch) in August 1991.
+1993 — Public Release & Mosaic Browser: CERN placed WWW software into the public
+domain (royalty-free) in April 1993. Marc Andreessen and Eric Bina released NCSA Mosaic—the
+first popular graphical web browser capable of displaying inline images alongside text—sparking
+explosive public adoption.
+1994 — Founding of W3C & Netscape Navigator: Tim Berners-Lee founded the World Wide
+Web Consortium (W3C) at MIT to maintain open Web standards; Netscape Navigator
+popularized SSL encryption and JavaScript (1995).
+2000s–Present — Interactive, Mobile & Semantic Web: Rise of AJAX and social platforms
+(Web 2.0), HTML5 & responsive mobile web, universal HTTPS encryption, cloud APIs, HTTP/2 &
+HTTP/3, and AI/decentralized Semantic Web initiatives (Web 3.0).
+**Evolution Timeline:** From Packet-Switched ARPANET to Web 3.0
+1969
+ARPANET Launch
+1983
+TCP/IP & DNS
+(Modern Internet)
+1989–1991
+**Berners-Lee:** WWW
+1993–1994
+Mosaic & W3C
+(Web 1.0 Era)
+2004–2015
+Web 2.0 (Social/AJAX)
+2016–Present
+Web 3.0 / Semantic
+AI, Cloud, HTTP/3
+**Figure 2:** Chronological evolution of the Internet and World Wide Web across foundational milestones and Web
+generations.
+**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+
+
+#### 2.2 Generations of the World Wide Web (Web 1.0 vs. Web 2.0 vs. Web 3.0)
+
+Web 1.0 (The Static / Read-Only Web, ~1991–2004): Consisted primarily of static HTML pages
+published by organizations; users were passive consumers who could only read information with
+minimal interactivity (e.g., early Yahoo directories, static brochure sites).
+Web 2.0 (The Social / Read-Write Web, ~2004–Present): Transformed the Web into a
+participatory platform powered by dynamic server backends, AJAX, CSS3, and APIs. Users both
+read and create content—blogs, wikis, video sharing, social networks, and collaborative web apps
+(e.g., Wikipedia, YouTube, GitHub, Google Docs).
+Web 3.0 (The Semantic / Intelligent / Read-Write-Execute Web): Emphasizes machine-
+understandable metadata (RDF, OWL, Linked Data), AI-driven personalization, ubiquitous IoT
+connectivity, and decentralized user-owned identity/data architectures.
+**Table 2:** Generation Comparison Matrix — Web 1.0 vs. Web 2.0 vs. Web 3.0
+Dimension Web 1.0 (Static Web) Web 2.0 (Social Web)
+Web 3.0 (Semantic / Intelligent
+Web)
+Interaction
+Mode
+Read-Only (one-way
+broadcast)
+Read-Write (two-way
+interactive)
+Read-Write-Execute (intelligent &
+autonomous)
+Content Creator Website owners /
+companies only
+Users & communities
+(UGC)
+Users, AI agents & linked
+knowledge graphs
+Core
+Technologies
+Static HTML, HTTP/1.0,
+CGI
+AJAX, JavaScript,
+XML/JSON, REST APIs
+Semantic Web (RDF/OWL), AI/ML,
+Decentralized APIs
+Typical
+Examples
+Early Britannica Online,
+static portals
+Wikipedia, YouTube,
+Facebook, Amazon
+Knowledge graphs, AI assistants,
+decentralized apps
+
+### 3. Application Areas of the Internet
+
+**Why the Internet Is Ubiquitous:** By combining instant global reach with low transmission cost,
+the Internet serves as the primary operational backbone across communication, commerce,
+academia, governance, and engineering.
+**Table 3:** Major Application Areas of the Internet — Core Services & Real-World Impact
+Application Domain Key Internet-Powered Services Core Benefits / Examples
+
+### 1. Communication &
+
+Collaboration
+Email (SMTP/IMAP), Instant
+Messaging, VoIP, Video
+Conferencing
+Real-time global text, voice, and video
+collaboration (Gmail, Zoom, Slack, Teams).
+
+### 2. E-Commerce &
+
+Digital Marketing
+Online marketplaces (B2C, B2B,
+C2C), digital catalogs, payment
+gateways
+24×7 borderless buying/selling, order tracking,
+personalized recommendations (Amazon,
+Flipkart).
+**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes

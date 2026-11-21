@@ -1,65 +1,168 @@
-### 1. Translators: Compiler vs. Interpreter vs. Assembler
+### 5. Translators, 4-Stage Compilation Pipeline & Process Memory Layout
 
-| Comparative Dimension | Compiler | Interpreter | Assembler |
-| :--- | :--- | :--- | :--- |
-| **Input Source** | High-level language (C, C++, Rust). | High-level script (Python, JS, Ruby). | Assembly language mnemonics (8086, x86). |
-| **Translation Unit** | Scans entire translation unit at once. | Interprets statement-by-statement. | 1-to-1 conversion of mnemonic to opcode. |
-| **Intermediate Object** | Generates relocatable object file (`.o`/`.obj`). | No standalone object file produced. | Generates relocatable machine code. |
-| **Execution Speed** | Extremely fast direct hardware execution. | Slower due to runtime interpretation overhead. | Maximum execution speed on target CPU. |
-| **Error Reporting** | Compiles list of all syntax errors at once. | Halts execution immediately on first error. | Reports syntax errors during assembly pass. |
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
----
+Criterion Syntax Semantics
+C Code
+Example
+int x = 10 (Missing ; →
+Syntax Error)
+if x > 5 {} (Missing () →
+Syntax Error)
+int avg = (a + b) / 0; (Valid syntax, illegal
+math)
+int avg = a + b / 2; (Valid syntax, wrong
+formula meaning)
 
-### 2. The 4-Stage C Compilation Pipeline
+#### 2.6 Memory Layout of a C Program
 
-When invoking `gcc prog.c -o prog.exe`, four distinct system subsystems execute in pipeline order:
+**Overview:** When the operating system loads a compiled C program into main memory (RAM) for
+execution, its virtual address space is systematically divided into five distinct memory segments
+from lowest address to highest address:
+1. **Text (Code) Segment:** Stores compiled binary machine instructions of the program. Usually
+read-only and shareable across processes so accidental memory writes cannot corrupt
+executable code.
+2. **Initialized Data Segment (DS):** Stores global and static variables that are explicitly
+initialized by the programmer to a non-zero value (e.g., int count = 5; or static float
+rate = 2.5;).
+3. Uninitialized Data Segment (BSS — Block Started by Symbol): Stores global and static
+variables that are not explicitly initialized (or initialized to 0). Automatically zero-initialized by
+the OS loader before main() begins.
+4. **Heap Segment:** Dedicated to dynamic memory allocation at runtime (managed manually by
+the programmer via malloc(), calloc(), realloc(), and released via free()). Grows
+upward toward higher memory addresses.
+5. **Stack Segment:** Follows LIFO (Last-In, First-Out) order. Stores local variables, function
+parameters, and return addresses inside stack frames (activation records) created on every
+function call and destroyed automatically on return. Grows downward toward lower memory
+addresses.
+High Address
+0xFFFFFFFF
+Low Address
+0x00000000
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 680 285" width="100%" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <marker id="cc-arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-        <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
-      </marker>
-    </defs>
-    <rect x="5" y="5" width="670" height="275" rx="12" class="schematic-bg" fill="rgba(15,23,42,0.75)" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="5 4" />
-    <text x="340" y="24" text-anchor="middle" fill="#38bdf8" font-size="12.5" font-weight="bold" letter-spacing="1">THE 4-STAGE GCC COMPILATION PIPELINE (prog.c → prog.exe)</text>
-    <!-- Stage 0: prog.c -->
-    <rect x="85" y="34" width="510" height="32" rx="7" fill="rgba(30,58,138,0.85)" stroke="#60a5fa" stroke-width="1.8" />
-    <text x="340" y="54" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">[ prog.c ] — Raw C Source Code (Headers, Macros, Functions)</text>
-    <line x1="340" y1="66" x2="340" y2="84" stroke="#38bdf8" stroke-width="2" marker-end="url(#cc-arr)" />
-    <text x="352" y="79" fill="#fde047" font-size="10" font-weight="bold">1. Preprocessor (cpp)</text>
-    <!-- Stage 1: prog.i -->
-    <rect x="85" y="86" width="510" height="32" rx="7" fill="rgba(15,118,110,0.85)" stroke="#2dd4bf" stroke-width="1.8" />
-    <text x="340" y="106" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">[ prog.i ] — Expanded Pure C (Stripped comments, expanded #include &amp; #define)</text>
-    <line x1="340" y1="118" x2="340" y2="136" stroke="#38bdf8" stroke-width="2" marker-end="url(#cc-arr)" />
-    <text x="352" y="131" fill="#fde047" font-size="10" font-weight="bold">2. Compiler Proper (cc1)</text>
-    <!-- Stage 2: prog.s -->
-    <rect x="85" y="138" width="510" height="32" rx="7" fill="rgba(88,28,135,0.85)" stroke="#c084fc" stroke-width="1.8" />
-    <text x="340" y="158" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">[ prog.s ] — Target Assembly Code (x86/ARM Mnemonic Instructions)</text>
-    <line x1="340" y1="170" x2="340" y2="188" stroke="#38bdf8" stroke-width="2" marker-end="url(#cc-arr)" />
-    <text x="352" y="183" fill="#fde047" font-size="10" font-weight="bold">3. Assembler (as)</text>
-    <!-- Stage 3: prog.o -->
-    <rect x="85" y="190" width="510" height="32" rx="7" fill="rgba(124,45,18,0.85)" stroke="#fb923c" stroke-width="1.8" />
-    <text x="340" y="210" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">[ prog.o / prog.obj ] — Relocatable Object Binary (Unresolved external symbols)</text>
-    <line x1="340" y1="222" x2="340" y2="240" stroke="#38bdf8" stroke-width="2" marker-end="url(#cc-arr)" />
-    <text x="352" y="235" fill="#fde047" font-size="10" font-weight="bold">4. Linker (ld + libc.a / CRT)</text>
-    <!-- Stage 4: prog.exe -->
-    <rect x="85" y="242" width="510" height="32" rx="7" fill="rgba(6,78,59,0.9)" stroke="#34d399" stroke-width="2" />
-    <text x="340" y="262" text-anchor="middle" fill="#a7f3d0" font-size="12.5" font-weight="bold">[ prog.exe / a.out ] — Executable Binary (Resolved addresses, ready for OS Loader)</text>
-  </svg>
-</div>
+### 5. STACK Segment
 
----
+Grows Downward ↓ (LIFO)
+Free Virtual Space
 
-### 3. C Process Virtual Memory Layout in RAM
+### 4. HEAP Segment
 
-When an executable binary is launched by the OS loader, it is allocated a private virtual memory address space:
+Grows Upward ↑ (Dynamic)
 
-| Memory Segment | Growth Direction | Stored Content & Characteristics |
-| :--- | :--- | :--- |
-| **Stack Segment** | **Grows Downwards (High ➔ Low)** | Local automatic variables (`auto`), function parameter lists, return addresses, and stack activation records. Automatically allocated and released. |
-| **Free Pool Boundary** | Stack/Heap Interface | Memory area where stack and heap grow toward each other. Depletion causes Stack Overflow. |
-| **Heap Segment** | **Grows Upwards (Low ➔ High)** | Dynamically allocated memory at runtime via `malloc()`, `calloc()`, `realloc()`. Must be explicitly released via `free()`. |
-| **BSS Segment** | Static / Fixed | Uninitialized global and static variables. Automatically initialized to zero by the OS loader prior to `main()`. |
-| **Initialized Data** | Static / Fixed | Global and static variables explicitly initialized with non-zero literals in source code (e.g., `int global_x = 100;`). |
-| **Text / Code Segment** | Static / Low Memory (0x0) | Read-only compiled CPU binary instructions. Protected by OS from runtime overwrite attempts. |
+### 3. Uninitialized Data (BSS)
+
+
+### 2. Initialized Data (DS)
+
+
+### 1. Text / Code Segment (RO)
+
+**Stores:** Local variables, params, return addresses
+e.g., int a = 10; inside main()
+**Stores:** Runtime dynamic allocations
+e.g., malloc(), calloc(), free()
+**Stores:** Global/static uninitialized (= 0) → int g;
+**Stores:** Global/static initialized → int g = 5;
+**Stores:** Compiled binary machine instructions
+**Figure 7:** Five-segment virtual memory layout of an executing C program showing opposing Heap and Stack
+growth directions.
+**Unit-I:** Programming Fundamentals & Problem Solving • Computational & Problem Solving in C
+
+
+#### 2.7 Input / Output Functions in C
+
+**Classification:** Standard C library I/O functions (declared in <stdio.h>) fall into two categories:
+Formatted I/O (supports format specifiers to read/display any data type cleanly) and
+Unformatted I/O (reads/writes raw characters or strings without format specifiers).
+
+### 1. Formatted Output — printf():
+
+**Syntax:** printf("format string", arg1, arg2, ...);
+**Formatting Controls:** Width & precision specifiers control alignment and decimals—e.g.,
+%8.2f prints a float right-aligned in an 8-character field with 2 decimal places; %-8d prints an
+integer left-aligned.
+**Return Value:** Returns the total number of characters successfully printed (a classic MCQ
+exam question!).
+
+### 2. Formatted Input — scanf():
+
+**Syntax:** scanf("format string", &var1, &var2, ...);
+**Address-of Operator (&):** Mandatory before primitive variables (&age, &marks) so
+scanf() knows the exact RAM address where user input must be stored. (Strings/character
+arrays do NOT use &.)
+**Return Value:** Returns the number of input items successfully matched and assigned.
+
+### 3. Unformatted I/O Functions:
+
+Character I/O: getchar() reads a single character from stdin (waits for Enter);
+putchar(ch) writes a single character to stdout. (Non-standard console variants getch()
+and getche() in <conio.h> read a key without waiting for Enter.)
+String I/O: puts(str) prints a string and automatically appends a newline \n; fgets(str,
+size, stdin) safely reads a full line including spaces (preferred over legacy gets(), which
+was removed in C11 due to buffer-overflow vulnerabilities).
+**Table 8:** Summary Reference of Standard C Input/Output Functions & Common Format Specifiers
+Function Category Data Type Example Usage & Key Note
+printf() Formatted
+Output
+All primary
+types
+printf("PI = %.2f\n", 3.14159); →
+prints PI = 3.14
+scanf() Formatted Input All primary
+types
+scanf("%d %f", &id, &gpa); → &
+required for variables
+getchar() /
+putchar()
+Unformatted I/O Single char char c = getchar(); putchar(c); →
+buffered single char
+fgets() / puts() Unformatted I/O Strings
+(char[])
+fgets(name, 50, stdin);
+puts(name); → reads spaces safely
+**Core Format Specifiers:** %d (int), %u (unsigned int), %ld (long), %f (float), %lf
+(double), %c (char), %s (string), %x (hex), %o (octal), %% (literal %).
+**Unit-I:** Programming Fundamentals & Problem Solving • Computational & Problem Solving in C
+
+
+#### 2.8 Indentation and Comments
+
+
+**Indentation:**
+
+**Definition:** The systematic use of leading spaces (typically 4 spaces) or tabs at the beginning
+of lines to visually represent block hierarchy (statements inside main(), if, else, or loops).
+**Compiler vs. Human Role:** C is a free-form language—the compiler ignores indentation and
+extra whitespace outside strings. However, proper indentation is essential for readability,
+preventing logical errors (like misreading dangling-else pairing), and maintaining team
+codebases.
+Standard Style (K&R / Allman): Indent every level inside curly braces { ... } consistently
+by 4 spaces and align closing braces with the opening header.
+
+**Comments:**
+
+**Definition:** Non-executable explanatory annotations embedded inside source code to
+document program logic, formulas, or assumptions. Stripped completely by the
+preprocessor/compiler—they consume zero memory and add zero runtime overhead.
+1. **Single-Line Comment (C99+):** Starts with // and extends to the end of the current line
+(e.g., // Convert Celsius to Fahrenheit).
+2. **Multi-Line (Block) Comment (ANSI C89+):** Starts with /* and ends with */; can span
+one or many lines.
+Critical Exam Rule (No Nesting of Block Comments): C does NOT allow nesting /* ...
+- / inside another /* ... */. Writing /* outer /* inner */ still outer */ causes a
+compile error because the first */ immediately closes the entire comment!
+
+> 📝 **Worked Example: Clean Indentation & Proper Commenting Style in C**
+
+/* Program: Compute Simple Interest
+**Author:** B.Tech Unit-I Lab */
+#include <stdio.h>
+int main() {
+float p = 1000.0f, r = 5.0f, t = 2.0f, si;
+si = (p * r * t) / 100.0f;      // Formula: SI = (P * R * T) / 100
+if (si > 0) {
+printf("Simple Interest = %.2f\n", si);
+}
+return 0;                       // Return 0 indicates successful execution
+}
+**Unit-I:** Programming Fundamentals & Problem Solving • Computational & Problem Solving in C

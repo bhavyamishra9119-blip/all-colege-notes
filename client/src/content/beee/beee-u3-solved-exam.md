@@ -1,197 +1,181 @@
-### MMDU Official University Solved Examination Questions (Unit 3)
-**Course:** Basic Electrical & Electronics Engineering (`BELE-001`)  
-**Pattern:** Sections A (1 Mark Compulsory), B (2 Marks Analytical), C (6 Marks In-Depth), D (6 Marks Design/Long)
-
----
-<example level="easy" title="Question 7 (1 Mark): Barrier Potential of Silicon vs. Germanium">
-**Question:**  
-Why is the forward knee voltage of Silicon (0.7V) higher than that of Germanium (0.3V)?
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Bandgap Atomic Dimension: Si (Eg = 1.1 eV, tightly bound valence electrons) vs Ge (Eg = 0.67 eV).
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Barrier Height Equation:
-
-        `V₀ = VT \ln(NA ND / nᵢ²)`. Higher bandgap in Si yields lower intrinsic carrier density `nᵢ` ⟹ higher built-in potential `V₀`.
-```
-
-Silicon's larger energy bandgap (1.1 eV vs 0.67 eV) creates a stronger internal electric field across the depletion region, requiring 0.7V of forward bias to overcome compared to 0.3V for Germanium.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 7 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="easy" title="Question 8 (1 Mark): Peak Inverse Voltage in Bridge vs. Center-Tapped Rectifier">
-**Question:**  
-Compare the Peak Inverse Voltage (PIV) rating demanded of diodes in Bridge vs Center-Tapped rectifiers.
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Reverse Voltage Stress: Bridge Diode sees Vₘ | Center-Tapped Diode sees 2 Vₘ.
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution PIV Ratio Formulation:
-
-        `PIVBᵣᵢdgₑ = Vₘ` versus `PIVCₑₙₜₑᵣ₋Tₐₚ = 2 Vₘ`.
-```
-
-In a center-tapped full-wave rectifier, each non-conducting diode must withstand the full secondary voltage `2 Vₘ`. In a bridge rectifier, the reverse voltage divides across two reverse diodes, requiring only `Vₘ` rating.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 8 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="easy" title="Question 9 (1 Mark): BJT Base Width Design Principle">
-**Question:**  
-Why is the base region of a BJT manufactured ultra-thin and lightly doped?
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Carrier Diffusion Path: Emitter (Heavy Injection) ➔ Base (Minimal Recombination) ➔ Collector (Extraction).
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Recombination Minimization Model:
-
-        `Base Recombination &lt; 2% ⇒ IC ≈ IE ⇒ α = IC/IE ≈ 0.98–0.99`.
-```
-
-A thin, lightly doped base ensures that almost all injected minority carriers traverse the base without recombining, allowing over 98% of carriers to be swept into the collector for high current gain β.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 9 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="medium" title="Question 15 (2 Marks): Zener Shunt Regulator Load Current Calculation">
-**Question:**  
-A 10V Zener regulator has input Vᵢₙ = 20V, series resistor RS = 200Ω, and load RL = 1 kΩ. Calculate source current IS, load current IL, and Zener current IZ.
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Shunt Circuit Diagram: 20V DC ➔ RS (200Ω) ➔ Node VZ (10V) ➔ Parallel branches: Zener Diode & RL (1kΩ).
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Current Distribution Formulation:
-
-        `IS = (Vᵢₙ - VZ) / RS = (20 - 10) / 200 = 10 / 200 = 0.05  A = 50  mA`
-
-        `IL = VZ / RL = 10  V / 1000  Ω = 0.01  A = 10  mA`
-
-        `IZ = IS - IL = 50  mA - 10  mA = 40  mA`
-```
-
-The Zener diode safely conducts 40 mA, maintaining a steady 10V regulated output across the 1 kΩ load.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 15 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="hard" title="Question 19 (4 Marks): Derivation of Full-Wave Bridge Rectifier Ripple Factor">
-**Question:**  
-Derive the mathematical expression for Ripple Factor &gamma; of a Full-Wave Bridge Rectifier and prove it equals 0.482.
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Rectified Waveform: Pulsating DC with period T/2: v(t) = |Vₘ sin(ωt)|.
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Ripple Factor Derivation Trace:
-
-        `Ripple Factor &gamma; = Vₐc,ᵣₘₛ / Vdc = √{(Vᵣₘₛ/Vdc)² - 1}`
-
-        `Vdc = \frac{1}{π} ∫_0^π Vₘ \sin(θ) dθ = (2 Vₘ) / π ≈ 0.6366 Vₘ`
-
-        `Vᵣₘₛ = √{ \frac{1}{π} ∫_0^π Vₘ² \sin²(θ) dθ } = Vₘ / √2 ≈ 0.7071 Vₘ`
-
-        `Form Factor Kf = Vᵣₘₛ / Vdc = \frac{Vₘ / √2}{2 Vₘ / π} = π / (2 √2) ≈ 1.1107`
-
-        `&gamma; = √{(1.1107)² - 1} = √(1.2337 - 1) = √(0.2337) = 0.4834 ≈ 0.482`
-```
-
-The ripple factor evaluates to 0.482, indicating that AC harmonic content is less than half of the DC component without filtering.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 19 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="hard" title="Question 23 (6 Marks): BJT Common Emitter Input and Output Characteristics">
-**Question:**  
-Sketch and thoroughly explain the Input and Output static characteristics of an NPN Bipolar Junction Transistor in Common Emitter (CE) configuration. Define Early Effect (Base-Width Modulation) and explain how the BJT acts as a digital switch.
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Characteristic Plots: Input (IB vs VBE at constant VCE) | Output (IC vs VCE at constant IB showing Cutoff, Active, and Saturation).
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution 3 Operating Regimes & Early Effect:
-
-        `1. Cutoff (VBE ≤ 0, VCE = VCC): Both junctions reverse biased; IC ≈ 0 ⇒ Switch OFF (Open)`
-
-        `2. Saturation (VBE &gt; 0.7V, VCE ≈ 0.2V): Both junctions forward biased; IC = IC,ₛₐₜ ⇒ Switch ON (Closed)`
-
-        `3. Active (VBE &gt; 0.7V, VCE &gt; 1V): EBJ forward, CBJ reverse; linear relation IC = β IB ⇒ Linear Amplifier`
-
-        `Early Effect: As VCE &uarr; ⟹ Reverse bias on CBJ &uarr; ⟹ Depletion width &uarr; ⟹ Effective base width Wb &darr; ⟹ IC slopes upward`
-```
-
-The Early Effect causes collector current curves to have a slight positive slope in the active region; projecting these curves backward intercepts the negative voltage axis at the Early Voltage `-VA`.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 23 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
+### University Solved Examination Questions (Unit 3)
+
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+
+Input Characteristics (IB vs. VBE at constant VCE):
+Forward-diode shape; IB (in μA) shoots up once VBE > 0.7 V (Si).
+Raising VCE narrows the base → reduces base recombination → lowers IB slightly for a fixed
+VBE → curve shifts slightly right.
+**Input Resistance:** ri = ΔVBE / ΔIB → moderate (500 Ω – 2 kΩ).
+Output Characteristics (IC vs. VCE at constant IB):
+Saturation Region (0 < VCE < 0.2 V): IC climbs rapidly to the knee (VCE(sat) ≈ 0.2 V); collector
+current is limited by load resistor RC, not IB.
+Active Region (VCE > 0.2 V): Curves rise gently upward (Early effect); IC = βIB + ICEO.
+Cut-off Region (below IB = 0): Leakage current ICEO = (β + 1)ICBO remains.
+**Output Resistance:** ro = ΔVCE / ΔIC → moderate (10 – 50 kΩ).
+Why Most Popular? Only configuration delivering both high voltage gain AND high current
+gain → highest power gain (with 180° phase inversion).
+
+#### 10.4 Common Collector (CC / Emitter Follower) Configuration
+
+**Terminals:** Input = Base & Collector (VBC, IB)  |  Output = Emitter & Collector (VEC, IE).
+Input Characteristics (IB vs. VBC at constant VEC):
+Since VEC = VEB + VBC, raising VEC shifts the turn-on curve noticeably to the right.
+**Input Resistance:** Very high (100 kΩ – 500 kΩ).
+Output Characteristics (IE vs. VEC at constant IB):
+Because IE = (β + 1)IB ≈ IC, the output curve family closely mirrors CE output curves.
+**Output Resistance:** Very low (10 – 50 Ω).
+**Key Behavior:** Voltage gain Av ≈ 1 with 0° phase shift → emitter voltage tracks base voltage
+(hence Emitter Follower).
+**UNIT–3:** Semiconductor Devices & Applications and Transistors
+
+**CB Input:** IE vs VEB
+VEB
+IE VCB2>VCB1
+**CB Output:** IC vs VCB
+Sat. Active (IE2>IE1)
+Cut-off (IE=0)
+VCB
+**CE Input:** IB vs VBE
+VBE
+IB VCE2>VCE1
+**CE Output:** IC vs VCE
+Sat. Active (IB2>IB1)
+Cut-off (IB=0)
+VCE
+**CC Input:** IB vs VBC
+VBC
+IB VEC2>VEC1
+**CC Output:** IE vs VEC
+**Active:** IE=(β+1)IB
+VEC
+**Figure 12:** Input and Output Characteristics of BJT in CB, CE, and CC Configurations
+Parameter Common Base (CB) Common Emitter (CE) Common Collector (CC)
+Input / Output
+Ports
+Emitter–Base / Collector–
+Base
+Base–Emitter / Collector–
+Emitter
+Base–Collector / Emitter–
+Collector
+Input Resistance
+(Ri)
+Very Low (20 – 50 Ω) Moderate (500 Ω – 2 kΩ) Very High (100 – 500 kΩ)
+Output Resistance
+(Ro)
+Very High
+(100 kΩ – 1 MΩ)
+Moderate (10 – 50 kΩ) Very Low (10 – 50 Ω)
+Current Gain α < 1 (0.95 – 0.99) High (β = 20 – 500) Highest (γ = β + 1)
+**UNIT–3:** Semiconductor Devices & Applications and Transistors
+
+Parameter Common Base (CB) Common Emitter (CE) Common Collector (CC)
+Voltage Gain (Av) High (100 – 500) High (100 – 500) Unity (≈ 1)
+Power Gain (Ap) Moderate Highest (≈ 10,000) Low
+Phase Shift 0° (In-phase) 180° (Inverted) 0° (In-phase)
+Main Application High-frequency RF stages Audio & voltage amplifiers Impedance matching / Buffer
+
+### 11. Applications of Bipolar Junction Transistors
+
+
+#### 11.1 BJT as a Linear Amplifier (Active Region)
+
+**Operating Requirement:** The transistor must be DC-biased stably at a quiescent Q-point in the
+center of the Active Region (JE forward, JC reverse) so both positive and negative AC swings
+amplify without clipping.
+Step-by-Step Signal Amplification (CE Amplifier):
+
+### 1. A weak AC input signal (vin, e.g., in mV) is applied at the base terminal.
+
+2. During the positive input swing, VBE rises slightly → base current rises by ΔIB.
+3. Transistor action multiplies this change by β → collector current jumps by ΔIC = βΔIB.
+4. The large ΔIC flowing through collector load RC produces a large drop (ΔICRC).
+5. Because Vout = VCC − ICRC, an increase in IC pulls Vout downward → yields a strongly
+magnified, 180° phase-inverted output wave.
+**Practical Uses:** Audio speakers and microphone preamplifiers, hearing aids, radio/TV receiver
+stages, and biomedical sensor amplification.
+
+#### 11.2 BJT as an Electronic Switch (Cut-off & Saturation Regions)
+
+**Operating Principle:** Operates exclusively at the two extreme ends of its load line — Cut-off
+(OFF) and Saturation (ON) — switching millions of times per second with zero mechanical wear.
+State 1 — Switch OPEN / OFF (Cut-off Mode):
+Input Vin = 0 V (or < 0.7 V) → JE and JC are both reverse-biased.
+Base current IB = 0 → Collector current IC ≈ 0.
+Output voltage Vout = VCC − (0 × RC) = VCC (Digital Logic HIGH / 1).
+
+**State 2 — Switch CLOSED / ON (Saturation Mode):**
+
+High input voltage Vin drives base current past saturation threshold: IB ≥ IC(sat)
+β
+where
+IC(sat) ≈
+VCC
+RC
+.
+Both junctions become forward-biased; collector–emitter path behaves like a closed switch.
+Output voltage collapses to Vout = VCE(sat) ≈ 0.2 V ≈ 0 V (Digital Logic LOW / 0).
+**UNIT–3:** Semiconductor Devices & Applications and Transistors
+
+**Practical Uses:** Digital logic gates (NOT inverter, NAND, NOR), microcontroller drivers for LEDs,
+relays, buzzers, and DC motors, plus switching power supplies.
+
+#### 11.3 Additional Key BJT Applications
+
+Impedance Matching / Buffer Stage (CC Configuration): Very high input impedance avoids
+loading weak signal sources, while very low output impedance efficiently drives low-resistance
+loads like speakers.
+**Constant Current Source:** Uses the flat active-region collector current (nearly independent of
+VCE) to maintain steady bias currents inside analog ICs.
+High-Frequency RF Amplifier (CB Configuration): Eliminates Miller feedback capacitance,
+enabling stable amplification at VHF and UHF radio frequencies.
+(a) BJT as a CE Amplifier
+Weak vin
++VCC
+RC
+Large vout (180°)
+**Active Region:** ΔIC = βΔIB
+(b) BJT as an Electronic Switch
+Vin
+RB
++VCC
+RC
+
+$$Vin = LOW$$
+
+**OFF:** Vout=VCC
+
+$$Vin = HIGH$$
+
+**ON:** Vout≈0.2V
+Cut-off (OFF) ↔ Saturation (ON)
+**Figure 13:** Practical BJT Circuits — (a) Common-Emitter Amplifier and (b) Electronic Switch
+
+#### 11.4 Quick Exam-Revision Summary Table (Unit–3 High-Yield Values)
+
+Topic Key Constant / Formula Critical Exam Takeaway
+Band Theory Eg(Si) = 1.12 eV; Eg(Ge) = 0.67 eV Conductors: PTC; Semiconductors: NTC
+Extrinsic
+Doping
+n × p = ni2 (Mass Action Law) Both N-type & P-type crystals are electrically
+neutral
+p–n Junction &
+V–I
+Vγ = 0.7 V (Si), 0.3 V (Ge); VT ≈ 26 mVI0 doubles every 10 °C; Vγ drops 2 mV/°C
+**Rectifiers HWR:** η=40.6%, γ=1.21 | FWR:
+η=81.2%, γ=0.482
+Center-Tap PIV = 2Vm; Bridge PIV = Vm
+Clipper &
+Clamper
+**Clamper rule:** τ = RLC ≥ 10 × (T/2) Clipper slices shape; Clamper shifts DC
+level only
+BJT Gains &
+Modes
+IE = IB + IC; β = α/(1−α);
+
+$$ICEO = (β+1)ICBO$$
+
+Active → Amp; Cut-off/Sat → Switch; CE →
+180° inversion
+**UNIT–3:** Semiconductor Devices & Applications and Transistors

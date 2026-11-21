@@ -1,5 +1,5 @@
 // Auto-loaded from pure Markdown (.md) files in client/src/content/beee/*.md
-// No note content or LaTeX strings are stored inside JavaScript string literals.
+// Strictly aligned with 2026–27 B.Tech Curriculum from C:\Notes\B.Tech Notes 2026-27
 import { getSectionMarkdown } from '../content/markdownLoader.js';
 
 export const beeeSubjectDetails = {
@@ -10,39 +10,39 @@ export const beeeSubjectDetails = {
   "code": "BELE-001",
   "credits": 4,
   "instructor": "Prof. S. K. Mukherjee & Faculty",
-  "notesCount": "4 Units Simple & Colorful Illustrated Notes",
+  "notesCount": "4 Units Comprehensive 2026\u201327 Notes & Solved Papers",
   "rating": 5,
-  "description": "Textbook made super simple! Water-pipe analogies for circuits, gear-box models for transformers, turnstile models for diodes, and solved university numericals explained in plain English.",
+  "description": "Official 2026\u201327 B.Tech Curriculum: DC & AC circuits, KCL/KVL, Thevenin/Norton/Max Power theorems, Single-phase transformers, OC/SC tests, DC & Induction machines, Semiconductor physics, Diodes, BJT, Number systems, Boolean algebra, and K-Maps with university solved questions.",
   "banner": "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?auto=format&fit=crop&w=1200&q=80"
 };
 
 const unitsMeta = [
   {
     "unitNum": 1,
-    "title": "DC Circuits & AC Circuit Analysis (Made Super Simple)",
+    "title": "DC Circuits & Single-Phase AC Circuits",
     "examWeightage": "24 - 28 Marks",
     "readingTime": "35 mins",
-    "summary": "Circuit analysis explained with water pipes! Kirchhoff's Laws (Charge & Energy conservation), Thevenin's magic shortcut, Maximum Power bicycle analogy, and AC waves with R-L-C resonance.",
+    "summary": "Circuit analysis from scratch: Active vs Passive elements, Ideal vs Practical sources, Kirchhoff's Laws (KCL & KVL), Superposition, Thevenin's, Norton's & Maximum Power Transfer theorems, AC sinusoidal waveforms, R-L-C series resonance, and Power Factor triangle.",
     "sections": [
       {
         "sectionId": "u1-s1",
-        "title": "1. Voltage, Current & Electrical Sources (The Water Pipe Model)"
+        "title": "1. Voltage & Current Sources (Ideal vs Practical)"
       },
       {
         "sectionId": "u1-s2",
-        "title": "2. Kirchhoff's Laws (KCL & KVL Made Intuitive)"
+        "title": "2. Kirchhoff's Laws (KCL & KVL Made Rigorous)"
       },
       {
         "sectionId": "u1-s3",
-        "title": "3. Thevenin's Theorem & Maximum Power (The Ultimate Shortcut)"
+        "title": "3. Network Theorems: Superposition, Thevenin, Norton & Max Power"
       },
       {
         "sectionId": "u1-s4",
-        "title": "4. AC Waveforms: RMS, Average & Phase (Why Household Sockets Say 220V)"
+        "title": "4. Fundamentals of AC & Single-Phase R-L-C Circuits"
       },
       {
         "sectionId": "u1-s5",
-        "title": "5. Series R-L-C Circuit & Electrical Resonance (The Radio Tuning Magic)"
+        "title": "5. Resonance, Power Factor & Industrial Applications"
       },
       {
         "sectionId": "beee-u1-solved-exam",
@@ -52,22 +52,26 @@ const unitsMeta = [
   },
   {
     "unitNum": 2,
-    "title": "Transformers & Electrical Machines (The Magic Gearbox)",
+    "title": "Transformers & Electrical Machines",
     "examWeightage": "24 - 28 Marks",
     "readingTime": "35 mins",
-    "summary": "Transformers explained as magnetic gearboxes! Step-up vs Step-down, EMF equation derivation, Core vs Copper losses, OC/SC tests explained simply, DC Motor vs Generator working, and Fleming's Left & Right Hand Rules.",
+    "summary": "Magnetic materials & B-H hysteresis loops; Ideal vs Practical Single-Phase Transformer, EMF equation derivation, Equivalent circuit, Losses (Hysteresis & Eddy Current), OC/SC tests, DC Motor principle, Speed control, and 3-Phase/1-Phase Induction Motors.",
     "sections": [
       {
         "sectionId": "u2-s1",
-        "title": "1. Single-Phase Transformer Working & EMF Equation"
+        "title": "1. Magnetic Materials, B-H Characteristics & Hysteresis"
       },
       {
         "sectionId": "u2-s2",
-        "title": "2. Transformer Losses, Efficiency & The OC/SC Tests"
+        "title": "2. Transformer Working Principle, EMF Equation & Equivalent Circuit"
       },
       {
         "sectionId": "u2-s3",
-        "title": "3. DC Motors & Generators (Fleming's Hand Rules)"
+        "title": "3. Transformer Losses, Efficiency & The OC/SC Tests"
+      },
+      {
+        "sectionId": "u2-s4",
+        "title": "4. DC Motors, Speed Control & Induction Motors"
       },
       {
         "sectionId": "beee-u2-solved-exam",
@@ -77,26 +81,26 @@ const unitsMeta = [
   },
   {
     "unitNum": 3,
-    "title": "Semiconductors, Diodes & Transistors (BJT Made Simple)",
-    "examWeightage": "24 - 28 Marks",
-    "readingTime": "35 mins",
-    "summary": "Semiconductor band theory simplified; Doping (N-type vs P-type); The PN junction one-way turnstile; Zener voltage regulator design; Rectifier circuits comparison; Clippers & Clampers; BJT transistor explained with water valves.",
+    "title": "Semiconductor Devices, Diodes & Bipolar Junction Transistors (BJT)",
+    "examWeightage": "26 - 30 Marks",
+    "readingTime": "40 mins",
+    "summary": "Energy band theory of solids, Intrinsic vs Extrinsic semiconductors, P-N junction diode under forward & reverse bias, Breakdown mechanisms (Zener vs Avalanche), Rectifiers (Half-wave, Full-wave, Bridge), Clippers & Clampers, and BJT modes, configurations (CB, CE, CC) & characteristics.",
     "sections": [
       {
         "sectionId": "u3-s1",
-        "title": "1. Semiconductors & Doping (The Secret of Silicon)"
+        "title": "1. Band Theory of Solids & Semiconductor Physics"
       },
       {
         "sectionId": "u3-s2",
-        "title": "2. PN Junction Diode & The One-Way Turnstile"
+        "title": "2. P-N Junction Diode & V-I Characteristics"
       },
       {
         "sectionId": "u3-s3",
-        "title": "3. Rectifiers, Clippers & Clampers (AC to Clean DC)"
+        "title": "3. Rectifier Circuits, Filters, Clippers & Clampers"
       },
       {
         "sectionId": "u3-s4",
-        "title": "4. Bipolar Junction Transistor (BJT) — The Valve Analogy"
+        "title": "4. Bipolar Junction Transistors (BJT) Architecture & Characteristics"
       },
       {
         "sectionId": "beee-u3-solved-exam",
@@ -106,22 +110,26 @@ const unitsMeta = [
   },
   {
     "unitNum": 4,
-    "title": "Number Systems & Boolean Logic (How Computers Think)",
-    "examWeightage": "20 - 24 Marks",
+    "title": "Number Systems, Boolean Algebra & Digital Logic Circuits",
+    "examWeightage": "22 - 26 Marks",
     "readingTime": "35 mins",
-    "summary": "Counting in Decimal, Binary, Octal, and Hexadecimal; 2's complement subtraction with zero tears; BCD addition with the famous +6 correction; Excess-3 self-complementing magic; Boolean algebra laws; De Morgan's theorems proven with 4 NAND gates.",
+    "summary": "Positional number systems (Decimal, Binary, Octal, Hexadecimal) and mutual conversions; 1's and 2's complement subtraction; Digital codes (BCD, Excess-3, Gray); Postulates and theorems of Boolean Algebra; Logic gates & Universal implementations; Karnaugh Maps (2, 3, 4-variable K-Maps).",
     "sections": [
       {
         "sectionId": "u4-s1",
-        "title": "1. Number Systems & 2's Complement Subtraction"
+        "title": "1. Number Systems & Mutual Conversions"
       },
       {
         "sectionId": "u4-s2",
-        "title": "2. BCD Code (+6 Rule) & Excess-3 Self-Complementing Magic"
+        "title": "2. Binary Arithmetic & Complements (1's and 2's)"
       },
       {
         "sectionId": "u4-s3",
-        "title": "3. Boolean Algebra & De Morgan's Theorems"
+        "title": "3. Digital Number Codes: BCD, Excess-3 & Gray Code"
+      },
+      {
+        "sectionId": "u4-s4",
+        "title": "4. Boolean Algebra, Logic Gates & Karnaugh Maps (K-Maps)"
       },
       {
         "sectionId": "beee-u4-solved-exam",

@@ -1,241 +1,178 @@
-### MMDU Official University Solved Examination Questions (Unit 4)
-**Course:** Fundamentals of AI & ML (`BCSE-011`)  
-**Pattern:** Sections A (1 Mark Compulsory), B (2 Marks Analytical), C (6 Marks In-Depth), D (6 Marks Design/Long)
+### University Solved Examination Questions (Unit 4)
 
----
-<example level="easy" title="Question 10 (1 Mark): Limitation of Accuracy in Imbalanced Datasets">
-**Question:**  
-Calculate the accuracy of a naive classifier that predicts all transactions as non-fraudulent on a dataset with 990 genuine and 10 fraudulent samples.
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-> 📊 **Question Schematic / State Specification:**
-```
-Question Class Distribution: 99% Negative Class (Genuine) | 1% Positive Class (Fraud) | Classifier predicts all Negative.
-```
 
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Accuracy Paradox Formulation:
-
-        `Accuracy = (TP + TN) / Total = (0 + 990) / 1000 = 99.0%`. Yet Fraud Recall is `0 / 10 = 0%` (Complete Failure!).
-```
-
-Accuracy yields a deceptive score of 99.0% despite failing completely on the minority class of interest. In imbalanced domains, Precision, Recall, and F1-score must be used instead.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 10 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="easy" title="Question 11 (1 Mark): Why k-Nearest Neighbors is Termed a "Lazy Learner"">
-**Question:**  
-Why is the k-NN algorithm classified as a Lazy Learner rather than an Eager Learner?
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Training vs Inference Cost: Eager [Heavy Training, Instant Inference] vs Lazy [Zero Training, Heavy Distance Computation at Inference].
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Computation Delay Model:
-
-        `Training Time = O(1) [Simply stores data] ➔ Test Time = O(N · d) [Computes distances to all N points]`.
-```
-
-k-NN performs zero explicit generalization during training (it simply stores the training instances in memory). It defers all computation until query time, computing distances to every stored point upon inference.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 11 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="easy" title="Question 12 (1 Mark): The Apriori Principle in Frequent Itemset Mining">
-**Question:**  
-State the anti-monotonicity property of the Apriori principle that enables search space pruning.
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Pruning Lattice: If itemset (Beer, Diaper) is Infrequent ➔ Superset (Beer, Diaper, Milk) is guaranteed Infrequent!
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Anti-Monotone Lattice Formulation:
-
-        `Support(X &cup; Y) ≤ Support(X)`. Therefore: `Support(X) &lt; min\_sup ⟹ Support(X &cup; Y) &lt; min\_sup`.
-```
-
-The Apriori Principle states that all non-empty subsets of a frequent itemset must also be frequent. Conversely, if an itemset is infrequent, all of its supersets will inevitably be infrequent, allowing entire sub-lattices to be pruned immediately.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 12 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="medium" title="Question 16 (2 Marks): Complete Confusion Matrix Computation">
-**Question:**  
-A cancer diagnostic test yields TP = 80, FP = 20, FN = 10, TN = 890. Calculate Precision, Recall, and F1-Score.
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question 2×2 Contingency Matrix: Actual Positives = 90 (80 TP + 10 FN) | Actual Negatives = 910 (20 FP + 890 TN).
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Performance Metrics Derivation:
-
-        `Precision = TP / (TP + FP) = 80 / (80 + 20) = 80 / 100 = 0.80 (80.0%)`
-
-        `Recall = TP / (TP + FN) = 80 / (80 + 10) = 80 / 90 = 0.8889 (88.89%)`
-
-        `F1-Score = 2 × \frac{0.80 × 0.8889}{0.80 + 0.8889} = 1.4222 / 1.6889 = 0.8421 (84.21%)`
-```
-
-The model captures ~88.9% of all true cancer cases while maintaining an 80.0% precision rate, resulting in an balanced F1-score of 0.8421.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 16 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="hard" title="Question 20 (4 Marks): Information Gain Computation for Decision Tree Splitting">
-**Question:**  
-A dataset has 14 samples: 9 Positive (+), 5 Negative (-). An attribute "Wind" splits into: Weak (6+, 2-) and Strong (3+, 3-). Compute Information Gain: Gain(S, Wind).
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Partition Tree: Root S [9+, 5-] ➔ Weak [6+, 2-] (8 samples) and Strong [3+, 3-] (6 samples).
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Entropy & Gain Derivation:
-
-        `Entropy(S) = - \frac{9}{14} log₂\frac{9}{14} - \frac{5}{14} log₂\frac{5}{14} = 0.9403 bits`
-
-        `Entropy(SWₑₐₖ) = - \frac{6}{8} log₂\frac{6}{8} - \frac{2}{8} log₂\frac{2}{8} = 0.8113 bits`
-
-        `Entropy(SSₜᵣₒₙg) = - \frac{3}{6} log₂\frac{3}{6} - \frac{3}{6} log₂\frac{3}{6} = 1.0000 bits`
-
-        `Expected Entropy = \frac{8}{14} × 0.8113 + \frac{6}{14} × 1.0000 = 0.4636 + 0.4286 = 0.8922 bits`
-
-        `Gain(S, Wind) = 0.9403 - 0.8922 = 0.0481 bits`
-```
-
-Attribute "Wind" reduces disorder by **0.0481 bits**. The decision tree compares this Gain against all remaining candidate attributes and selects the maximum for the root split.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 20 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
-<example level="hard" title="Question 24 (6 Marks): Mathematical Derivation and Step-by-Step Execution of k-Means Clustering">
-**Question:**  
-Given 1D data points X = (2, 4, 10, 12, 3, 20, 30, 11, 25). Cluster into k=2 groups using initial centroids μ₁ = 2 and μ₂ = 4. Perform complete iterations until convergence.
-
-> 📊 **Question Schematic / State Specification:**
-```
-Question Centroid Displacement Vector: μ₁ = 2, μ₂ = 4 ➔ Assign all points ➔ Recalculate means ➔ Check Δμ = 0.
-```
-
----
-
-**Step-by-Step Solution:**
-
-> ⚡ **Solution Analytical Derivation & Schematic:**
-```
-Solution Iterative Centroid Convergence Trace:
-
-        `Iteration 1 Assignment:`
-
-        `Distance to μ₁(2) vs μ₂(4):`
-
-        `Point 2: |2-2|=0 ≤ |2-4|=2 ⟹ Cluster 1`
-
-        `Point 3: |3-2|=1 = |3-4|=1 ⟹ Cluster 1 (tie break)`
-
-        `Points (4, 10, 11, 12, 20, 25, 30) all closer to μ₂=4 ⟹ Cluster 2`
-
-        `Cluster 1 = (2, 3) ⟹ New Centroid μ₁' = (2+3)/2 = 2.5`
-
-        `Cluster 2 = (4, 10, 11, 12, 20, 25, 30) ⟹ New Centroid μ₂' = 112 / 7 = 16.0`
-
-        
-
-        `Iteration 2 Assignment (μ₁=2.5, μ₂=16.0):`
-
-        `Points (2, 3, 4) closer to 2.5 ⟹ Cluster 1`
-
-        `Points (10, 11, 12, 20, 25, 30) closer to 16.0 ⟹ Cluster 2`
-
-        `New Centroid μ₁'' = (2+3+4)/3 = 3.0`
-
-        `New Centroid μ₂'' = (10+11+12+20+25+30)/6 = 108 / 6 = 18.0`
-
-        
-
-        `Iteration 3 Assignment (μ₁=3.0, μ₂=18.0):`
-
-        `Points (2, 3, 4, 10) closer to 3.0? |10-3|=7 vs |10-18|=8 ⟹ Point 10 moves to Cluster 1!`
-
-        `Cluster 1 = (2, 3, 4, 10) ⟹ μ₁''' = 19 / 4 = 4.75`
-
-        `Cluster 2 = (11, 12, 20, 25, 30) ⟹ μ₂''' = 98 / 5 = 19.6`
-
-        
-
-        `Iteration 4 Assignment (μ₁=4.75, μ₂=19.6):`
-
-        `Cluster 1 = (2, 3, 4, 10, 11, 12); Cluster 2 = (20, 25, 30)`
-
-        `μ₁ = 42/6 = 7.0; μ₂ = 75/3 = 25.0`
-
-        
-
-        `Iteration 5 Assignment: Assignments remain identical! NO SHIFT ⟹ CONVERGENCE ACHIEVED!`
-```
-
-**Final Converged Clusters:**
-
-      • **Cluster 1:** `(2, 3, 4, 10, 11, 12)` with final mean centroid `μ₁ = 7.0`.
-
-      • **Cluster 2:** `(20, 25, 30)` with final mean centroid `μ₂ = 25.0`.
-
-<div class="example-answer-box">
-🎯 **Verified Result:** Question 24 step-by-step resolution per MMDU university marking scheme.
-</div>
-</example>
-
----
-
+### 8. Unsupervised ML: Introduction to Association Algorithms
+
+
+#### 8.1 What Is Association Rule Mining?
+
+**Definition:** An unsupervised data-mining technique that discovers strong, interesting IF–THEN
+co-occurrence relationships among items in huge transactional databases (popularly called
+Market Basket Analysis).
+**Rule Format:** X → Y (where X is the Antecedent [IF], Y is the Consequent [THEN], and X ∩ Y
+= ∅).
+**Classic Example:** {Bread} → {Butter} means customers who put Bread into their shopping
+cart also have a high likelihood of buying Butter in the same transaction.
+
+#### 8.2 The Three Mathematical Metrics Evaluating Every Association Rule
+
+Core Association Rule Formulas (Total Transactions = N):
+1. **Support (Popularity / Frequency):** Fraction of all transactions containing both X and Y:
+Support(X → Y) = Count(X ∪  Y)
+N
+2. Confidence (Rule Reliability / Conditional Probability): Fraction of transactions with X that
+**also contain Y:** Confidence(X → Y) = Support(X ∪  Y)
+Support(X)
+3. **Lift (True Association Strength):** Ratio of observed confidence to expected random chance:
+Lift(X → Y) = Confidence(X → Y)
+Support(Y)  = Support(X ∪  Y)
+Support(X) × Support(Y)
+Lift > 1: Positive association (buying X genuinely increases probability of buying Y).
+Lift = 1: Independent (pure coincidence — no real link).
+Lift < 1: Negative association (substitute goods — buying X makes Y less likely).
+
+#### 8.3 Worked Step-by-Step Association Example (Market Basket Calculation)
+
+Transaction ID Items Purchased (N = 5)
+T1 Milk, Bread, Butter
+T2 Milk, Bread
+T3 Milk, Eggs
+T4 Bread, Butter
+T5 Milk, Bread, Butter, Eggs
+**AIML • UNIT–4:** Introduction to Machine Learning Concepts
+
+**Step-by-Step Evaluation for Rule:** {Bread} → {Butter}
+**Individual Counts:** Count(Bread) = 4 → Support(Bread) = 4/5 = 0.80  |  Count(Butter) = 3 →
+Support(Butter) = 3/5 = 0.60.
+**Combined Count:** Count(Bread ∪  Butter) = 3 (Transactions T1, T4, T5).
+**Support({Bread} → {Butter}):** 3 / 5 = 0.60 (60%).
+**Confidence({Bread} → {Butter}):** 3 / 4 = 0.75 (75%).
+**Lift({Bread} → {Butter}):** 0.75 / 0.60 = 1.25 (> 1) → Verdict: Strong positive association!
+
+#### 8.4 Major Association Algorithms (Apriori & FP-Growth)
+
+
+### 1. Apriori Algorithm (Most Famous Level-Wise Algorithm):
+
+Apriori Principle (Anti-Monotone Pruning Rule): "If an itemset is infrequent (below minimum
+support), then ALL of its supersets MUST also be infrequent and can be pruned immediately!"
+(Saves enormous computation).
+**4-Step Apriori Execution:** 
+1. **Set user thresholds:** Minimum Support (min_sup) and Minimum Confidence (min_conf).
+2. Scan database to count 1-itemsets; discard any item below min_sup to keep Frequent 1-
+itemsets (L1).
+3. Join frequent k-itemsets to build candidate (k+1)-itemsets (Ck+1), prune infrequent subsets,
+and scan support iteratively until no frequent sets remain.
+4. Generate all strong rules X → Y from the final frequent itemsets whose Confidence ≥
+min_conf.
+
+### 2. FP-Growth (Frequent Pattern Growth — Faster Alternative):
+
+Compresses the transaction database into a compact tree (FP-Tree) in just 2 database scans
+without generating huge candidate sets — much faster than Apriori on massive retail
+databases.
+**Real-World Applications:** Supermarket shelf placement & cross-selling bundles, Amazon
+"Frequently Bought Together" widgets, web clickstream optimization, and medical symptom–drug
+co-occurrence analysis.
+
+### 1. Scan DB
+
+Count Items
+
+### 2. Prune Rare
+
+Sup ≥ min_sup
+
+### 3. Join Sets
+
+Build Pairs/Triples
+
+### 4. Build Rules
+
+Conf ≥ min
+Strong
+X → Y Rules
+Repeat Until No Frequent Sets Left
+**Figure 10:** Step-by-Step Apriori Algorithm Flowchart for Frequent Itemsets and Strong Association
+Rules
+**AIML • UNIT–4:** Introduction to Machine Learning Concepts
+
+Feature Clustering (Unsupervised) Association Rule Mining
+(Unsupervised)
+Primary Goal Group similar objects/rows into
+homogeneous clusters
+Discover IF–THEN co-occurrence rules
+among items
+Typical Input
+Data
+Numeric feature vectors (e.g., age, income,
+coordinates)
+Transactional itemsets (e.g., shopping
+baskets)
+Key Output Cluster labels (C1, C2, …, CK) or
+Dendrogram
+Ranked rules X → Y with Support,
+Confidence & Lift
+Core
+Algorithms
+K-Means, Hierarchical Clustering, DBSCAN Apriori, FP-Growth, Eclat
+Classic
+Example
+Grouping shoppers into Budget vs. Premium
+segments
+"75% of customers buying Bread also buy
+Butter"
+
+### 9. Quick Exam-Revision Cheat Sheet (AIML Unit–4 Summary)
+
+Syllabus Topic Must-Memorize Formula / Definition High-Yield Exam Tip
+**ML Overview Tom Mitchell:** Improves on Task (T) with
+Experience (E) measured by Performance (P)
+Contrast Traditional (Data + Rules →
+Answers) vs. ML (Data + Answers →
+Model).
+3 Learning
+Categories
+Supervised (Labeled), Unsupervised
+(Unlabeled), Reinforcement (Agent + Rewards)
+Always draw the RL Agent–Environment
+Action/State/Reward feedback loop!
+Application
+Areas
+Recommendations (Content/Collab/Hybrid),
+Automation (Vision/Maintenance), Smart
+Devices (Edge ML)
+Mention the Cold-Start problem in
+Collaborative Filtering and Edge ML in
+wearables.
+**ML Lifecycle 8 Stages:** Define → Collect → Clean → Feature
+Eng. → Split (70/15/15) → Train → Tune →
+Deploy/Monitor
+Explain Underfitting (High Bias) vs.
+Overfitting (High Variance) and Data
+Drift.
+Classification Discrete classes; Metrics: Accuracy, Precision
+(TP/(TP+FP)), Recall (TP/(TP+FN)), F1
+**Remember:** Logistic Regression is a
+Classification algorithm using the
+Sigmoid curve!
+Regression Continuous numeric values; ŷ = m·x + c;
+**Metrics:** MAE, MSE, RMSE, R2
+Distinguish Simple (1 feature), Multiple
+(2+ features), and Polynomial (curved)
+regression.
+Clustering K-Means (5-step centroid loop + Elbow
+Method), Hierarchical (Dendrogram), DBSCAN
+(Density/Noise)
+**State:** High Intra-Cluster similarity + Low
+Inter-Cluster similarity.
+Association
+Rules
+Support, Confidence, Lift = Conf(X→Y) /
+Sup(Y); Apriori & FP-Growth
+**Remember:** Lift > 1 = Positive link; Lift
+= 1 = Independent; Lift < 1 = Negative
+link.
+**AIML • UNIT–4:** Introduction to Machine Learning Concepts

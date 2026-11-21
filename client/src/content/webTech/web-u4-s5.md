@@ -1,64 +1,195 @@
-### University Examination Solved Questions (Unit IV)
+### 5. Element Layouts, Navigation Bars & Solved Exam Questions
 
-<example level="easy" title="Section A (1 Mark): CSS Specificity Calculation">
-**University Question (1 Mark):**
-Calculate the total specificity score of the selector shown in Figure Q4: `nav#primary-menu ul.dropdown > li a:hover`.
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 120" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="110" rx="8" fill="rgba(15,23,42,0.6)" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">FIGURE Q4: SELECTOR COMPONENT MATRIX</text>
-    
-    <rect x="30" y="45" width="580" height="40" rx="4" fill="rgba(56,189,248,0.15)" stroke="#38bdf8" stroke-width="1.5" />
-    <text x="320" y="70" text-anchor="middle" fill="#38bdf8" font-size="12" font-family="monospace">
-      nav#primary-menu ul.dropdown &gt; li a:hover
-    </text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig Q4: Compound Selector Specificity Parsing</div>
-</div>
+**WORKED EXAMPLE 7.1:** HORIZONTAL NAVIGATION BAR USING CSS LIST STYLES
+**Exam Question:** Write CSS to convert an HTML unordered list into a clean horizontal navigation
+bar with hover effects.
+ul.navbar {
+**list-style-type:** none; /* Removes default bullets */
+**margin:** 0; padding: 0;
+**background-color:** #1b365d;
+**overflow:** hidden;      /* Prevents parent collapse from floated li */
+}
+ul.navbar li {
+**float:** left;           /* Arranges items horizontally */
+}
+ul.navbar li a {
+**display:** block;        /* Makes entire padded box clickable */
+**color:** #ffffff; text-decoration: none;
+**padding:** 12px 18px;
+}
+**ul.navbar li a:** hover { background-color: #0f766e; }
 
----
+### 8. Table Layouts in CSS
 
-**Step-by-Step Solution:**
-- Inline styles: `0`
-- IDs (`#primary-menu`): `1` $\implies 1 \times 100$
-- Classes & Pseudo-classes (`.dropdown`, `:hover`): `2` $\implies 2 \times 10$
-- Elements / Tags (`nav`, `ul`, `li`, `a`): `4` $\implies 4 \times 1$
 
-$$\mathbf{\text{Specificity} = (0, 1, 2, 4) = 0124}$$
+#### 8.1 Essential CSS Table Properties
 
-<div class="example-answer-box">
-🎯 Specificity Score = **0124** (or 124 points).
-</div>
-</example>
+**Table Borders:** Applying border: 1px solid #1b365d; to table alone draws only the outer
+perimeter. To draw internal grid lines, apply the border to table, th, td together.
+**border-collapse:** Controls whether adjacent cell borders remain distinct or merge:
+**separate (Default):** Every cell draws its own complete 4-sided border, resulting in double lines
+separated by a gap.
+**collapse:** Adjacent cell borders merge into a single crisp shared line (standard for clean
+professional tables).
+**border-spacing:** Sets distance between adjacent cell borders (border-spacing: 8px; or
+**border-spacing:** 10px 4px; for horizontal/vertical). Crucial Rule: Works only when border-
+**collapse:** separate is active.
+**empty-cells:** Controls whether borders and backgrounds are painted on cells containing no
+content — show (default) or hide. Works only when border-collapse: separate.
+**caption-side:** Places the HTML <caption> element either top (default) or bottom of the table.
+**Cell Alignment & Spacing:** Use padding inside th, td for breathing room; text-align (left,
+center, right) for horizontal alignment; vertical-align (top, middle, bottom) for vertical
+alignment.
+Fundamentals of Web Technologies • Unit-IV: CSS Study Notes
 
-<example level="medium" title="Section B (2 Marks): CSS Box-Sizing Calculation">
-**University Question (2 Marks):**
-Calculate the total rendered width of a box with `width: 200px`, `padding: 20px`, and `border: 5px` under: (1) `box-sizing: content-box`, and (2) `box-sizing: border-box`.
 
-<div class="circuit-diagram-card">
-  <svg class="circuit-svg" viewBox="0 0 640 150" width="100%" style="height:auto;" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="630" height="140" rx="8" fill="rgba(15,23,42,0.6)" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4 4" />
-    <text x="320" y="24" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="bold">FIGURE Q8: BOX SIZING DIMENSIONAL PARAMETERS</text>
-    
-    <rect x="40" y="45" width="260" height="75" fill="rgba(245,158,11,0.15)" stroke="#f59e0b" stroke-width="2" />
-    <text x="170" y="70" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="bold">content-box (Default)</text>
-    <text x="170" y="90" text-anchor="middle" fill="#e2e8f0" font-size="9.5">Width=200 + Pad=40 + Bor=10 = 250px</text>
-    
-    <rect x="340" y="45" width="260" height="75" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="2" />
-    <text x="470" y="70" text-anchor="middle" fill="#86efac" font-size="11" font-weight="bold">border-box (Reset)</text>
-    <text x="470" y="90" text-anchor="middle" fill="#e2e8f0" font-size="9.5">Width clamped to exact 200px!</text>
-  </svg>
-  <div class="circuit-diagram-caption">Fig Q8: Box Sizing Model Physical Dimensions</div>
-</div>
+**Readability Enhancements:**
 
----
+**Zebra Striping:** tbody tr:nth-child(even) { background-color: #f1f5f9; }
+**Interactive Row Highlight:** tbody tr:hover { background-color: #e2e8f0; }
+**Responsive Overflow Handling:** Wrap wide tables in a <div style="overflow-x: auto;">
+to enable horizontal scrolling on narrow viewports.
 
-**Step-by-Step Solution:**
-1. **`content-box`:** $\text{Total} = 200 + 2(20) + 2(5) = 200 + 40 + 10 = \mathbf{250,\text{px}}$.
-2. **`border-box`:** $\text{Total} = \mathbf{200,\text{px}}$ (Content shrinks to $200 - 40 - 10 = 150,\text{px}$).
+#### 8.2 The table-layout Algorithm (auto vs. fixed)
 
-<div class="example-answer-box">
-🎯 content-box: **250px** | border-box: **200px** (Prevents layout overflow).
-</div>
-</example>
+**table-layout:** auto (Default): The browser must download and scan every row and cell before
+calculating final column widths. Column widths automatically expand to accommodate the widest
+unbreakable content (e.g., long URLs).
+**table-layout:** fixed: The browser calculates column widths purely from the declared width of
+the <table> and its first row (<th> or <col> elements). If column widths are omitted, remaining
+table width is divided equally among columns.
+Performance & Predictability Benefit: table-layout: fixed renders large data tables
+significantly faster (row-by-row streaming) and prevents long strings from distorting column
+alignment.
+**border-collapse:** separate
+TH 1 TH 2
+TD 1 (Double border) border-spacing: 8px
+**border-collapse:** collapse
+TH 1 TH 2
+Single Shared Grid No Gap Between Cells
+**table-layout:** auto (Content-Driven)
+Scans ALL cells first; columns stretch
+unevenly to fit longest cell content.
+**table-layout:** fixed (Header-Driven)
+Uses 1st row widths only; fast rendering
+and strict predictable column widths.
+**Figure 8.1:** CSS Table Border Models (separate vs. collapse) and Sizing Algorithms (auto vs.
+fixed).
+**Table 8.1:** Reference Comparison of table-layout: auto vs. table-layout: fixed
+**Criterion table-layout:** auto (Default) table-layout: fixed
+Column Width Basis Determined by widest content across
+entire column
+Determined solely by <table> & first-
+row widths
+Rendering Speed Slower (waits until full table loads) Faster (renders progressively row-by-
+row)
+Long Unbreakable
+Words
+Forces column wider; may break layout Obeys fixed width; wraps or clips via
+overflow
+Best Suited For Small tables with unpredictable data
+lengths
+Large data grids & strict multi-column
+reports
+Fundamentals of Web Technologies • Unit-IV: CSS Study Notes
+
+**WORKED EXAMPLE 8.1:** COMPLETE EXAM-READY CSS TABLE LAYOUT
+table.marks {
+**width:** 100%;
+**table-layout:** fixed;        /* Predictable equal/explicit column widths */
+**border-collapse:** collapse;  /* Merges double borders into single crisp
+grid */
+**caption-side:** bottom;       /* Places caption beneath table */
+}
+table.marks th, table.marks td {
+**border:** 1px solid #cbd5e1;
+**padding:** 8px 10px;
+**text-align:** left;
+**vertical-align:** middle;
+}
+**table.marks th { background-color:** #1b365d; color: #ffffff; }
+**table.marks tbody tr:** nth-child(even) { background-color: #f8fafc; }
+**table.marks tbody tr:** hover { background-color: #e2e8f0; }
+
+### 9. High-Yield Quick-Revision Cheat Sheet (Exam Capsule)
+
+
+#### 9.1 Master Formulas, Key Constants & Priority Rules
+
+**Specificity Tuple (a, b, c, d):** Inline (1,0,0,0) > ID (0,1,0,0) > Class / Pseudo-class
+(0,0,1,0) > Element (0,0,0,1) > Universal (0,0,0,0). !important overrides normal
+cascade.
+**Box Model (content-box):** Total Width = width + padding-left + padding-right +
+border-left + border-right.
+**Box Model (border-box):** Total Width = width; Content Width = width − (PL + PR + BL +
+BR).
+**Vertical Margin Collapse:** Adjacent vertical margins collapse to max(Mtop, Mbottom); horizontal
+margins always add.
+**Multi-Column Effective Width:** Wcol = [ Wcontainer − (N − 1) × column-gap ] ÷ N.
+**Typography Constants:** Default browser root font = 16px = 1rem = 12pt; 1pt = 1/72 in ≈
+**1.333px; font-weight:** normal = 400, bold = 700.
+**Color Constants:** RGB channels = 0–255 (00–FF Hex); Alpha = 0.0 (transparent) to 1.0
+**(opaque); Linear Gradient angles:** 0° = Up, 90° = Right, 180° = Down (default).
+
+#### 9.2 Master CSS Shorthand Syntax Reference
+
+**Table 9.1:** Quick-Revision Shorthand Order & Mandatory Rules
+Fundamentals of Web Technologies • Unit-IV: CSS Study Notes
+
+Shorthand
+Property Exact Value Order / Pattern Example & Exam Note
+font style variant weight
+size/line-height family
+**font:** italic bold 14px/1.5 Arial,
+sans-serif; (Size & family mandatory)
+background color image position/size
+repeat attachment
+**background:** #fff url(a.png)
+center/cover no-repeat;
+margin /
+padding
+top right bottom left
+(Clockwise TRBL)
+**padding:** 10px 20px; (10px V, 20px H)
+**border width style color border:** 2px solid #1b365d; (Style
+mandatory to show border)
+columns column-width column-count columns: 200px 3;
+column-rule width style color column-rule: 1px dashed #64748b;
+list-style type position image list-style: square outside none;
+
+#### 9.3 Top 10 Common University Exam Mistakes to Avoid
+
+1. **Mistake 1:** Writing background-color: linear-gradient(...) → Fix: Gradients are CSS
+images; always use background-image or background.
+2. **Mistake 2:** Applying top, left, or z-index to an element with default position: static → Fix:
+Offsets and z-index work only on positioned elements (relative, absolute, fixed, sticky).
+3. **Mistake 3:** Forgetting position: relative on the parent of an absolute child → Fix: Without a
+positioned ancestor, the child jumps to the root <html> viewport edges.
+4. **Mistake 4:** Setting width and height on a display: inline element (like <span>) → Fix:
+**Switch to display:** inline-block or block first.
+5. **Mistake 5:** Using border-spacing or empty-cells together with border-collapse: collapse
+**→ Fix:** Both properties take effect only under border-collapse: separate.
+6. **Mistake 6:** Putting <style> tags inside an external .css file → Fix: External .css files must
+contain pure CSS rules only, zero HTML tags.
+7. **Mistake 7:** Adding margins directly into box-sizing: border-box width → Fix: border-box
+includes Content + Padding + Border only; Margin always stays outside.
+8. **Mistake 8:** Confusing display: none with visibility: hidden → Fix: display: none
+**collapses space; visibility:** hidden leaves an invisible blank space.
+9. **Mistake 9:** Forgetting to clear floats before a footer or failing to fix parent container collapse →
+**Fix:** Apply clear: both on the footer and ::after clearfix (or overflow: auto) on the parent.
+10. **Mistake 10:** Omitting font-family or font-size in the font shorthand → Fix: Both are strictly
+required; omitting either makes the entire declaration invalid and ignored by the browser.
+
+#### 9.4 High-Probability B.Tech University Exam Questions (Unit-IV)
+
+**Short-Answer (2–3 Marks):** Differentiate display: none vs. visibility: hidden; Define CSS
+specificity; Explain list-style-position: inside vs. outside; State the purpose of box-
+**sizing:** border-box; Differentiate table-layout: auto vs. fixed.
+**Long-Answer (7–10 Marks):** Compare Inline, Embedded, and External CSS with examples and
+cascade precedence; Explain the CSS Box Model with a neat labeled diagram and numerical
+dimension problem; Discuss all five CSS position schemes with diagrams; Explain CSS Linear
+& Radial Gradients and Background properties with syntax; Demonstrate CSS Multi-Column
+Layout and Float/Clearfix mechanisms with code.
+Fundamentals of Web Technologies • Unit-IV: CSS Study Notes

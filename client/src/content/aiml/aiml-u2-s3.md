@@ -1,134 +1,217 @@
-### 1. Mathematical Logic: Propositional & First-Order Predicate Calculus
+### 3. Logical Knowledge Representation & Resolution Refutation
 
-Logic provides a formal language for representing knowledge with unambiguous syntax and formal model-theoretic semantics.
-
-#### Expressive Hierarchy:
-1. **Propositional Logic (Zero-Order Logic):** Deals with Boolean facts and atomic propositions connected by logical connectives ($\land, \lor, ≠g, ⇒, \iff$). Incapable of expressing objects, relations, or generalizations over infinite sets.
-2. **First-Order Predicate Logic (FOL):** Extends propositional logic with:
-   - **Objects / Constants:** `John`, `Mars`, `5`.
-   - **Predicates / Relations:** `IsHuman(x)`, `GreaterThan(x, y)`.
-   - **Functions:** `MotherOf(x)`, `Square(x)`.
-   - **Quantifiers:** Universal ($\forall x$) and Existential ($\exists x$).
-
----
-
-### 2. The 8-Step Canonical Pipeline: FOL to Conjunctive Normal Form (CNF)
-
-To execute automated Robinson Resolution proofs, any First-Order Logic formula must be systematically converted into **Conjunctive Normal Form (CNF)** (a conjunction of clauses, where each clause is a disjunction of literals):
-
-1. **Step 1: Eliminate Implications ($⇒$) and Biconditionals ($\iff$):**
-   $$A ⇒ B \equiv ≠g A \lor B,      A \iff B \equiv (≠g A \lor B) \land (≠g B \lor A)$$
-2. **Step 2: Move Negations Inward (De Morgan's Laws & Quantifier Duality):**
-   $$≠g (A \land B) \equiv ≠g A \lor ≠g B,      ≠g (A \lor B) \equiv ≠g A \land ≠g B,      ≠g(≠g A) \equiv A$$
-   $$≠g(\forall x , P(x)) \equiv \exists x , ≠g P(x),      ≠g(\exists x , P(x)) \equiv \forall x , ≠g P(x)$$
-3. **Step 3: Standardize Variables (Rename bound variables):** Ensure every quantifier has a unique variable name:
-   $$(\forall x , P(x)) \lor (\exists x , Q(x)) \longrightarrow (\forall x , P(x)) \lor (\exists y , Q(y))$$
-4. **Step 4: Skolemization (Eliminate Existential Quantifiers $\exists$):**
-   - If $\exists x$ is not in the scope of any universal quantifier: Replace $x$ with a unique **Skolem Constant** $k$: $\exists x , P(x) \to  P(k)$.
-   - If $\exists y$ is in the scope of universal quantifier $\forall x$: Replace $y$ with a **Skolem Function** $f(x)$: $\forall x , \exists y , \text{Loves}(x, y) \to  \forall x , \text{Loves}(x, f(x))$.
-5. **Step 5: Drop Universal Quantifiers ($\forall$):** All remaining variables are assumed universally quantified: $\forall x , P(x) \to  P(x)$.
-6. **Step 6: Distribute $\lor$ over $\land$:** Convert into Product of Sums:
-   $$A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$$
-7. **Step 7: Flatten Nested Conjunctions & Disjunctions:** $(A \lor B) \lor C \to  A \lor B \lor C$.
-8. **Step 8: Clause Splitting:** Split each conjunct into a separate standalone clause.
-
----
-
-### 3. The Resolution Refutation Proof Architecture
-
-> 🟢 **Alan Robinson's Resolution Principle (1965):** Let $C_1 = L_1 \lor \alpha$ and $C_2 = ≠g L_2 \lor \beta$ be two clauses. If there exists a Most General Unifier (MGU) $θ$ such that $L_1 θ = L_2 θ$:
-> $$\mathbf{\frac{L_1 \lor \alpha,    ≠g L_2 \lor \beta}{(\alpha \lor \beta)θ}}$$
-
-#### Proof by Contradiction Protocol:
-1. Negate the hypothesis/goal statement to be proved: $\mathbf{\alpha \to  ≠g\alpha}$.
-2. Convert knowledge base axioms and negated goal $≠g\alpha$ into CNF clauses.
-3. Apply resolution rule repeatedly to resolve complementary literals.
-4. If the **Empty Clause ($\square$ / Nil)** is derived, a contradiction is reached, proving the original theorem is **TRUE**!
-
----
-
----
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
 
-**Problem:**
-Convert the following statements into Propositional Logic symbols:
-1. "If it rains ($P$), the cricket match is canceled ($Q$)."
-2. "The match is canceled if and only if it rains or the pitch is wet ($R$)."
+## PART II: KNOWLEDGE REPRESENTATION (LOGICAL, PROCEDURAL,
 
----
+NETWORK & STRUCTURED)
 
-**Step 1 🚀: Statement 1 (Implication)**
-"If $P$ then $Q$":
-$$\mathbf{P \to  Q    \equiv    ≠g P \vee Q}$$
+### 5. Logical Representation Scheme: Propositional & Predicate Calculus,
 
-**Step 2 ⚡: Statement 2 (Biconditional with Disjunction)**
-"$Q$ if and only if ($P$ or $R$)":
-$$\mathbf{Q \leftrightarrow (P \vee R)}$$
+Unification & Resolution
+
+#### 5.1 What Is Knowledge Representation (KR)?
+
+**Definition:** The study of how facts, beliefs, rules, and relationships about the real world are
+encoded into formal symbols inside a computer so an AI agent can reason and deduce new
+conclusions automatically.
+Four Properties of a Good KR Scheme: (1) Representational Adequacy (can express all needed
+facts), (2) Inferential Adequacy (can derive new knowledge), (3) Inferential Efficiency (guides
+search swiftly), and (4) Acquisitional Efficiency (easy to add/update knowledge).
+
+#### 5.2 Propositional Calculus (Propositional Logic — PL)
+
+**Core Idea:** Represents declarative statements (Propositions) as atomic symbols (P, Q, R) that
+are strictly either TRUE (T) or FALSE (F).
+
+**Five Logical Connectives:**
+
+**Negation (¬P):** NOT P (flips truth value).
+**Conjunction (P ∧  Q):** P AND Q (true only if both true).
+**Disjunction (P ∨  Q):** P OR Q (false only if both false).
+**Implication (P → Q):** IF P THEN Q (equivalent to ¬P ∨  Q; false only when P is True and Q is
+False!).
+**Biconditional (P ↔ Q):** P IF AND ONLY IF Q (true when both share the same truth value).
+Major Limitation of Propositional Logic: Cannot express internal objects, properties, or general
+"All / Some" statements (e.g., to say "All humans are mortal", PL would need billions of separate
+symbols!).
+
+#### 5.3 Predicate Calculus (First-Order Logic — FOL)
+
+**Core Upgrade Over PL:** Breaks statements into Objects (Constants/Variables), Predicates
+(Relations/Properties), Functions, and Quantifiers — giving immense expressive power!
+
+**Building Blocks of FOL:**
+
+**Constants:** Specific objects (Socrates, John, Apple).
+**Variables:** Placeholders for unknown objects (x, y, z).
+**Predicates:** Return True/False about objects (Human(Socrates), Loves(John, Mary)).
+**Functions:** Map an object to another object (FatherOf(John)).
+Universal Quantifier (∀ x — "For ALL x"): Usually paired with →: "All humans are mortal" ⇒
+∀ x (Human(x) → Mortal(x)).
+**Fundamentals of AIML • UNIT–2:** Searching Algorithms & Knowledge Representation
+
+Existential Quantifier (∃ x — "There EXISTS at least one x"): Usually paired with ∧: "Some
+student loves AI" ⇒  ∃ x (Student(x) ∧  Loves(x, AI)).
+
+#### 5.4 Unification (Pattern Matching in Predicate Logic)
+
+**Definition:** The mechanical algorithm that takes two Predicate Logic expressions and finds a
+Substitution (θ) of variables that makes both expressions strictly identical!
+**Most General Unifier (MGU):** The simplest substitution making the fewest unnecessary
+commitments (leaves variables as general as possible).
+
+**Worked Unification Examples:**
+
+**Example 1 (Success):** Unify Knows(John, x) and Knows(y, Bill) → MGU θ = { y/John,
+x/Bill } (both become Knows(John, Bill)).
+Example 2 (Failure — Predicate Mismatch): Loves(x, y) vs. Hates(John, Mary) → FAIL.
+**Example 3 (Failure — Occurs Check):** P(x) vs. P(f(x)) → FAIL (a variable x cannot unify
+with a function containing itself!).
+
+#### 5.5 Resolution (Automated Theorem Proving by Refutation)
+
+Core Rule (Resolution Inference Rule): Given two disjunction clauses containing
+complementary literals (P and ¬P), cancel them out and merge the rest:
+(A ∨  P) and (¬P ∨  B)  ⊢   (A ∨  B).
+If two unit clauses cancel completely (P and ¬P), they yield the Empty Clause (□ =
+Contradiction / FALSE)!
+5-Step Resolution Refutation Algorithm (Proof by Contradiction):
+1. Convert all Knowledge Base facts/rules into Conjunctive Normal Form (CNF) (eliminate → via
+¬A ∨  B, push ¬ inward via De Morgan, drop ∀, Skolemize ∃, distribute ∨ over ∧).
+
+### 2. Negate the Goal you want to prove (¬Goal) and add it into the clause set!
+
+3. Pick two clauses with complementary literals (using Unification in FOL) and resolve them to
+produce a new clause.
+
+### 4. Repeat Step 3 until the Empty Clause (□) is derived.
+
+5. Deriving □ proves ¬Goal causes a contradiction → therefore the Original Goal is 100%
+PROVED TRUE!
+Resolution Refutation Steps
+
+### 1. Convert KB Rules to CNF
 
 
-🎯 1: $P \to  Q$ | 2: $Q \leftrightarrow (P \vee R)$.
+### 2. Add Negated Goal (¬Goal)
 
 
+### 3. Unify & Cancel Literals
 
 
-**University Question (8 Marks):**
-Convert the statement ∀ x [ Animal(x) → ∃ y (Loves(x, y)) ] into Conjunctive Normal Form (CNF) clauses.
+### 4. Empty Clause (□) ⇒  PROVED
 
----
+**Worked Proof:** Prove Mortal(Socrates)
+**C1:** ¬Human(x) ∨  Mortal(x) ¬Goal: ¬Mortal(Socrates)
+{x/Socrates}
+**C3:** ¬Human(Socrates)C2: Human(S)
+□ Contradiction ⇒  Proved!
+**Fundamentals of AIML • UNIT–2:** Searching Algorithms & Knowledge Representation
 
-**Step 1 🚀: Eliminate Implication (→)**
-∀ x [ ≠g Animal(x) \vee ∃ y , Loves(x, y) ]
+**Figure 6:** Resolution Refutation Steps and Complete Worked Predicate-Logic Proof Tree
+Feature Propositional Calculus (PL) Predicate Calculus (FOL)
+Basic Unit Whole indivisible proposition (P, Q) Predicates, Objects, Functions (Human(x))
+Quantifiers (∀ , ∃) Not supported Fully supported
+Expressive Power Low (cannot generalize across objects) Very High (models complex relations cleanly)
+Unification Needed? No (exact symbol match only) Yes (MGU binds variables during Resolution)
 
-**Step 2 ⚡: Push Negations Inward (N/A here)**
-
-**Step 3 🎯: Standardize Variable Names**
-Variables x and y are distinct.
-
-**Step 4 🏁: Skolemization (Replace ∃ y)**
-Since ∃ y is inside universal ∀ x, y depends on x.
-Replace y with Skolem function f(x):
-∀ x [ ≠g Animal(x) \vee Loves(x, f(x)) ]
-
-**Step 5 🚀: Drop Universal Quantifiers and Extract Clause**
-
-e g Animal(x) \vee \text{Loves(x, f(x))}
+### 6. Procedural Representation Scheme: Production Systems & Types
 
 
-🎯 Final CNF Clause: $\mathbf{≠g \text{Animal}(x) \vee \text{Loves}(x, f(x))}$.
+#### 6.1 What Is Procedural Representation & a Production System?
+
+Procedural Knowledge Representation: Encodes knowledge as actionable "Know-How"
+procedures or IF–THEN rules describing how to transform a current state into a better state
+(contrasting with static "Know-What" facts).
+**Production System:** A foundational AI architecture that represents procedural knowledge as a
+collection of independent Production Rules.
+
+**The 4 Essential Components of Every Production System:**
+
+1. **1. Global Database (Working Memory):** Holds the current state of the problem and active
+facts (updated dynamically whenever a rule fires).
+2. **2. Set of Production Rules (Rule Base):** Collection of condition–action pairs (IF Condition
+(LHS) THEN Action (RHS)).
+3. **3. Control Strategy (Inference Engine):** Decides which matching rule to apply next when
+multiple rules trigger simultaneously (Conflict Resolution — e.g., specificity, recency, priority)
+and stops when the goal is achieved.
+4. **4. Rule Applier:** Executes the winning rule’s action to modify Working Memory.
+Classic Example (Water Jug Problem): State = (x, y) for 4-L & 3-L jugs; Rule 1: IF (x < 4)
+**THEN (4, y) (fill 4-L jug); Rule 2:** IF (x + y ≥ 4 AND y > 0) THEN (4, y − (4 − x)) (pour
+from 3-L into 4-L until full).
+
+#### 6.2 The Four Different Types of Production Systems (High-Yield Exam Topic!)
 
 
+### 1. Monotonic Production System:
+
+Applying one rule NEVER prevents any other previously applicable rule from firing later —
+facts are only added, never invalidated (e.g., proving geometry theorems).
+
+### 2. Non-Monotonic Production System:
+
+Applying a rule CAN invalidate or disable other previously valid rules (e.g., chess moves,
+robot block stacking, or revising an assumption when new evidence arrives).
+**Fundamentals of AIML • UNIT–2:** Searching Algorithms & Knowledge Representation
 
 
-**University Question (10 Marks - Classic Exam Question):**
-Using Resolution Refutation in Predicate Logic, prove the conclusion: *"Socrates is mortal"* from:
-1. Premise 1: "All humans are mortal." ($\forall x [ \text{Human}(x) \to  \text{Mortal}(x) ]$)
-2. Premise 2: "Socrates is human." ($\text{Human}(\text{Socrates})$)
+### 3. Partially Commutative Production System:
 
----
+If a sequence of rules transforms state X into state Y, then any valid permutation
+(reordering) of those exact same rules that is allowable ALSO transforms X into the exact
+same state Y!
+**Benefit:** Ideal for irreversible real-world actions (like robot assembly or chemical mixing)
+because order mistakes don’t trap you in wrong final states.
 
-**Step 1 🚀: Convert Knowledge Base to CNF Clauses**
-- Clause 1 from Premise 1:
-  $$\text{Human}(x) \to  \text{Mortal}(x) ⇒ \mathbf{≠g \text{Human}(x) \vee \text{Mortal}(x)}$$
-- Clause 2 from Premise 2:
-  $$\mathbf{\text{Human}(\text{Socrates})}$$
+### 4. Commutative Production System:
 
-**Step 2 ⚡: Negate the Goal (Proof by Contradiction)**
-- Goal: $\text{Mortal}(\text{Socrates})$
-- Negated Goal (Clause 3):
-  $$\mathbf{≠g \text{Mortal}(\text{Socrates})}$$
+A system that is BOTH Monotonic AND Partially Commutative — rules can be applied in any
+arbitrary order and will always remain valid and yield the exact same final state (e.g., pure
+mathematical theorem proving).
+(a) Production System Control Cycle
+Rule Base
+(IF → THEN)
+Working Memory
+(Current State)
+Control Strategy (Inference Cycle)
 
-**Step 3 🎯: Resolution Step 1 (Resolve Clause 1 and Clause 2)**
-- Unify variable $x$ with constant $\text{Socrates}$ ($[x / \text{Socrates}]$):
-  - Clause 1: $≠g \text{Human}(\text{Socrates}) \vee \text{Mortal}(\text{Socrates})$
-  - Clause 2: $\text{Human}(\text{Socrates})$
-- Literals $≠g \text{Human}(\text{Socrates})$ and $\text{Human}(\text{Socrates})$ cancel out!
-- Resolvent (Clause 4):
-  $$\mathbf{\text{Mortal}(\text{Socrates})}$$
+### 1. Match → 2. Resolve → 3. Act
 
-**Step 4 🏁: Resolution Step 2 (Resolve Clause 4 with Negated Goal Clause 3)**
-- Clause 4: $\text{Mortal}(\text{Socrates})$
-- Clause 3: $≠g \text{Mortal}(\text{Socrates})$
-- Both cancel out to produce the **Empty Clause ($\square$ / Contradiction)**!
+(b) 4 Types of Production Systems
+Monotonic Non-Monotonic
+Commutative
+(Theorem Proving)
+Partially Comm.
+(Robot Navigation)
+Monotonic Only
+(Chem. Synthesis)
+Non-Monotonic
+(Chess, 8-Puzzle)
+Part.
+Comm.
+Not
+Comm.
+**Figure 7:** Production System Architecture and 2×2 Classification of Production System Types
 
+### 7. Network Representation Scheme: Semantic Networks & Conceptual
 
-🎯 Contradiction ($\square$) derived $⇒$ Negated goal is false $⇒$ **"Socrates is mortal" is undeniably TRUE**.
+Graphs
+
+#### 7.1 Semantic Networks (Associative Networks)
+
+**Definition:** A graphical knowledge representation where knowledge is modeled as a directed
+**labeled graph consisting of:** 
+Nodes (Ovals/Boxes): Represent objects, concepts, classes, or events (e.g., Animal, Bird,
+Sparrow, Tweety).
+**Directed Arcs (Labeled Arrows):** Represent semantic relationships linking nodes together.
+
+**Standard Relationship Arcs:**
+
+**IS-A (Instance link):** Connects a specific individual to its class (Tweety —IS-A→ Sparrow).
+AKO (A-Kind-Of / Subclass link): Connects a subclass to a superclass (Sparrow —AKO→
+Bird —AKO→ Animal).
+HAS-A / CAN / COLOR: Connects a class or object to its attributes/capabilities (Bird —HAS→
+Wings; Bird —CAN→ Fly).
+**Fundamentals of AIML • UNIT–2:** Searching Algorithms & Knowledge Representation

@@ -1,113 +1,157 @@
-### 1. Market Basket Analysis & Association Rule Mining
+### 4. Association Rule Mining & Apriori Algorithm
 
-Market Basket Analysis uncovers actionable co-occurrence relationships among products frequently purchased together in retail transactional databases.
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-#### Formal Mathematical Definitions:
-Let $\mathcal{I} = {i_1, i_2, ..., i_m}$ be a universe of items, and $\mathcal{D} = {T_1, T_2, ..., T_n}$ be a database of transactions where $T_k \subseteq \mathcal{I}$.
-An **Association Rule** is an implication of the form:
-$$\mathbf{X ⇒ Y    (X, Y \subset \mathcal{I}, ; X \cap Y = \emptyset)}$$
+Comparison
+Dimension
+Classification Regression
+Example Questions "Is this email Spam?" / "Which digit is
+this?"
+"What is the house price?" / "How many
+units sold?"
 
----
+## PART III: UNSUPERVISED MACHINE LEARNING (CLUSTERING &
 
-### 2. The Three Fundamental Evaluation Metrics
+ASSOCIATION)
 
-1. **Support ($s$):** Probability that a transaction contains both itemsets $X$ and $Y$:
-   $$\mathbf{\text{Support}(X ⇒ Y) = P(X \cup Y) = \frac{\text{Transactions containing } (X \cup Y)}{\text{Total number of transactions } |\mathcal{D}|}}$$
-2. **Confidence ($c$):** Conditional probability that a transaction contains $Y$, given that it already contains $X$:
-   $$\mathbf{\text{Confidence}(X ⇒ Y) = P(Y \mid X) = \frac{\text{Support}(X \cup Y)}{\text{Support}(X)} = \frac{\text{count}(X \cup Y)}{\text{count}(X)}}$$
-3. **Lift ($L$):** Measures the correlation strength between $X$ and $Y$ relative to independent chance:
-   $$\mathbf{\text{Lift}(X ⇒ Y) = \frac{\text{Confidence}(X ⇒ Y)}{\text{Support}(Y)} = \frac{P(X \cup Y)}{P(X) cdot  P(Y)}}$$
-   - $\mathbf{\text{Lift} = 1.0} ⇒ X$ and $Y$ are statistically **independent**.
-   - $\mathbf{\text{Lift} > 1.0} ⇒$ **Positive correlation** (buying $X$ strongly drives purchase of $Y$).
-   - $\mathbf{\text{Lift} < 1.0} ⇒$ **Negative correlation** (substitutes; buying $X$ decreases likelihood of buying $Y$).
-
----
-
-### 3. The Apriori Algorithm & Downward Closure Property
-
-> 🟢 **The Apriori Principle (Downward Closure Property):**
-> *"Every subset of a frequent itemset must also be frequent."*
-> 🔴 **Crucial Contrapositive (Pruning Principle):**
-> *"If any candidate itemset is INFREQUENT, then all of its supersets are GUARANTEED TO BE INFREQUENT and can be pruned immediately without scanning the database!"*
-
-#### Algorithmic Loop:
-1. Generate candidate 1-itemsets $C_1$. Prune those below minimum support to obtain $L_1$.
-2. For $k = 2, 3, ...$:
-   - **Join Step:** Generate candidate itemsets $C_k$ by joining $L_{k-1}$ with itself: $L_{k-1} \bowtie L_{k-1}$.
-   - **Prune Step:** Check if any $(k-1)$-subset of $c \in C_k$ is not in $L_{k-1}$. If so, discard $c$.
-   - **Scan Database:** Count frequencies of remaining candidates in $\mathcal{D}$.
-   - Filter by $\text{min\_support}$ to obtain frequent itemset $L_k$.
-3. Stop when $L_k$ is empty.
-
----
-
----
+### 7. Unsupervised ML: Introduction to Clustering Algorithms
 
 
-**Problem:**
-A grocery store records $N = 100$ customer transactions:
-- 40 transactions contained `Milk`.
-- 30 transactions contained `Bread`.
-- 20 transactions contained both `Milk` and `Bread`.
-Calculate the Support and Confidence of the association rule: $\text{Milk} \to  \text{Bread}$.
+#### 7.1 What Is Clustering?
 
----
+**Definition:** An unsupervised learning technique that groups an unlabeled dataset into
+meaningful subsets called Clusters based purely on mathematical similarity (distance).
 
-**Step 1 🚀: Support of Rule**
-$$\text{Support}(\text{Milk} \to  \text{Bread}) = \frac{\text{Transactions containing both}}{\text{Total transactions}} = \frac{20}{100} = \mathbf{0.20 = 20%}$$
+**Two Golden Properties of Good Clusters:**
 
-**Step 2 ⚡: Confidence of Rule**
-$$\text{Confidence}(\text{Milk} \to  \text{Bread}) = \frac{\text{Support}(\text{Milk} \cup \text{Bread})}{\text{Support}(\text{Milk})} = \frac{20}{40} = \mathbf{0.50 = 50%}$$
+**High Intra-Cluster Similarity:** Data points inside the same cluster are very close/similar to
+each other.
+**Low Inter-Cluster Similarity:** Data points in different clusters are well-separated and distinct.
+**Real-World Uses:** Customer segmentation for targeted marketing, document/news grouping,
+image color compression, biological gene clustering, and fraud/outlier spotting.
+
+#### 7.2 Three Major Clustering Algorithms Explained From Scratch
+
+A. K-Means Clustering (Centroid / Partition-Based — Most Famous)
+**Goal:** Partition data into exactly K non-overlapping clusters, each represented by its geometric
+center called a Centroid (μk).
+Step-by-Step K-Means Algorithm (Memorize These 5 Steps!):
+1. **Step 1 — Choose K:** Decide the desired number of clusters K (often chosen using the Elbow
+Method, plotting Within-Cluster Sum of Squares [WCSS] vs. K and picking the sharp "elbow"
+bend).
+2. **Step 2 — Initialize Centroids:** Randomly pick K starting points as initial cluster centroids.
+3. **Step 3 — Assignment Step:** Calculate Euclidean distance from every data point to all K
+centroids and assign each point to its nearest centroid.
+4. **Step 4 — Update Step:** Recompute each cluster’s centroid as the exact mathematical mean
+(average) of all points assigned to it.
+5. **Step 5 — Convergence Check:** Repeat Steps 3 & 4 until centroids stop moving (or
+assignments no longer change).
+**Strengths & Limits:** Very fast and scalable, but requires choosing K upfront, struggles with non-
+spherical shapes, and is sensitive to outliers.
+**AIML • UNIT–4:** Introduction to Machine Learning Concepts
+
+B. Hierarchical Clustering (Tree / Dendrogram-Based)
+**Core Idea:** Builds a multi-level nested hierarchy of clusters visualized as an inverted tree called a
+Dendrogram — does NOT require specifying K in advance!
+
+**Two Approaches:**
+
+Agglomerative (Bottom-Up — Most Common): Starts with every data point as its own single
+cluster → repeatedly merges the two closest clusters until all points form one single root
+cluster.
+**Divisive (Top-Down):** Starts with all data in one huge cluster → recursively splits clusters apart
+down to individual points.
+**Cutting the Dendrogram:** Drawing a horizontal line across the tallest vertical gap in the
+dendrogram determines the natural number of clusters K.
+C. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+**Core Idea:** Groups together points packed closely in high-density regions (controlled by radius ε
+and minimum neighbors MinPts) and automatically labels sparse isolated points as Noise /
+Outliers.
+**Major Advantage:** Discovers arbitrarily curved/ring-shaped clusters without needing K
+beforehand and handles outliers naturally.
+
+### 1. Pick K Centers 2. Assign Nearest 3. Recompute Mean 4. Converged? Stop
+
+(a) K-Means (K = 3)
+×
+×
+×
+(b) Elbow Method (Pick K)
+Elbow (K=3)
+Number of Clusters (K)
+(c) Dendrogram Tree
+A      B         C      D       E
+**Figure 9:** K-Means Iterative Loop, Optimal K Elbow Curve, and Hierarchical Dendrogram
+Clustering
+Algorithm
+Needs K
+Upfront?
+Cluster
+Shape
+Outlier
+Handling
+Best Used For
+K-Means Yes (fixed K) Spherical /
+convex
+Sensitive to
+outliers
+Large numerical datasets,
+customer tiers
+Hierarchical No (cut
+dendrogram)
+Nested tree
+groups
+Moderate
+sensitivity
+Small/medium taxonomy &
+biology trees
+DBSCAN No (uses ε,
+MinPts)
+Any arbitrary
+shape
+Excellent (flags
+Noise)
+Spatial maps, GPS hotspots,
+anomaly detection
+**AIML • UNIT–4:** Introduction to Machine Learning Concepts
 
 
-🎯 $\text{Support} = 20%$ | $\text{Confidence} = 50%$ (Half of milk buyers also purchase bread).
+### 8. Unsupervised ML: Introduction to Association Algorithms
 
 
+#### 8.1 What Is Association Rule Mining?
 
+**Definition:** An unsupervised data-mining technique that discovers strong, interesting IF–THEN
+co-occurrence relationships among items in huge transactional databases (popularly called
+Market Basket Analysis).
+**Rule Format:** X → Y (where X is the Antecedent [IF], Y is the Consequent [THEN], and X ∩ Y
+= ∅).
+**Classic Example:** {Bread} → {Butter} means customers who put Bread into their shopping
+cart also have a high likelihood of buying Butter in the same transaction.
 
-**University Question (6 Marks):**
-For the rule Beer → Diapers, given:
-- P(Beer) = 0.25
-- P(Diapers) = 0.40
-- P(Beer ∩ Diapers) = 0.20
-Calculate the **Lift** of the rule and explain whether buying beer increases the probability of buying diapers.
+#### 8.2 The Three Mathematical Metrics Evaluating Every Association Rule
 
----
+Core Association Rule Formulas (Total Transactions = N):
+1. **Support (Popularity / Frequency):** Fraction of all transactions containing both X and Y:
+Support(X → Y) = Count(X ∪  Y)
+N
+2. Confidence (Rule Reliability / Conditional Probability): Fraction of transactions with X that
+**also contain Y:** Confidence(X → Y) = Support(X ∪  Y)
+Support(X)
+3. **Lift (True Association Strength):** Ratio of observed confidence to expected random chance:
+Lift(X → Y) = Confidence(X → Y)
+Support(Y)  = Support(X ∪  Y)
+Support(X) × Support(Y)
+Lift > 1: Positive association (buying X genuinely increases probability of buying Y).
+Lift = 1: Independent (pure coincidence — no real link).
+Lift < 1: Negative association (substitute goods — buying X makes Y less likely).
 
-**Step 1 🚀: Lift Formula**
-Lift(A → B) = (P(A ∩ B) / P(A) × P(B))
+#### 8.3 Worked Step-by-Step Association Example (Market Basket Calculation)
 
-**Step 2 ⚡: Substitute Probabilities**
-Lift = (0.20 / 0.25 × 0.40) = (0.20 / 0.10) = 2.0
-
-**Step 3 🎯: Interpretation**
-- Lift = 1: Independent.
-- Lift > 1: Positive association.
-A Lift of 2.0 indicates that customers who buy beer are **twice as likely** to purchase diapers compared to random chance!
-
-
-🎯 $\text{Lift} = 2.0 > 1$ $⇒$ Strong positive association between Beer and Diapers.
-
-
-
-
-**University Question (10 Marks - University Exam):**
-Given transactions database T = { {A, B, C}, {A, C}, {B, D}, {A, B, C, D}, {A, B} } with minimum support threshold sₘᵢₙ = 2 (40%):
-Generate all frequent itemsets using the Apriori property and list the candidate generation and pruning steps for L₁, C₂, L₂, C₃, L₃.
-
----
-
-**Step 1 🚀: Frequent 1-Itemsets (L₁)**
-- {A}: count 4 (4 ≥ 2) → Frequent
-- {B}: count 4 (4 ≥ 2) → Frequent
-- {C}: count 3 (3 ≥ 2) → Frequent
-- {D}: count 2 (2 ≥ 2) → Frequent
-L₁ = { {A}, {B}, {C}, {D} }
-
-**Step 2 ⚡: Candidate 2-Itemsets (C₂) and Frequent (L₂)**
-Join L₁: C₂ = { {A, B}, {A, C}, {A, D}, {B, C}, {B, D}, {C, D} }.
-Count support:
-- {A, B}: 3 transactions → Frequent
-- {A, C}: 3 transactions → Frequent
-- {A, D}: 1 transaction → **PRUNED!** (
-🎯 Frequent Itemsets: $L_1$ (4 itemsets), $L_2 = {{A,B}, {A,C}, {B,C}, {B,D}}$, $L_3 = {{A,B,C}}$.
+Transaction ID Items Purchased (N = 5)
+T1 Milk, Bread, Butter
+T2 Milk, Bread
+T3 Milk, Eggs
+T4 Bread, Butter
+T5 Milk, Bread, Butter, Eggs
+**AIML • UNIT–4:** Introduction to Machine Learning Concepts

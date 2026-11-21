@@ -1,5 +1,5 @@
 // Auto-loaded from pure Markdown (.md) files in client/src/content/c/*.md
-// No note content or LaTeX strings are stored inside JavaScript string literals.
+// Strictly aligned with 2026–27 B.Tech Curriculum from C:\Notes\B.Tech Notes 2026-27
 import { getSectionMarkdown } from '../content/markdownLoader.js';
 
 export const cSubjectDetails = {
@@ -10,9 +10,9 @@ export const cSubjectDetails = {
   "code": "BCSE-008",
   "credits": 2,
   "instructor": "Department of Computer Science & Engineering (MMDU)",
-  "notesCount": "4 Units Comprehensive Long Notes & Solved Questions",
+  "notesCount": "4 Units Comprehensive 2026\u201327 Notes & Solved Questions",
   "rating": 5,
-  "description": "Official MMDU syllabus (BCSE-008): Computational problem types, logic paradigms, 4-stage compilation pipeline, memory segmentation, 9-tier operator precedence, typecasting, 2D array row-major addressing, 12-point storage classes matrix, Near/Far/Huge pointers, DMA, and file streams with solved examination questions.",
+  "description": "Official 2026\u201327 MMDU syllabus (BCSE-008): Problem solving techniques, logic paradigms, 4-stage compilation pipeline, memory segmentation, 9-tier operator precedence, typecasting, 2D array row-major addressing, 12-point storage classes matrix, Near/Far/Huge pointers, DMA, and file streams with solved examination questions.",
   "banner": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80"
 };
 
@@ -34,11 +34,11 @@ const unitsMeta = [
       },
       {
         "sectionId": "c-u1-s3",
-        "title": "3. Testing Strategies & 4 Tiers of Program Defects"
+        "title": "3. Flowcharts, Pseudocode & Decision Tables"
       },
       {
         "sectionId": "c-u1-s4",
-        "title": "4. Algorithmic Complexity (Big-O) & Dry-Run Trace Tables"
+        "title": "4. Verification, Testing & Program Defect Tiers"
       },
       {
         "sectionId": "c-u1-s5",
@@ -53,9 +53,9 @@ const unitsMeta = [
   {
     "unitNum": 2,
     "title": "Core Programming Concepts, Operators & Control Structures",
-    "examWeightage": "24 - 28 Marks",
-    "readingTime": "38 mins",
-    "summary": "C Tokens, 32 ANSI keywords, identifier grammar, constants, primitive data types table, 9-tier operator precedence hierarchy, implicit integer promotions vs explicit typecasting, header files taxonomy, switch fall-through, and loop lifecycles with nested 2D matrix traversal.",
+    "examWeightage": "26 - 30 Marks",
+    "readingTime": "45 mins",
+    "summary": "Tokens, Keywords, Identifiers & Primitive Data Types; Exhaustive 9-tier Operator Precedence and Associativity hierarchy; Implicit promotion vs Explicit typecasting; Standard Header Files; Decision control structures (if-else, else-if ladder, dangling else, switch); Loop control (while, for, do-while) & jump statements (break, continue, goto).",
     "sections": [
       {
         "sectionId": "c-u2-s1",
@@ -63,19 +63,19 @@ const unitsMeta = [
       },
       {
         "sectionId": "c-u2-s2",
-        "title": "2. Complete 9-Tier Operator Precedence & Associativity Hierarchy"
+        "title": "2. Operators & Expressions: 9-Tier Precedence & Associativity"
       },
       {
         "sectionId": "c-u2-s3",
-        "title": "3. Type Conversion: Implicit Promotion vs Explicit Typecasting"
+        "title": "3. Type Conversion (Implicit/Explicit) & Standard Header Files"
       },
       {
         "sectionId": "c-u2-s4",
-        "title": "4. Standard Header Files Taxonomy"
+        "title": "4. Decision Control Structures: if-else, else-if ladder & switch"
       },
       {
         "sectionId": "c-u2-s5",
-        "title": "5. Control Structures: Decision-Making, Loops & Jump Statements"
+        "title": "5. Loop Control Structures (while, for, do-while) & Jump Statements"
       },
       {
         "sectionId": "c-u2-s6",
@@ -85,14 +85,14 @@ const unitsMeta = [
   },
   {
     "unitNum": 3,
-    "title": "Arrays, Strings, Functions & Modular Programming",
+    "title": "Arrays, Strings, Storage Classes, Functions & Modular Programming",
     "examWeightage": "24 - 28 Marks",
-    "readingTime": "45 mins",
-    "summary": "1D & 2D arrays, mathematical derivation of row-major order addressing, Linear Search, Binary Search, Bubble Sort step trace, string library functions, 12-point storage classes matrix, and call by value vs reference.",
+    "readingTime": "35 mins",
+    "summary": "1D and 2D Arrays, Contiguous memory layout, Row-major and Column-major address calculation formulas; Linear & Binary Search, Bubble Sort; String handling with null terminator and string.h; 12-Point Master Storage Classes Matrix (auto, register, static, extern); Functions, Parameter Passing (Call by Value vs Reference), Recursion & Call Stack.",
     "sections": [
       {
         "sectionId": "c-u3-s1",
-        "title": "1. 1D & 2D Arrays: Memory Mapping & Row-Major Formula Derivation"
+        "title": "1. 1D & 2D Arrays: Memory Mapping & Row-Major Formula"
       },
       {
         "sectionId": "c-u3-s2",
@@ -100,36 +100,40 @@ const unitsMeta = [
       },
       {
         "sectionId": "c-u3-s3",
-        "title": "3. Exhaustive 12-Point Master Storage Classes Matrix"
+        "title": "3. Strings & Character Arrays: string.h Library Functions"
       },
       {
         "sectionId": "c-u3-s4",
-        "title": "4. Parameter Passing: Call by Value vs Reference & Recursion"
+        "title": "4. Exhaustive 12-Point Master Storage Classes Matrix"
       },
       {
         "sectionId": "c-u3-s5",
-        "title": "5. University Examination Solved Questions (Unit 3)"
+        "title": "5. Functions, Parameter Passing (Value vs Reference) & Recursion"
+      },
+      {
+        "sectionId": "c-u3-s6",
+        "title": "6. University Examination Solved Questions (Unit 3)"
       }
     ]
   },
   {
     "unitNum": 4,
-    "title": "Advanced Data Handling, Pointers, Structures, DMA & File I/O",
+    "title": "Advanced Data Handling, Pointers, Structures, DMA & File Handling",
     "examWeightage": "24 - 28 Marks",
-    "readingTime": "45 mins",
-    "summary": "Address arithmetic, pointer taxonomy, Near, Far, and Huge Pointers (16-bit offset vs 32-bit segment:offset and auto-normalization), Struct vs Union memory alignment, Dynamic Memory Allocation (malloc, calloc, realloc, free), and File I/O streams.",
+    "readingTime": "35 mins",
+    "summary": "Pointer fundamentals, arithmetic & dereferencing; Pointer taxonomy: Wild, Dangling, Void, Function pointers, Near/Far/Huge pointers; Structures, Unions & Memory Alignment/Padding; Dynamic Memory Allocation (malloc, calloc, realloc, free); File streams, standard modes, and file I/O operations.",
     "sections": [
       {
         "sectionId": "c-u4-s1",
-        "title": "1. Pointer Taxonomy: Wild, Dangling, Void & Function Pointers"
+        "title": "1. Pointers Fundamentals & Arithmetic"
       },
       {
         "sectionId": "c-u4-s2",
-        "title": "2. Real-Mode 16-Bit Architecture: Near, Far, and Huge Pointers"
+        "title": "2. Pointer Taxonomy & Real-Mode 16-Bit Architecture (Near, Far, Huge)"
       },
       {
         "sectionId": "c-u4-s3",
-        "title": "3. Structures, Unions & Memory Alignment Architecture"
+        "title": "3. User-Defined Types: Structures, Unions & Memory Alignment"
       },
       {
         "sectionId": "c-u4-s4",
