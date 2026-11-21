@@ -2594,8 +2594,8 @@ button,
 
 .theme-paper .notes-html-content p,
 .theme-paper .notes-html-content li,
-.theme-paper .notes-html-content span:not(.code-editor-box *):not(.inline-code-badge):not(.visual-flowchart-card *):not(pre *):not(code *),
-.theme-paper .notes-html-content div:not(.katex *):not(.worked-example-box):not(.worked-example-box *):not(.academic-derivation-box):not(.academic-derivation-box *):not(.circuit-diagram-card):not(.circuit-diagram-card *):not(.visual-flowchart-card):not(.visual-flowchart-card *):not(.exam-trap-box):not(.green-law-box):not(.topper-mnemonic-box):not(.blue-analogy-box):not(.cyan-keytakeaway-box):not(.orange-warning-box):not(.purple-exam-goal-box):not(.rainbow-concept-box):not(.code-editor-box):not(.code-editor-box *):not(.ascii-diagram-box):not(.ascii-diagram-box *) {
+.theme-paper .notes-html-content span:not(.code-editor-box *):not(.inline-code-badge):not(.visual-flowchart-card *):not(.pdf-roadmap-card *):not(pre *):not(code *),
+.theme-paper .notes-html-content div:not(.katex *):not(.worked-example-box):not(.worked-example-box *):not(.academic-derivation-box):not(.academic-derivation-box *):not(.circuit-diagram-card):not(.circuit-diagram-card *):not(.visual-flowchart-card):not(.visual-flowchart-card *):not(.pdf-roadmap-card):not(.pdf-roadmap-card *):not(.pdf-doc-header):not(.pdf-doc-header *):not(.exam-trap-box):not(.green-law-box):not(.topper-mnemonic-box):not(.blue-analogy-box):not(.cyan-keytakeaway-box):not(.orange-warning-box):not(.purple-exam-goal-box):not(.rainbow-concept-box):not(.code-editor-box):not(.code-editor-box *):not(.ascii-diagram-box):not(.ascii-diagram-box *) {
   font-family: 'Caveat', 'Homemade Apple', 'Patrick Hand', cursive !important;
   font-size: 1.55rem !important;
   line-height: 42px !important;
@@ -3372,8 +3372,6 @@ button,
   font-size: 1.1em;
 }
 
-
-
 /* =========================================================================
    AUTHENTIC 2026–27 PDF DOCUMENT & ROADMAP CARD STYLING
    Strictly aligned with C:\Notes\B.Tech Notes 2026-27
@@ -3417,7 +3415,7 @@ button,
   margin: 16px 0 24px 0;
 }
 
-/* Master Roadmap Box Matching Figure 1 in the PDF */
+/* Base Master Roadmap Card */
 .pdf-roadmap-card {
   margin: 24px 0 28px 0;
   padding: 20px;
@@ -3428,17 +3426,18 @@ button,
 }
 
 .pdf-roadmap-badge {
-  background: #0f172a;
-  color: #ffffff;
+  background: #0f172a !important;
+  color: #ffffff !important;
   font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.6px;
-  padding: 8px 22px;
+  padding: 8px 24px;
   border-radius: 8px;
   text-align: center;
   width: fit-content;
   margin: 0 auto 18px auto;
   text-transform: uppercase;
+  display: block;
 }
 
 .pdf-roadmap-grid {
@@ -3450,53 +3449,54 @@ button,
 .pdf-roadmap-col {
   border-radius: 8px;
   overflow: hidden;
-  border: 1.5px solid #cbd5e1;
+  border: 2px solid #cbd5e1;
   background: #ffffff;
 }
 
 .pdf-roadmap-col.col-blue {
-  border-color: #2563eb;
+  border-color: #2563eb !important;
 }
 
 .pdf-roadmap-col.col-blue .pdf-roadmap-col-header {
-  background: #2563eb;
-  color: #ffffff;
+  background: #2563eb !important;
+  color: #ffffff !important;
 }
 
 .pdf-roadmap-col.col-maroon {
-  border-color: #991b1b;
+  border-color: #991b1b !important;
 }
 
 .pdf-roadmap-col.col-maroon .pdf-roadmap-col-header {
-  background: #991b1b;
-  color: #ffffff;
+  background: #991b1b !important;
+  color: #ffffff !important;
 }
 
 .pdf-roadmap-col.col-emerald {
-  border-color: #059669;
+  border-color: #059669 !important;
 }
 
 .pdf-roadmap-col.col-emerald .pdf-roadmap-col-header {
-  background: #059669;
-  color: #ffffff;
+  background: #059669 !important;
+  color: #ffffff !important;
 }
 
 .pdf-roadmap-col.col-purple {
-  border-color: #7c3aed;
+  border-color: #7c3aed !important;
 }
 
 .pdf-roadmap-col.col-purple .pdf-roadmap-col-header {
-  background: #7c3aed;
-  color: #ffffff;
+  background: #7c3aed !important;
+  color: #ffffff !important;
 }
 
 .pdf-roadmap-col-header {
   padding: 10px 14px;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.5px;
   text-align: center;
   text-transform: uppercase;
+  color: #ffffff !important;
 }
 
 .pdf-roadmap-items {
@@ -3504,12 +3504,12 @@ button,
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background: #ffffff;
+  background: #ffffff !important;
 }
 
 .roadmap-item {
   font-size: 0.92rem;
-  color: #0f172a;
+  color: #0f172a !important;
   line-height: 1.5;
   font-weight: 600;
 }
@@ -3524,7 +3524,8 @@ button,
 }
 
 /* =========================================================================
-   THEME ADAPTATION: THEME-CLEAN (OFFICIAL DIGITAL / PRINTED PDF VIEW)
+   THEME 1: THEME-CLEAN (OFFICIAL DIGITAL / PRINTED PDF VIEW)
+   100% Identical to C:\Notes\B.Tech Notes 2026-27 PDF Screenshots
    ========================================================================= */
 .theme-clean .pdf-subject-badge {
   color: #881337 !important;
@@ -3548,6 +3549,21 @@ button,
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
 }
 
+.theme-clean .pdf-roadmap-badge,
+.theme-clean .pdf-roadmap-badge * {
+  background: #0f172a !important;
+  color: #ffffff !important;
+}
+
+.theme-clean .pdf-roadmap-col-header,
+.theme-clean .pdf-roadmap-col-header * {
+  color: #ffffff !important;
+}
+
+.theme-clean .pdf-roadmap-items {
+  background: #ffffff !important;
+}
+
 .theme-clean .roadmap-item {
   color: #0f172a !important;
 }
@@ -3557,7 +3573,8 @@ button,
 }
 
 /* =========================================================================
-   THEME ADAPTATION: THEME-PAPER (AUTHENTIC HANDWRITTEN NOTEBOOK VIEW)
+   THEME 2: THEME-PAPER (AUTHENTIC HANDWRITTEN NOTEBOOK VIEW)
+   Ruled Notebook with Ultra-Readable Blue Ink on Crisp White Background
    ========================================================================= */
 .theme-paper .pdf-doc-header .pdf-subject-badge {
   color: #991b1b !important;
@@ -3588,28 +3605,62 @@ button,
 }
 
 .theme-paper .pdf-roadmap-card {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: #ffffff !important;
   border: 2px dashed #93c5fd !important;
   box-shadow: 0 4px 14px rgba(30, 58, 138, 0.08) !important;
 }
 
-.theme-paper .pdf-roadmap-badge {
+/* CRITICAL: Ensure badge and headers have pure white text in handwritten mode */
+.theme-paper .pdf-roadmap-badge,
+.theme-paper .pdf-roadmap-badge * {
   background: #1e3a8a !important;
+  color: #ffffff !important;
   font-family: 'Caveat', 'Patrick Hand', cursive !important;
   font-size: 1.35rem !important;
-  padding: 6px 20px !important;
+  padding: 6px 22px !important;
 }
 
 .theme-paper .pdf-roadmap-col {
   background: #ffffff !important;
 }
 
-.theme-paper .pdf-roadmap-col-header {
+.theme-paper .pdf-roadmap-col.col-blue .pdf-roadmap-col-header,
+.theme-paper .pdf-roadmap-col.col-blue .pdf-roadmap-col-header * {
+  background: #1d4ed8 !important;
+  color: #ffffff !important;
   font-family: 'Caveat', 'Patrick Hand', cursive !important;
-  font-size: 1.25rem !important;
+  font-size: 1.3rem !important;
   font-weight: 700 !important;
 }
 
+.theme-paper .pdf-roadmap-col.col-maroon .pdf-roadmap-col-header,
+.theme-paper .pdf-roadmap-col.col-maroon .pdf-roadmap-col-header * {
+  background: #b91c1c !important;
+  color: #ffffff !important;
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+}
+
+.theme-paper .pdf-roadmap-col.col-emerald .pdf-roadmap-col-header,
+.theme-paper .pdf-roadmap-col.col-emerald .pdf-roadmap-col-header * {
+  background: #047857 !important;
+  color: #ffffff !important;
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+}
+
+.theme-paper .pdf-roadmap-col.col-purple .pdf-roadmap-col-header,
+.theme-paper .pdf-roadmap-col.col-purple .pdf-roadmap-col-header * {
+  background: #7c3aed !important;
+  color: #ffffff !important;
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+}
+
+/* Roadmap items must be on white background with blue handwriting */
 .theme-paper .pdf-roadmap-items {
   background: #ffffff !important;
 }
@@ -3617,7 +3668,7 @@ button,
 .theme-paper .roadmap-item {
   font-family: 'Caveat', 'Patrick Hand', cursive !important;
   font-size: 1.45rem !important;
-  line-height: 36px !important;
+  line-height: 34px !important;
   color: #1e3a8a !important;
   font-weight: 600 !important;
 }
@@ -3630,49 +3681,53 @@ button,
 }
 
 /* =========================================================================
-   THEME ADAPTATION: DEFAULT (CYBER / DARK VIEW)
+   THEME 3: THEME-CYBER (NEON DARK MODE)
    ========================================================================= */
-.pdf-doc-header .pdf-subject-badge {
-  color: #fb7185;
+.theme-cyber .pdf-doc-header .pdf-subject-badge {
+  color: #fb7185 !important;
 }
 
-.pdf-main-title {
-  color: #f8fafc;
+.theme-cyber .pdf-main-title {
+  color: #f8fafc !important;
 }
 
-.pdf-syllabus-desc {
-  color: #cbd5e1;
+.theme-cyber .pdf-syllabus-desc {
+  color: #cbd5e1 !important;
 }
 
-.pdf-divider {
-  border-top: 1.5px solid rgba(255, 255, 255, 0.2);
+.theme-cyber .pdf-divider {
+  border-top: 1.5px solid rgba(255, 255, 255, 0.2) !important;
 }
 
-.pdf-roadmap-card {
-  background: rgba(15, 23, 42, 0.85);
-  border-color: rgba(56, 189, 248, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+.theme-cyber .pdf-roadmap-card {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
 }
 
-.pdf-roadmap-badge {
-  background: rgba(30, 41, 59, 0.9);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.4);
+.theme-cyber .pdf-roadmap-badge {
+  background: rgba(30, 41, 59, 0.9) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
 }
 
-.pdf-roadmap-col {
-  background: rgba(10, 15, 29, 0.95);
-  border-color: rgba(56, 189, 248, 0.25);
+.theme-cyber .pdf-roadmap-col {
+  background: rgba(10, 15, 29, 0.95) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
 }
 
-.pdf-roadmap-items {
-  background: rgba(10, 15, 29, 0.95);
+.theme-cyber .pdf-roadmap-col-header {
+  color: #ffffff !important;
 }
 
-.roadmap-item {
-  color: #f1f5f9;
+.theme-cyber .pdf-roadmap-items {
+  background: rgba(10, 15, 29, 0.95) !important;
 }
 
-.pdf-figure-caption {
-  color: #94a3b8;
+.theme-cyber .roadmap-item {
+  color: #f1f5f9 !important;
+}
+
+.theme-cyber .pdf-figure-caption {
+  color: #94a3b8 !important;
 }

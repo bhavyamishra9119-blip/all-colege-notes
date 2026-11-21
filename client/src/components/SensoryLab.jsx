@@ -646,13 +646,37 @@ function formatNoteContent(content, activeRecallMode = false, sectionId = 'sec')
 
   let html = content;
 
-  // Step 00 (HTML & SVG SHIELD): Extract all <div class="pdf-... blocks and <svg>...</svg> blocks FIRST
+  // Step 00 (HTML & SVG SHIELD): Extract all balanced <div class="pdf-roadmap-card"> / <div class="pdf-doc-header"> blocks FIRST
   const htmlCardBlocks = [];
-  html = html.replace(/<div class="pdf-(?:roadmap-card|doc-header|figure-caption)"[\s\S]*?<\/div>(?:\s*<\/div>)?/gi, (match) => {
-    const placeholder = `\x00HTMLCARDBLOCK_${htmlCardBlocks.length}\x00`;
-    htmlCardBlocks.push(match);
-    return placeholder;
-  });
+  while (true) {
+    const startMatch = html.match(/<div\s+class="pdf-(?:roadmap-card|doc-header)"/i);
+    if (!startMatch) break;
+    const startIndex = startMatch.index;
+    let depth = 0;
+    let endIndex = -1;
+    const tagRegex = /<\/?div\b[^>]*>/gi;
+    tagRegex.lastIndex = startIndex;
+    let m;
+    while ((m = tagRegex.exec(html)) !== null) {
+      if (m[0].toLowerCase().startsWith('</div')) {
+        depth--;
+        if (depth === 0) {
+          endIndex = m.index + m[0].length;
+          break;
+        }
+      } else {
+        depth++;
+      }
+    }
+    if (endIndex !== -1) {
+      const fullBlock = html.slice(startIndex, endIndex);
+      const placeholder = `\x00HTMLCARDBLOCK_${htmlCardBlocks.length}\x00`;
+      htmlCardBlocks.push(fullBlock);
+      html = html.slice(0, startIndex) + placeholder + html.slice(endIndex);
+    } else {
+      break;
+    }
+  }
 
   const svgBlocks = [];
   html = html.replace(/<svg\b[\s\S]*?<\/svg>/gi, (svgMatch) => {
