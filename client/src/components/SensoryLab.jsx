@@ -1756,6 +1756,27 @@ export default function SensoryLab({
     return { url: `/pdfs/units/BELE-001_Unit_${uNum}.pdf`, name: `Unit_${uNum}_Notes.pdf` };
   };
 
+  const handlePrintOrSavePdf = (uNum = selectedUnitNum) => {
+    const unitPdf = getUnitPdf(uNum);
+    try {
+      window.open(unitPdf.url, '_blank');
+    } catch (e) {
+      console.warn('Window open error:', e);
+    }
+    downloadPdf(unitPdf.url, unitPdf.name, `${activeSubject?.name} - Unit ${uNum} (2026-27 Authentic Notes PDF)`);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+        e.preventDefault();
+        handlePrintOrSavePdf(selectedUnitNum);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedUnitNum, activeSubject]);
+
   const handleExecuteDownload = (format) => {
     const isHandwritten = format === 'handwritten';
     if (downloadModal.type === 'unit') {
@@ -1764,6 +1785,11 @@ export default function SensoryLab({
       const name = isHandwritten 
         ? `${activeSubject?.code || 'Notes'}_Unit_${uNum}_Handwritten_Notes.pdf`
         : unitPdf.name;
+      try {
+        window.open(unitPdf.url, '_blank');
+      } catch (e) {
+        console.warn('Open PDF tab error:', e);
+      }
       downloadPdf(unitPdf.url, name, `${activeSubject?.name} - Unit ${uNum} (${isHandwritten ? 'Handwritten' : 'Official Digital'})`);
     } else {
       const masterPdf = getSubjectMasterPdf();
@@ -1779,6 +1805,11 @@ export default function SensoryLab({
         } else {
           name = `${activeSubject?.code || 'Notes'}_Handwritten_Master_Notes.pdf`;
         }
+      }
+      try {
+        window.open(url, '_blank');
+      } catch (e) {
+        console.warn('Open master PDF tab error:', e);
       }
       downloadPdf(url, name, `${activeSubject?.name} (${isHandwritten ? 'Handwritten' : 'Official Digital'})`);
     }
@@ -2084,6 +2115,30 @@ export default function SensoryLab({
               ⚡ Cyber
             </button>
           </div>
+
+          {/* 🖨️ 1-Click Print / Save Exact 2026-27 Authentic Notes PDF */}
+          <button
+            type="button"
+            onClick={() => handlePrintOrSavePdf(selectedUnitNum)}
+            className="btn-outline"
+            style={{
+              borderColor: '#06b6d4',
+              color: '#22d3ee',
+              background: 'rgba(6, 182, 212, 0.14)',
+              fontWeight: 800,
+              fontSize: '0.82rem',
+              padding: '7px 14px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              cursor: 'pointer'
+            }}
+            title={`Print or Save exact authentic 2026-27 PDF for Unit ${selectedUnitNum}`}
+          >
+            <Printer size={15} /> Print / Save PDF
+          </button>
 
           {/* 📥 1-Click Current Unit PDF Download with Format Options */}
           <button
@@ -3589,6 +3644,34 @@ export default function SensoryLab({
                   <Download size={16} /> Download Digital Notes (PDF)
                 </button>
               </div>
+
+              {/* 🖨️ Direct Print / Save Option */}
+              <button
+                type="button"
+                onClick={() => {
+                  handlePrintOrSavePdf(downloadModal.type === 'unit' ? downloadModal.unitNum : selectedUnitNum);
+                  setDownloadModal({ ...downloadModal, isOpen: false });
+                }}
+                style={{
+                  padding: '11px 18px',
+                  borderRadius: '12px',
+                  background: 'linear-gradient(90deg, #0891b2 0%, #06b6d4 100%)',
+                  color: '#fff',
+                  border: 'none',
+                  fontWeight: 800,
+                  fontSize: '0.9rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  boxShadow: '0 4px 18px rgba(6, 182, 212, 0.35)',
+                  marginTop: '4px'
+                }}
+                title="Open exact authentic 2026-27 PDF ready to Print or Save"
+              >
+                <Printer size={16} /> Print or Save Exact PDF (High-Res 2026-27 Edition)
+              </button>
             </div>
           </div>
         </div>,

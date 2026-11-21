@@ -7,8 +7,17 @@
  * =========================================================================
  */
 
-export function triggerUniversalPrint(documentTitle = 'College_Notes') {
+export function triggerUniversalPrint(documentTitle = 'College_Notes', pdfUrl = null) {
   try {
+    if (pdfUrl && pdfUrl !== '#' && pdfUrl.endsWith('.pdf')) {
+      try {
+        window.open(pdfUrl, '_blank');
+        return true;
+      } catch (openErr) {
+        console.warn('PDF window.open failed:', openErr);
+      }
+    }
+
     if (typeof window !== 'undefined') {
       const sanitizedTitle = (documentTitle || 'College_Notes')
         .replace(/[^a-zA-Z0-9_\-\s]/g, '')

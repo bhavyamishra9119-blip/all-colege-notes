@@ -587,22 +587,48 @@ export default function Theaters({ currentUser, initialSubject }) {
                   type="button"
                   onClick={() => {
                     const docTitle = `${selectedRevisionNote?.subject || 'Exam'}_${selectedRevisionNote?.code || 'Revision'}_Notes`.replace(/[^a-zA-Z0-9_\-\s]/g, '').trim();
-                    triggerUniversalPrint(docTitle);
+                    let targetUrl = selectedRevisionNote?.pdfUrl;
+                    let targetName = selectedRevisionNote?.downloadName || `${docTitle}.pdf`;
+
+                    if (selectedRevisionNote?.code === 'BELE-001') {
+                      targetUrl = '/BELE001_Basic_Electrical_and_Electronics_Engineering_notes.pdf';
+                      targetName = 'BELE001_BEEE_All_Units_Notes.pdf';
+                    } else if (selectedRevisionNote?.code === 'BCSE-008') {
+                      targetUrl = '/BCSE008_Computational_and_Problem_Solving_using_C_notes.pdf';
+                      targetName = 'BCSE008_C_Programming_All_Units_Notes.pdf';
+                    } else if (selectedRevisionNote?.code === 'BCSE-011') {
+                      targetUrl = '/AIML_notes_handwritten.pdf';
+                      targetName = 'BCSE011_AIML_All_Units_Notes.pdf';
+                    } else if (selectedRevisionNote?.code === 'BCSE-012') {
+                      targetUrl = '/BCSE012_Fundamental_of_Web_Technologies_Long_Notes.pdf';
+                      targetName = 'BCSE012_Web_Technologies_All_Units_Notes.pdf';
+                    }
+
+                    if (targetUrl && targetUrl !== '#') {
+                      try {
+                        window.open(targetUrl, '_blank');
+                      } catch (err) {
+                        console.warn('Window open error:', err);
+                      }
+                      downloadPdf(targetUrl, targetName, selectedRevisionNote?.subject || '2026-27 Master Notes');
+                    } else {
+                      triggerUniversalPrint(docTitle);
+                    }
                   }}
                   style={{
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#cbd5e1',
+                    background: 'rgba(6, 182, 212, 0.15)',
+                    border: '1.5px solid rgba(6, 182, 212, 0.45)',
+                    color: '#22d3ee',
                     padding: '6px 14px',
                     borderRadius: '8px',
                     fontSize: '0.8rem',
-                    fontWeight: 700,
+                    fontWeight: 800,
                     cursor: 'pointer',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px'
                   }}
-                  title="Print or Save as PDF"
+                  title="Print or Save exact authentic 2026-27 Notes PDF"
                 >
                   <Printer size={15} /> Print / Save PDF
                 </button>
