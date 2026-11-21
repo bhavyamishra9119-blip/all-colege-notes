@@ -1,29 +1,29 @@
 > 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│               HTML5 SEMANTIC PAGE LAYOUT BLUEPRINT                     │
-├────────────────────────────────────────────────────────────────────────┤
-│  ┌──────────────────────────────────────────────────────────────────┐  │
-│  │ <header>  Site Branding, Logo, and Main Title                   │  │
-│  ├──────────────────────────────────────────────────────────────────┤  │
-│  │ <nav>     Primary Navigation Menu (Home, Notes, Syllabus)        │  │
-│  ├───────────────────────────────────┬──────────────────────────────┤  │
-│  │ <main>                            │ <aside>                      │  │
-│  │   <article>                       │   Sidebar / Secondary info   │  │
-│  │     <h2>Article Heading</h2>      │   Related links              │  │
-│  │     <section>                     │   Ads / Quick links          │  │
-│  │       <p>Content block 1...</p>   │                              │  │
-│  │     </section>                    │                              │  │
-│  │     <section>                     │                              │  │
-│  │       <p>Content block 2...</p>   │                              │  │
-│  │     </section>                    │                              │  │
-│  │   </article>                      │                              │  │
-│  ├───────────────────────────────────┴──────────────────────────────┤  │
-│  │ <footer>  Copyright, University Affiliation, Terms & Privacy    │  │
-│  └──────────────────────────────────────────────────────────────────┘  │
-└────────────────────────────────────────────────────────────────────────┘
-```
+<div class="pdf-roadmap-card">
+  <div class="pdf-roadmap-badge">HTML5 SEMANTIC PAGE LAYOUT BLUEPRINT</div>
+  <div class="pdf-roadmap-grid">
+    <div class="pdf-roadmap-col col-blue">
+      <div class="pdf-roadmap-col-header">&lt;header&gt; &amp; &lt;nav&gt;</div>
+      <div class="pdf-roadmap-items">
+        <div class="roadmap-item">• Site identity, branding logo, global primary navigation menu</div>
+      </div>
+    </div>
+    <div class="pdf-roadmap-col col-purple">
+      <div class="pdf-roadmap-col-header">&lt;main&gt; &amp; &lt;article&gt; / &lt;section&gt;</div>
+      <div class="pdf-roadmap-items">
+        <div class="roadmap-item">• Unique core content of the page, self-contained articles, thematic sections</div>
+      </div>
+    </div>
+    <div class="pdf-roadmap-col col-maroon">
+      <div class="pdf-roadmap-col-header">&lt;aside&gt; &amp; &lt;footer&gt;</div>
+      <div class="pdf-roadmap-items">
+        <div class="roadmap-item">• Related sidebars, ads, author bio, copyright notice, legal links</div>
+      </div>
+    </div>
+  </div>
+  <div class="pdf-figure-caption">Figure 3.1: Standard HTML5 Semantic Page Layout Hierarchy</div>
+</div>
 
 4. <article> (Self-Contained Independent Content)
 Represents a complete, independent, self-contained composition that still makes full sense if

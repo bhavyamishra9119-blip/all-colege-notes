@@ -3373,3 +3373,306 @@ button,
 }
 
 
+
+/* =========================================================================
+   AUTHENTIC 2026–27 PDF DOCUMENT & ROADMAP CARD STYLING
+   Strictly aligned with C:\Notes\B.Tech Notes 2026-27
+   ========================================================================= */
+
+.pdf-doc-header {
+  margin: 0 0 24px 0;
+  padding: 0 0 8px 0;
+}
+
+.pdf-subject-badge {
+  color: #881337;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.pdf-main-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  line-height: 1.25;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.pdf-syllabus-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #334155;
+  margin: 0 0 18px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.pdf-divider {
+  border: none;
+  border-top: 2px solid #0f172a;
+  margin: 16px 0 24px 0;
+}
+
+/* Master Roadmap Box Matching Figure 1 in the PDF */
+.pdf-roadmap-card {
+  margin: 24px 0 28px 0;
+  padding: 20px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.pdf-roadmap-badge {
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 8px 22px;
+  border-radius: 8px;
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto 18px auto;
+  text-transform: uppercase;
+}
+
+.pdf-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 18px;
+}
+
+.pdf-roadmap-col {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+}
+
+.pdf-roadmap-col.col-blue {
+  border-color: #2563eb;
+}
+
+.pdf-roadmap-col.col-blue .pdf-roadmap-col-header {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.pdf-roadmap-col.col-maroon {
+  border-color: #991b1b;
+}
+
+.pdf-roadmap-col.col-maroon .pdf-roadmap-col-header {
+  background: #991b1b;
+  color: #ffffff;
+}
+
+.pdf-roadmap-col.col-emerald {
+  border-color: #059669;
+}
+
+.pdf-roadmap-col.col-emerald .pdf-roadmap-col-header {
+  background: #059669;
+  color: #ffffff;
+}
+
+.pdf-roadmap-col.col-purple {
+  border-color: #7c3aed;
+}
+
+.pdf-roadmap-col.col-purple .pdf-roadmap-col-header {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+.pdf-roadmap-col-header {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.pdf-roadmap-items {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #ffffff;
+}
+
+.roadmap-item {
+  font-size: 0.92rem;
+  color: #0f172a;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.pdf-figure-caption {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #475569;
+  font-style: italic;
+}
+
+/* =========================================================================
+   THEME ADAPTATION: THEME-CLEAN (OFFICIAL DIGITAL / PRINTED PDF VIEW)
+   ========================================================================= */
+.theme-clean .pdf-subject-badge {
+  color: #881337 !important;
+}
+
+.theme-clean .pdf-main-title {
+  color: #0f172a !important;
+}
+
+.theme-clean .pdf-syllabus-desc {
+  color: #334155 !important;
+}
+
+.theme-clean .pdf-divider {
+  border-top: 2px solid #0f172a !important;
+}
+
+.theme-clean .pdf-roadmap-card {
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+}
+
+.theme-clean .roadmap-item {
+  color: #0f172a !important;
+}
+
+.theme-clean .pdf-figure-caption {
+  color: #475569 !important;
+}
+
+/* =========================================================================
+   THEME ADAPTATION: THEME-PAPER (AUTHENTIC HANDWRITTEN NOTEBOOK VIEW)
+   ========================================================================= */
+.theme-paper .pdf-doc-header .pdf-subject-badge {
+  color: #991b1b !important;
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.45rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+}
+
+.theme-paper .pdf-main-title {
+  color: #0c2340 !important;
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 2.35rem !important;
+  font-weight: 700 !important;
+  text-decoration: underline wavy #b45309 2px !important;
+}
+
+.theme-paper .pdf-syllabus-desc {
+  color: #1e3a8a !important;
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.5rem !important;
+  line-height: 38px !important;
+  font-weight: 600 !important;
+}
+
+.theme-paper .pdf-divider {
+  border-top: 2px dashed #93c5fd !important;
+}
+
+.theme-paper .pdf-roadmap-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 2px dashed #93c5fd !important;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.08) !important;
+}
+
+.theme-paper .pdf-roadmap-badge {
+  background: #1e3a8a !important;
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.35rem !important;
+  padding: 6px 20px !important;
+}
+
+.theme-paper .pdf-roadmap-col {
+  background: #ffffff !important;
+}
+
+.theme-paper .pdf-roadmap-col-header {
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+}
+
+.theme-paper .pdf-roadmap-items {
+  background: #ffffff !important;
+}
+
+.theme-paper .roadmap-item {
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.45rem !important;
+  line-height: 36px !important;
+  color: #1e3a8a !important;
+  font-weight: 600 !important;
+}
+
+.theme-paper .pdf-figure-caption {
+  font-family: 'Caveat', 'Patrick Hand', cursive !important;
+  font-size: 1.35rem !important;
+  color: #0369a1 !important;
+  font-weight: 700 !important;
+}
+
+/* =========================================================================
+   THEME ADAPTATION: DEFAULT (CYBER / DARK VIEW)
+   ========================================================================= */
+.pdf-doc-header .pdf-subject-badge {
+  color: #fb7185;
+}
+
+.pdf-main-title {
+  color: #f8fafc;
+}
+
+.pdf-syllabus-desc {
+  color: #cbd5e1;
+}
+
+.pdf-divider {
+  border-top: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.pdf-roadmap-card {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.pdf-roadmap-badge {
+  background: rgba(30, 41, 59, 0.9);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.pdf-roadmap-col {
+  background: rgba(10, 15, 29, 0.95);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.pdf-roadmap-items {
+  background: rgba(10, 15, 29, 0.95);
+}
+
+.roadmap-item {
+  color: #f1f5f9;
+}
+
+.pdf-figure-caption {
+  color: #94a3b8;
+}

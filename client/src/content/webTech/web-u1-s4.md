@@ -1,25 +1,7 @@
 > 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                5-TIER DNS RESOLUTION ARCHITECTURE                      │
-├────────────────────────────────────────────────────────────────────────┤
-│  1. Browser Cache / OS Resolver  ──► (Checks local hosts file & cache) │
-│        │                                                               │
-│        ▼ (Cache Miss)                                                  │
-│  2. Resolving Name Server (ISP)  ──► (Recursive resolver starts search)│
-│        │                                                               │
-│        ▼                                                               │
-│  3. Root Name Server (.)         ──► (Directs to TLD server)           │
-│        │                                                               │
-│        ▼                                                               │
-│  4. TLD Name Server (.edu / .com)──► (Directs to Authoritative server) │
-│        │                                                               │
-│        ▼                                                               │
-│  5. Authoritative Name Server    ──► (Returns final IP address:        │
-│                                           192.0.2.1)                   │
-└────────────────────────────────────────────────────────────────────────┘
-```
+Client Browser ➔ Local Host Cache ➔ Recursive DNS Resolver (ISP/8.8.8.8) ➔ Root Nameserver (`.`) ➔ TLD Nameserver (`.com`/`.edu`) ➔ Authoritative Nameserver ➔ IP Address Returned to Browser
+<div class="pdf-figure-caption">Figure 1.2: 5-Tier Hierarchical DNS Resolution Pipeline Architecture</div>
 
 HTTP
 Method Purpose / Action Key Technical Properties (Exam Notes)

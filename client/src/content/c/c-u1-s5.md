@@ -1,53 +1,17 @@
 > 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                 4-STAGE C COMPILATION PIPELINE                         │
-├────────────────────────────────────────────────────────────────────────┤
-│  Source Code (.c)                                                      │
-│        │                                                               │
-│        ▼                                                               │
-│  [ PREPROCESSOR ]  ──► Expands #include, #define, strips comments      │
-│        │                                                               │
-│        ▼ Preprocessed Source (.i)                                      │
-│  [ COMPILER ]      ──► Lexical, Syntax & Semantic analysis             │
-│        │                                                               │
-│        ▼ Assembly Code (.s / .asm)                                     │
-│  [ ASSEMBLER ]     ──► Translates mnemonic assembly to relocatable code│
-│        │                                                               │
-│        ▼ Object Code (.o / .obj)                                       │
-│  [ LINKER ]        ──► Links C Runtime (CRT) & Library functions       │
-│        │                                                               │
-│        ▼                                                               │
-│  Executable Binary (.exe / a.out)                                      │
-└────────────────────────────────────────────────────────────────────────┘
-```
+Source Code (`prog.c`) ➔ Preprocessor (`cpp`) ➔ Expanded Code (`prog.i`) ➔ Compiler (`cc1`) ➔ Assembly (`prog.s`) ➔ Assembler (`as`) ➔ Object Code (`prog.o`) ➔ Linker (`ld`) ➔ Executable Binary (`prog.exe`)
+<div class="pdf-figure-caption">Figure 1.3: Complete 4-Stage C Compilation Pipeline Architecture</div>
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                  PROCESS VIRTUAL MEMORY LAYOUT                         │
-├────────────────────────────────────────────────────────────────────────┤
-│ High Memory (0xFFFFFFFF)                                               │
-│  ┌─────────────────────────┐                                           │
-│  │ Stack Segment           │ ◄── Local variables, function call frames │
-│  │ (Grows DOWNWARD ▼)      │                                           │
-│  ├─────────────────────────┤                                           │
-│  │                         │                                           │
-│  │ (Free Unallocated Space)│                                           │
-│  │                         │                                           │
-│  ├─────────────────────────┤                                           │
-│  │ (Grows UPWARD ▲)        │                                           │
-│  │ Heap Segment            │ ◄── Dynamic Memory (malloc, calloc, free) │
-│  ├─────────────────────────┤                                           │
-│  │ BSS Segment             │ ◄── Uninitialized global/static variables │
-│  ├─────────────────────────┤                                           │
-│  │ Data Segment            │ ◄── Initialized global/static variables   │
-│  ├─────────────────────────┤                                           │
-│  │ Text / Code Segment     │ ◄── Read-only machine bytecode            │
-│  └─────────────────────────┘                                           │
-│ Low Memory (0x00000000)                                                │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Memory Segment | Growth Direction | Typical Contents | Access Permissions |
+|---|---|---|---|
+| **Stack** | Downward (High $\to$ Low) | Function call frames, local variables, return addresses | Read / Write |
+| **Memory Mapping / Shared** | Free space | Shared libraries (`libc.so`), `mmap` regions | Read / Write / Execute |
+| **Heap** | Upward (Low $\to$ High) | Dynamic allocations (`malloc`, `calloc`, `realloc`) | Read / Write |
+| **BSS (Uninitialized Data)** | Fixed | Global &amp; static variables initialized to zero / uninitialized | Read / Write |
+| **Data Segment (Initialized)** | Fixed | Global &amp; static variables with explicit initial values | Read / Write |
+| **Text Segment (Code)** | Fixed | Read-only compiled machine instructions (`main`, functions) | Read / Execute (Read-Only) |
+<div class="pdf-figure-caption">Figure 1.4: Linux / POSIX 32-bit Process Virtual Memory Layout</div>
 
 Criterion Syntax Semantics
 C Code

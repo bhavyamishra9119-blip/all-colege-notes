@@ -1,35 +1,35 @@
 > 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                   INTELLIGENT AGENT ARCHITECTURE                       │
-├────────────────────────────────────────────────────────────────────────┤
-│                                                                        │
-│                      ┌──────────────────────┐                          │
-│                      │     ENVIRONMENT      │                          │
-│                      └──────┬────────▲──────┘                          │
-│                             │        │                                 │
-│                  Percepts   │        │ Actions                         │
-│                  (Inputs)   │        │ (Outputs)                       │
-│                             ▼        │                                 │
-│                         ┌────────────┴──┐                              │
-│                         │    SENSORS    │                              │
-│                         └───────┬───────┘                              │
-│                                 │                                      │
-│                                 ▼                                      │
-│                     ┌────────────────────────┐                         │
-│                     │     AGENT PROGRAM      │                         │
-│                     │  (Decision / Brain)    │                         │
-│                     └───────────┬────────────┘                         │
-│                                 │                                      │
-│                                 ▼                                      │
-│                         ┌───────────────┐                              │
-│                         │   ACTUATORS   │                              │
-│                         └───────────────┘                              │
-│                                                                        │
-│ • PEAS Framework: Performance Measure, Environment, Actuators, Sensors │
-└────────────────────────────────────────────────────────────────────────┘
-```
+<div class="pdf-roadmap-card">
+  <div class="pdf-roadmap-badge">INTELLIGENT AGENT ARCHITECTURE (SENSE ➔ THINK ➔ ACT)</div>
+  <div class="pdf-roadmap-grid">
+    <div class="pdf-roadmap-col col-blue">
+      <div class="pdf-roadmap-col-header">1. ENVIRONMENT</div>
+      <div class="pdf-roadmap-items">
+        <div class="roadmap-item">• External world containing state, tasks, and constraints</div>
+        <div class="roadmap-item">• Emits observable signals captured by agent Sensors</div>
+      </div>
+    </div>
+    <div class="pdf-roadmap-col col-purple">
+      <div class="pdf-roadmap-col-header">2. AGENT CORE (PERCEPT ➔ ACTION)</div>
+      <div class="pdf-roadmap-items">
+        <div class="roadmap-item">• Sensors (Cameras, Microphones, Network sockets, Keyboards)</div>
+        <div class="roadmap-item">• Agent Function $f: P^* 	o A$ mapping percept sequences to actions</div>
+        <div class="roadmap-item">• Actuators (Motors, Robotic arms, Display screens, API calls)</div>
+      </div>
+    </div>
+    <div class="pdf-roadmap-col col-emerald">
+      <div class="pdf-roadmap-col-header">3. PEAS CRITERIA</div>
+      <div class="pdf-roadmap-items">
+        <div class="roadmap-item">• <strong>P</strong>erformance Measure: Objective utility function</div>
+        <div class="roadmap-item">• <strong>E</strong>nvironment: Physical or digital operating space</div>
+        <div class="roadmap-item">• <strong>A</strong>ctuators: Output devices exerting control</div>
+        <div class="roadmap-item">• <strong>S</strong>ensors: Input instruments measuring state</div>
+      </div>
+    </div>
+  </div>
+  <div class="pdf-figure-caption">Figure 1.2: General Architecture of an Intelligent Agent Interacting with its Environment</div>
+</div>
 
 
 ### 5. Decision / Action: Triggering downstream action (e.g., unlocking a smartphone via Face ID or

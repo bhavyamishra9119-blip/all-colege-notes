@@ -1,29 +1,32 @@
 > 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│              ARTIFICIAL INTELLIGENCE TAXONOMY HIERARCHY                │
-├────────────────────────────────────────────────────────────────────────┤
-│                                                                        │
-│   ┌─────────────────────────────────────────────────────────────┐      │
-│   │ ARTIFICIAL INTELLIGENCE (1956)                              │      │
-│   │ Any technique enabling computers to mimic human cognition   │      │
-│   │                                                             │      │
-│   │   ┌─────────────────────────────────────────────────────┐   │      │
-│   │   │ MACHINE LEARNING (1980s)                            │   │      │
-│   │   │ Statistical methods enabling systems to learn from  │   │      │
-│   │   │ experience without being explicitly programmed      │   │      │
-│   │   │                                                     │   │      │
-│   │   │   ┌─────────────────────────────────────────────┐   │   │      │
-│   │   │   │ DEEP LEARNING (2010s)                       │   │   │      │
-│   │   │   │ Multi-layered Artificial Neural Networks    │   │   │      │
-│   │   │   │ (Transformers, CNNs, RNNs, LLMs)            │   │   │      │
-│   │   │   └─────────────────────────────────────────────┘   │   │      │
-│   │   └─────────────────────────────────────────────────────┘   │      │
-│   └─────────────────────────────────────────────────────────────┘      │
-│                                                                        │
-└────────────────────────────────────────────────────────────────────────┘
-```
+<div class="pdf-roadmap-card">
+  <div class="pdf-roadmap-badge">AI, ML &amp; DEEP LEARNING TAXONOMY HIERARCHY</div>
+  <div class="pdf-roadmap-grid">
+    <div class="pdf-roadmap-col col-blue">
+      <div class="pdf-roadmap-col-header">1. ARTIFICIAL INTELLIGENCE (1956)</div>
+      <div class="pdf-roadmap-items">
+        <div class="roadmap-item">• Broadest umbrella: Systems mimicking human cognition &amp; problem solving</div>
+        <div class="roadmap-item">• Symbolic AI, Expert Systems, Heuristic Search, Knowledge Bases</div>
+      </div>
+    </div>
+    <div class="pdf-roadmap-col col-purple">
+      <div class="pdf-roadmap-col-header">2. MACHINE LEARNING (1980s)</div>
+      <div class="pdf-roadmap-items">
+        <div class="roadmap-item">• Subset of AI: Algorithms that learn predictive rules directly from data</div>
+        <div class="roadmap-item">• Supervised, Unsupervised &amp; Reinforcement Learning (Decision Trees, SVM, Regression)</div>
+      </div>
+    </div>
+    <div class="pdf-roadmap-col col-maroon">
+      <div class="pdf-roadmap-col-header">3. DEEP LEARNING (2010s)</div>
+      <div class="pdf-roadmap-items">
+        <div class="roadmap-item">• Subset of ML: Multi-layered Artificial Neural Networks with backpropagation</div>
+        <div class="roadmap-item">• Automatic hierarchical feature learning from raw data (CNNs, Transformers, LLMs)</div>
+      </div>
+    </div>
+  </div>
+  <div class="pdf-figure-caption">Figure 1.1: Nested Taxonomy: Deep Learning ⊂ Machine Learning ⊂ Artificial Intelligence</div>
+</div>
 
 B.TECH • FUNDAMENTALS OF ARTIFICIAL INTELLIGENCE & MACHINE LEARNING (AIML) •
 UNIT-I (9 HOURS)

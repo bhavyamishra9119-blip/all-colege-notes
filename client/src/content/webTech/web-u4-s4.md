@@ -1,28 +1,12 @@
 > 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                       THE STANDARD CSS BOX MODEL                       │
-├────────────────────────────────────────────────────────────────────────┤
-│                                                                        │
-│   ┌────────────────────────────────────────────────────────────────┐   │
-│   │ MARGIN (Transparent spacing between elements)                  │   │
-│   │   ┌────────────────────────────────────────────────────────┐   │   │
-│   │   │ BORDER (Visible border edge: solid, dashed, width)     │   │   │
-│   │   │   ┌────────────────────────────────────────────────┐   │   │   │
-│   │   │   │ PADDING (Internal clear space around content)  │   │   │   │
-│   │   │   │   ┌────────────────────────────────────────┐   │   │   │   │
-│   │   │   │   │ CONTENT (Text, Image, Video Box)       │   │   │   │   │
-│   │   │   │   │                                        │   │   │   │   │
-│   │   │   │   └────────────────────────────────────────┘   │   │   │   │
-│   │   │   └────────────────────────────────────────────────┘   │   │   │
-│   │   └────────────────────────────────────────────────────────┘   │   │
-│   └────────────────────────────────────────────────────────────────┘   │
-│                                                                        │
-│ • Total Rendered Width (Standard): Width + 2*Padding + 2*Border + Margin│
-│ • Border-Box Formula: Total Width = width (Padding & Border included)   │
-└────────────────────────────────────────────────────────────────────────┘
-```
+| Box Model Layer | Function | CSS Properties | Default Sizing Behavior |
+|---|---|---|---|
+| **Content Area** | Inner area where text, images, and child elements render | `width`, `height`, `min-width` | Defined by element or CSS dimensions |
+| **Padding** | Transparent space between content and outer border | `padding`, `padding-top`, etc. | Clears an area around the content |
+| **Border** | Visible boundary surrounding padding and content | `border`, `border-width`, `border-style` | Inherits or sets line style &amp; color |
+| **Margin** | Transparent space separating element from neighbors | `margin`, `margin: auto` | Can collapse vertically with sibling margins |
+<div class="pdf-figure-caption">Figure 4.1: The Standard CSS Box Model (Content, Padding, Border, and Margin)</div>
 
 
 > 📊 **Table 6.1: Comparison Matrix of Display & Visibility Modes**

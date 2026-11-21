@@ -646,8 +646,14 @@ function formatNoteContent(content, activeRecallMode = false, sectionId = 'sec')
 
   let html = content;
 
-  // Step 00 (SVG SHIELD): Extract all <svg>...</svg> blocks FIRST so that no LaTeX/KaTeX/Markdown
-  // regex ever injects <span>/<div>/<em> tags inside <svg><text> (which causes HTML5 parser to abort the SVG!)
+  // Step 00 (HTML & SVG SHIELD): Extract all <div class="pdf-... blocks and <svg>...</svg> blocks FIRST
+  const htmlCardBlocks = [];
+  html = html.replace(/<div class="pdf-(?:roadmap-card|doc-header|figure-caption)"[\s\S]*?<\/div>(?:\s*<\/div>)?/gi, (match) => {
+    const placeholder = `\x00HTMLCARDBLOCK_${htmlCardBlocks.length}\x00`;
+    htmlCardBlocks.push(match);
+    return placeholder;
+  });
+
   const svgBlocks = [];
   html = html.replace(/<svg\b[\s\S]*?<\/svg>/gi, (svgMatch) => {
     const cleanSvg = svgMatch
@@ -742,8 +748,7 @@ function formatNoteContent(content, activeRecallMode = false, sectionId = 'sec')
     // Check if it's an ASCII diagram (lines made of +, -, |, etc.)
     const isAsciiDiagram = !l && /^[+\-| /\\=_]{4,}/m.test(trimmedCode) && !/\b(?:def|for|while|import|printf|int|void)\b/.test(trimmedCode);
     if (isAsciiDiagram) {
-      let cleanCode = cleanMathTypography(trimmedCode);
-      const escaped = cleanCode
+      const escaped = trimmedCode
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
@@ -1056,12 +1061,15 @@ function formatNoteContent(content, activeRecallMode = false, sectionId = 'sec')
     html = html.replace(`\x00MATH_DISPLAY_${i}\x00`, rendered);
   });
 
-  // Step 9 (POST-PASS): Restore code block and SVG placeholders with their rendered HTML
+  // Step 9 (POST-PASS): Restore code block, SVG, and HTML card placeholders with their rendered HTML
   codeBlocks.forEach((rendered, i) => {
     html = html.replace(`\x00CODEBLOCK_${i}\x00`, rendered);
   });
   svgBlocks.forEach((rendered, i) => {
     html = html.replace(`\x00SVGBLOCK_${i}\x00`, rendered);
+  });
+  htmlCardBlocks.forEach((rendered, i) => {
+    html = html.replace(`\x00HTMLCARDBLOCK_${i}\x00`, rendered);
   });
 
   if (noteContentCache.size > 80) {
@@ -2748,7 +2756,7 @@ export default function SensoryLab({
                     lineHeight: themeMode === 'paper' ? '34px' : 1.85,
                     fontFamily: themeMode === 'clean' ? "'Inter', sans-serif" : themeMode === 'paper' ? "'Caveat', 'Patrick Hand', cursive, sans-serif" : undefined,
                     letterSpacing: themeMode === 'paper' ? '0.3px' : undefined,
-                    whiteSpace: 'pre-line',
+                    whiteSpace: 'normal',
                     wordBreak: 'break-word',
                     overflowWrap: 'anywhere',
                     maxWidth: '100%',
