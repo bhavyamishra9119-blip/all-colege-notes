@@ -1,6 +1,29 @@
-### 2. Semantic Structural Elements Layout Blueprint
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│               HTML5 SEMANTIC PAGE LAYOUT BLUEPRINT                     │
+├────────────────────────────────────────────────────────────────────────┤
+│  ┌──────────────────────────────────────────────────────────────────┐  │
+│  │ <header>  Site Branding, Logo, and Main Title                   │  │
+│  ├──────────────────────────────────────────────────────────────────┤  │
+│  │ <nav>     Primary Navigation Menu (Home, Notes, Syllabus)        │  │
+│  ├───────────────────────────────────┬──────────────────────────────┤  │
+│  │ <main>                            │ <aside>                      │  │
+│  │   <article>                       │   Sidebar / Secondary info   │  │
+│  │     <h2>Article Heading</h2>      │   Related links              │  │
+│  │     <section>                     │   Ads / Quick links          │  │
+│  │       <p>Content block 1...</p>   │                              │  │
+│  │     </section>                    │                              │  │
+│  │     <section>                     │                              │  │
+│  │       <p>Content block 2...</p>   │                              │  │
+│  │     </section>                    │                              │  │
+│  │   </article>                      │                              │  │
+│  ├───────────────────────────────────┴──────────────────────────────┤  │
+│  │ <footer>  Copyright, University Affiliation, Terms & Privacy    │  │
+│  └──────────────────────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────────────────────┘
+```
 
 4. <article> (Self-Contained Independent Content)
 Represents a complete, independent, self-contained composition that still makes full sense if
@@ -23,11 +46,12 @@ copyright notices, author bio, contact links, privacy policy, and sitemap links.
 Sidebar / Ads /
 Related Links
 <footer> — Copyright, Author Info & Legal Links
-**Figure 3:** Standard HTML5 Semantic Layout Wireframe
-Fundamentals of Web Technologies • UNIT–3: HTML5
+
+> 🖼️ **Figure 3: Standard HTML5 Semantic Layout Wireframe**
 
 
-#### 3.3 Clean HTML5 Semantic Page Skeleton (Exam Code Template)
+
+### 3.3 Clean HTML5 Semantic Page Skeleton (Exam Code Template)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +78,7 @@ Fundamentals of Web Technologies • UNIT–3: HTML5
 ### 4. HTML5 Elements (New Additions & Deprecated Tags)
 
 
-#### 4.1 Categorized Guide to New HTML5 Elements
+### 4.1 Categorized Guide to New HTML5 Elements
 
 
 ### 1. Structural & Figure Elements
@@ -73,7 +97,6 @@ timestamp.
 (e.g., file upload).
 <meter value="0.8" min="0" max="1">: Displays a static scalar measurement within a known
 range (e.g., disk quota or battery level).
-Fundamentals of Web Technologies • UNIT–3: HTML5
 
 
 ### 3. Interactive, Media, Graphics & Form Elements
@@ -81,10 +104,10 @@ Fundamentals of Web Technologies • UNIT–3: HTML5
 <details> & <summary>: Native clickable accordion that expands/collapses hidden notes with
 zero JavaScript.
 <dialog>: Built-in modal popup dialog container.
-**Media, Graphics & Forms:** <audio>, <video>, <source>, <track>; <canvas> & <svg>;
+- **Media, Graphics & Forms:** <audio>, <video>, <source>, <track>; <canvas> & <svg>;
 <datalist> & <output>.
 
-#### 4.2 Summary of New HTML5 Elements & Deprecated HTML4 Tags
+### 4.2 Summary of New HTML5 Elements & Deprecated HTML4 Tags
 
 HTML5 Element Category Purpose / Exam Example
 <main> / <aside> Layout Primary page body vs. secondary sidebar content
@@ -112,17 +135,16 @@ redundant tag
 <object> / <canvas> and
 <abbr>
 
-## PART II: HTML5 MULTIMEDIA (AUDIO & VIDEO) AND HTML5 CANVAS
+- **## PART II:** HTML5 MULTIMEDIA (AUDIO & VIDEO) AND HTML5 CANVAS
 
 
-### 5. HTML5 Multimedia: Audio and Video
+- **### 5. HTML5 Multimedia:** Audio and Video
 
 
-#### 5.1 Native Browser Multimedia Concept
+### 5.1 Native Browser Multimedia Concept
 
-**Core Breakthrough:** HTML5 embeds sound and video directly inside standard web pages using
+- **Core Breakthrough:** HTML5 embeds sound and video directly inside standard web pages using
 <audio> and <video> tags — decoded natively by the browser with zero third-party plugins.
 Multi-Format Fallback Strategy (<source>): Developers list multiple <source> tags inside
 <audio> or <video>. The browser scans top-to-bottom and plays the first codec/format it
 supports; fallback text displays only on ancient unsupported browsers.
-Fundamentals of Web Technologies • UNIT–3: HTML5

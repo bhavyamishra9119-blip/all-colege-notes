@@ -1,6 +1,4 @@
-### University Solved Examination Questions (Unit 2)
-
-> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
 Feature Squirrel-Cage 3-Φ IM Slip-Ring (Wound-Rotor) 3-Φ IM
 Rotor Construction Shorted skewed copper/aluminum
@@ -21,45 +19,54 @@ crushers
 ### 10. Single-Phase Induction Motor: Principle, Construction, and Working
 
 
-#### 10.1 Why a Single-Phase Induction Motor Is NOT Self-Starting
+### 10.1 Why a Single-Phase Induction Motor Is NOT Self-Starting
 
 Double-Field Revolving Theory (Exam Favorite!):
-1. A single-phase AC stator winding creates a pulsating (standing) magnetic field that merely
+
+### 1. A single-phase AC stator winding creates a pulsating (standing) magnetic field that merely
+
 grows and reverses along one fixed axis — it does NOT rotate!
-2. Mathematically, a pulsating field Φm cos(ωt) resolves into two equal rotating fields, each of
+
+### 2. Mathematically, a pulsating field Φm cos(ωt) resolves into two equal rotating fields, each of
+
 amplitude Φm / 2, rotating in opposite directions at +Ns (Forward) and −Ns (Backward).
-3. At standstill (N = 0, s = 1), Forward Torque (Tf) and Backward Torque (Tb) are equal and
+
+### 3. At standstill (N = 0, s = 1), Forward Torque (Tf) and Backward Torque (Tb) are equal and
+
 opposite → Net Starting Torque = Tf − Tb = 0! The rotor simply hums and refuses to turn.
-4. **Running Condition:** If given an initial kick in either direction, forward slip decreases (s < 1)
+
+- **### 4. Running Condition:** If given an initial kick in either direction, forward slip decreases (s < 1)
+
 while backward slip increases (2 − s), making Tf > Tb — so net torque accelerates the rotor up
 to normal speed!
 
-#### 10.2 Construction & How We Make It Self-Starting (Split-Phase Principle)
+### 10.2 Construction & How We Make It Self-Starting (Split-Phase Principle)
 
-**Construction:** Uses a standard rugged Squirrel-Cage Rotor inside a slotted laminated stator
+- **Construction:** Uses a standard rugged Squirrel-Cage Rotor inside a slotted laminated stator
 housing TWO stator windings placed 90° electrical degrees apart:
-1. **Main (Running) Winding:** Thick wire, low resistance, high inductance (current Im lags
+
+- **### 1. Main (Running) Winding:** Thick wire, low resistance, high inductance (current Im lags
+
 supply voltage V strongly).
-2. **Auxiliary (Starting) Winding:** Connected in parallel with the main winding; designed with
+
+### 2. Auxiliary (Starting) Winding: Connected in parallel with the main winding; designed with
+
 either higher resistance or a series Starting Capacitor (C) so its current Ia is phase-shifted by
 30° – 90° ahead of Im.
-**Working (Artificial 2-Phase RMF):** Because Im and Ia are out of phase in time AND displaced 90°
+- **Working (Artificial 2-Phase RMF):** Because Im and Ia are out of phase in time AND displaced 90°
 in space, they create a Rotating Magnetic Field that kicks the rotor into rotation automatically!
-**Role of Centrifugal Switch:** Once the rotor reaches ~75%–80% of rated speed, a spring-loaded
+- **Role of Centrifugal Switch:** Once the rotor reaches ~75%–80% of rated speed, a spring-loaded
 centrifugal switch disconnects the auxiliary starting winding (in Split-Phase and Capacitor-Start
 motors) so the motor runs efficiently on the main winding alone.
-**BEEE • UNIT–2:** Transformers & Electrical Machines
 
-
-**Four Standard Commercial Types:**
-
-**Split-Phase (Resistance-Start):** Uses thin high-resistance auxiliary coil (α ≈ 30°); low cost,
+- **Four Standard Commercial Types:** 
+- **Split-Phase (Resistance-Start):** Uses thin high-resistance auxiliary coil (α ≈ 30°); low cost,
 modest starting torque (small pumps, grinders).
-**Capacitor-Start IM:** Adds electrolytic capacitor in series with auxiliary coil (α ≈ 80°–90°); very
+- **Capacitor-Start IM:** Adds electrolytic capacitor in series with auxiliary coil (α ≈ 80°–90°); very
 high starting torque (refrigerators, air compressors).
-**Permanent-Split Capacitor (PSC):** Oil-filled capacitor stays in circuit permanently (no
+- **Permanent-Split Capacitor (PSC):** Oil-filled capacitor stays in circuit permanently (no
 centrifugal switch → silent, reliable → ceiling fans & air blowers!).
-**Shaded-Pole Motor:** Copper shading ring on salient poles; ultra-cheap, tiny starting torque
+- **Shaded-Pole Motor:** Copper shading ring on salient poles; ultra-cheap, tiny starting torque
 (hair dryers, small desk fans, electric clocks).
 (a) Double-Field Revolving Torque
 At N=0: Tnet=0
@@ -78,7 +85,9 @@ Rotor V
 Ia
 Im
 Phase split α ≈ 80°–90° → High Starting Torque
-**Figure 11:** Double-Field Revolving Torque Curve and Capacitor-Start Single-Phase Induction Motor
+
+> 🖼️ **Figure 11: Double-Field Revolving Torque Curve and Capacitor-Start Single-Phase Induction Motor**
+
 Comparison Point Single-Phase Induction Motor Three-Phase Induction Motor
 Supply Required 1-Phase AC (230 V, 50 Hz) 3-Phase AC (415 V, 50 Hz)
 Self-Starting? No (requires auxiliary winding /
@@ -112,7 +121,6 @@ Current/voltage scaling &
 galvanic safety
 Substation metering & protective relays (CT/PT),
 medical equipment isolation, electric arc welding
-**BEEE • UNIT–2:** Transformers & Electrical Machines
 
 Device /
 Machine
@@ -180,9 +188,7 @@ Never mix up which side is open (HV open in OC)
 or shorted (LV shorted in SC)!
 DC Motor & Speed
 Control
-
-$$V = Eb + IaRa; N ∝  (V − IaRa)$$
-
+V = Eb + IaRa; N ∝  (V − IaRa)
 / Φ
 Flux control → Above base speed; Armature R
 control → Below base speed.
@@ -194,8 +200,7 @@ Rotor speed N is always strictly less than Ns; swap
 any 2 phases to reverse!
 1-Φ Induction
 Motor
-**Double-Field Theory:** Tf = Tb at
+- **Double-Field Theory:** Tf = Tb at
 N=0 → Not self-starting
 Needs auxiliary winding + capacitor (90° space &
 phase split) + centrifugal switch.
-**BEEE • UNIT–2:** Transformers & Electrical Machines

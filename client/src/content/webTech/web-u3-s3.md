@@ -1,19 +1,15 @@
-### 3. Native Multimedia (Audio & Video) & Modern Form Controls
-
-> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
 
-#### 5.2 The HTML5 <audio> Element
+### 5.2 The HTML5 <audio> Element
 
-**Purpose:** Embeds sound tracks (music, podcasts, audio lectures) with native play/pause, timeline
+- **Purpose:** Embeds sound tracks (music, podcasts, audio lectures) with native play/pause, timeline
 scrubber, and volume buttons.
-
-**Standard Audio Formats:**
-
+- **Standard Audio Formats:** 
 MP3 (audio/mpeg): Universal support across every browser; compact lossy compression.
 WAV (audio/wav): Uncompressed lossless studio quality; large file sizes.
 Ogg Vorbis (audio/ogg): Open-source, patent-free lossy audio format.
-**Key Attributes:** controls (shows player UI), autoplay, loop (replays automatically),
+- **Key Attributes:** controls (shows player UI), autoplay, loop (replays automatically),
 muted, and preload (none | metadata | auto).
 <audio controls preload="metadata">
 <source src="lecture.mp3" type="audio/mpeg">
@@ -21,22 +17,20 @@ muted, and preload (none | metadata | auto).
 Your browser does not support the HTML5 audio element.
 </audio>
 
-#### 5.3 The HTML5 <video> Element
+### 5.3 The HTML5 <video> Element
 
-**Purpose:** Embeds video clips or tutorials with native play/pause, seek bar, volume, and fullscreen
+- **Purpose:** Embeds video clips or tutorials with native play/pause, seek bar, volume, and fullscreen
 controls.
-
-**Standard Video Formats:**
-
+- **Standard Video Formats:** 
 MP4 / H.264 (video/mp4): Most widely supported industry standard across desktop and
 mobile.
 WebM (video/webm): Open-source, royalty-free high-efficiency web video format.
 Ogg Theora (video/ogg): Open-source fallback format.
-**Extra Video-Only Attributes:** width, height, and poster="thumb.jpg" (shows a preview
+- **Extra Video-Only Attributes:** width, height, and poster="thumb.jpg" (shows a preview
 thumbnail image before playback begins).
 Captions & Subtitles (<track>): Attaches WebVTT (.vtt) closed captions or multi-language
 subtitles directly to the player.
-**Modern Autoplay Policy:** Most modern browsers block autoplay with sound unless the
+- **Modern Autoplay Policy:** Most modern browsers block autoplay with sound unless the
 muted attribute is also present.
 <video width="480" height="270" controls poster="preview.jpg">
 <source src="demo.mp4" type="video/mp4">
@@ -44,7 +38,6 @@ muted attribute is also present.
 <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
 Your browser does not support HTML5 video.
 </video>
-Fundamentals of Web Technologies • UNIT–3: HTML5
 
 Parse <video>
 or <audio>
@@ -56,7 +49,9 @@ No Show Fallback
 Unsupported Text
 Yes Yes
 Decode & Play Media Natively
-**Figure 4:** Multi-Source Media Resolution and Fallback Flowchart in HTML5
+
+> 🖼️ **Figure 4: Multi-Source Media Resolution and Fallback Flowchart in HTML5**
+
 Attribute Applies To Exact Function
 controls Audio &
 Video
@@ -72,35 +67,42 @@ Video
 Automatically restarts media from the beginning when it ends
 preload Audio &
 Video
-**Hints buffering strategy:** none, metadata, or auto
+- **Hints buffering strategy:** none, metadata, or auto
 poster Video only URL of thumbnail image shown before video playback starts
 
 ### 6. HTML5 Canvas
 
 
-#### 6.1 Starting From Scratch: What Is HTML5 Canvas?
+- **### 6.1 Starting From Scratch:** What Is HTML5 Canvas?
 
-**Definition:** The <canvas> element creates a blank rectangular pixel-based drawing surface
+- **Definition:** The <canvas> element creates a blank rectangular pixel-based drawing surface
 (bitmap) inside a web page on which shapes, paths, images, animations, and charts are painted
 dynamically using JavaScript.
-**Default Size:** If width and height attributes are omitted, a canvas defaults to 300 px × 150 px
+- **Default Size:** If width and height attributes are omitted, a canvas defaults to 300 px × 150 px
 with no visible border.
 Coordinate System (Critical Exam Concept!):
 The origin (0, 0) sits at the TOP-LEFT corner of the canvas.
 X increases moving RIGHT; Y increases moving DOWNWARD (opposite of standard math
 graphs!).
 
-#### 6.2 The 4-Step Canvas Drawing Workflow
+### 6.2 The 4-Step Canvas Drawing Workflow
 
-1. **Step 1 — Declare Container:** Add <canvas id="myCanvas" width="400" height="200">
+
+- **### 1. Step 1 — Declare Container:** Add <canvas id="myCanvas" width="400" height="200">
+
 </canvas> in the document.
-2. **Step 2 — Grab 2D Rendering Context:** Call const ctx = canvas.getContext("2d"); — this
-context object holds all drawing tools (brushes, colors, shapes).
-3. **Step 3 — Configure Paint Styles:** Set ctx.fillStyle (fill color/gradient), ctx.strokeStyle
-(outline color), and ctx.lineWidth.
-Fundamentals of Web Technologies • UNIT–3: HTML5
 
-4. **Step 4 — Invoke Drawing Commands:** Draw rectangles, lines, circular arcs, or text labels onto
+### 2. Step 2 — Grab 2D Rendering Context: Call const ctx = canvas.getContext("2d"); — this
+
+context object holds all drawing tools (brushes, colors, shapes).
+
+### 3. Step 3 — Configure Paint Styles: Set ctx.fillStyle (fill color/gradient), ctx.strokeStyle
+
+(outline color), and ctx.lineWidth.
+
+
+### 4. Step 4 — Invoke Drawing Commands: Draw rectangles, lines, circular arcs, or text labels onto
+
 the pixel grid.
 <canvas id="board" width="300" height="150" style="border:1px solid #333;">
 </canvas>
@@ -130,9 +132,11 @@ moveTo() → lineTo() → stroke()
 
 ### 4. Draw Rects, Arcs, Paths, Text
 
-**Figure 5:** HTML5 Canvas Top-Left Coordinate Grid and 4-Step Drawing Pipeline
 
-#### 6.3 Essential Canvas 2D Context Methods Reference
+> 🖼️ **Figure 5: HTML5 Canvas Top-Left Coordinate Grid and 4-Step Drawing Pipeline**
+
+
+### 6.3 Essential Canvas 2D Context Methods Reference
 
 Category 2D Context Method / Property What It Draws / Does
 Rectangles fillRect(x, y, w, h)
@@ -153,9 +157,7 @@ Arcs
 arc(cx, cy, r, start,
 end)
 Draws circular arc centered at (cx, cy) with radius r; full
-
-$$circle = 0 to 2π (2 * Math.PI)$$
-
+circle = 0 to 2π (2 * Math.PI)
 Text &
 Styles
 fillStyle,
@@ -164,4 +166,3 @@ font, fillText(txt, x,
 y)
 Sets fill/stroke color or gradient, sets font size/family, and
 renders crisp text labels
-Fundamentals of Web Technologies • UNIT–3: HTML5

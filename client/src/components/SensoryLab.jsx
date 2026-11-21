@@ -1223,7 +1223,28 @@ export default function SensoryLab({
     return 'sub-beee';
   });
   const [selectedUnitNum, setSelectedUnitNum] = useState(1);
-  const themeMode = 'cyber';
+  const [themeMode, setThemeMode] = useState(() => {
+    try {
+      return localStorage.getItem('college_notes_theme_mode') || 'paper';
+    } catch (e) {
+      return 'paper';
+    }
+  });
+
+  const handleSetThemeMode = (mode) => {
+    setThemeMode(mode);
+    try {
+      localStorage.setItem('college_notes_theme_mode', mode);
+    } catch (e) {}
+  };
+
+  const [downloadModal, setDownloadModal] = useState({
+    isOpen: false,
+    type: 'unit', // 'unit' | 'master'
+    unitNum: 1,
+    subjectName: '',
+    unitTitle: ''
+  });
   const [internalUnitsCollapsed, setInternalUnitsCollapsed] = useState(false);
   
   const isUnitsCollapsed = controlledIsUnitsCollapsed !== undefined ? controlledIsUnitsCollapsed : internalUnitsCollapsed;
@@ -1703,6 +1724,35 @@ export default function SensoryLab({
     return { url: `/pdfs/units/BELE-001_Unit_${uNum}.pdf`, name: `Unit_${uNum}_Notes.pdf` };
   };
 
+  const handleExecuteDownload = (format) => {
+    const isHandwritten = format === 'handwritten';
+    if (downloadModal.type === 'unit') {
+      const uNum = downloadModal.unitNum;
+      const unitPdf = getUnitPdf(uNum);
+      const name = isHandwritten 
+        ? `${activeSubject?.code || 'Notes'}_Unit_${uNum}_Handwritten_Notes.pdf`
+        : unitPdf.name;
+      downloadPdf(unitPdf.url, name, `${activeSubject?.name} - Unit ${uNum} (${isHandwritten ? 'Handwritten' : 'Official Digital'})`);
+    } else {
+      const masterPdf = getSubjectMasterPdf();
+      let url = masterPdf.url;
+      let name = masterPdf.name;
+      if (isHandwritten) {
+        if (isAIML) {
+          url = '/AIML_notes_handwritten.pdf';
+          name = 'BCSE011_AIML_Handwritten_Notes.pdf';
+        } else if (isMath1) {
+          url = '/BMAT001_Mathematics_I_MMU_Handwritten_Notes.pdf';
+          name = 'BMAT001_Mathematics_I_Handwritten_Notes.pdf';
+        } else {
+          name = `${activeSubject?.code || 'Notes'}_Handwritten_Master_Notes.pdf`;
+        }
+      }
+      downloadPdf(url, name, `${activeSubject?.name} (${isHandwritten ? 'Handwritten' : 'Official Digital'})`);
+    }
+    setDownloadModal({ isOpen: false, type: 'unit', unitNum: 1, subjectName: '', unitTitle: '' });
+  };
+
   const getSubjectFormulas = () => {
     if (isBEEE) {
       return [
@@ -1933,12 +1983,87 @@ export default function SensoryLab({
             <span>{isUnitsCollapsed ? 'Show Units' : 'Hide Units'}</span>
           </button>
 
-          {/* 📥 1-Click Current Unit PDF Download */}
+          {/* ✍️ Handwritten Mode vs 💻 Digital Mode Toggle */}
+          <div style={{
+            display: 'inline-flex',
+            borderRadius: '8px',
+            padding: '2px',
+            background: 'rgba(255, 255, 255, 0.08)',
+            border: '1px solid var(--border-dim)'
+          }}>
+            <button
+              type="button"
+              onClick={() => handleSetThemeMode('paper')}
+              style={{
+                padding: '6px 12px',
+                borderRadius: '6px',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                border: 'none',
+                cursor: 'pointer',
+                background: themeMode === 'paper' ? '#2563eb' : 'transparent',
+                color: themeMode === 'paper' ? '#fff' : 'var(--text-dim)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px'
+              }}
+              title="Switch to authentic handwritten notebook mode with blue ink and ruled lines"
+            >
+              ✍️ Handwritten
+            </button>
+            <button
+              type="button"
+              onClick={() => handleSetThemeMode('clean')}
+              style={{
+                padding: '6px 12px',
+                borderRadius: '6px',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                border: 'none',
+                cursor: 'pointer',
+                background: themeMode === 'clean' ? '#2563eb' : 'transparent',
+                color: themeMode === 'clean' ? '#fff' : 'var(--text-dim)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px'
+              }}
+              title="Switch to clean digital textbook mode"
+            >
+              💻 Digital
+            </button>
+            <button
+              type="button"
+              onClick={() => handleSetThemeMode('cyber')}
+              style={{
+                padding: '6px 12px',
+                borderRadius: '6px',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                border: 'none',
+                cursor: 'pointer',
+                background: themeMode === 'cyber' ? '#2563eb' : 'transparent',
+                color: themeMode === 'cyber' ? '#fff' : 'var(--text-dim)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px'
+              }}
+              title="Switch to cyber neon dark mode"
+            >
+              ⚡ Cyber
+            </button>
+          </div>
+
+          {/* 📥 1-Click Current Unit PDF Download with Format Options */}
           <button
             type="button"
             onClick={() => {
-              const unitPdf = getUnitPdf(selectedUnitNum);
-              downloadPdf(unitPdf.url, unitPdf.name, `${activeSubject?.name} - Unit ${selectedUnitNum}`);
+              setDownloadModal({
+                isOpen: true,
+                type: 'unit',
+                unitNum: selectedUnitNum,
+                subjectName: activeSubject?.name || 'Subject',
+                unitTitle: beeeUnit?.title || `Unit ${selectedUnitNum}`
+              });
             }}
             className="btn-outline"
             style={{
@@ -1955,17 +2080,22 @@ export default function SensoryLab({
               gap: '6px',
               cursor: 'pointer'
             }}
-            title={`Download Unit ${selectedUnitNum} Notes PDF (${beeeUnit.title || 'Current Unit'})`}
+            title={`Download Unit ${selectedUnitNum} Notes PDF`}
           >
             <Download size={15} /> Download Unit {selectedUnitNum} PDF
           </button>
 
-          {/* 📚 1-Click Complete 4-Unit Master Notes PDF Download */}
+          {/* 📚 1-Click Complete 4-Unit Master Notes PDF Download with Format Options */}
           <button
             type="button"
             onClick={() => {
-              const pdf = getSubjectMasterPdf();
-              downloadPdf(pdf.url, pdf.name, `${activeSubject?.name} (All 4 Units)`);
+              setDownloadModal({
+                isOpen: true,
+                type: 'master',
+                unitNum: selectedUnitNum,
+                subjectName: activeSubject?.name || 'Subject',
+                unitTitle: 'Complete 4-Unit Master Notes'
+              });
             }}
             className="btn-outline"
             style={{
@@ -3232,6 +3362,201 @@ export default function SensoryLab({
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* 📥 Universal Format Selection Download Modal (Handwritten vs Digital) */}
+      {downloadModal.isOpen && createPortal(
+        <div 
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 999999,
+            background: 'rgba(3, 6, 12, 0.88)',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '16px'
+          }}
+          onClick={() => setDownloadModal({ ...downloadModal, isOpen: false })}
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: '100%',
+              maxWidth: '560px',
+              borderRadius: '20px',
+              border: '1.5px solid rgba(56, 189, 248, 0.4)',
+              background: 'linear-gradient(145deg, #0f172a 0%, #030712 100%)',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.15)',
+              overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column'
+            }}
+          >
+            {/* Modal Header */}
+            <div style={{
+              padding: '20px 24px',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 800, padding: '2px 8px', borderRadius: '4px', background: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8' }}>
+                    📥 PDF DOWNLOAD CENTER
+                  </span>
+                  <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)' }}>
+                    {downloadModal.type === 'unit' ? `Unit ${downloadModal.unitNum}` : 'All 4 Units'}
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: '#fff', margin: 0 }}>
+                  Choose Your Study Format
+                </h3>
+              </div>
+              <button 
+                type="button"
+                onClick={() => setDownloadModal({ ...downloadModal, isOpen: false })}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '34px',
+                  height: '34px',
+                  color: '#94a3b8',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer'
+                }}
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <p style={{ color: '#94a3b8', fontSize: '0.88rem', margin: '0 0 4px 0', lineHeight: 1.5 }}>
+                Select how you prefer to revise <strong>{downloadModal.subjectName}</strong>:
+              </p>
+
+              {/* Option 1: Handwritten Format Card */}
+              <div 
+                style={{
+                  padding: '18px 20px',
+                  borderRadius: '14px',
+                  background: 'rgba(37, 99, 235, 0.08)',
+                  border: '1.5px solid rgba(59, 130, 246, 0.4)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(59, 130, 246, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem' }}>
+                      ✍️
+                    </div>
+                    <div>
+                      <h4 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 800, color: '#93c5fd' }}>
+                        Handwritten Notes Format
+                      </h4>
+                      <span style={{ fontSize: '0.78rem', color: '#60a5fa' }}>
+                        Authentic student notebook edition with hand-drawn flowcharts
+                      </span>
+                    </div>
+                  </div>
+                  <span style={{ fontSize: '0.72rem', fontWeight: 800, padding: '3px 8px', borderRadius: '6px', background: '#2563eb', color: '#fff' }}>
+                    TOP RATED
+                  </span>
+                </div>
+                <p style={{ margin: 0, fontSize: '0.82rem', color: '#cbd5e1', lineHeight: 1.45 }}>
+                  Includes hand-drawn vector circuit schematics, pen sketches, highlighted formulas, and quick-revision exam mnemonics.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => handleExecuteDownload('handwritten')}
+                  style={{
+                    padding: '10px 16px',
+                    borderRadius: '10px',
+                    background: 'linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%)',
+                    color: '#fff',
+                    border: 'none',
+                    fontWeight: 800,
+                    fontSize: '0.88rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    boxShadow: '0 4px 15px rgba(37, 99, 235, 0.35)'
+                  }}
+                >
+                  <Download size={16} /> Download Handwritten Notes (PDF)
+                </button>
+              </div>
+
+              {/* Option 2: Normal / Digital Format Card */}
+              <div 
+                style={{
+                  padding: '18px 20px',
+                  borderRadius: '14px',
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  border: '1.5px solid rgba(255, 255, 255, 0.12)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '38px', height: '38px', borderRadius: '10px', background: 'rgba(255, 255, 255, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem' }}>
+                      📄
+                    </div>
+                    <div>
+                      <h4 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 800, color: '#f8fafc' }}>
+                        Official Digital / Printed Edition
+                      </h4>
+                      <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
+                        Standard university curriculum technical study notes
+                      </span>
+                    </div>
+                  </div>
+                  <span style={{ fontSize: '0.72rem', fontWeight: 800, padding: '3px 8px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.1)', color: '#e2e8f0' }}>
+                    OFFICIAL
+                  </span>
+                </div>
+                <p style={{ margin: 0, fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.45 }}>
+                  Clean, structured point-wise text with mathematical derivations, comparison matrices, and textbook layout.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => handleExecuteDownload('digital')}
+                  style={{
+                    padding: '10px 16px',
+                    borderRadius: '10px',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    color: '#fff',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    fontWeight: 800,
+                    fontSize: '0.88rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px'
+                  }}
+                >
+                  <Download size={16} /> Download Digital Notes (PDF)
+                </button>
+              </div>
             </div>
           </div>
         </div>,

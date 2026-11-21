@@ -1,6 +1,4 @@
-### 2. Searching & Sorting Algorithms: Linear, Binary & Bubble Sort
-
-> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
 Comparison
 Criterion
@@ -13,12 +11,12 @@ Best Use Case Small or constantly changing unsorted
 lists
 Large static sorted arrays / dictionaries
 
-#### 2.2 Sorting Techniques (Arranging Elements in Order)
+### 2.2 Sorting Techniques (Arranging Elements in Order)
 
 A. Bubble Sort (Adjacent Swapping)
-**Mechanism:** Repeatedly scans adjacent pairs (a[j] and a[j+1]) and swaps them if out of
+- **Mechanism:** Repeatedly scans adjacent pairs (a[j] and a[j+1]) and swaps them if out of
 order. After Pass i, the i-th largest element "bubbles" permanently to the end.
-**Early-Exit Optimization:** A swapped flag stops sorting immediately if a full pass makes zero
+- **Early-Exit Optimization:** A swapped flag stops sorting immediately if a full pass makes zero
 swaps (giving O(n) best-case time on already-sorted arrays!).
 // Bubble Sort from scratch (ascending order)
 void bubbleSort(int a[], int n) {
@@ -34,10 +32,10 @@ if (!swapped) break;
 }
 }
 B. Selection Sort (Minimum Selection)
-**Mechanism:** Divides the array into a sorted left part and unsorted right part; in each pass, scans
+- **Mechanism:** Divides the array into a sorted left part and unsorted right part; in each pass, scans
 the unsorted region to locate the index minIdx of the smallest element and performs at most
 one swap into position i.
-**Advantage:** Minimizes total memory writes/swaps (at most n − 1 swaps total).
+- **Advantage:** Minimizes total memory writes/swaps (at most n − 1 swaps total).
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming
 
 // Selection Sort from scratch (ascending order)
@@ -53,21 +51,23 @@ int temp = a[i]; a[i] = a[minIdx]; a[minIdx] = temp;
 }
 }
 C. Insertion Sort (Card-Hand Placement)
-**Mechanism:** Picks each element key = a[i] one by one and shifts larger elements in the
+- **Mechanism:** Picks each element key = a[i] one by one and shifts larger elements in the
 already-sorted left subarray one spot right to insert key into its exact slot.
-**Advantage:** Blazingly fast (O(n)) on small or nearly sorted datasets and preserves equal-key
+- **Advantage:** Blazingly fast (O(n)) on small or nearly sorted datasets and preserves equal-key
 order (stable).
-**(a) Bubble Sort:** [50, 20, 40, 10]
-**Pass 1:** [ 20, 40, 10, 50 ] (50 locked)
-**Pass 2:** [ 20, 10, 40, 50 ] (40 locked)
-**Pass 3:** [ 10, 20, 40, 50 ] ✓  Sorted
+- **(a) Bubble Sort:** [50, 20, 40, 10]
+- **Pass 1:** [ 20, 40, 10, 50 ] (50 locked)
+- **Pass 2:** [ 20, 10, 40, 50 ] (40 locked)
+- **Pass 3:** [ 10, 20, 40, 50 ] ✓  Sorted
 Largest value bubbles right each pass
-**(b) Selection Sort:** [50, 20, 40, 10]
-**Pass 1:** [ 10,20, 40, 50 ] (swap 50↔10)
-**Pass 2:** [ 10, 20, 40, 50 ] (20 min)
-**Pass 3:** [ 10, 20, 40, 50 ] ✓  Sorted
+- **(b) Selection Sort:** [50, 20, 40, 10]
+- **Pass 1:** [ 10,20, 40, 50 ] (swap 50↔10)
+- **Pass 2:** [ 10, 20, 40, 50 ] (20 min)
+- **Pass 3:** [ 10, 20, 40, 50 ] ✓  Sorted
 Smallest value selected left (≤1 swap)
-**Figure 4:** Pass-by-Pass Sorting Behavior of Bubble Sort vs. Selection Sort
+
+> 🖼️ **Figure 4: Pass-by-Pass Sorting Behavior of Bubble Sort vs. Selection Sort**
+
 Sorting
 Algorithm
 Best Time Average /
@@ -88,17 +88,17 @@ Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Progr
 ### 3. String Handling & String Storage in C
 
 
-#### 3.1 Starting From Scratch: How Strings Work in C
+- **### 3.1 Starting From Scratch:** How Strings Work in C
 
-**No Native String Type:** Unlike Python or Java, C has no dedicated string data type.
-**C String Definition:** A C string is simply a 1D array of characters (char) terminated by a
+- **No Native String Type:** Unlike Python or Java, C has no dedicated string data type.
+- **C String Definition:** A C string is simply a 1D array of characters (char) terminated by a
 special Null Character '\0' (ASCII value 0).
-**Role of '\0' (Crucial Exam Point):** Without '\0', functions like printf("%s") and
+- **Role of '\0' (Crucial Exam Point):** Without '\0', functions like printf("%s") and
 strlen() would keep reading past the end of the array into random garbage RAM!
-**Sizing Rule:** To store a string of N visible characters, you MUST allocate at least N + 1 bytes (the
-**extra 1 byte holds '\0'). Example:** "HELLO" has length 5, but occupies 6 bytes!
+- **Sizing Rule:** To store a string of N visible characters, you MUST allocate at least N + 1 bytes (the
+- **extra 1 byte holds '\0'). Example:** "HELLO" has length 5, but occupies 6 bytes!
 
-#### 3.2 String Storage & Initialization Methods
+### 3.2 String Storage & Initialization Methods
 
 
 ### 1. String Literal into Mutable Array (Stack Storage — Recommended):
@@ -120,27 +120,27 @@ Attempting p[0] = 'J'; causes a runtime crash!
 char names[3][10] = {"Amit", "Neha", "Raj"}; → Each row holds one null-terminated
 string up to 9 characters + '\0'.
 
-#### 3.3 String Input / Output & Manual Traversal
+### 3.3 String Input / Output & Manual Traversal
 
-**Important scanf Rule:** Never write & before a string array name in scanf("%s", str);
+- **Important scanf Rule:** Never write & before a string array name in scanf("%s", str);
 because str is already a base memory address! However, scanf("%s") stops at the very first
 space.
-**Safe Multi-Word Input:** Use fgets(str, sizeof(str), stdin); (reads spaces safely and
+- **Safe Multi-Word Input:** Use fgets(str, sizeof(str), stdin); (reads spaces safely and
 prevents buffer overflow; avoid unsafe deprecated gets()).
-
-**Manual String Length / Traversal Loop (From Scratch):**
-
+Manual String Length / Traversal Loop (From Scratch):
 int len = 0;
 while (str[len] != '\0') {
 len++;     // Counts characters until null terminator is hit
 }
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming
 
-**Memory Storage of:** char word[6] = "HELLO"; (strlen = 5, sizeof = 6 bytes)
+- **Memory Storage of:** char word[6] = "HELLO"; (strlen = 5, sizeof = 6 bytes)
 'H' (72) 'E' (69) 'L' (76) 'L' (76) 'O' (79) '\0' (0)
 word[0] • 2000word[1] • 2001word[2] • 2002word[3] • 2003word[4] • 2004 Null End • 2005
 1 byte per char (ASCII stored as integer) • Always reserve +1 byte for '\0'
-**Figure 5:** Contiguous Byte-by-Byte Storage of a Null-Terminated String in C RAM
+
+> 🖼️ **Figure 5: Contiguous Byte-by-Byte Storage of a Null-Terminated String in C RAM**
+
 I/O Function Reads / Prints
 Spaces?
 Buffer Safe? Exam & Practical Note
@@ -166,20 +166,28 @@ trailing newline
 ### 4. Storage Classes in C (auto, register, static, extern)
 
 
-#### 4.1 What Does a Storage Class Control?
+### 4.1 What Does a Storage Class Control?
 
 Every variable in C has a Storage Class that defines four exact attributes:
-1. **Storage Location:** Where in hardware it lives (RAM Stack, RAM Data/BSS segment, or CPU
-Register).
-2. **Default Initial Value:** Value assigned if the programmer forgets to initialize it (Garbage vs. 0).
-3. **Scope (Visibility):** Which functions or files are allowed to read/write the variable.
-4. **Lifetime (Longevity):** How long the variable stays alive in memory during execution.
 
-#### 4.2 Detailed Breakdown of All Four C Storage Classes
+- **### 1. Storage Location:** Where in hardware it lives (RAM Stack, RAM Data/BSS segment, or CPU
+
+Register).
+
+- **### 2. Default Initial Value:** Value assigned if the programmer forgets to initialize it (Garbage vs. 0).
+
+
+- **### 3. Scope (Visibility):** Which functions or files are allowed to read/write the variable.
+
+
+- **### 4. Lifetime (Longevity):** How long the variable stays alive in memory during execution.
+
+
+### 4.2 Detailed Breakdown of All Four C Storage Classes
 
 1. auto (Automatic — Default for Local Variables)
-**Behavior:** Every ordinary local variable declared inside a function or block is auto by default
+- **Behavior:** Every ordinary local variable declared inside a function or block is auto by default
 (int x; is identical to auto int x;).
-**Attributes:** Stored on the Stack; default value is Garbage (unpredictable); scope is local to its
+- **Attributes:** Stored on the Stack; default value is Garbage (unpredictable); scope is local to its
 enclosing block; created on block entry and destroyed immediately on block exit.
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming

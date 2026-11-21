@@ -1,6 +1,25 @@
-### 4. HTTP/HTTPS Protocol & 5-Tier DNS Resolution
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                5-TIER DNS RESOLUTION ARCHITECTURE                      │
+├────────────────────────────────────────────────────────────────────────┤
+│  1. Browser Cache / OS Resolver  ──► (Checks local hosts file & cache) │
+│        │                                                               │
+│        ▼ (Cache Miss)                                                  │
+│  2. Resolving Name Server (ISP)  ──► (Recursive resolver starts search)│
+│        │                                                               │
+│        ▼                                                               │
+│  3. Root Name Server (.)         ──► (Directs to TLD server)           │
+│        │                                                               │
+│        ▼                                                               │
+│  4. TLD Name Server (.edu / .com)──► (Directs to Authoritative server) │
+│        │                                                               │
+│        ▼                                                               │
+│  5. Authoritative Name Server    ──► (Returns final IP address:        │
+│                                           192.0.2.1)                   │
+└────────────────────────────────────────────────────────────────────────┘
+```
 
 HTTP
 Method Purpose / Action Key Technical Properties (Exam Notes)
@@ -12,7 +31,9 @@ HEAD Identical to GET but returns
 headers only (no body)
 Used to check file existence, size (Content-Length), or
 last-modified timestamp quickly.
-**Table 8:** Five HTTP Status Code Classes & Must-Know Exam Codes
+
+> 📊 **Table 8: Five HTTP Status Code Classes & Must-Know Exam Codes**
+
 Class
 Category
 Meaning High-Yield Status Codes & Definitions
@@ -27,16 +48,14 @@ Found (wrong URL).
 5xx Server Error 500 Internal Server Error, 502 Bad Gateway, 503 Service
 Unavailable, 504 Gateway Timeout.
 
-#### 7.4 HTTP vs. HTTPS & Evolution of HTTP Versions
+### 7.4 HTTP vs. HTTPS & Evolution of HTTP Versions
 
-**HTTP vs. HTTPS (HTTP Secure):** Standard HTTP transmits headers, cookies, and passwords in
+- **HTTP vs. HTTPS (HTTP Secure):** Standard HTTP transmits headers, cookies, and passwords in
 plain text (vulnerable to eavesdropping and Man-in-the-Middle attacks on public Wi-Fi). HTTPS
 wraps HTTP inside TLS/SSL cryptographic encryption over TCP Port 443, guaranteeing three
-**security goals:** Confidentiality (encryption), Integrity (tamper detection), and Authentication
+- **security goals:** Confidentiality (encryption), Integrity (tamper detection), and Authentication
 (verified SSL/TLS digital certificates issued by Certificate Authorities).
-
-**HTTP Version Evolution:**
-
+- **HTTP Version Evolution:** 
 HTTP/1.0 (1996): Non-persistent TCP connection (1 connection per resource — slow).
 HTTP/1.1 (1997): Persistent connections (Keep-Alive), Host header (virtual hosting),
 chunked transfers, caching controls.
@@ -44,34 +63,36 @@ HTTP/2 (2015): Binary framing, multiplexing (multiple requests simultaneously ov
 connection), HPACK header compression.
 HTTP/3 (2022): Replaces TCP with QUIC over UDP, eliminating TCP head-of-line blocking
 and delivering faster mobile handshakes.
-**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+- **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
 
 
 ### 8. Searching and Web-Casting Techniques
 
 
-#### 8.1 Web Searching Techniques & Search Engine Architecture
+### 8.1 Web Searching Techniques & Search Engine Architecture
 
-**Why Searching Techniques Matter:** With billions of web pages hosted worldwide, users rely on
+- **Why Searching Techniques Matter:** With billions of web pages hosted worldwide, users rely on
 Search Engines (Google, Bing, DuckDuckGo) to locate relevant documents within milliseconds.
+Three Core Operational Stages of a Search Engine:
 
-**Three Core Operational Stages of a Search Engine:**
+### 1. Stage 1 — Crawling (Web Crawlers / Spiders / Bots): Automated software agents
 
-1. Stage 1 — Crawling (Web Crawlers / Spiders / Bots): Automated software agents
 continuously browse the Web starting from seed URLs, downloading pages and recursively
 following embedded hyperlinks to discover new or updated content (guided by each site's
 robots.txt rules).
-2. Stage 2 — Indexing (Inverted Index Construction): The indexer parses downloaded HTML
+
+### 2. Stage 2 — Indexing (Inverted Index Construction): The indexer parses downloaded HTML
+
 pages, removes stop words (the, is, of), stems keywords, and builds a massive Inverted Index
 (like a book's back index mapping every keyword → list of matching URLs and positions) for
 sub-second lookup.
-3. Stage 3 — Query Processing & Ranking (Retrieval): When a user submits a query, the
+
+### 3. Stage 3 — Query Processing & Ranking (Retrieval): When a user submits a query, the
+
 retrieval engine looks up matching pages in the inverted index and sorts them by relevance
 using ranking algorithms (e.g., keyword relevance, hyperlink authority such as PageRank,
 freshness, and page quality).
-
-**Three Categories of Web Search Tools:**
-
+Three Categories of Web Search Tools:
 Crawler-Based Search Engines (Google, Bing): Automatically crawl and index pages via
 bots; broadest coverage.
 Web Directories (Human-Edited Catalogs, e.g., Curlie / early Yahoo Directory): Websites
@@ -80,15 +101,17 @@ curated.
 Meta-Search Engines (Dogpile, Startpage, SearX): Maintain no massive index of their own;
 forward the user's query simultaneously to multiple search engines and aggregate/deduplicate
 the combined results.
-**Table 9:** Essential Boolean & Advanced Web Search Operators (Worked Examples)
+
+> 📊 **Table 9: Essential Boolean & Advanced Web Search Operators (Worked Examples)**
+
 Operator Functional Meaning Worked Query Example & Expected Effect
 AND (implicit
 space)
-**Narrows results:** MUST contain
+- **Narrows results:** MUST contain
 all terms
 HTTP AND stateless → Pages discussing both
 HTTP and statelessness.
-**OR Broadens results:** contains
+- **OR Broadens results:** contains
 either term
 Apache OR Nginx → Pages covering Apache, Nginx,
 or both.
@@ -98,21 +121,21 @@ Microsoft IIS.
 phrase"
 Matches exact word sequence "Hypertext Transfer Protocol" → Only exact
 phrase matches.
-**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+- **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
 
 Operator Functional Meaning Worked Query Example & Expected Effect
-**site:** Restricts search to a specific
+- **site:** Restricts search to a specific
 domain
-**site:** nptel.ac.in web technologies → Results
+- **site:** nptel.ac.in web technologies → Results
 strictly inside NPTEL.
-**filetype:** Restricts results to a file
+- **filetype:** Restricts results to a file
 extension
-**HTTP notes filetype:** pdf → Returns downloadable
+- **HTTP notes filetype:** pdf → Returns downloadable
 PDF documents only.
 
-#### 8.2 Web-Casting Techniques (Push vs. Pull Delivery)
+### 8.2 Web-Casting Techniques (Push vs. Pull Delivery)
 
-**Definition:** Web-Casting (Webcasting) is the technique of broadcasting live or pre-recorded
+- **Definition:** Web-Casting (Webcasting) is the technique of broadcasting live or pre-recorded
 digital content (audio, video, news alerts, financial tickers, webinars) over the Internet
 simultaneously to many geographically dispersed receivers—akin to traditional TV/radio
 broadcasting delivered via IP networks.
@@ -123,24 +146,28 @@ Push Technology (Web-Casting Model): After an initial user subscription, the ser
 automatically pushes real-time updates, streams, or alerts to clients without requiring manual
 page reloads (e.g., live webinar broadcasts, breaking news push notifications, stock tickers,
 WebSockets, Server-Sent Events).
-**Two Delivery Modes of Web-Casting:** 
-1. **Live Webcasting (Real-Time Streaming):** Captures audio/video from a live event (university
+- **Two Delivery Modes of Web-Casting:** 
+
+### 1. Live Webcasting (Real-Time Streaming): Captures audio/video from a live event (university
+
 convocation, live lecture, sports match), encodes it into compressed packets, distributes via a
 CDN (Content Delivery Network), and streams to viewers in real time.
-2. On-Demand Webcasting (Pre-Recorded / VoD & Podcasting): Media files are recorded,
+
+### 2. On-Demand Webcasting (Pre-Recorded / VoD & Podcasting): Media files are recorded,
+
 encoded, and stored on streaming servers so users can play, pause, and rewind at their
 convenience (e.g., NPTEL lecture archives, podcasts).
 Key Web-Casting Distribution & Syndication Methods:
-**Unicast Streaming:** Server sends a separate dedicated packet stream to each individual
+- **Unicast Streaming:** Server sends a separate dedicated packet stream to each individual
 viewer (simple and universally supported over standard HTTP/HLS/DASH, though server
 bandwidth scales linearly with audience size—mitigated using CDNs).
-**IP Multicast Streaming:** Server transmits a single stream that network routers replicate only at
+- **IP Multicast Streaming:** Server transmits a single stream that network routers replicate only at
 branching points for subscribed receivers (saves massive backbone bandwidth; common inside
 enterprise/campus IPTV networks).
 RSS / Atom Web Feeds (Really Simple Syndication): Standardized XML files published by
 news sites and blogs; feed aggregators automatically poll and pull updated headlines/podcasts
 to subscribers.
-**Streaming Protocols:** Modern adaptive webcasts use HLS (HTTP Live Streaming) and
+- **Streaming Protocols:** Modern adaptive webcasts use HLS (HTTP Live Streaming) and
 MPEG-DASH (breaking video into small HTTP chunks that adapt quality dynamically to user
 bandwidth), alongside RTMP (live ingest) and WebRTC (ultra-low-latency interactive video).
-**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+- **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes

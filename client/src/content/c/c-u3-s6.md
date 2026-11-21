@@ -1,49 +1,57 @@
-### 6. University Examination Solved Questions (Unit 3)
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
-
-**Exam Golden Rule of Modular Design:** Always aim for HIGH COHESION inside each module and
+- **Exam Golden Rule of Modular Design:** Always aim for HIGH COHESION inside each module and
 LOW COUPLING between different modules!
 
-#### 9.3 Top-Down vs. Bottom-Up Design & Procedure-Based Design in C
+### 9.3 Top-Down vs. Bottom-Up Design & Procedure-Based Design in C
 
 Top-Down Design (Stepwise Refinement — Classic C Approach):
 Starts with the highest-level problem (main()) and recursively breaks it down into smaller
 sub-functions until every leaf function is trivial to code.
-**Bottom-Up Design:** 
+- **Bottom-Up Design:** 
 Starts by building and testing small low-level reusable utility functions first (e.g., sort(),
 validateInput()), then assembles them into larger parent modules.
 Procedure-Based (Structured) Design in C:
-**C is a Procedural Language:** software is structured as a coordinated hierarchy of procedures
+- **C is a Procedural Language:** software is structured as a coordinated hierarchy of procedures
 (functions) that transform data passed to them.
-**Clean Coordinator Pattern:** main() acts like an executive manager — reading clearly like an
+- **Clean Coordinator Pattern:** main() acts like an executive manager — reading clearly like an
 outline (inputMarks() → computeAverage() → sortRankList() → printReport()).
 Multi-File Modular Structure in Larger C Projects:
-**Header File (math_utils.h):** Public interface holding function prototypes, macros, and
+- **Header File (math_utils.h):** Public interface holding function prototypes, macros, and
 extern declarations.
-**Implementation File (math_utils.c):** Private function definitions and static helper
+- **Implementation File (math_utils.c):** Private function definitions and static helper
 functions.
-**Driver File (main.c):** Includes "math_utils.h" and orchestrates overall execution.
+- **Driver File (main.c):** Includes "math_utils.h" and orchestrates overall execution.
+Five Major Advantages of Modular Programming:
 
-**Five Major Advantages of Modular Programming:**
+- **### 1. Code Reusability:** Write a well-tested function once and call it across multiple places or future
 
-1. **Code Reusability:** Write a well-tested function once and call it across multiple places or future
 projects.
-2. **Easier Debugging & Testing:** Bugs are isolated inside one small function rather than hidden
+
+- **### 2. Easier Debugging & Testing:** Bugs are isolated inside one small function rather than hidden
+
 across thousands of lines.
-3. **Parallel Teamwork:** Different engineers can build separate modules simultaneously without
+
+- **### 3. Parallel Teamwork:** Different engineers can build separate modules simultaneously without
+
 stepping on each other’s code.
-4. **Better Readability & Maintenance:** Updating one business rule requires editing only one
+
+### 4. Better Readability & Maintenance: Updating one business rule requires editing only one
+
 module.
-5. **Information Hiding:** Callers only need to know what a function takes and returns, not its
+
+- **### 5. Information Hiding:** Callers only need to know what a function takes and returns, not its
+
 internal mechanics.
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming
 
 main() — Coordinator Module
 1. inputData() 2. processMarks() 3. displayReport()
 calcAverage() assignGrade() sortByRank()
-**Top-Down Procedure-Based Design:** High Cohesion + Low Coupling
-**Figure 10:** Top-Down Modular Hierarchy Chart in Procedure-Based C Programming
+- **Top-Down Procedure-Based Design:** High Cohesion + Low Coupling
+
+> 🖼️ **Figure 10: Top-Down Modular Hierarchy Chart in Procedure-Based C Programming**
+
 Dimension Monolithic Programming Modular (Procedure-Based) Programming
 Code Structure Single huge main() block Decomposed into focused, reusable
 functions/files
@@ -68,10 +76,10 @@ Valid indices are 0 to N-1; column count is mandatory
 in 2D arrays!
 Searching &
 Sorting
-**Linear:** O(n) | Binary: O(log
+- **Linear:** O(n) | Binary: O(log
 n);
 Bubble / Selection /
-**Insertion:** O(n2)
+- **Insertion:** O(n2)
 Binary Search fails silently on unsorted arrays; Selection
 Sort uses ≤ n−1 swaps.
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming
@@ -79,7 +87,7 @@ Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Progr
 Syllabus Topic Must-Memorize Syntax / Rule Common Exam Trap to Avoid
 Strings & Storage Null-terminated char array
 ('\0');
-**Safe input:** fgets(s, n,
+- **Safe input:** fgets(s, n,
 stdin)
 Always reserve length + 1 bytes; never use ==
 to compare two strings!
@@ -97,7 +105,7 @@ Functions &
 Passing
 Prototype → Call → Definition;
 Call by Value vs. Reference (& &
-- )
+*)
 Call by Value never swaps originals; arrays decay
 to pointers automatically.
 Recursion Base Case + Recursive Step;

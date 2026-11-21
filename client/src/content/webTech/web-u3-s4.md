@@ -1,9 +1,7 @@
-### 4. Canvas 2D Graphics API & Web Storage (localStorage vs Cookies)
-
-> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
 
-#### 6.4 High-Yield Exam Comparison: HTML5 Canvas vs. SVG
+- **### 6.4 High-Yield Exam Comparison:** HTML5 Canvas vs. SVG
 
 Feature HTML5 Canvas (<canvas>) SVG (<svg>)
 Graphic Type Raster (Pixel-based) — blurs if
@@ -23,24 +21,24 @@ High-speed 2D games, animations,
 Logos, icons, maps, responsive UI charts
 (fewer nodes)
 
-## PART III: WEB STORAGE, HTML5 FORMS & CREATING GRAPHS AND
+- **## PART III:** WEB STORAGE, HTML5 FORMS & CREATING GRAPHS AND
 
 CHARTS
 
 ### 7. HTML5 Web Storage
 
 
-#### 7.1 Starting From Scratch: What Is Web Storage?
+- **### 7.1 Starting From Scratch:** What Is Web Storage?
 
-**Definition:** HTML5 Web Storage is a built-in browser API that allows web applications to store
+- **Definition:** HTML5 Web Storage is a built-in browser API that allows web applications to store
 structured key–value string pairs locally inside the user’s browser.
-**Large Capacity:** Stores 5 MB to 10 MB per origin (versus only ~4 KB for HTTP Cookies).
-**Zero Network Overhead:** Data stays strictly on the client machine and is NEVER automatically
+- **Large Capacity:** Stores 5 MB to 10 MB per origin (versus only ~4 KB for HTTP Cookies).
+- **Zero Network Overhead:** Data stays strictly on the client machine and is NEVER automatically
 attached to every HTTP server request — drastically boosting speed.
-**Same-Origin Security Isolation:** Pages from siteA.com cannot read storage written by
+- **Same-Origin Security Isolation:** Pages from siteA.com cannot read storage written by
 siteB.com (Origin = Protocol + Domain + Port).
 
-#### 7.2 The Two Types of Web Storage
+### 7.2 The Two Types of Web Storage
 
 1. window.localStorage (Persistent Storage)
 Stores data with NO expiration date; data remains intact even after closing the tab, closing the
@@ -52,17 +50,16 @@ Stores data strictly for one single browser session (one tab) and is automatical
 instant that tab or window is closed (survives page reload, not tab close).
 Isolated per tab — opening the same site in two tabs creates two separate storage buckets (e.g.,
 multi-step form progress, temporary checkout wizard).
-Fundamentals of Web Technologies • UNIT–3: HTML5
 
 
-#### 7.3 Core Web Storage API Methods & JSON Rule
+### 7.3 Core Web Storage API Methods & JSON Rule
 
 Save / Update Value: localStorage.setItem("key", "value")
-**Read Value:** localStorage.getItem("key") (returns null if missing).
-**Delete Single Key:** localStorage.removeItem("key")  |  Wipe All Keys:
+- **Read Value:** localStorage.getItem("key") (returns null if missing).
+- **Delete Single Key:** localStorage.removeItem("key")  |  Wipe All Keys:
 localStorage.clear().
 Key Count / Lookup: localStorage.length and localStorage.key(index).
-**String-Only Rule:** Web Storage stores strings only — to save JavaScript objects or arrays,
+- **String-Only Rule:** Web Storage stores strings only — to save JavaScript objects or arrays,
 convert with JSON.stringify(obj) when saving and restore with JSON.parse(str) when
 reading!
 // Saving & Reading Plain Text and Objects in localStorage:
@@ -86,11 +83,11 @@ Use sessionStorage
 (5 MB • Cleared on Close)
 Use localStorage
 (5–10 MB • Permanent)
-
-**Security Rule:**
-
+- **Security Rule:** 
 Never store raw passwords!
-**Figure 6:** Client-Side Storage Decision Flowchart (Cookies vs. sessionStorage vs. localStorage)
+
+> 🖼️ **Figure 6: Client-Side Storage Decision Flowchart (Cookies vs. sessionStorage vs. localStorage)**
+
 Feature HTTP Cookies localStorage sessionStorage
 Storage Capacity ~4 KB 5 MB – 10 MB 5 MB
 Expiration / Lifetime Manual expiry
@@ -107,27 +104,26 @@ domain
 Shared across same-origin
 tabs
 Isolated to one tab only
-Fundamentals of Web Technologies • UNIT–3: HTML5
 
 
 ### 8. HTML5 Forms
 
 
-#### 8.1 Why HTML5 Forms Are a Huge Upgrade
+### 8.1 Why HTML5 Forms Are a Huge Upgrade
 
-**Native Client-Side Validation:** Browsers check required fields, email formats, URLs, numeric
+- **Native Client-Side Validation:** Browsers check required fields, email formats, URLs, numeric
 ranges, and regular-expression patterns automatically before form submission — cutting repetitive
 JavaScript validation code dramatically.
 Native UI Widgets & Smart Mobile Keyboards: Browsers render native calendar date pickers,
 range sliders, and color palettes automatically, and smartphones switch to context-aware
 keyboards (@ for email, numeric dialpad for phone).
 
-#### 8.2 New HTML5 Input Types & Form Elements
+### 8.2 New HTML5 Input Types & Form Elements
 
 Input Type / Element UI Widget / Purpose Built-In Behavior / Benefit
 type="email" / url Email address / Web link
 field
-**Validates @ domain syntax or https:** //
+- **Validates @ domain syntax or https:** //
 prefix automatically
 type="number" / range Numeric spinner / Visual
 slider
@@ -156,7 +152,7 @@ value
 Semantically binds computed outputs to form
 controls
 
-#### 8.3 Essential HTML5 Form Validation Attributes
+### 8.3 Essential HTML5 Form Validation Attributes
 
 Attribute What It Enforces / Does Usage Example
 required Blocks submission if field is left empty <input type="text" required>
@@ -171,7 +167,6 @@ autofocus Places typing cursor in input on page
 load
 <input type="search"
 autofocus>
-Fundamentals of Web Technologies • UNIT–3: HTML5
 
 Attribute What It Enforces / Does Usage Example
 autocomplete Enables or disables browser autofill
@@ -198,9 +193,11 @@ required / type / pattern
 Valid 4. Send Data
 GET / POST Server
 Invalid → Block Submit & Show Browser Tooltip Warning
-**Figure 7:** HTML5 Native Form Validation & Submission Flowchart
 
-#### 8.4 Complete HTML5 Form Example
+> 🖼️ **Figure 7: HTML5 Native Form Validation & Submission Flowchart**
+
+
+### 8.4 Complete HTML5 Form Example
 
 <form action="/register" method="post">
 <label>Email:</label>
@@ -221,12 +218,15 @@ autofocus>
 ### 9. Creating Graphs & Charts in HTML5
 
 
-#### 9.1 Three Ways to Build Graphs & Charts in HTML5
+### 9.1 Three Ways to Build Graphs & Charts in HTML5
 
-1. Native HTML5 Canvas Charts (Custom Pixel Drawing): Uses <canvas> and the 2D API
+
+### 1. Native HTML5 Canvas Charts (Custom Pixel Drawing): Uses <canvas> and the 2D API
+
 (fillRect, lineTo, arc, fillText) to compute pixel coordinates mathematically and draw
 Bar, Line, or Pie charts from scratch — ideal for exams and live sensor plots.
-2. Native HTML5 SVG Charts (Scalable Vector Drawing): Uses declarative XML tags (<rect>
+
+### 2. Native HTML5 SVG Charts (Scalable Vector Drawing): Uses declarative XML tags (<rect>
+
 for bars, <polyline> for trend lines, <path> for pie wedges); stays razor-sharp at any zoom
 level and supports mouse hover events on individual bars.
-Fundamentals of Web Technologies • UNIT–3: HTML5

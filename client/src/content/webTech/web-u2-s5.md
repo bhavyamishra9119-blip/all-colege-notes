@@ -1,8 +1,8 @@
-### 5. University Solved Examination Questions (Unit 2)
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
 
-**Figure 9:** Pixel Coordinate Geometry for Client-Side Image Mapping Shapes (rect, circle, poly)
+> 🖼️ **Figure 9: Pixel Coordinate Geometry for Client-Side Image Mapping Shapes (rect, circle, poly)**
+
 <!-- Complete Client-Side Image Map Exam Code -->
 <img src="workspace.jpg" alt="Study Desk" usemap="#deskmap" width="500"
 height="300">
@@ -26,27 +26,27 @@ default (None needed) Covers the entire remaining unmapped area of the image
 ### 12. Frames (<frameset>, <frame> & <iframe>)
 
 
-#### 12.1 Classic HTML4 Frameset Architecture
+### 12.1 Classic HTML4 Frameset Architecture
 
-**Definition:** HTML Frames divide a single browser window into multiple independent rectangular
+- **Definition:** HTML Frames divide a single browser window into multiple independent rectangular
 panes, where each pane loads its own separate .html document with its own scrollbar.
 Crucial Exam Rule (No <body> Tag!): A frameset document replaces <body> completely with
 <frameset>! You must NEVER put <body> around <frameset> (only inside <noframes> as
 fallback).
-**Core Frameset & Frame Tags:** 
+- **Core Frameset & Frame Tags:** 
 <frameset rows="..." cols="...">: Splits window horizontally (rows) or vertically
 (cols) using pixels (150), percentages (25%), or wildcard remaining space (*).
 <frame> (Empty Tag): Populates one pane inside <frameset>:
 src="menu.html": Webpage file loaded inside that pane.
 name="mainFrame": Gives the pane a target ID so links in a sidebar menu can open pages
 inside it (<a href="ch1.html" target="mainFrame">)!
-**noresize:** Locks frame divider so users cannot drag borders.
+- **noresize:** Locks frame divider so users cannot drag borders.
 scrolling="yes | no | auto" & frameborder="0 | 1": Controls scrollbars and
 divider lines.
 <noframes>: Displays fallback message on very old browsers that do not support frames.
 Fundamentals of Web Technologies • UNIT–2: Basics of HTML
 
-**Nested Framesets:** Placing a second <frameset cols="25%,75%"> inside a row of an outer
+- **Nested Framesets:** Placing a second <frameset cols="25%,75%"> inside a row of an outer
 <frameset rows="20%,80%"> creates a full top-banner + left-menu + right-content dashboard!
 Frame 1 (rows="20%"): src="banner.html" | name="topFrame"
 Frame 2 (cols="25%")
@@ -55,7 +55,9 @@ target="mainFrame"
 Frame 3 (cols="75%" / "*"): name="mainFrame"
 Initially loads src="welcome.html"
 Clicking sidebar link loads new page ONLY in this pane!
-**Figure 10:** Nested HTML Frameset Structure and Cross-Frame Link Targeting
+
+> 🖼️ **Figure 10: Nested HTML Frameset Structure and Cross-Frame Link Targeting**
+
 <!-- Complete Nested Frameset Exam Example -->
 <html>
 <head><title>Nested Frameset Demo</title></head>
@@ -69,12 +71,12 @@ Clicking sidebar link loads new page ONLY in this pane!
 </frameset>
 </html>
 
-#### 12.2 Inline Frames (<iframe>) & Limitations of Classic Framesets
+### 12.2 Inline Frames (<iframe>) & Limitations of Classic Framesets
 
 Inline Frame (<iframe> — Supported in HTML5!): Embeds an external webpage, Google
 Map, or YouTube video directly inside a regular <body> without splitting the entire browser
-**window:** 
-**Syntax:** <iframe src="page.html" width="500" height="300" title="Embedded Page">
+- **window:** 
+- **Syntax:** <iframe src="page.html" width="500" height="300" title="Embedded Page">
 </iframe>
 Why <frameset> Was Deprecated in HTML5:
 Breaks browser bookmarking (URL bar never updates when inner panes navigate).
@@ -95,7 +97,7 @@ Topic
 Must-Memorize Syntax / Fact High-Yield Exam Tip
 Dev. Steps &
 Hosting
-**7 Steps:** Analyze → Plan → Design →
+- **7 Steps:** Analyze → Plan → Design →
 Content → Code → Test → Deploy
 Homepage file must be named
 index.html; DNS maps Domain → IP.
@@ -103,7 +105,7 @@ Static vs.
 Dynamic
 Static = Fixed HTML (No DB) | Dynamic =
 Server Script + Live DB
-**Give examples:** Resume site (Static) vs.
+- **Give examples:** Resume site (Static) vs.
 Amazon / Portal (Dynamic).
 Structure &
 Tags
@@ -119,8 +121,8 @@ Creating
 Links
 <a href="..." target="_blank">;
 Bookmarks use #id
-**Know all 4 targets:** _self, _blank,
-**_parent, _top + mailto:** .
+- **Know all 4 targets:** _self, _blank,
+- **_parent, _top + mailto:** .
 Text &
 Colors
 Physical (<b>, <i>) vs. Logical
@@ -131,7 +133,7 @@ Images &
 Mapping
 <img src alt usemap="#m"> +
 <map name="m"> + <area>
-**Coordinates:** rect(x1,y1,x2,y2),
+- **Coordinates:** rect(x1,y1,x2,y2),
 circle(cx,cy,r), poly(x1,y1,...).
 Frames <frameset rows cols> + <frame
 src name> (NO <body>!)

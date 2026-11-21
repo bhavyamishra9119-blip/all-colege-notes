@@ -1,18 +1,16 @@
-### 3. Unsupervised Clustering: k-Means & The Elbow Method
-
-> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
 
 ### 5. Naive Bayes Classifier (Probabilistic Bayes Theorem)
 
-**Core Idea:** Applies Bayes’ Theorem (P(C|X) ∝  P(X|C)·P(C)) assuming features are conditionally
+- **Core Idea:** Applies Bayes’ Theorem (P(C|X) ∝  P(X|C)·P(C)) assuming features are conditionally
 independent (the "naive" assumption).
-**Strength:** Ultra-fast even on huge vocabularies — the classic choice for Spam Filtering & Text
+- **Strength:** Ultra-fast even on huge vocabularies — the classic choice for Spam Filtering & Text
 Classification.
 
 ### 6. Support Vector Machine (SVM — Maximum-Margin Classifier)
 
-**Core Idea:** Finds the optimal separating line or plane (Hyperplane) that maximizes the safety gap
+- **Core Idea:** Finds the optimal separating line or plane (Hyperplane) that maximizes the safety gap
 (Margin) between the closest boundary points (Support Vectors) of each class. Uses the Kernel
 Trick to separate non-linear data cleanly.
 (a) Decision Tree
@@ -25,32 +23,31 @@ IF–THEN Feature Splits
 2 Blue vs 1 Orange → Blue
 (c) SVM Max Margin
 Widest Gap + Support Vecs
-**Figure 7:** Visual Intuition of Core Classification Algorithms — Decision Tree, k-NN, and SVM
 
-#### 5.3 Evaluating Classification Models: Confusion Matrix & Key Metrics
+> 🖼️ **Figure 7: Visual Intuition of Core Classification Algorithms — Decision Tree, k-NN, and SVM**
 
 
-**The 4 Confusion Matrix Outcomes:**
+### 5.3 Evaluating Classification Models: Confusion Matrix & Key Metrics
 
-**True Positive (TP):** Actually Positive, predicted Positive (Correct!).
-**True Negative (TN):** Actually Negative, predicted Negative (Correct!).
-**False Positive (FP — Type I Error):** Actually Negative, falsely predicted Positive (False
+- **The 4 Confusion Matrix Outcomes:** 
+- **True Positive (TP):** Actually Positive, predicted Positive (Correct!).
+- **True Negative (TN):** Actually Negative, predicted Negative (Correct!).
+- **False Positive (FP — Type I Error):** Actually Negative, falsely predicted Positive (False
 Alarm).
 False Negative (FN — Type II Error): Actually Positive, missed as Negative (Dangerous Miss
 in Medicine!).
 Core Classification Metrics (With Worked Example: TP = 40, TN = 45, FP = 5, FN = 10):
-**Accuracy:** TP + TN
+- **Accuracy:** TP + TN
 TP + TN + FP + FN  = (40 + 45) / 100 = 85.0%
-**Precision (Positive Purity):** TP
+- **Precision (Positive Purity):** TP
 TP + FP
 = 40 / (40 + 5) = 88.9% (crucial for Spam Filters).
 Recall / Sensitivity (Capture Rate):  TP
 TP + FN
 = 40 / (40 + 10) = 80.0% (crucial for Cancer
 Screening).
-**F1-Score (Harmonic Mean):** 2 × Precision × Recall
+- **F1-Score (Harmonic Mean):** 2 × Precision × Recall
 Precision + Recall  = 84.2% (best for imbalanced classes).
-**AIML • UNIT–4:** Introduction to Machine Learning Concepts
 
 Algorithm Core Idea Key Advantage Main Limitation
 Logistic
@@ -85,41 +82,36 @@ Excels in high
 dimensions
 Slow to train on millions of rows
 
-### 6. Supervised ML: Introduction to Regression Algorithms
+- **### 6. Supervised ML:** Introduction to Regression Algorithms
 
 
-#### 6.1 What Is Regression?
+### 6.1 What Is Regression?
 
-**Definition:** A supervised learning task that models the mathematical relationship between
+- **Definition:** A supervised learning task that models the mathematical relationship between
 independent input feature(s) X and a continuous numerical output variable Y.
-**Goal:** Fit a smooth line or curve through the training points that minimizes the vertical prediction
-**errors (Residuals:** ei = yi − ŷi).
+- **Goal:** Fit a smooth line or curve through the training points that minimizes the vertical prediction
+- **errors (Residuals:** ei = yi − ŷi).
 
-#### 6.2 Five Important Regression Algorithms
+### 6.2 Five Important Regression Algorithms
 
 
 ### 1. Simple Linear Regression (1 Input Feature)
 
-**Fits the best straight line:** ŷ = m·x + c (or ŷ = β0 + β1x), where m is the slope (rate of change) and c
+- **Fits the best straight line:** ŷ = m·x + c (or ŷ = β0 + β1x), where m is the slope (rate of change) and c
 is the y-intercept.
 Training Objective (Ordinary Least Squares / Gradient Descent): Find m and c that minimize
 the sum of squared residuals.
-
-> 📝 **Example: Predicting House Price (Y) solely from Area in sq. ft. (X).**
-
+- **Example:** Predicting House Price (Y) solely from Area in sq. ft. (X).
 
 ### 2. Multiple Linear Regression (2+ Input Features)
 
 Extends straight-line modeling to multiple features: ŷ = β0 + β1x1 + β2x2 + … + βnxn.
-
-> 📝 **Example: Predicting House Price from Area (x1), Bedrooms (x2), and City Distance (x3).**
-
+- **Example:** Predicting House Price from Area (x1), Bedrooms (x2), and City Distance (x3).
 
 ### 3. Polynomial Regression (Curved Non-Linear Trends)
 
-**Includes higher powers of x:** ŷ = β0 + β1x + β2x2 + … + βdxd to capture curved relationships (e.g.,
+- **Includes higher powers of x:** ŷ = β0 + β1x + β2x2 + … + βdxd to capture curved relationships (e.g.,
 bacterial growth or crop yield vs. rainfall).
-**AIML • UNIT–4:** Introduction to Machine Learning Concepts
 
 
 ### 4. Regularized Regression (Ridge L2 & Lasso L1)
@@ -131,24 +123,26 @@ exist (Lasso can shrink useless feature weights all the way to zero).
 
 Tree-based regressors predict the average numeric value inside each leaf region; Support Vector
 Regression (SVR) fits a smooth curve within an error tolerance tube.
-**(a) Classification:** Discrete Classes
+- **(a) Classification:** Discrete Classes
 Class A
 Class B
 Learns a Separating Decision Boundary
-**(b) Regression:** Continuous Best-Fit Line
+- **(b) Regression:** Continuous Best-Fit Line
 Error ei = y − ŷ
-**Best-Fit Line:** ŷ = m·x + c (Min MSE)
-**Figure 8:** Visual Contrast Between Supervised Classification (Boundary) and Regression (Best-Fit Line)
+- **Best-Fit Line:** ŷ = m·x + c (Min MSE)
 
-#### 6.3 Regression Evaluation Metrics & Classification vs. Regression Summary
+> 🖼️ **Figure 8: Visual Contrast Between Supervised Classification (Boundary) and Regression (Best-Fit Line)**
+
+
+### 6.3 Regression Evaluation Metrics & Classification vs. Regression Summary
 
 Standard Regression Evaluation Formulas (n = samples, yi = actual, ŷi = predicted, ȳ =
-**mean):** 
-**Mean Absolute Error (MAE):** MAE = 1
+- **mean):** 
+- **Mean Absolute Error (MAE):** MAE = 1
 n ∑ |yi − ŷi|  (average error magnitude in original units).
-**Mean Squared Error (MSE):** MSE = 1
+- **Mean Squared Error (MSE):** MSE = 1
 n ∑ (yi − ŷi)2  (penalizes large outlier errors heavily).
-**Root Mean Squared Error (RMSE):** RMSE = √MSE  (easy to interpret in same unit as Y).
+- **Root Mean Squared Error (RMSE):** RMSE = √MSE  (easy to interpret in same unit as Y).
 Coefficient of Determination (R2 Score):  R2 = 1 −
 ∑ (yi − ŷi)2
 ∑ (yi − ȳ)2  (closer to 1.0 means better
@@ -167,4 +161,3 @@ Ridge/Lasso, SVR
 Evaluation Metrics Accuracy, Precision, Recall, F1-Score,
 ROC-AUC
 MAE, MSE, RMSE, R2 Score
-**AIML • UNIT–4:** Introduction to Machine Learning Concepts

@@ -1,6 +1,4 @@
-### 5. HTML5 Smart Forms, Validation & Solved Exam Questions
-
-> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
 Attribute What It Enforces / Does Usage Example
 autocomplete Enables or disables browser autofill
@@ -27,9 +25,11 @@ required / type / pattern
 Valid 4. Send Data
 GET / POST Server
 Invalid → Block Submit & Show Browser Tooltip Warning
-**Figure 7:** HTML5 Native Form Validation & Submission Flowchart
 
-#### 8.4 Complete HTML5 Form Example
+> 🖼️ **Figure 7: HTML5 Native Form Validation & Submission Flowchart**
+
+
+### 8.4 Complete HTML5 Form Example
 
 <form action="/register" method="post">
 <label>Email:</label>
@@ -50,45 +50,70 @@ autofocus>
 ### 9. Creating Graphs & Charts in HTML5
 
 
-#### 9.1 Three Ways to Build Graphs & Charts in HTML5
+### 9.1 Three Ways to Build Graphs & Charts in HTML5
 
-1. Native HTML5 Canvas Charts (Custom Pixel Drawing): Uses <canvas> and the 2D API
+
+### 1. Native HTML5 Canvas Charts (Custom Pixel Drawing): Uses <canvas> and the 2D API
+
 (fillRect, lineTo, arc, fillText) to compute pixel coordinates mathematically and draw
 Bar, Line, or Pie charts from scratch — ideal for exams and live sensor plots.
-2. Native HTML5 SVG Charts (Scalable Vector Drawing): Uses declarative XML tags (<rect>
+
+### 2. Native HTML5 SVG Charts (Scalable Vector Drawing): Uses declarative XML tags (<rect>
+
 for bars, <polyline> for trend lines, <path> for pie wedges); stays razor-sharp at any zoom
 level and supports mouse hover events on individual bars.
-Fundamentals of Web Technologies • UNIT–3: HTML5
 
-3. HTML5 Charting Libraries (Production Apps): Popular libraries layered over Canvas (e.g.,
+
+### 3. HTML5 Charting Libraries (Production Apps): Popular libraries layered over Canvas (e.g.,
+
 Chart.js) or SVG (e.g., D3.js, Google Charts) automate axis scaling, legends, tooltips, and
 smooth animations.
 
-#### 9.2 Step-by-Step Mathematical Blueprint for Bar, Line & Pie Charts
+### 9.2 Step-by-Step Mathematical Blueprint for Bar, Line & Pie Charts
 
 A. Creating a Bar Chart (Comparing Discrete Categories)
-1. Store labels and numeric values in arrays (e.g., values = [60, 120, 90, 140]).
-2. Draw vertical Y-axis and horizontal X-axis baseline using moveTo() and lineTo().
-3. Because Canvas Y grows downward, compute each bar’s top-left Y-coordinate by subtracting
-**height from the baseline:** ytop = baselineY − scaledHeight.
-4. Loop through the data array calling ctx.fillRect(x, yTop, barWidth, scaledHeight) and
+
+### 1. Store labels and numeric values in arrays (e.g., values = [60, 120, 90, 140]).
+
+
+### 2. Draw vertical Y-axis and horizontal X-axis baseline using moveTo() and lineTo().
+
+
+### 3. Because Canvas Y grows downward, compute each bar’s top-left Y-coordinate by subtracting
+
+- **height from the baseline:** ytop = baselineY − scaledHeight.
+
+### 4. Loop through the data array calling ctx.fillRect(x, yTop, barWidth, scaledHeight) and
+
 render labels with ctx.fillText().
 B. Creating a Line Chart (Showing Trends Over Time)
-1. Draw axes and grid lines; convert each data point (xi, yi) to Canvas pixel coordinates.
+
+### 1. Draw axes and grid lines; convert each data point (xi, yi) to Canvas pixel coordinates.
+
 
 ### 2. Call ctx.beginPath() and ctx.moveTo(x0, y0) at the first data point.
 
-3. Loop through remaining points calling ctx.lineTo(xi, yi), then call ctx.stroke() to
+
+### 3. Loop through remaining points calling ctx.lineTo(xi, yi), then call ctx.stroke() to
+
 connect the trend line.
-4. Mark each vertex with small circular dots using ctx.arc(xi, yi, 4, 0, 2 * Math.PI).
+
+### 4. Mark each vertex with small circular dots using ctx.arc(xi, yi, 4, 0, 2 * Math.PI).
+
 C. Creating a Pie Chart (Showing Parts-of-a-Whole Proportions)
 
-### 1. Sum all values: Total = ∑ vi; initialize startAngle = 0.
+- **### 1. Sum all values:** Total = ∑ vi; initialize startAngle = 0.
 
-2. For each slice value vi, calculate its wedge angle in radians: sliceAngle = (vi / Total) × 2π.
-3. **Draw the filled wedge:** beginPath() → moveTo(cx, cy) → arc(cx, cy, r, startAngle,
+
+### 2. For each slice value vi, calculate its wedge angle in radians: sliceAngle = (vi / Total) × 2π.
+
+
+- **### 3. Draw the filled wedge:** beginPath() → moveTo(cx, cy) → arc(cx, cy, r, startAngle,
+
 startAngle + sliceAngle) → closePath() → fill().
-4. Advance startAngle += sliceAngle and repeat for every slice with a distinct fillStyle
+
+### 4. Advance startAngle += sliceAngle and repeat for every slice with a distinct fillStyle
+
 color.
 (a) Bar Chart (fillRect)
 Q1 Q2 Q3 Q4
@@ -101,11 +126,12 @@ moveTo() → lineTo()
 30%
 20%
 θ = (val / total) × 2π
-**Figure 8:** Geometric Construction Blueprints for Bar, Line, and Pie Charts in HTML5 Canvas
-Fundamentals of Web Technologies • UNIT–3: HTML5
+
+> 🖼️ **Figure 8: Geometric Construction Blueprints for Bar, Line, and Pie Charts in HTML5 Canvas**
 
 
-#### 9.3 Compact Canvas Bar Chart Logic Example
+
+### 9.3 Compact Canvas Bar Chart Logic Example
 
 // Draw a 4-bar chart inside <canvas id="barChart" width="320" height="180">
 const ctx = document.getElementById("barChart").getContext("2d");
@@ -137,7 +163,9 @@ Bars/Lines/Arcs
 ### 5. Labels
 
 Text & Legend
-**Figure 9:** End-to-End HTML5 Data-to-Chart Rendering Pipeline
+
+> 🖼️ **Figure 9: End-to-End HTML5 Data-to-Chart Rendering Pipeline**
+
 Chart Type Best Data Scenario Primary Canvas API Method
 Bar / Column
 Chart
@@ -174,7 +202,6 @@ HTML5 Elements <figure>, <mark>, <time>,
 Know deprecated HTML4 tags (<font>,
 <center>, <frameset>,
 <applet>).
-Fundamentals of Web Technologies • UNIT–3: HTML5
 
 Syllabus
 Topic
@@ -184,7 +211,7 @@ Video
 <audio controls>, <video
 poster="...">, <source>,
 <track>
-**Remember formats:** MP3/WAV/Ogg (Audio) and
+- **Remember formats:** MP3/WAV/Ogg (Audio) and
 MP4/WebM/Ogg (Video).
 HTML5
 Canvas
@@ -196,19 +223,18 @@ Web
 Storage
 localStorage (permanent) vs.
 sessionStorage (tab close)
-**Methods:** setItem, getItem,
+- **Methods:** setItem, getItem,
 removeItem, clear; use
 JSON.stringify for objects.
 HTML5
 Forms
-**Types:** email, date, number,
+- **Types:** email, date, number,
 range, color; <datalist>
-**Attributes:** required, placeholder,
+- **Attributes:** required, placeholder,
 pattern, min/max, autofocus.
 Graphs &
 Charts
-**Bar:** fillRect | Line: lineTo | Pie: θ =
+- **Bar:** fillRect | Line: lineTo | Pie: θ =
 (v/T)×2π + arc
 Explain subtracting bar height from baseline Y
 because Canvas Y increases downward!
-Fundamentals of Web Technologies • UNIT–3: HTML5

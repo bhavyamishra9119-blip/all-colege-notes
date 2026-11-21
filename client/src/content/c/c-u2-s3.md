@@ -1,17 +1,17 @@
-### 3. Type Conversion (Implicit/Explicit) & Standard Header Files
+> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
-> 🟢 **EXAM WEIGHTAGE:** 26 - 30 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+- **Two Forms of #include Directive:** 
 
-**Two Forms of #include Directive:** 
-1. **Angle Brackets — #include <filename.h>:** Used for standard system library header files
+### 1. Angle Brackets — #include <filename.h>: Used for standard system library header files
+
 (e.g., <stdio.h>). Instructs the preprocessor to search only the standard compiler include
 directories.
-2. **Double Quotes — #include "filename.h":** Used for user-defined header files (e.g.,
+
+### 2. Double Quotes — #include "filename.h": Used for user-defined header files (e.g.,
+
 "myutils.h"). Searches the current project directory first, and falls back to standard system
 directories if not found.
-
-**Why Header Files Are Essential:**
-
+- **Why Header Files Are Essential:** 
 Enables compile-time verification of function argument types and return types (preventing
 runtime bugs).
 Promotes code modularity and reusability (write declarations once, include anywhere).
@@ -31,9 +31,13 @@ Compiler
 & Assembler
 Linker
 →  .exe / out
-**Figure 3:** (A) C Implicit Type Promotion hierarchy; (B) How the C Preprocessor expands #include header files
+
+> 🖼️ **Figure 3: (A) C Implicit Type Promotion hierarchy; (B) How the C Preprocessor expands #include header files**
+
 before compilation.
-**Table 8:** Standard C Header Files Frequently Tested in University Exams
+
+> 📊 **Table 8: Standard C Header Files Frequently Tested in University Exams**
+
 Header File Full Name / Purpose Key Functions / Macros Provided
 <stdio.h> Standard Input / Output printf(), scanf(), getchar(), putchar(),
 puts(), EOF
@@ -48,7 +52,7 @@ tolower()
 <string.h> String Handling
 Operations
 strlen(), strcpy(), strcmp(), strcat()
-**Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
+- **Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
 
 Header File Full Name / Purpose Key Functions / Macros Provided
 <limits.h> Integer Data Type Limits INT_MAX, INT_MIN, CHAR_BIT, UINT_MAX,
@@ -60,27 +64,25 @@ bool, true (1), false (0)
 
 ### 2. Decision Control Structure
 
-**Definition:** By default, C programs execute sequentially (top to bottom, line by line). Decision
+- **Definition:** By default, C programs execute sequentially (top to bottom, line by line). Decision
 control structures (also called branching or selection statements) alter the normal sequential
 flow by evaluating a condition and choosing which block of statements to execute.
-**Truth Evaluation Rule in C:** Any expression evaluating to zero (0) is treated as False; any non-
+- **Truth Evaluation Rule in C:** Any expression evaluating to zero (0) is treated as False; any non-
 zero value (positive or negative, e.g., 1, -5, 3.14) is treated as True.
 
-#### 2.1 Simple if Statement (One-Way Selection)
+### 2.1 Simple if Statement (One-Way Selection)
 
-**Working Principle:** Evaluates the test condition inside parentheses. If the condition is True (non-
+- **Working Principle:** Evaluates the test condition inside parentheses. If the condition is True (non-
 zero), the statement block executes. If False (0), the block is skipped and control moves directly
 to the statement following the if block.
-
-**Syntax:**
-
+- **Syntax:** 
 if (condition) {
 // statements executed ONLY when condition is True
 }
-**Braces Rule:** Curly braces { } are optional for a single statement, but mandatory for multiple
+- **Braces Rule:** Curly braces { } are optional for a single statement, but mandatory for multiple
 statements (compound block). Always using braces prevents logic bugs.
 
-**Worked Example (Applying Discount):**
+> 📝 **Worked Example (Applying Discount):**
 
 #include <stdio.h>
 int main() {
@@ -91,27 +93,25 @@ bill = bill - (bill * 0.10f);  // 10% discount applied
 printf("Final Bill = %.2f\n", bill); // Output: Final Bill = 1350.00
 return 0;
 }
-**Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
+- **Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
 
 2.2 if-else Statement (Two-Way Selection)
-**Working Principle:** Evaluates the condition. If True, the if block executes and the else block
+- **Working Principle:** Evaluates the condition. If True, the if block executes and the else block
 is skipped. If False, the if block is skipped and the else block executes. Exactly one of the
 two blocks is guaranteed to run.
-
-**Syntax:**
-
+- **Syntax:** 
 if (condition) {
 // True block
 } else {
 // False block
 }
 
-**Worked Example (Even or Odd Check):**
+> 📝 **Worked Example (Even or Odd Check):**
 
 #include <stdio.h>
 int main() {
 int n;
-**printf("Enter an integer:** ");
+- **printf("Enter an integer:** ");
 scanf("%d", &n);
 if (n % 2 == 0) {
 printf("%d is Even\n", n);
@@ -120,16 +120,14 @@ printf("%d is Odd\n", n);
 }
 return 0;
 }
-**Dry Run:** For input n = 17 → 17 % 2 evaluates to 1 → 1 == 0 is False (0) → executes
+- **Dry Run:** For input n = 17 → 17 % 2 evaluates to 1 → 1 == 0 is False (0) → executes
 else block → prints 17 is Odd.
 2.3 if-else-if Ladder (Multi-Way Selection)
-**Working Principle:** Used when a choice must be made among three or more mutually
+- **Working Principle:** Used when a choice must be made among three or more mutually
 exclusive conditions. Conditions are evaluated strictly from top to bottom. As soon as the first
 True condition is found, its associated block executes and the entire remaining ladder is
 skipped. If all conditions fail, the optional trailing else block runs as the default fallback.
-
-**Syntax:**
-
+- **Syntax:** 
 if (condition_1) {
 // Block 1
 } else if (condition_2) {
@@ -139,7 +137,7 @@ if (condition_1) {
 } else {
 // Default block (if all above conditions are False)
 }
-**Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
+- **Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
 
 
 > 📝 **Worked Example (B.Tech Grade Classification):**
@@ -148,20 +146,20 @@ if (condition_1) {
 int main() {
 int marks = 76;
 if (marks >= 90) {
-**printf("Grade:** A+\n");
+- **printf("Grade:** A+\n");
 } else if (marks >= 75) {
-**printf("Grade:** A\n");
+- **printf("Grade:** A\n");
 } else if (marks >= 60) {
-**printf("Grade:** B\n");
+- **printf("Grade:** B\n");
 } else if (marks >= 40) {
-**printf("Grade:** C (Pass)\n");
+- **printf("Grade:** C (Pass)\n");
 } else {
-**printf("Grade:** F (Fail)\n");
+- **printf("Grade:** F (Fail)\n");
 }
 return 0;
 }
-**Dry Run:** For marks = 76 → 76 >= 90 is False → checks 76 >= 75 which is True → prints
-**Grade:** A and immediately skips marks >= 60, marks >= 40, and else.
+- **Dry Run:** For marks = 76 → 76 >= 90 is False → checks 76 >= 75 which is True → prints
+- **Grade:** A and immediately skips marks >= 60, marks >= 40, and else.
 (A) Simple if
 Cond?
 True
@@ -186,11 +184,13 @@ Block 2
 F
 else Block
 Next Statement
-**Figure 4:** Standard ANSI flowcharts comparing (A) Simple if, (B) if-else, and (C) if-else-if ladder
+
+> 🖼️ **Figure 4: Standard ANSI flowcharts comparing (A) Simple if, (B) if-else, and (C) if-else-if ladder**
+
 control paths.
 2.4 switch Statement (Multi-Way Constant Dispatch)
-**Working Principle:** Evaluates a single integer or character control expression once and
+- **Working Principle:** Evaluates a single integer or character control expression once and
 compares its value against a list of compile-time constant case labels. When a match occurs,
 execution jumps directly to that case and runs until a break; statement or the closing brace }
 is reached.
-**Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
+- **Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C

@@ -1,50 +1,49 @@
-### 1. Technical Definitions & 12-Point Internet vs. WWW Analysis
-
-> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
 B.TECH • FUNDAMENTALS OF WEB TECHNOLOGIES • UNIT-I (6 HOURS)
-**Unit-I:** Internet, World Wide Web, Browsers,
+- **Unit-I:** Internet, World Wide Web, Browsers,
 Servers, HTTP & Web-Casting
-**Official Syllabus Coverage:** Introduction to Internet & World Wide Web • Evolution & History of WWW • Application
 Areas of Internet • Requirements for Working with Internet & WWW • Web Browsers • Web Servers • Hypertext
 Transfer Protocol (HTTP) • Searching & Web-Casting Techniques
-**UNIT-I:** FUNDAMENTALS OF WEB TECHNOLOGIES (6 HRS)
+- **UNIT-I:** FUNDAMENTALS OF WEB TECHNOLOGIES (6 HRS)
 
 ### 1. Internet & WWW Basics
 
-- Internet vs. WWW
-- History & Web 1.0–3.0
-- Application Areas
-- HW, SW, ISP & Protocols
-- IP, DNS & URL Anatomy
+• Internet vs. WWW
+• History & Web 1.0–3.0
+• Application Areas
+• HW, SW, ISP & Protocols
+• IP, DNS & URL Anatomy
 
 ### 2. Core Web Architecture
 
-- Web Browsers & Engines
-- Web Servers (Static/Dyn)
-- HTTP Request & Response
-- HTTP Methods & Codes
-- HTTPS & HTTP/1.1–3
+• Web Browsers & Engines
+• Web Servers (Static/Dyn)
+• HTTP Request & Response
+• HTTP Methods & Codes
+• HTTPS & HTTP/1.1–3
 
 ### 3. Discovery & Delivery
 
-- Search Engine Pipeline
-- Crawling, Indexing, Rank
-- Boolean Search Operators
-- Web-Casting (Push/Pull)
-- Streaming, RSS & Unicast
-**Figure 1:** Master Topic Map covering all eight syllabus modules of Unit-I: Fundamentals of Web Technologies.
+• Search Engine Pipeline
+• Crawling, Indexing, Rank
+• Boolean Search Operators
+• Web-Casting (Push/Pull)
+• Streaming, RSS & Unicast
+
+> 🖼️ **Figure 1: Master Topic Map covering all eight syllabus modules of Unit-I: Fundamentals of Web Technologies.**
+
 
 ### 1. Introduction to Internet and World Wide Web (WWW)
 
 
-#### 1.1 What Is the Internet?
+### 1.1 What Is the Internet?
 
-**Definition:** The Internet (short for Interconnected Network) is a massive, global "network of
+- **Definition:** The Internet (short for Interconnected Network) is a massive, global "network of
 networks" linking billions of heterogeneous computers, servers, routers, smartphones, and IoT
 devices across the world using standardized communication protocols—primarily the TCP/IP
 protocol suite.
-**Decentralized Infrastructure:** No single company, country, or central computer owns or controls
+- **Decentralized Infrastructure:** No single company, country, or central computer owns or controls
 the Internet. Data travels across redundant physical links (undersea fiber-optic cables, copper
 lines, Wi-Fi, cellular towers, satellites) broken into small chunks called packets (Packet
 Switching).
@@ -52,28 +51,34 @@ Key Services Running Over the Internet: The Internet is the underlying physical 
 highway supporting numerous independent services—including the World Wide Web
 (HTTP/HTTPS), Email (SMTP/IMAP/POP3), File Transfer (FTP/SFTP), Remote Login (SSH),
 and Voice/Video Calling (VoIP).
-**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+- **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
 
 
-#### 1.2 What Is the World Wide Web (WWW)?
+### 1.2 What Is the World Wide Web (WWW)?
 
-**Definition:** The World Wide Web (WWW or simply "the Web") is a global information-sharing
+- **Definition:** The World Wide Web (WWW or simply "the Web") is a global information-sharing
 system built on top of the Internet that allows users to access interlinked hypertext and
 hypermedia documents (web pages containing text, images, audio, video, and clickable
 hyperlinks) via a Web Browser.
+Three Core Technical Pillars of the WWW:
 
-**Three Core Technical Pillars of the WWW:**
+### 1. URL (Uniform Resource Locator): A globally unique address specifying where a resource
 
-1. **URL (Uniform Resource Locator):** A globally unique address specifying where a resource
-**resides on the Web (e.g., https:** //www.example.edu/notes/unit1.pdf).
-2. HTTP / HTTPS (Hypertext Transfer Protocol): The application-layer request–response
+- **resides on the Web (e.g., https:** //www.example.edu/notes/unit1.pdf).
+
+### 2. HTTP / HTTPS (Hypertext Transfer Protocol): The application-layer request–response
+
 protocol governing how browsers and web servers exchange web documents.
-3. **HTML (HyperText Markup Language):** The standard markup language defining the structure
+
+### 3. HTML (HyperText Markup Language): The standard markup language defining the structure
+
 and hyperlinks of web pages.
-**Key Analogy (Exam Favorite):** Think of the Internet as the physical network of roads, highways,
+- **Key Analogy (Exam Favorite):** Think of the Internet as the physical network of roads, highways,
 and traffic rules, while the World Wide Web is just one major service (like delivery trucks carrying
 hyperlinked books) traveling on top of those roads.
-**Table 1:** Core Comparison Matrix — Internet vs. World Wide Web (WWW)
+
+> 📊 **Table 1: Core Comparison Matrix — Internet vs. World Wide Web (WWW)**
+
 Comparison
 Parameter Internet World Wide Web (WWW)
 Nature Global hardware & networking
@@ -101,13 +106,13 @@ IETF (protocols), ICANN (domains & IPs),
 ISOC
 W3C (World Wide Web Consortium —
 HTML, CSS, Web standards)
-**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+- **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
 
 
 ### 2. Evolution and History of the World Wide Web
 
 
-#### 2.1 Historical Milestones (From ARPANET to Modern Web)
+### 2.1 Historical Milestones (From ARPANET to Modern Web)
 
 1969 — ARPANET (Precursor of the Internet): The U.S. Department of Defense's Advanced
 Research Projects Agency launched ARPANET, connecting four university computers (UCLA,
@@ -117,7 +122,7 @@ Stanford, UCSB, Utah) using packet switching.
 birthday of the modern Internet. Paul Mockapetris introduced the Domain Name System (DNS) in
 1983.
 1989 — Tim Berners-Lee's Proposal at CERN: British computer scientist Sir Tim Berners-Lee
-**wrote "Information Management:** A Proposal" at CERN (Geneva, Switzerland) to help scientists
+- **wrote "Information Management:** A Proposal" at CERN (Geneva, Switzerland) to help scientists
 share linked documents seamlessly across incompatible computers.
 1990–1991 — First Web Browser, Server & Website: Berners-Lee built the first web
 browser/editor (WorldWideWeb, later renamed Nexus), the first web server (CERN httpd), and
@@ -132,14 +137,14 @@ popularized SSL encryption and JavaScript (1995).
 2000s–Present — Interactive, Mobile & Semantic Web: Rise of AJAX and social platforms
 (Web 2.0), HTML5 & responsive mobile web, universal HTTPS encryption, cloud APIs, HTTP/2 &
 HTTP/3, and AI/decentralized Semantic Web initiatives (Web 3.0).
-**Evolution Timeline:** From Packet-Switched ARPANET to Web 3.0
+- **Evolution Timeline:** From Packet-Switched ARPANET to Web 3.0
 1969
 ARPANET Launch
 1983
 TCP/IP & DNS
 (Modern Internet)
 1989–1991
-**Berners-Lee:** WWW
+- **Berners-Lee:** WWW
 1993–1994
 Mosaic & W3C
 (Web 1.0 Era)
@@ -148,12 +153,14 @@ Web 2.0 (Social/AJAX)
 2016–Present
 Web 3.0 / Semantic
 AI, Cloud, HTTP/3
-**Figure 2:** Chronological evolution of the Internet and World Wide Web across foundational milestones and Web
+
+> 🖼️ **Figure 2: Chronological evolution of the Internet and World Wide Web across foundational milestones and Web**
+
 generations.
-**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+- **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
 
 
-#### 2.2 Generations of the World Wide Web (Web 1.0 vs. Web 2.0 vs. Web 3.0)
+### 2.2 Generations of the World Wide Web (Web 1.0 vs. Web 2.0 vs. Web 3.0)
 
 Web 1.0 (The Static / Read-Only Web, ~1991–2004): Consisted primarily of static HTML pages
 published by organizations; users were passive consumers who could only read information with
@@ -165,7 +172,9 @@ read and create content—blogs, wikis, video sharing, social networks, and coll
 Web 3.0 (The Semantic / Intelligent / Read-Write-Execute Web): Emphasizes machine-
 understandable metadata (RDF, OWL, Linked Data), AI-driven personalization, ubiquitous IoT
 connectivity, and decentralized user-owned identity/data architectures.
-**Table 2:** Generation Comparison Matrix — Web 1.0 vs. Web 2.0 vs. Web 3.0
+
+> 📊 **Table 2: Generation Comparison Matrix — Web 1.0 vs. Web 2.0 vs. Web 3.0**
+
 Dimension Web 1.0 (Static Web) Web 2.0 (Social Web)
 Web 3.0 (Semantic / Intelligent
 Web)
@@ -202,10 +211,12 @@ decentralized apps
 
 ### 3. Application Areas of the Internet
 
-**Why the Internet Is Ubiquitous:** By combining instant global reach with low transmission cost,
+- **Why the Internet Is Ubiquitous:** By combining instant global reach with low transmission cost,
 the Internet serves as the primary operational backbone across communication, commerce,
 academia, governance, and engineering.
-**Table 3:** Major Application Areas of the Internet — Core Services & Real-World Impact
+
+> 📊 **Table 3: Major Application Areas of the Internet — Core Services & Real-World Impact**
+
 Application Domain Key Internet-Powered Services Core Benefits / Examples
 
 ### 1. Communication &
@@ -226,4 +237,4 @@ gateways
 24×7 borderless buying/selling, order tracking,
 personalized recommendations (Amazon,
 Flipkart).
-**Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+- **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes

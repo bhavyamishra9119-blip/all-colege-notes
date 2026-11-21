@@ -1,18 +1,14 @@
-### 4. Tables, Images, Image Mapping & IFrames
-
-> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
 
-#### 8.3 Text Colors & Background Colors/Images
+### 8.3 Text Colors & Background Colors/Images
 
-**Setting Colors & Backgrounds:** 
-**Classic HTML4 Body Attributes:** <body bgcolor="#eef2ff" text="#1e293b"
+- **Setting Colors & Backgrounds:** 
+- **Classic HTML4 Body Attributes:** <body bgcolor="#eef2ff" text="#1e293b"
 background="pattern.png">.
-**Modern Inline Style:** <body style="background-color:#eef2ff; color:#1e293b;
-**background-image:** url('bg.jpg');">.
-
-**Three Standard Ways to Specify Colors in HTML:**
-
+- **Modern Inline Style:** <body style="background-color:#eef2ff; color:#1e293b;
+- **background-image:** url('bg.jpg');">.
+Three Standard Ways to Specify Colors in HTML:
 Color System Syntax Format Examples (Red, Green, Blue, White, Black)
 
 ### 1. Color Names 140 predefined English
@@ -33,24 +29,24 @@ red, teal, navy, white, black
 0 to 255)
 rgb(255, 0, 0) (Red), rgb(0, 128, 128) (Teal)
 
-## PART III: PAGE LAYOUTS, IMAGES, IMAGE MAPPING AND FRAMES
+- **## PART III:** PAGE LAYOUTS, IMAGES, IMAGE MAPPING AND FRAMES
 
 
 ### 9. Page Layouts in HTML
 
 
-#### 9.1 What Is a Page Layout?
+### 9.1 What Is a Page Layout?
 
-**Definition:** A Page Layout defines the visual arrangement of core interface regions (Header,
+- **Definition:** A Page Layout defines the visual arrangement of core interface regions (Header,
 Navigation Bar, Main Content Columns, Sidebar, and Footer) so users can scan information
 effortlessly.
 
-#### 9.2 Evolution of HTML Page Layout Techniques
+### 9.2 Evolution of HTML Page Layout Techniques
 
 1. 1. Table-Based Layout (Classic HTML4 Approach):
 Uses an invisible <table width="100%" border="0"> with colspan (to span header/footer
 across columns) and rowspan (for sidebars).
-**Limitation:** Rigid, mixes visual design with data markup, slow to render, and fails on small
+- **Limitation:** Rigid, mixes visual design with data markup, slow to render, and fails on small
 mobile screens — reserve <table> strictly for tabular data today!
 2. 2. Div-Based Layout (<div> + CSS Float/Position):
 Replaces tables with lightweight <div id="header">, <div id="sidebar">, and <div
@@ -71,7 +67,9 @@ Fundamentals of Web Technologies • UNIT–2: Basics of HTML
 Header + Top Navbar
 Left Nav Main Article Right Ads
 Full-Width Footer
-**Figure 8:** Comparison of Classic Table-Based Page Layout vs. Modern Multi-Column Div/CSS Layout
+
+> 🖼️ **Figure 8: Comparison of Classic Table-Based Page Layout vs. Modern Multi-Column Div/CSS Layout**
+
 Layout Method Main Tags Used Responsiveness Status
 Table-Based <table>, <tr>, <td>
 (colspan/rowspan)
@@ -93,17 +91,15 @@ standard
 ### 10. Images and Their Attributes
 
 
-#### 10.1 Embedding Images with <img>
+### 10.1 Embedding Images with <img>
 
-**Empty Inline Tag:** The <img> tag embeds graphics into a webpage and has no closing tag.
-
-**Two Mandatory Attributes:**
-
-**src (Source):** Relative or absolute path/URL to the image file (e.g.,
+- **Empty Inline Tag:** The <img> tag embeds graphics into a webpage and has no closing tag.
+- **Two Mandatory Attributes:** 
+- **src (Source):** Relative or absolute path/URL to the image file (e.g.,
 src="images/campus.jpg").
-**alt (Alternative Text):** Descriptive fallback text shown if the image fails to load, read aloud
+- **alt (Alternative Text):** Descriptive fallback text shown if the image fails to load, read aloud
 by screen readers for visually impaired users, and indexed by Google Image Search!
-**Syntax Example:** <img src="campus.jpg" alt="College Campus" width="400"
+- **Syntax Example:** <img src="campus.jpg" alt="College Campus" width="400"
 height="250" title="Main Block">
 Attribute of <img> Function / Description
 src File path or URL of the image (mandatory)
@@ -127,21 +123,19 @@ SVG (.svg) Vector XML; Infinitely scalable Sharp icons, charts & responsive logo
 ### 11. Image Mapping
 
 
-#### 11.1 Starting From Scratch: What Is an Image Map?
+- **### 11.1 Starting From Scratch:** What Is an Image Map?
 
-**Definition:** An Image Map is a single image divided into multiple clickable geometric regions
+- **Definition:** An Image Map is a single image divided into multiple clickable geometric regions
 (hotspots), where clicking each different region navigates to a different destination URL (e.g.,
 clicking states on a map of India, or clicking organs on a human anatomy diagram).
-
-**Two Types of Image Maps:**
-
+- **Two Types of Image Maps:** 
 Client-Side Image Map (Standard — Uses <map> + <area>): Processed instantly inside
 the user’s browser using usemap="#mapname"; works offline, shows link preview on hover, and
 requires zero server load.
 Server-Side Image Map (Legacy — Uses ismap): Sends raw (x, y) click coordinates
 over the network to a server script (map.cgi?120,45); slow and rarely used today.
 
-#### 11.2 How to Build a Client-Side Image Map (3-Step Formula)
+### 11.2 How to Build a Client-Side Image Map (3-Step Formula)
 
 
 ### 1. Step 1 — Attach usemap to <img>: Write <img src="desk.jpg" alt="Desk"
@@ -151,7 +145,9 @@ usemap="#deskmap"> (note the mandatory leading # hash symbol!).
 ### 2. Step 2 — Define <map> Container: Match the exact name without the hash: <map
 
 name="deskmap"> ... </map>.
-3. **Step 3 — Add Clickable <area> Hotspots:** Each empty <area> tag defines one hotspot using
+
+### 3. Step 3 — Add Clickable <area> Hotspots: Each empty <area> tag defines one hotspot using
+
 shape, coords (pixel coordinates measured from top-left 0,0), href, and alt!
 (0,0) +X
 +Y

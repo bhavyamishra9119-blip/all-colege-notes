@@ -1,6 +1,4 @@
-### University Solved Examination Questions (Unit 3)
-
-> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with 2026–27 B.Tech Curriculum
+> 🟢 **EXAM WEIGHTAGE:** 24 - 28 Marks | Strictly Aligned with Official 2026–27 Curriculum
 
 KA Difficulty Practical Impact on ES Effective Mitigation Strategy
 Tacit / Unconscious Skill Missing key heuristic rules in KB Use Protocol Analysis (think-aloud) & live
@@ -27,26 +25,32 @@ audits
 ### 10. Methods of Knowledge Acquisition
 
 
-#### 10.1 Three Major Categories of Knowledge Acquisition Methods
+### 10.1 Three Major Categories of Knowledge Acquisition Methods
 
 Knowledge Acquisition methods fall cleanly into three generations ranging from purely human-
-**led to fully machine-automated:** 
-1. Category A — Manual Methods (Human Knowledge Engineer directly elicits knowledge).
-2. Category B — Semi-Automated Methods (Interactive software tools assist the Expert or KE).
-3. Category C — Automated Methods (Machine Learning algorithms extract rules directly from
+- **led to fully machine-automated:** 
+
+### 1. Category A — Manual Methods (Human Knowledge Engineer directly elicits knowledge).
+
+
+### 2. Category B — Semi-Automated Methods (Interactive software tools assist the Expert or KE).
+
+
+### 3. Category C — Automated Methods (Machine Learning algorithms extract rules directly from
+
 data).
 
-#### 10.2 Detailed Point-Wise Breakdown of Every Method
+### 10.2 Detailed Point-Wise Breakdown of Every Method
 
 A. Manual Methods (Most Widely Used in Traditional ES)
 
 ### 1. Interviews (Primary Elicitation Tool):
 
-**Unstructured Interview:** Open-ended informal conversation with no rigid script; best during
+- **Unstructured Interview:** Open-ended informal conversation with no rigid script; best during
 the very first meetings to map broad domain boundaries and build rapport.
-**Structured Interview:** Planned, goal-focused questionnaire targeting specific concepts, rule
+- **Structured Interview:** Planned, goal-focused questionnaire targeting specific concepts, rule
 conditions, and edge cases; yields systematic, verifiable knowledge.
-**Semi-Structured Interview:** Hybrid combining a prepared topic checklist with flexible follow-up
+- **Semi-Structured Interview:** Hybrid combining a prepared topic checklist with flexible follow-up
 probing.
 
 ### 2. Protocol Analysis (Think-Aloud Method):
@@ -61,15 +65,14 @@ The Knowledge Engineer extracts hidden step-by-step heuristics directly from the
 The KE silently observes the expert handling real cases on the job (e.g., shadowing a
 technician on a factory floor) without interrupting workflow, recording tools checked and
 decisions made.
-**AIML • UNIT–3:** Expert Systems & Knowledge Engineering
 
 
 ### 4. Group & Consensus Methods (For Multiple Experts):
 
-**Brainstorming:** Free-flowing group idea generation with zero immediate criticism.
-**Nominal Group Technique (NGT):** Experts write ideas silently first, share round-robin, and
+- **Brainstorming:** Free-flowing group idea generation with zero immediate criticism.
+- **Nominal Group Technique (NGT):** Experts write ideas silently first, share round-robin, and
 rank priorities democratically — prevents loud personalities from dominating.
-**Delphi Method:** Multiple experts answer anonymous questionnaires across several iterative
+- **Delphi Method:** Multiple experts answer anonymous questionnaires across several iterative
 rounds with summarized feedback until consensus emerges.
 
 ### 5. Document Analysis & Questionnaires:
@@ -110,27 +113,28 @@ METHODS OF KNOWLEDGE ACQUISITION
 
 ### 1. Manual (Human-Led)
 
-- Interviews (Un/Struct.)
-- Protocol Analysis
-- Direct Observation
-- Delphi / NGT / Docs
+• Interviews (Un/Struct.)
+• Protocol Analysis
+• Direct Observation
+• Delphi / NGT / Docs
 
 ### 2. Semi-Automated
 
-- Interactive KA Editors
+• Interactive KA Editors
 (e.g., TEIRESIAS)
-- Repertory Grid Tools
+• Repertory Grid Tools
 (e.g., ETS, AQUINAS)
 
 ### 3. Automated (ML-Led)
 
-- Rule Induction
+• Rule Induction
 (ID3, C4.5, CART)
-- Neural Networks / ML
-- NLP Text Mining
-**AIML • UNIT–3:** Expert Systems & Knowledge Engineering
+• Neural Networks / ML
+• NLP Text Mining
 
-**Figure 12:** Complete Taxonomy of Manual, Semi-Automated, and Automated Knowledge Acquisition
+
+> 🖼️ **Figure 12: Complete Taxonomy of Manual, Semi-Automated, and Automated Knowledge Acquisition**
+
 Methods
 KA Method Category Best Used When… Main Limitation
 Unstructured
@@ -167,24 +171,20 @@ records
 Syllabus Topic Core Formula / Fact to Memorize High-Yield Exam Tip
 Intro & Basic
 Concepts
-
-$$ES = Knowledge Base + Inference Engine$$
-
-**Classics:** DENDRAL, MYCIN,
+ES = Knowledge Base + Inference Engine
+- **Classics:** DENDRAL, MYCIN,
 PROSPECTOR, XCON
 Always contrast ES (symbolic/heuristic,
 separated KB) vs. conventional code
 (algorithmic, mixed).
-**Structure of ES 2 Environments:** Development vs.
+- **Structure of ES 2 Environments:** Development vs.
 Consultation
-**7 Modules:** KA, KB, IE, Blackboard, UI,
+- **7 Modules:** KA, KB, IE, Blackboard, UI,
 Justifier, Refiner
-
-**Clearly show who uses each environment:**
-
+Clearly show who uses each environment:
 KE/Expert in Development; End User in
 Consultation.
-**Human Element 5 Roles:** Domain Expert, Knowledge
+- **Human Element 5 Roles:** Domain Expert, Knowledge
 Engineer, End User, System/Tool Builder,
 Manager
 Highlight the Knowledge Engineer as the
@@ -192,13 +192,13 @@ critical human bridge between Expert and
 computer.
 Architecture &
 Chaining
-**IE Cycle:** Match → Conflict Resolution →
+- **IE Cycle:** Match → Conflict Resolution →
 Act
 Forward (Data-driven) vs. Backward
 (Goal-driven)
 Include HOW (proof trace) & WHY (question
 reason) in the Explanation Facility diagram.
-**Problem Areas 10 Areas:** Interpret, Predict, Diagnose,
+- **Problem Areas 10 Areas:** Interpret, Predict, Diagnose,
 Design, Plan, Monitor, Debug, Repair,
 Instruct, Control
 Pair every problem area with one concrete
@@ -209,9 +209,8 @@ Factors
 Narrow heuristic domain + Cooperative
 expert + High payoff + Explainability + IT
 integration
-**Remember:** ES fails on broad common-sense
+- **Remember:** ES fails on broad common-sense
 tasks or pure heavy math calculations.
-**AIML • UNIT–3:** Expert Systems & Knowledge Engineering
 
 Syllabus Topic Core Formula / Fact to Memorize High-Yield Exam Tip
 Types of ES Rule-Based, Frame-Based, Fuzzy,
@@ -222,7 +221,7 @@ Revise–Retain) and Fuzzy’s continuous truth
 [0, 1].
 Knowledge
 Engineering
-**DIKW Pyramid; 5 Types:** Declarative,
+- **DIKW Pyramid; 5 Types:** Declarative,
 Procedural, Heuristic, Meta, Structural
 Emphasize Explicit vs. Tacit and Shallow vs.
 Deep knowledge dimensions.
@@ -230,9 +229,8 @@ Difficulties &
 Methods of KA
 KA Bottleneck (Feigenbaum) — Tacit
 skill is #1 hurdle
-**Methods:** Manual, Semi-Automated,
+- **Methods:** Manual, Semi-Automated,
 Automated
 Mention Protocol Analysis for tacit skill, Delphi
 for multi-expert conflicts, and ID3/C4.5 for
 automated induction.
-**AIML • UNIT–3:** Expert Systems & Knowledge Engineering
