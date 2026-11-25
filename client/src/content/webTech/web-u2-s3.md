@@ -111,7 +111,50 @@ Image Link
 <a><img></a>
 Clickable Graphic
 
-> 🖼️ **Figure 7: Five Core Categories of HTML Hyperlinks Using the Anchor (<a>) Tag**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 THE HTML DOCUMENT OBJECT MODEL (DOM) TREE HIERARCHY</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="210" viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="15" width="720" height="180" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="380" y="38" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1e40af" text-anchor="middle">HTML DOM Tree Structure (Nodes &amp; Branches)</text>
+      <!-- Root: Document -->
+      <rect x="330" y="50" width="100" height="26" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="380" y="67" font-family="Courier, monospace" font-size="10.5" font-weight="bold" fill="#1e40af" text-anchor="middle">&lt;html&gt; (Root)</text>
+      <!-- Head & Body branches -->
+      <line x1="380" y1="76" x2="230" y2="95" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="380" y1="76" x2="530" y2="95" stroke="#94a3b8" stroke-width="1.5"/>
+
+      <!-- Head Node -->
+      <rect x="180" y="95" width="100" height="26" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="230" y="112" font-family="Courier, monospace" font-size="10.5" font-weight="bold" fill="#92400e" text-anchor="middle">&lt;head&gt;</text>
+      <line x1="230" y1="121" x2="230" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+      <rect x="180" y="140" width="100" height="24" rx="3" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+      <text x="230" y="156" font-family="Courier, monospace" font-size="9.5" fill="#78350f" text-anchor="middle">&lt;title&gt;</text>
+
+      <!-- Body Node -->
+      <rect x="480" y="95" width="100" height="26" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="530" y="112" font-family="Courier, monospace" font-size="10.5" font-weight="bold" fill="#166534" text-anchor="middle">&lt;body&gt;</text>
+      <!-- Children of Body -->
+      <line x1="510" y1="121" x2="400" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="530" y1="121" x2="530" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="550" y1="121" x2="660" y2="140" stroke="#94a3b8" stroke-width="1.5"/>
+
+      <rect x="360" y="140" width="80" height="24" rx="3" fill="#ffffff" stroke="#16a34a" stroke-width="1"/>
+      <text x="400" y="156" font-family="Courier, monospace" font-size="9.5" fill="#166534" text-anchor="middle">&lt;h1&gt;</text>
+
+      <rect x="490" y="140" width="80" height="24" rx="3" fill="#ffffff" stroke="#16a34a" stroke-width="1"/>
+      <text x="530" y="156" font-family="Courier, monospace" font-size="9.5" fill="#166534" text-anchor="middle">&lt;p&gt;</text>
+
+      <rect x="620" y="140" width="80" height="24" rx="3" fill="#ffffff" stroke="#16a34a" stroke-width="1"/>
+      <text x="660" y="156" font-family="Courier, monospace" font-size="9.5" fill="#166534" text-anchor="middle">&lt;table&gt;</text>
+
+      <text x="380" y="185" font-family="Inter, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">DOM APIs (document.getElementById, querySelector) traverse this exact hierarchical tree</text>
+    </svg>
+  </div>
+</div>
+
 
 Fundamentals of Web Technologies • UNIT–2: Basics of HTML
 
@@ -173,3 +216,37 @@ Formatting Smaller fine print / highlighted
 keyword
 <mark>Key</mark>
 Fundamentals of Web Technologies • UNIT–2: Basics of HTML
+
+---
+
+#### 💻 Written Code Example & Layout: Hyperlinks, Anchor Targets & Email/Phone Protocol Schemes
+
+<!-- Hyperlinks, Anchor Targets & Email/Phone Protocol Schemes -->
+```html
+<!-- Absolute External Link -->
+<a href="https://www.w3.org" target="_blank" rel="noopener noreferrer">W3C Official Standards</a>
+
+<!-- Relative Internal Document Link -->
+<a href="notes/unit-2.html">Jump to Unit 2 Notes</a>
+
+<!-- Same-Page Bookmark Jump -->
+<a href="#summary-section">Scroll to Summary</a>
+
+<!-- Protocol Schemes -->
+<a href="mailto:support@university.edu?subject=Web%20Notes">Email Professor</a>
+<a href="tel:+1234567890">Call Office</a>
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Creates clickable hyperlinks that navigate to external URLs, internal pages, jump to specific section anchors, or trigger native email/phone apps.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Always add rel='noopener noreferrer' when opening links with target='_blank' for security.**
+- **Anchor IDs (#section) enable smooth jumping within the same page.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Empty href='#' causing page jump to top on click.**
+- **Missing alt text on linked images.**
+

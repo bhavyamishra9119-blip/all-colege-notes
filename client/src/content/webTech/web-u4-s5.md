@@ -71,7 +71,26 @@ unevenly to fit longest cell content.
 - **table-layout:** fixed (Header-Driven)
 Uses 1st row widths only; fast rendering
 and strict predictable column widths.
-- **Figure 8.1:** CSS Table Border Models (separate vs. collapse) and Sizing Algorithms (auto vs.
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 CSS POSITIONING TYPES &amp; DISPLAY BEHAVIORS</div>
+</div>
+
+| CSS Position Property | Offset Origin ($top, left$) | Normal Flow Behavior | Scrolling Behavior |
+| :--- | :--- | :--- | :--- |
+| **`static`** (Default) | Inactive (Offsets ignored) | Element stays strictly in normal document flow | Scrolls with page content normally |
+| **`relative`** | Relative to its **own normal position** | Space in document flow is **strictly reserved** | Scrolls with content; visually shifted |
+| **`absolute`** | Relative to **nearest non-static ancestor** | **Removed from document flow** (No space kept) | Scrolls along with its positioned container |
+| **`fixed`** | Relative to the **Browser Viewport** | **Removed from document flow** | **Stays pinned to screen** during page scroll |
+| **`sticky`** | Normal flow until scroll threshold | Acts relative until offset reached, then fixed | Sticks to viewport edge during container scroll |
+
+| CSS Visibility Property | Space in Layout Reserved? | Responds to Clicks/Events? | Triggers Browser Reflow (Layout)? |
+| :--- | :---: | :---: | :---: |
+| **`display: none;`** | **NO** (Completely collapsed) | No | **YES** (Heavy layout recomputation) |
+| **`visibility: hidden;`** | **YES** (Invisible empty box kept)| No | **NO** (Triggers repaint only; fast!) |
+| **`opacity: 0;`** | **YES** (Fully transparent) | **YES** (Still clickable!) | **NO** (GPU compositor layer; fastest) |
+
 fixed).
 
 > 📊 **Table 8.1: Reference Comparison of table-layout: auto vs. table-layout: fixed**
@@ -213,3 +232,49 @@ dimension problem; Discuss all five CSS position schemes with diagrams; Explain 
 & Radial Gradients and Background properties with syntax; Demonstrate CSS Multi-Column
 Layout and Float/Clearfix mechanisms with code.
 Fundamentals of Web Technologies • Unit-IV: CSS Study Notes
+
+---
+
+#### 💻 Written Code Example & Layout: Modern CSS Flexbox Responsive 1D Layout System
+
+<!-- Modern CSS Flexbox Responsive 1D Layout System -->
+```html
+<div class="flex-navbar">
+    <div class="logo">Logo</div>
+    <div class="nav-links">
+        <span>Home</span>
+        <span>Notes</span>
+        <span>Contact</span>
+    </div>
+    <div class="user-badge">Profile</div>
+</div>
+```
+```css
+.flex-navbar {
+    display: flex;
+    justify-content: space-between; /* Main Axis: Distributes items */
+    align-items: center;            /* Cross Axis: Centers vertically */
+    background: #0f172a;
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Renders a full responsive navigation bar using Flexbox main axis (justify-content) and cross axis (align-items) distribution.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **display: flex establishes a flex container; children become flex items.**
+- **justify-content aligns along main axis; align-items aligns along cross axis.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Confusing align-items (single line) with align-content (multi-line wrapping).**
+- **Using floats or table hacks for layouts instead of Flexbox or CSS Grid.**
+

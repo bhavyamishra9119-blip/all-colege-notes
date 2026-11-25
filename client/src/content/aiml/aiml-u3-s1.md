@@ -50,7 +50,73 @@ Scope of Knowledge
 ### 10. Methods of KA
 
 
-> 🖼️ **Figure 1: Complete Syllabus Roadmap of AIML Unit–3 (Expert Systems & Knowledge Engineering)**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 ARCHITECTURE OF AN EXPERT SYSTEM: KNOWLEDGE BASE &amp; INFERENCE ENGINE</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="230" viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="esArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
+        </marker>
+      </defs>
+
+      <!-- User Box -->
+      <rect x="20" y="70" width="100" height="70" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+      <text x="70" y="102" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e293b" text-anchor="middle">End User</text>
+      <text x="70" y="118" font-family="Inter, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">(Non-Expert)</text>
+
+      <line x1="120" y1="105" x2="160" y2="105" stroke="#2563eb" stroke-width="2" marker-end="url(#esArrow)"/>
+
+      <!-- User Interface -->
+      <rect x="165" y="70" width="110" height="70" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="220" y="100" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e40af" text-anchor="middle">User Interface</text>
+      <text x="220" y="116" font-family="Inter, sans-serif" font-size="9" fill="#1e3a8a" text-anchor="middle">Natural Lang/GUI</text>
+
+      <line x1="275" y1="105" x2="315" y2="105" stroke="#2563eb" stroke-width="2" marker-end="url(#esArrow)"/>
+
+      <!-- Inference Engine -->
+      <rect x="320" y="45" width="150" height="120" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="395" y="75" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#166534" text-anchor="middle">INFERENCE</text>
+      <text x="395" y="92" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#166534" text-anchor="middle">ENGINE</text>
+      <text x="395" y="112" font-family="Inter, sans-serif" font-size="9" fill="#14532d" text-anchor="middle">• Forward Chaining</text>
+      <text x="395" y="126" font-family="Inter, sans-serif" font-size="9" fill="#14532d" text-anchor="middle">• Backward Chaining</text>
+      <text x="395" y="140" font-family="Inter, sans-serif" font-size="9" fill="#14532d" text-anchor="middle">• Conflict Resolution</text>
+
+      <!-- Knowledge Base -->
+      <rect x="520" y="25" width="220" height="75" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="630" y="48" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#92400e" text-anchor="middle">Knowledge Base (Domain Rules)</text>
+      <text x="630" y="65" font-family="Courier, monospace" font-size="9.5" fill="#78350f" text-anchor="middle">IF (condition) THEN (action)</text>
+      <text x="630" y="80" font-family="Inter, sans-serif" font-size="9" fill="#78350f" text-anchor="middle">Heuristic Rules from Domain Expert</text>
+
+      <!-- Working Memory -->
+      <rect x="520" y="115" width="220" height="75" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+      <text x="630" y="138" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#991b1b" text-anchor="middle">Working Memory (Dynamic Facts)</text>
+      <text x="630" y="155" font-family="Inter, sans-serif" font-size="9.5" fill="#991b1b" text-anchor="middle">Current Case Facts (Temperature=102F)</text>
+      <text x="630" y="170" font-family="Inter, sans-serif" font-size="9" fill="#991b1b" text-anchor="middle">Session-specific dynamic state</text>
+
+      <!-- Connecting bidirectional arrows between IE and KB / WM -->
+      <line x1="470" y1="75" x2="515" y2="60" stroke="#2563eb" stroke-width="1.5"/>
+      <line x1="470" y1="125" x2="515" y2="140" stroke="#2563eb" stroke-width="1.5"/>
+
+      <!-- Explanation Facility at bottom -->
+      <rect x="165" y="160" width="110" height="50" rx="4" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1.5"/>
+      <text x="220" y="180" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#6b21a8" text-anchor="middle">Explanation System</text>
+      <text x="220" y="196" font-family="Inter, sans-serif" font-size="8.5" fill="#6b21a8" text-anchor="middle">Answers HOW &amp; WHY</text>
+      <line x1="320" y1="140" x2="275" y2="175" stroke="#7c3aed" stroke-width="1.5"/>
+    </svg>
+  </div>
+</div>
+
+| Attribute | Conventional Computer Program | Artificial Intelligence Expert System |
+| :--- | :--- | :--- |
+| **Primary Focus** | Data manipulation, mathematical calculation & numbers | **Knowledge, heuristics, symbolic reasoning & logic** |
+| **Separation of Concerns** | Knowledge and control logic are hardcoded together | **Strict separation**: Knowledge Base is independent of Inference Engine |
+| **Explanation Capability** | None (Black-box execution; yields output without explanation) | **Built-in Explanation Facility** (Explains HOW & WHY a decision was made) |
+| **Handling Incomplete Data**| Fails or crashes upon receiving missing parameters | **Graceful degradation**: Uses certainty factors ($CF \in [-1, +1]$) |
+| **Ease of Knowledge Update**| Requires refactoring code and recompiling software | **High modularity**: Add or edit IF-THEN rules without touching the engine |
+
 
 
 - **## PART I:** INTRODUCTION, CONCEPTS, STRUCTURE, HUMAN ELEMENT &
@@ -421,3 +487,15 @@ conclusion.
 ### 6. Knowledge Acquisition & Editing Facility: Enables Knowledge Engineers to inspect, add,
 
 modify, and consistency-check rules without altering the Inference Engine code.
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **An Expert System strictly separates domain knowledge (Knowledge Base) from the general problem-solving logic (Inference Engine).**
+> - **Forward Chaining is data-driven (starts from known facts to derive conclusions); Backward Chaining is goal-driven.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Hardcoding domain rules directly into procedural algorithms instead of the declarative knowledge base.**
+> - **Confusing procedural knowledge (step-by-step how-to) with declarative knowledge (what-is facts).**
+

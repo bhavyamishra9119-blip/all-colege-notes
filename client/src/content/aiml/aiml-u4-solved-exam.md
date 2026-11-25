@@ -187,3 +187,15 @@ Sup(Y); Apriori & FP-Growth
 - **Remember:** Lift > 1 = Positive link; Lift
 = 1 = Independent; Lift < 1 = Negative
 link.
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **Supervised learning trains on labeled data (inputs + targets); Unsupervised learning discovers hidden patterns in unlabeled data.**
+> - **High Bias causes Underfitting (model too simple); High Variance causes Overfitting (model memorizes noise).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Data leakage: Evaluating machine learning models on training data rather than an isolated test set.**
+> - **Confusing correlation with causation in feature importance.**
+

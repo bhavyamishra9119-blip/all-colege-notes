@@ -66,7 +66,20 @@ Largest value bubbles right each pass
 - **Pass 3:** [ 10, 20, 40, 50 ] ✓  Sorted
 Smallest value selected left (≤1 swap)
 
-> 🖼️ **Figure 4: Pass-by-Pass Sorting Behavior of Bubble Sort vs. Selection Sort**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 SEARCHING &amp; SORTING ALGORITHMS: TIME COMPLEXITY COMPARISON</div>
+</div>
+
+| Algorithm | Pre-Condition (Sorted?) | Best Case Time | Average Case Time | Worst Case Time | Space Complexity |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Linear Search** | **No** (Works on unsorted arrays) | $O(1)$ (First element) | $O(n)$ | **$O(n)$** | $O(1)$ |
+| **Binary Search** | **YES (Mandatory Sorted Array)** | $O(1)$ (Middle element) | $O(\log_2 n)$ | **$O(\log_2 n)$** | $O(1)$ iterative |
+| **Bubble Sort** | None | $O(n)$ (With swapped flag) | $O(n^2)$ | **$O(n^2)$** | $O(1)$ |
+| **Selection Sort**| None | $O(n^2)$ | $O(n^2)$ | **$O(n^2)$** | $O(1)$ |
+| **Insertion Sort**| None | $O(n)$ (Nearly sorted) | $O(n^2)$ | **$O(n^2)$** | $O(1)$ |
+
 
 Sorting
 Algorithm
@@ -191,3 +204,67 @@ Register).
 - **Attributes:** Stored on the Stack; default value is Garbage (unpredictable); scope is local to its
 enclosing block; created on block entry and destroyed immediately on block exit.
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming
+
+---
+
+#### 💻 Working C Code Example: Sorting & Searching: Bubble Sort & Binary Search
+
+```c
+#include <stdio.h>
+
+void bubble_sort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int binary_search(int arr[], int n, int key) {
+    int low = 0, high = n - 1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == key) return mid;
+        if (arr[mid] < key) low = mid + 1;
+        else high = mid - 1;
+    }
+    return -1;
+}
+
+int main() {
+    int data[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(data) / sizeof(data[0]);
+
+    bubble_sort(data, n);
+    printf("Sorted Array: ");
+    for (int i = 0; i < n; i++) printf("%d ", data[i]);
+    printf("\n");
+
+    int key = 25;
+    int idx = binary_search(data, n, key);
+    printf("Binary Search: Key %d found at index %d (O(log n))\n", key, idx);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Sorted Array: 11 12 22 25 34 64 90 
+Binary Search: Key 25 found at index 3 (O(log n))
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Binary search requires the array to be pre-sorted.**
+- **Bubble sort has worst-case O(n^2) and best-case O(n) with swap flag.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Integer overflow in mid calculation (use low + (high-low)/2).**
+- **Attempting binary search on unsorted data.**
+

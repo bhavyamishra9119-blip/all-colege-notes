@@ -168,3 +168,45 @@ needed width
 <b>, <i>, <u>, <a>, <span>,
 <img>
 Fundamentals of Web Technologies • UNIT–2: Basics of HTML
+
+---
+
+#### 💻 Written Code Example & Layout: HTML Lists: Ordered, Unordered & Definition Lists
+
+<!-- HTML Lists: Ordered, Unordered & Definition Lists -->
+```html
+<!-- Unordered List -->
+<ul>
+    <li>Client-side scripting (HTML, CSS, JS)</li>
+    <li>Server-side scripting (Node.js, Python, PHP)</li>
+</ul>
+
+<!-- Ordered List with Roman Numerals -->
+<ol type="I">
+    <li>Planning & Discovery</li>
+    <li>Prototyping & Design</li>
+    <li>Deployment & Testing</li>
+</ol>
+
+<!-- Description/Definition List -->
+<dl>
+    <dt><strong>DOM</strong></dt>
+    <dd>Document Object Model: in-memory tree representation of HTML.</dd>
+    <dt><strong>CSSOM</strong></dt>
+    <dd>CSS Object Model: style rule tree matched to DOM nodes.</dd>
+</dl>
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Renders bulleted lists, numbered step sequences, and two-tier glossary term-definition layouts.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Ordered lists (<ol>) use numbers/letters; Unordered lists (<ul>) use bullets.**
+- **Definition lists (<dl>) contain matching <dt> (terms) and <dd> (descriptions).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Placing text directly inside <ul> or <ol> without wrapping inside <li>.**
+- **Nesting lists improperly without placing child <ul> inside a parent <li>.**
+

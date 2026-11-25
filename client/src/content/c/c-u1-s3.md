@@ -80,7 +80,75 @@ Efficiency Rating
 - **O(2^n):** Exponential
 (Drop constants & lower terms)
 
-> 🖼️ **Figure 4: Characteristic growth curves illustrating how execution time T(n) scales with input size n across**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 ALGORITHM FLOWCHART: FINDING THE LARGEST OF THREE NUMBERS (A, B, C)</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="240" viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrowC" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
+        </marker>
+      </defs>
+      
+      <!-- Start -->
+      <rect x="330" y="10" width="100" height="30" rx="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="380" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e40af" text-anchor="middle">START</text>
+      <line x1="380" y1="40" x2="380" y2="55" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowC)"/>
+
+      <!-- Input -->
+      <polygon points="310,55 450,55 440,85 300,85" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="375" y="73" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#92400e" text-anchor="middle">Read A, B, C</text>
+      <line x1="375" y1="85" x2="375" y2="100" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowC)"/>
+
+      <!-- Diamond 1: A > B -->
+      <polygon points="375,100 440,125 375,150 310,125" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+      <text x="375" y="129" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#991b1b" text-anchor="middle">Is A &gt; B ?</text>
+
+      <!-- Branch A > B YES -> Diamond 2: A > C -->
+      <line x1="310" y1="125" x2="200" y2="125" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowC)"/>
+      <text x="260" y="118" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#16a34a">YES</text>
+      <polygon points="200,105 260,125 200,145 140,125" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+      <text x="200" y="129" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#991b1b" text-anchor="middle">Is A &gt; C ?</text>
+
+      <!-- Print A / Print C -->
+      <line x1="140" y1="125" x2="90" y2="125" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowC)"/>
+      <text x="115" y="118" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#16a34a">YES</text>
+      <rect x="20" y="110" width="70" height="30" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="55" y="129" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">Print A</text>
+
+      <!-- Branch A > B NO -> Diamond 3: B > C -->
+      <line x1="440" y1="125" x2="550" y2="125" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowC)"/>
+      <text x="490" y="118" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#dc2626">NO</text>
+      <polygon points="550,105 610,125 550,145 490,125" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+      <text x="550" y="129" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#991b1b" text-anchor="middle">Is B &gt; C ?</text>
+
+      <!-- Print B / Print C -->
+      <line x1="610" y1="125" x2="660" y2="125" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowC)"/>
+      <text x="635" y="118" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#16a34a">YES</text>
+      <rect x="660" y="110" width="70" height="30" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="695" y="129" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">Print B</text>
+
+      <!-- Stop at bottom -->
+      <rect x="330" y="195" width="100" height="30" rx="15" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="380" y="215" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e40af" text-anchor="middle">STOP</text>
+      <!-- Connecting lines to stop -->
+      <line x1="55" y1="140" x2="55" y2="210" stroke="#64748b" stroke-width="1.5"/>
+      <line x1="55" y1="210" x2="330" y2="210" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrowC)"/>
+      <line x1="695" y1="140" x2="695" y2="210" stroke="#64748b" stroke-width="1.5"/>
+      <line x1="695" y1="210" x2="430" y2="210" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrowC)"/>
+    </svg>
+  </div>
+</div>
+
+| Attribute | Algorithm | Flowchart | Pseudocode |
+| :--- | :--- | :--- | :--- |
+| **Format** | Numbered natural language steps (English) | Visual geometric diagram with flowlines | Text-based structured informal programming syntax |
+| **Standardization** | Informal (Finiteness, Definiteness, Input, Output) | Strictly standardized via ISO / ANSI symbols | Loosely follows Pascal / C control structures |
+| **Debugging Ease** | Moderate (Requires mental execution) | **High** (Visual path tracking exposes logic loops) | High (Close to code structure) |
+| **Modification Cost**| Easy to edit or reorder text | Tedious (Requires redrawing shapes & connections)| Very easy to edit |
+
 
 standard Big-O complexity classes.
 Worked Step-by-Step Complexity Derivations
@@ -193,3 +261,53 @@ Ease of
 Debugging
 Extremely difficult Difficult Easy and programmer-friendly
 - **Unit-I:** Programming Fundamentals & Problem Solving • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Time Complexity Demonstration: Linear Search vs Constant Access
+
+```c
+#include <stdio.h>
+
+int linear_search(int arr[], int n, int key) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == key) return i; // O(n) worst case
+    }
+    return -1;
+}
+
+int main() {
+    int data[] = {12, 34, 54, 2, 93, 77};
+    int n = sizeof(data) / sizeof(data[0]);
+    int key = 93;
+
+    int idx = linear_search(data, n, key);
+    if (idx != -1)
+        printf("Key %d found at index %d (Linear Time O(n))
+", key, idx);
+    else
+        printf("Key %d not found.
+", key);
+
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Key 93 found at index 4 (Linear Time O(n))
+```
+
+**Walkthrough & Execution Notes:**
+Linear traversal requires n comparisons in worst case. Space complexity is O(1) auxiliary.
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Big-O notation describes the asymptotic upper bound of execution time as input size n grows.**
+- **O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Confusing Time Complexity (operation count) with clock-time in seconds.**
+- **Assuming faster hardware changes the Big-O complexity class.**
+

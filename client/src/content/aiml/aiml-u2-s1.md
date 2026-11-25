@@ -41,7 +41,78 @@ Calculus, Unification & Resolution
 - **### 8. Structured KR:** Scripts, Frames & Objects
 
 
-> 🖼️ **Figure 1: Master Syllabus Roadmap of Fundamentals of AIML Unit–2**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 UNINFORMED SEARCH: BREADTH-FIRST (BFS) VS. DEPTH-FIRST (DFS) SEARCH</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="220" viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- BFS Tree -->
+      <rect x="20" y="15" width="340" height="190" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="190" y="38" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1e40af" text-anchor="middle">BFS: Level-by-Level (FIFO Queue)</text>
+      <!-- Tree Nodes -->
+      <circle cx="190" cy="65" r="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="190" y="70" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">1 (Root)</text>
+      <circle cx="120" cy="115" r="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="120" y="120" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">2</text>
+      <circle cx="260" cy="115" r="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="260" y="120" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">3</text>
+      <circle cx="85" cy="165" r="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="85" y="170" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">4</text>
+      <circle cx="155" cy="165" r="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="155" y="170" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">5</text>
+      <circle cx="225" cy="165" r="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="225" y="170" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">6</text>
+      <circle cx="295" cy="165" r="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="295" y="170" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">7</text>
+      <!-- Edges -->
+      <line x1="180" y1="75" x2="130" y2="105" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="200" y1="75" x2="250" y2="105" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="110" y1="125" x2="90" y2="155" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="130" y1="125" x2="150" y2="155" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="250" y1="125" x2="230" y2="155" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="270" y1="125" x2="290" y2="155" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="190" y="195" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Order: 1 🠆 2 🠆 3 🠆 4 🠆 5 🠆 6 🠆 7</text>
+
+      <!-- DFS Tree -->
+      <rect x="390" y="15" width="350" height="190" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="565" y="38" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#166534" text-anchor="middle">DFS: Deep Branch First (LIFO Stack)</text>
+      <!-- Tree Nodes -->
+      <circle cx="565" cy="65" r="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="565" y="70" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">1 (Root)</text>
+      <circle cx="495" cy="115" r="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="495" y="120" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">2</text>
+      <circle cx="635" cy="115" r="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="635" y="120" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">5</text>
+      <circle cx="460" cy="165" r="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="460" y="170" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">3</text>
+      <circle cx="530" cy="165" r="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="530" y="170" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">4</text>
+      <circle cx="600" cy="165" r="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="600" y="170" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">6</text>
+      <circle cx="670" cy="165" r="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="670" y="170" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">7</text>
+      <!-- Edges -->
+      <line x1="555" y1="75" x2="505" y2="105" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="575" y1="75" x2="625" y2="105" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="485" y1="125" x2="465" y2="155" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="505" y1="125" x2="525" y2="155" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="625" y1="125" x2="605" y2="155" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="645" y1="125" x2="665" y2="155" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="565" y="195" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#166534" text-anchor="middle">Order: 1 🠆 2 🠆 3 🠆 4 🠆 5 🠆 6 🠆 7</text>
+    </svg>
+  </div>
+</div>
+
+| Evaluation Criterion | Breadth-First Search (BFS) | Depth-First Search (DFS) |
+| :--- | :--- | :--- |
+| **Frontier Data Structure** | **FIFO Queue** | **LIFO Stack (or Recursion stack)** |
+| **Node Expansion Strategy** | Explores all nodes at depth $d$ before moving to $d+1$ | Follows a single branch down to its maximum depth $m$ |
+| **Completeness** | **Yes** (Always finds goal if $b$ is finite) | **No** (Can get trapped in infinite depth loops) |
+| **Optimality** | **Yes** (Guaranteed shortest path if step cost = 1) | **No** (May return deeper non-optimal path first) |
+| **Time Complexity** | $O(b^d)$ (Exponential in depth of solution) | $O(b^m)$ (Exponential in maximum depth) |
+| **Space Complexity** | **$O(b^d)$ (Enormous! Consumes all RAM)** | **$O(b \cdot m)$ (Linear & highly memory-efficient)** |
+
 
 
 - **## PART I:** SEARCHING ALGORITHMS IN ARTIFICIAL INTELLIGENCE
@@ -227,3 +298,15 @@ The forward branching factor is smaller than the backward branching factor.
 - **Drawback:** Can waste time deriving hundreds of true facts that are completely irrelevant to the
 final target!
 Fundamentals of
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **A* search is guaranteed optimal and complete if the heuristic function h(n) is admissible (never overestimates true cost to goal).**
+> - **Breadth-First Search (BFS) uses a FIFO Queue and is optimal for uniform step costs; Depth-First Search (DFS) uses a LIFO Stack.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Designing an inadmissible heuristic in A* search (causes sub-optimal path selection).**
+> - **Failing to maintain a visited/explored set in graph search, leading to infinite loops in cyclic state spaces.**
+

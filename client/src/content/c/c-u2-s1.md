@@ -34,7 +34,46 @@ else-if, switch, Nesting) • Loop Control Structure (for, while, do-while, Nest
 - **• Jumping:** continue Statement
 - **• Jumping:** goto & Labels
 
-> 🖼️ **Figure 1: Master Topic Map outlining the complete Unit-II syllabus hierarchy in Computational & Problem Solving**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 TAXONOMY OF COMPUTATIONAL PROBLEMS &amp; LOGIC PARADIGMS</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="200" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="15" width="720" height="170" rx="8" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="380" y="38" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1e40af" text-anchor="middle">5 Major Classes of Computational Problems</text>
+      <!-- 5 Classes -->
+      <g transform="translate(35, 55)">
+        <rect x="0" y="0" width="130" height="65" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="65" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e40af" text-anchor="middle">1. Decision</text>
+        <text x="65" y="42" font-family="Inter, sans-serif" font-size="9" fill="#1e3a8a" text-anchor="middle">Answers YES / NO</text>
+        <text x="65" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Is N Prime?</text>
+
+        <rect x="140" y="0" width="130" height="65" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <text x="205" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#92400e" text-anchor="middle">2. Search</text>
+        <text x="205" y="42" font-family="Inter, sans-serif" font-size="9" fill="#78350f" text-anchor="middle">Finds valid solution</text>
+        <text x="205" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Linear / Binary search</text>
+
+        <rect x="280" y="0" width="130" height="65" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="345" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#166534" text-anchor="middle">3. Counting</text>
+        <text x="345" y="42" font-family="Inter, sans-serif" font-size="9" fill="#14532d" text-anchor="middle">Counts valid configs</text>
+        <text x="345" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Permutations / Subsets</text>
+
+        <rect x="420" y="0" width="130" height="65" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="485" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#991b1b" text-anchor="middle">4. Optimization</text>
+        <text x="485" y="42" font-family="Inter, sans-serif" font-size="9" fill="#991b1b" text-anchor="middle">Finds BEST solution</text>
+        <text x="485" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Shortest Path / TSP</text>
+
+        <rect x="560" y="0" width="130" height="65" rx="6" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1.5"/>
+        <text x="625" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#6b21a8" text-anchor="middle">5. Function</text>
+        <text x="625" y="42" font-family="Inter, sans-serif" font-size="9" fill="#6b21a8" text-anchor="middle">Computes output y</text>
+        <text x="625" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">y = f(x) [e.g. Factorial]</text>
+      </g>
+      <text x="380" y="155" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#0f172a" text-anchor="middle">Reasoning: Deductive (General Rule 🠆 Specific Fact) vs. Inductive (Specific Observations 🠆 General Pattern)</text>
+    </svg>
+  </div>
+</div>
+
 
 in C.
 
@@ -269,3 +308,50 @@ and total marks are invalid).
 
 are three completely different variables.
 - **Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Data Types, Format Specifiers & Storage Ranges
+
+```c
+#include <stdio.h>
+#include <limits.h>
+#include <float.h>
+
+int main() {
+    int i = 2147483647;
+    float f = 3.14159f;
+    double d = 2.718281828459;
+    char c = 'A';
+
+    printf("int:    value = %d, size = %zu bytes
+", i, sizeof(i));
+    printf("float:  value = %.5f, size = %zu bytes
+", f, sizeof(f));
+    printf("double: value = %.12lf, size = %zu bytes
+", d, sizeof(d));
+    printf("char:   value = '%c' (ASCII %d), size = %zu byte
+", c, c, sizeof(c));
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+int:    value = 2147483647, size = 4 bytes
+float:  value = 3.14159, size = 4 bytes
+double: value = 2.718281828459, size = 8 bytes
+char:   value = 'A' (ASCII 65), size = 1 byte
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **sizeof operator evaluates at compile-time.**
+- **Char is an integral type stored as ASCII integers (0-255).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Integer overflow beyond INT_MAX wrapping to negative values.**
+- **Format mismatch (e.g. %d for float).**
+

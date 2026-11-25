@@ -47,7 +47,52 @@ Significance
 (Apriori, Support/Lift)
 • Cheat Sheet & Summary
 
-> 🖼️ **Figure 1: Complete Syllabus Roadmap of AIML Unit–4 (Introduction to Machine Learning Concepts)**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 MACHINE LEARNING PARADIGM & TAXONOMY OF LEARNING METHODS</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="220" viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Traditional Programming vs ML -->
+      <rect x="20" y="15" width="340" height="190" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="190" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">Traditional Programming vs. Machine Learning</text>
+      <!-- Traditional -->
+      <text x="40" y="65" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#0f172a">Traditional Computing:</text>
+      <rect x="40" y="75" width="290" height="30" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+      <text x="185" y="95" font-family="Courier, monospace" font-size="10.5" font-weight="bold" fill="#1e40af" text-anchor="middle">[Data] + [Handcrafted Rules] ⟹ [Answers]</text>
+      <!-- Machine Learning -->
+      <text x="40" y="130" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#0f172a">Machine Learning Paradigm:</text>
+      <rect x="40" y="140" width="290" height="30" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="185" y="160" font-family="Courier, monospace" font-size="10.5" font-weight="bold" fill="#166534" text-anchor="middle">[Data] + [Historical Answers] ⟹ [Learned Model Rules]</text>
+      <text x="190" y="195" font-family="Inter, sans-serif" font-size="9.5" fill="#475569" text-anchor="middle">Tom Mitchell: Program learns from Experience E w.r.t Task T & Performance P</text>
+
+      <!-- Three Branches -->
+      <rect x="380" y="15" width="360" height="190" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="560" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">Three Primary Branches of Machine Learning</text>
+      <!-- Supervised -->
+      <rect x="400" y="55" width="320" height="38" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="410" y="72" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e40af">1. Supervised Learning (Labeled Data {X, Y})</text>
+      <text x="410" y="85" font-family="Inter, sans-serif" font-size="9" fill="#1e3a8a">• Classification (Spam/Ham) | Regression (House Price)</text>
+      <!-- Unsupervised -->
+      <rect x="400" y="100" width="320" height="38" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="410" y="117" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#92400e">2. Unsupervised Learning (Unlabeled Data {X})</text>
+      <text x="410" y="130" font-family="Inter, sans-serif" font-size="9" fill="#78350f">• Clustering (Customer Segmentation) | Association Rules (Market Basket)</text>
+      <!-- Reinforcement -->
+      <rect x="400" y="145" width="320" height="38" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="410" y="162" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#166534">3. Reinforcement Learning (Trial &amp; Error)</text>
+      <text x="410" y="175" font-family="Inter, sans-serif" font-size="9" fill="#14532d">• Agent learns via Reward (+) &amp; Penalty (−) in dynamic environment</text>
+    </svg>
+  </div>
+</div>
+
+| Attribute | Supervised Learning | Unsupervised Learning | Reinforcement Learning |
+| :--- | :--- | :--- | :--- |
+| **Training Data Format** | **Labeled Dataset** (Input features $X$ + Ground truth labels $Y$) | **Unlabeled Dataset** (Only raw input features $X$) | Environment feedback (States $S$, Actions $A$, Rewards $R$) |
+| **Objective** | Learn mapping function: $Y = f(X)$ | Discover hidden underlying patterns or groupings | Maximize cumulative long-term reward: $\sum \gamma^t R_t$ |
+| **Core Problem Types** | **Classification & Regression** | **Clustering & Dimensionality Reduction**| Game playing, Autonomous robotics, Navigation |
+| **Feedback Mechanism** | Immediate direct error feedback on every sample | No external teacher or supervisory signal | Delayed reward / punishment after sequence of actions |
+| **Standard Algorithms** | Linear/Logistic Regression, Decision Trees, SVM, KNN | K-Means, Hierarchical Clustering, PCA, Apriori | Q-Learning, Deep Q-Networks (DQN), Policy Gradients |
+
 
 
 - **## PART I:** OVERVIEW, CATEGORIES, APPLICATIONS & ML LIFECYCLE
@@ -317,3 +362,15 @@ manufactured PCBs, pills, or car welds per minute to reject microscopic defects 
 detection (Supervised), path planning (RL), and LiDAR sensor fusion to navigate safely.
 Intelligent Process Automation (IPA / Business RPA): Automates invoice reading, customer-
 support ticket routing, resume screening, and real-time credit-card fraud blocking.
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **Supervised learning trains on labeled data (inputs + targets); Unsupervised learning discovers hidden patterns in unlabeled data.**
+> - **High Bias causes Underfitting (model too simple); High Variance causes Overfitting (model memorizes noise).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Data leakage: Evaluating machine learning models on training data rather than an isolated test set.**
+> - **Confusing correlation with causation in feature importance.**
+

@@ -103,3 +103,48 @@ sizeof(int))
 Always check if (p == NULL)
 before using
 Computational & Problem Solving in C • Unit-IV Study Notes
+
+---
+
+#### 💻 Working C Code Example: Unions: Shared Memory Space vs Structures
+
+```c
+#include <stdio.h>
+
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+
+int main() {
+    union Data data;
+    printf("sizeof(union Data): %zu bytes (size of largest member)\n", sizeof(data));
+
+    data.i = 100;
+    printf("data.i = %d\n", data.i);
+
+    data.f = 3.14f; // Overwrites integer data
+    printf("data.f = %.2f (data.i is now corrupted: %d)\n", data.f, data.i);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+sizeof(union Data): 20 bytes (size of largest member)
+data.i = 100
+data.f = 3.14 (data.i is now corrupted: 1078523331)
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **All union members share the exact same starting memory address.**
+- **Union size equals the size of its largest data member.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Attempting to read from a member other than the one most recently written.**
+- **Using unions when concurrent access to all fields is needed (use struct).**
+

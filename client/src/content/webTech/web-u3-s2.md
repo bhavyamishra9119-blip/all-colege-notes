@@ -148,3 +148,38 @@ redundant tag
 Multi-Format Fallback Strategy (<source>): Developers list multiple <source> tags inside
 <audio> or <video>. The browser scans top-to-bottom and plays the first codec/format it
 supports; fallback text displays only on ancient unsupported browsers.
+
+---
+
+#### 💻 Written Code Example & Layout: HTML5 Audio & Video Players with Fallback Sources
+
+<!-- HTML5 Audio & Video Players with Fallback Sources -->
+```html
+<!-- HTML5 Video with Multi-Format Source Resolution -->
+<video width="320" height="180" controls poster="thumb.jpg">
+    <source src="lecture1.mp4" type="video/mp4">
+    <source src="lecture1.webm" type="video/webm">
+    <p>Your browser does not support HTML5 video. <a href="lecture1.mp4">Download video</a>.</p>
+</video>
+
+<!-- HTML5 Audio Player -->
+<audio controls preload="metadata">
+    <source src="podcast.mp3" type="audio/mpeg">
+    <source src="podcast.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Renders native browser media players with play/pause controls, volume sliders, timeline scrubbers, and fallback links for legacy clients.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Always provide MP4 (H.264) and WebM formats for cross-browser video compatibility.**
+- **The controls attribute is required to display native play/pause buttons.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Autoplaying audio with sound on page load (blocked by modern browser policies).**
+- **Missing MIME type attributes on <source> tags.**
+

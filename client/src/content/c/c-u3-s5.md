@@ -148,3 +148,42 @@ module.
 
 internal mechanics.
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming
+
+---
+
+#### 💻 Working C Code Example: Recursion: Stack Unwinding & Fibonacci Sequence
+
+```c
+#include <stdio.h>
+
+int fib(int n) {
+    if (n <= 1) return n; // Base case
+    return fib(n - 1) + fib(n - 2); // Recursive step
+}
+
+int main() {
+    printf("First 7 Fibonacci Numbers: ");
+    for (int i = 0; i < 7; i++) {
+        printf("%d ", fib(i));
+    }
+    printf("\n");
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+First 7 Fibonacci Numbers: 0 1 1 2 3 5 8
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Every recursive function must have at least one base case.**
+- **Each recursive call allocates a new stack frame on the call stack.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Missing base condition causing stack overflow crashes.**
+- **Exponential O(2^n) time complexity for naive tree recursion.**
+

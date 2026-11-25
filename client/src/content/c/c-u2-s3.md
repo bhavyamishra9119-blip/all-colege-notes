@@ -194,3 +194,46 @@ compares its value against a list of compile-time constant case labels. When a m
 execution jumps directly to that case and runs until a break; statement or the closing brace }
 is reached.
 - **Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Decision Making: Nested If-Else & Conditional Operator
+
+```c
+#include <stdio.h>
+
+int main() {
+    int score = 85;
+    char grade;
+
+    if (score >= 90) grade = 'A';
+    else if (score >= 80) grade = 'B';
+    else if (score >= 70) grade = 'C';
+    else if (score >= 60) grade = 'D';
+    else grade = 'F';
+
+    // Ternary operator
+    const char *status = (score >= 60) ? "PASS" : "FAIL";
+
+    printf("Score: %d -> Grade: %c | Result: %s
+", score, grade, status);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Score: 85 -> Grade: B | Result: PASS
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Else always pairs with the closest unmatched preceding if.**
+- **Ternary operator ?: is the only three-operand operator in C.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Dangling-else ambiguity without braces.**
+- **Writing if (x = 5) instead of if (x == 5).**
+

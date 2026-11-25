@@ -234,3 +234,15 @@ Automated
 Mention Protocol Analysis for tacit skill, Delphi
 for multi-expert conflicts, and ID3/C4.5 for
 automated induction.
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **An Expert System strictly separates domain knowledge (Knowledge Base) from the general problem-solving logic (Inference Engine).**
+> - **Forward Chaining is data-driven (starts from known facts to derive conclusions); Backward Chaining is goal-driven.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Hardcoding domain rules directly into procedural algorithms instead of the declarative knowledge base.**
+> - **Confusing procedural knowledge (step-by-step how-to) with declarative knowledge (what-is facts).**
+

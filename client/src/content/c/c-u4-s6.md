@@ -117,3 +117,46 @@ fprintf, fscanf, and fclose with proper error handling.
 Explain Dynamic Memory Allocation, compare Static vs. Dynamic allocation, and explain
 malloc(), calloc(), and realloc() with a complete resizing C program.
 Computational & Problem Solving in C • Unit-IV Study Notes
+
+---
+
+#### 💻 Working C Code Example: File Handling: Writing & Reading Text Files (fopen, fprintf, fscanf)
+
+```c
+#include <stdio.h>
+
+int main() {
+    FILE *fp = fopen("test_demo.txt", "w");
+    if (fp == NULL) { printf("Error opening file for write\n"); return 1; }
+
+    fprintf(fp, "%d %s %.2f\n", 101, "Alice", 92.5);
+    fclose(fp);
+
+    // Read back
+    fp = fopen("test_demo.txt", "r");
+    if (fp == NULL) { printf("Error opening file for read\n"); return 1; }
+
+    int roll; char name[50]; float marks;
+    fscanf(fp, "%d %s %f", &roll, name, &marks);
+    printf("Read from file: Roll: %d, Name: %s, Marks: %.2f\n", roll, name, marks);
+    fclose(fp);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Read from file: Roll: 101, Name: Alice, Marks: 92.50
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **File modes: 'r' (read), 'w' (overwrite), 'a' (append), 'r+' (read/write).**
+- **Always check if FILE pointer is NULL and call fclose() to flush write buffers.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Reading from a non-existent file in 'r' mode without NULL check.**
+- **Leaving files open causing file descriptor leaks.**
+

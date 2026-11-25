@@ -1,13 +1,33 @@
 import { logUserActivity } from '../utils/activityTracker';
-/* =========================================================================
-   SECTION 2: INTERACTIVE NOTES & REVISION READER (SensoryLab.jsx)
-   =========================================================================
-   Features:
-   - Full 4-Unit BEEE Syllabus Coverage with diagrams, proofs, and tables
-   - "✍️ Handwritten Notebook Mode" toggle (ruled paper, hand script font, highlights)
-   - Unit Switcher (Units 1, 2, 3, 4)
-   - Circuit diagrams, mathematical derivations, formula boxes, and exam tips
-   ========================================================================= */
+/**
+ * ══════════════════════════════════════════════════════════════════════════════
+ * 🗺️ SENSORY LAB (NOTES READER) ARCHITECTURE & CODE MAP
+ * ══════════════════════════════════════════════════════════════════════════════
+ * Use Ctrl + F and search for the tag in brackets (e.g., "[SECTION 3]") to jump
+ * directly to that exact block of code:
+ *
+ * 📍 [SECTION 1] - MATH & ADVANCED NOTES FORMATTER (Lines ~60)
+ *    👉 KaTeX math formulas, callouts, mnemonics, ASCII circuit diagram boxes.
+ *
+ * 📍 [SECTION 2] - STATE & HOOKS (Lines ~1250)
+ *    👉 Active unit selection, theme modes (handwritten/clean/cyber), zoom controls.
+ *
+ * 📍 [SECTION 3] - 2026-27 PDF PRINT & DOWNLOAD ENGINE (Lines ~1750)
+ *    👉 getUnitPdf(), handlePrintOrSavePdf(), 1-click authentic PDF file delivery.
+ *
+ * 📍 [SECTION 4] - TOP ACTION BAR & CONTROLS (Lines ~1980)
+ *    👉 Header buttons: Print/Save PDF, Download Unit PDF, All 4 Units PDF, Theme Mode.
+ *
+ * 📍 [SECTION 5] - COLLAPSIBLE UNITS DRAWER (Lines ~2230)
+ *    👉 Unit 1 to Unit 4 selector list on the left side of the reader.
+ *
+ * 📍 [SECTION 6] - MAIN NOTES READING CANVAS (Lines ~2500)
+ *    👉 Notebook page layout with ruled paper, handwritten ink, and syllabus roadmaps.
+ *
+ * 📍 [SECTION 7] - MODALS & DOWNLOAD CENTER (Lines ~3320)
+ *    👉 Formula cheat-sheet modal and Universal Format download chooser modal.
+ * ══════════════════════════════════════════════════════════════════════════════
+ */
 
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
@@ -52,11 +72,11 @@ import HandwrittenDiagram from './HandwrittenDiagram';
 import InteractiveTheveninLab from './InteractiveTheveninLab';
 import katex from 'katex';
 
-/* -------------------------------------------------------------------------
-   MATHEMATICAL & ADVANCED MARKDOWN CONTENT FORMATTER
-   Renders LaTeX math via KaTeX, colored callout cards (Traps, Mnemonics, Laws),
-   headings (###, ####), and highlighters.
-   ------------------------------------------------------------------------- */
+// ══════════════════════════════════════════════════════════════════
+// [SECTION 1]: MATHEMATICAL & ADVANCED NOTES FORMATTER
+// Purpose: Renders LaTeX formulas ($...$), colored exam alert boxes,
+//          ASCII circuit diagrams, and clean text highlights
+// ══════════════════════════════════════════════════════════════════
 const SUPERSCRIPTS_MAP = {
   '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
   '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹',
@@ -1229,6 +1249,11 @@ export const isSensorySubjectAllowed = (id) => {
   return ALLOWED_SUBJECT_IDS.includes(id) || ['sub-dsa-bcse007', 'sub-bcse007', 'bcse-007'].includes(val);
 };
 
+// ══════════════════════════════════════════════════════════════════
+// [SECTION 2]: MAIN COMPONENT STATE & CONFIGURATION HOOKS
+// Purpose: Manages active subject, selected unit number, zoom level,
+//          theme mode ('paper', 'clean', 'cyber'), and search filters
+// ══════════════════════════════════════════════════════════════════
 export default function SensoryLab({ 
   currentUser,
   subjectContext, 
@@ -1732,6 +1757,11 @@ export default function SensoryLab({
 
   const notesPanelRef = useRef(null);
 
+  // ══════════════════════════════════════════════════════════════════
+  // [SECTION 3]: 2026-27 AUTHENTIC PDF PRINT & DOWNLOAD ENGINE
+  // Purpose: Maps each unit and subject directly to the authentic vector
+  //          PDF from C:\Notes\B.Tech Notes 2026-27 for 1-click print/save
+  // ══════════════════════════════════════════════════════════════════
   const getSubjectMasterPdf = () => {
     if (isBEEE) return { url: '/BELE001_Basic_Electrical_and_Electronics_Engineering_notes.pdf', name: 'BELE001_BEEE_All_Units_Notes.pdf' };
     if (isAIML) return { url: '/AIML_notes_handwritten.pdf', name: 'BCSE011_AIML_All_Units_Notes.pdf' };
@@ -1971,6 +2001,11 @@ export default function SensoryLab({
     }
   };
 
+  // ══════════════════════════════════════════════════════════════════
+  // [SECTION 4]: TOP ACTION BAR & CONTROLS
+  // Purpose: Header navigation, Handwritten vs Digital mode toggle,
+  //          Print/Save PDF button, Download Unit PDF, and All 4 Units PDF
+  // ══════════════════════════════════════════════════════════════════
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', width: '100%', maxWidth: '100%', minWidth: 0, boxSizing: 'border-box' }}>
       {/* -------------------------------------------------------------------
@@ -2259,6 +2294,10 @@ export default function SensoryLab({
         className={`study-deck-grid ${isUnitsCollapsed ? 'units-collapsed' : ''}`}
       >
         
+        {/* ══════════════════════════════════════════════════════════════════
+           [SECTION 5]: COLLAPSIBLE UNITS & SUBJECTS DRAWER
+           Purpose: Sidebar list of units (Unit 1, 2, 3, 4) and topics
+           ══════════════════════════════════════════════════════════════════ */}
         {/* === COLUMN 1: LEFT NAVIGATOR (Collapsible) === */}
         {!isUnitsCollapsed && (
           <div className="glass-panel" style={{ padding: '22px', display: 'flex', flexDirection: 'column', gap: '18px', height: 'fit-content' }}>
@@ -2383,6 +2422,11 @@ export default function SensoryLab({
           </div>
         )}
 
+        {/* ══════════════════════════════════════════════════════════════════
+           [SECTION 6]: MAIN NOTES READING CANVAS
+           Purpose: The actual notebook canvas: ruled paper margins, handwritten
+                    font, syllabus roadmaps, exam weightage, and chapter notes
+           ══════════════════════════════════════════════════════════════════ */}
         {/* === COLUMN 2: RIGHT NOTES READER VIEWPORT === */}
         <div 
           ref={notesPanelRef}
@@ -3276,6 +3320,11 @@ export default function SensoryLab({
         </div>
       </div>
 
+      {/* ══════════════════════════════════════════════════════════════════
+         [SECTION 7]: POPUP MODALS & DOWNLOAD CENTER
+         Purpose: (1) Interactive 1-page formula & theorem cheat-sheet popup
+                  (2) Universal format selection modal (Handwritten vs Digital)
+         ══════════════════════════════════════════════════════════════════ */}
       {/* -------------------------------------------------------------------
          INTERACTIVE 1-PAGE FORMULA & THEOREM CHEAT-SHEET MODAL
          ------------------------------------------------------------------- */}

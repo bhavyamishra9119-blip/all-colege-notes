@@ -161,3 +161,15 @@ Ridge/Lasso, SVR
 Evaluation Metrics Accuracy, Precision, Recall, F1-Score,
 ROC-AUC
 MAE, MSE, RMSE, R2 Score
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **Supervised learning trains on labeled data (inputs + targets); Unsupervised learning discovers hidden patterns in unlabeled data.**
+> - **High Bias causes Underfitting (model too simple); High Variance causes Overfitting (model memorizes noise).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Data leakage: Evaluating machine learning models on training data rather than an isolated test set.**
+> - **Confusing correlation with causation in feature importance.**
+

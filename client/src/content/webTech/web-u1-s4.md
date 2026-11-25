@@ -153,3 +153,34 @@ to subscribers.
 MPEG-DASH (breaking video into small HTTP chunks that adapt quality dynamically to user
 bandwidth), alongside RTMP (live ingest) and WebRTC (ultra-low-latency interactive video).
 - **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+
+---
+
+#### 💻 Written Code Example & Layout: URL Anatomy & Query Parameter Parsing
+
+<!-- URL Anatomy & Query Parameter Parsing -->
+```html
+<!-- Standard URL Structure -->
+<!-- https://sub.example.com:8080/path/to/page.html?user=alice&id=101#section2 -->
+<div id="urlDisplay"></div>
+```
+```javascript
+const currentUrl = new URL(window.location.href);
+const userId = currentUrl.searchParams.get('id');
+const section = currentUrl.hash;
+console.log('Parsed Query Param ID:', userId, 'Hash Fragment:', section);
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Parses protocol, hostname, port, pathname, search params, and hash fragment using the native URL Web API.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Query parameters (?key=val) are separated by ampersands (&).**
+- **Hash fragment (#id) navigates client-side without re-requesting the server.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Exposing API secret keys in query parameters.**
+- **Forgetting URL encoding (encodeURIComponent) on user inputs containing spaces or symbols.**
+

@@ -230,3 +230,43 @@ Bar, Line, or Pie charts from scratch — ideal for exams and live sensor plots.
 
 for bars, <polyline> for trend lines, <path> for pie wedges); stays razor-sharp at any zoom
 level and supports mouse hover events on individual bars.
+
+---
+
+#### 💻 Written Code Example & Layout: Client-Side Web Storage: localStorage vs sessionStorage
+
+<!-- Client-Side Web Storage: localStorage vs sessionStorage -->
+```html
+<button onclick="saveData()">Save Preferences</button>
+<button onclick="loadData()">Load Preferences</button>
+<div id="storageResult" style="margin-top: 8px;"></div>
+```
+```javascript
+function saveData() {
+    // localStorage persists even after browser is closed
+    localStorage.setItem('theme', 'dark_mode');
+    // sessionStorage is deleted when browser tab is closed
+    sessionStorage.setItem('currentStep', 'step_3');
+    document.getElementById('storageResult').innerText = 'Data saved to Web Storage!';
+}
+
+function loadData() {
+    const theme = localStorage.getItem('theme');
+    const step = sessionStorage.getItem('currentStep');
+    document.getElementById('storageResult').innerText = `Theme: ${theme} | Session: ${step}`;
+}
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Stores persistent key-value string pairs on the client device without sending cookie headers over the network on each HTTP request.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **localStorage capacity is ~5MB per origin and never expires automatically.**
+- **sessionStorage is destroyed immediately when the browser tab is closed.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Storing sensitive auth passwords or unencrypted credit card numbers in localStorage (vulnerable to XSS).**
+- **Storing objects directly without JSON.stringify().**
+

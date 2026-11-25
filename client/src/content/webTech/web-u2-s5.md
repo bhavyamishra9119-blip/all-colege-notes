@@ -140,3 +140,53 @@ src name> (NO <body>!)
 Compare deprecated <frameset> against
 modern supported <iframe>.
 Fundamentals of Web Technologies • UNIT–2: Basics of HTML
+
+---
+
+#### 💻 Written Code Example & Layout: Comprehensive HTML Forms with Built-in Validation
+
+<!-- Comprehensive HTML Forms with Built-in Validation -->
+```html
+<form action="/submit-registration" method="POST">
+    <fieldset>
+        <legend>Student Registration Form</legend>
+
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required placeholder="Enter student name"><br><br>
+
+        <label for="email">Student Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="dept">Department:</label>
+        <select id="dept" name="dept">
+            <option value="cse">Computer Science</option>
+            <option value="ece">Electronics & Communication</option>
+            <option value="ee">Electrical Engineering</option>
+        </select><br><br>
+
+        <label>Degree Level:</label>
+        <input type="radio" id="ug" name="degree" value="ug" checked><label for="ug">B.Tech (UG)</label>
+        <input type="radio" id="pg" name="degree" value="pg"><label for="pg">M.Tech (PG)</label><br><br>
+
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to academic integrity rules</label><br><br>
+
+        <button type="submit">Register Now</button>
+        <button type="reset">Clear Form</button>
+    </fieldset>
+</form>
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Renders an accessible form with text input, email validation, dropdown menu, radio button group, agreement checkbox, and submit buttons.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Always associate <label for='id'> with matching input id for accessibility.**
+- **GET exposes inputs in URL; POST encapsulates inputs securely in request payload.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Mismatched radio button 'name' attributes (prevents single-choice mutual exclusivity).**
+- **Missing required form field validation attributes.**
+

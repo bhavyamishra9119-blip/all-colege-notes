@@ -308,3 +308,15 @@ The Knowledge Engineer extracts hidden step-by-step heuristics directly from the
 The KE silently observes the expert handling real cases on the job (e.g., shadowing a
 technician on a factory floor) without interrupting workflow, recording tools checked and
 decisions made.
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **An Expert System strictly separates domain knowledge (Knowledge Base) from the general problem-solving logic (Inference Engine).**
+> - **Forward Chaining is data-driven (starts from known facts to derive conclusions); Backward Chaining is goal-driven.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Hardcoding domain rules directly into procedural algorithms instead of the declarative knowledge base.**
+> - **Confusing procedural knowledge (step-by-step how-to) with declarative knowledge (what-is facts).**
+

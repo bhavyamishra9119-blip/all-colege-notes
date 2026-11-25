@@ -238,3 +238,32 @@ Charts
 (v/T)×2π + arc
 Explain subtracting bar height from baseline Y
 because Canvas Y increases downward!
+
+---
+
+#### 💻 Written Code Example & Layout: Interactive SVG Vector Graphics Embedded in HTML5
+
+<!-- Interactive SVG Vector Graphics Embedded in HTML5 -->
+```html
+<svg width="240" height="100" viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- Star Polygon -->
+    <polygon points="50,5 65,38 100,38 72,58 83,92 50,72 17,92 28,58 0,38 35,38" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+    <!-- Scalable Circle -->
+    <circle cx="160" cy="50" r="35" fill="#10b981" stroke="#059669" stroke-width="3"/>
+    <text x="160" y="55" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">SVG</text>
+</svg>
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Renders resolution-independent vector shapes that can scale infinitely without pixelation and support CSS styling and JavaScript event listeners.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **SVG elements exist directly inside the DOM tree and can respond to click events.**
+- **SVG retains crystal-clear sharpness on high-DPI Retina screens at any zoom level.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Using SVG for complex photographic scenes (causes massive DOM node bloat; use canvas/images).**
+- **Missing viewBox causing scaling cutoff.**
+

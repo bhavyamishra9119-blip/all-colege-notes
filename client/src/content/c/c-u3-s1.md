@@ -131,7 +131,50 @@ a[0] • 1000 a[1] • 1004 a[2] • 1008 a[3] • 1012 a[4] • 1016
 → 1 2 3 4 5 6
 - **Row 0:** m[0][0..2] Row 1: m[1][0..2]
 
-> 🖼️ **Figure 2: Contiguous Memory Representation of 1D Arrays and Row-Major 2D Arrays in C**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 1D & 2D ARRAY MEMORY ALLOCATION: ROW-MAJOR FORMULA</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="220" viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- 1D Array Layout -->
+      <rect x="20" y="15" width="720" height="90" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="380" y="35" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">1D Array Contiguous Memory: int arr[5] = {10, 20, 30, 40, 50}</text>
+      <!-- Cells -->
+      <g transform="translate(60, 45)">
+        <rect x="0" y="0" width="120" height="35" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="60" y="22" font-family="Courier, monospace" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">arr[0] = 10</text>
+        <text x="60" y="48" font-family="Courier, monospace" font-size="10" fill="#64748b" text-anchor="middle">0x1000</text>
+
+        <rect x="120" y="0" width="120" height="35" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="180" y="22" font-family="Courier, monospace" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">arr[1] = 20</text>
+        <text x="180" y="48" font-family="Courier, monospace" font-size="10" fill="#64748b" text-anchor="middle">0x1004 (+4B)</text>
+
+        <rect x="240" y="0" width="120" height="35" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="300" y="22" font-family="Courier, monospace" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">arr[2] = 30</text>
+        <text x="300" y="48" font-family="Courier, monospace" font-size="10" fill="#64748b" text-anchor="middle">0x1008 (+4B)</text>
+
+        <rect x="360" y="0" width="120" height="35" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="420" y="22" font-family="Courier, monospace" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">arr[3] = 40</text>
+        <text x="420" y="48" font-family="Courier, monospace" font-size="10" fill="#64748b" text-anchor="middle">0x100C (+4B)</text>
+
+        <rect x="480" y="0" width="120" height="35" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="540" y="22" font-family="Courier, monospace" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">arr[4] = 50</text>
+        <text x="540" y="48" font-family="Courier, monospace" font-size="10" fill="#64748b" text-anchor="middle">0x1010 (+4B)</text>
+      </g>
+
+      <!-- 2D Row-Major Formula Box -->
+      <rect x="20" y="115" width="720" height="95" rx="8" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+      <text x="380" y="135" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">2D Array Address Mapping Formulas (M rows × N columns, Element Size w bytes)</text>
+      <text x="40" y="160" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#0f172a">1. Row-Major Order (Standard C Storage):</text>
+      <text x="330" y="160" font-family="Courier, monospace" font-size="11.5" font-weight="bold" fill="#dc2626">Address(A[i][j]) = Base_Address + [ i × N + j ] × w</text>
+      <text x="40" y="185" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#0f172a">2. Column-Major Order (FORTRAN / MATLAB):</text>
+      <text x="330" y="185" font-family="Courier, monospace" font-size="11.5" font-weight="bold" fill="#2563eb">Address(A[i][j]) = Base_Address + [ j × M + i ] × w</text>
+      <text x="380" y="202" font-family="Inter, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Notice: In C, rows are stored sequentially one after another in contiguous physical RAM.</text>
+    </svg>
+  </div>
+</div>
+
 
 Feature One-Dimensional (1D) Array Two-Dimensional (2D) Array
 Logical View Single linear list / vector Grid / Matrix of Rows × Columns
@@ -197,3 +240,50 @@ return -1;
 > 🖼️ **Figure 3: Step-by-Step Search-Space Halving Trace of Binary Search**
 
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming
+
+---
+
+#### 💻 Working C Code Example: 1D Array Operations & Row-Major 2D Matrix Traversal
+
+```c
+#include <stdio.h>
+
+int main() {
+    int matrix[2][3] = {
+        {10, 20, 30},
+        {40, 50, 60}
+    };
+
+    printf("2D Array Row-Major Memory Traversal:\n");
+    for (int r = 0; r < 2; r++) {
+        for (int c = 0; c < 3; c++) {
+            printf("matrix[%d][%d] = %d at addr %p\n", 
+                   r, c, matrix[r][c], (void*)&matrix[r][c]);
+        }
+    }
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+2D Array Row-Major Memory Traversal:
+matrix[0][0] = 10 at addr 0x7ffd10
+matrix[0][1] = 20 at addr 0x7ffd14
+matrix[0][2] = 30 at addr 0x7ffd18
+matrix[1][0] = 40 at addr 0x7ffd1c
+matrix[1][1] = 50 at addr 0x7ffd20
+matrix[1][2] = 60 at addr 0x7ffd24
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Row-Major Address Formula: Base + [i * cols + j] * sizeof(elem).**
+- **Array indices are strictly zero-based (0 to N-1).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Array index out-of-bounds (C does not perform runtime bounds checks!).**
+- **Assigning arrays directly (arr1 = arr2 is illegal in C).**
+

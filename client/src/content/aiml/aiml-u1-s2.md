@@ -128,7 +128,51 @@ IF–THEN Rules
 Human Expert
 & Knowledge Eng.
 
-> 🖼️ **Figure 4: End-to-end architectural pipelines for the three primary Unit-I AI domains: (A) NLP, (B) Computer Vision,**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 INTELLIGENT AGENT ARCHITECTURE & THE PEAS FRAMEWORK</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="220" viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="agentArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
+        </marker>
+      </defs>
+      <!-- Agent Box -->
+      <rect x="220" y="30" width="320" height="110" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+      <text x="380" y="55" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#1e40af" text-anchor="middle">INTELLIGENT AGENT</text>
+      <!-- Sensors & Actuators inside agent -->
+      <rect x="240" y="70" width="120" height="45" rx="4" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="300" y="90" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Sensors</text>
+      <text x="300" y="104" font-family="Inter, sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">(Cameras, LiDAR, GPS)</text>
+
+      <rect x="400" y="70" width="120" height="45" rx="4" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="460" y="90" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Actuators</text>
+      <text x="460" y="104" font-family="Inter, sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">(Steering, Motors, Screen)</text>
+
+      <!-- Environment Box -->
+      <rect x="120" y="170" width="520" height="40" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+      <text x="380" y="195" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">ENVIRONMENT (Physical World, Roads, Web, Users)</text>
+
+      <!-- Sensor arrow from Env to Sensors -->
+      <path d="M 180 170 L 180 92 L 235 92" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#agentArrow)"/>
+      <text x="170" y="130" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#2563eb" text-anchor="middle">Percepts</text>
+
+      <!-- Actuator arrow from Actuators to Env -->
+      <path d="M 525 92 L 580 92 L 580 170" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#agentArrow)"/>
+      <text x="590" y="130" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">Actions</text>
+    </svg>
+  </div>
+</div>
+
+| PEAS Element | Autonomous Self-Driving Taxi | Automated Medical Diagnosis System | E-Commerce Recommendation Bot |
+| :--- | :--- | :--- | :--- |
+| **P – Performance Measure** | Safety, passenger arrival speed, legal compliance, comfort | Correct diagnosis, minimal false negatives, patient recovery | Click-through rate, sales revenue, user retention |
+| **E – Environment** | City roadways, pedestrians, weather, traffic lights | Patient history, symptoms, lab tests, medical staff | Website browsing history, user cart, item catalog |
+| **A – Actuators** | Steering wheel, accelerator, brakes, headlights, turn signals | Screen display, prescription generation, test referral | Personalized carousel, email notifications, discounts |
+| **S – Sensors** | Cameras, Sonar, LiDAR, Radar, GPS, speedometer | Keyboard keyboard input, digital pathology images, vitals | User click stream, search query logs, purchase history |
+
 
 and (C) Expert Systems.
 - **Unit-I:** Foundations of Artificial Intelligence • Fundamentals of AIML
@@ -370,3 +414,15 @@ User text input,
 button clicks,
 account history
 - **Unit-I:** Foundations of Artificial Intelligence • Fundamentals of AIML
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **Modern AI defines intelligence primarily as Acting Rationally (maximizing expected utility), rather than acting humanly.**
+> - **PEAS stands for Performance measure, Environment, Actuators, and Sensors.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Believing that the Turing Test requires physical embodiment (it is strictly text-terminal based to prevent visual bias).**
+> - **Confusing Artificial General Intelligence (AGI) with Narrow/Weak AI.**
+

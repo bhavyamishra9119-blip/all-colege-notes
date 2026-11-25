@@ -174,3 +174,46 @@ max)
 - **Segment:** Offset; normalized (offset 0–15);
 crosses 64 KB
 Computational & Problem Solving in C • Unit-IV Study Notes
+
+---
+
+#### 💻 Working C Code Example: Pointers Basics: Address-Of (&) and Dereferencing (*)
+
+```c
+#include <stdio.h>
+
+int main() {
+    int num = 42;
+    int *ptr = &num; // ptr holds address of num
+
+    printf("Value of num:        %d\n", num);
+    printf("Address of num (&num): %p\n", (void*)&num);
+    printf("Value of ptr:        %p\n", (void*)ptr);
+    printf("Value pointed to (*ptr): %d\n", *ptr);
+
+    *ptr = 99; // Mutating num via pointer
+    printf("After *ptr = 99 -> num = %d\n", num);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Value of num:        42
+Address of num (&num): 0x7ffd40
+Value of ptr:        0x7ffd40
+Value pointed to (*ptr): 42
+After *ptr = 99 -> num = 99
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Pointer size is platform-dependent: 4 bytes (32-bit), 8 bytes (64-bit).**
+- **NULL pointer points to memory address 0 (safe sentinel value).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Dereferencing uninitialized wild pointers (causes segmentation fault).**
+- **Confusing pointer declaration (int *p) with dereferencing (*p = 10).**
+

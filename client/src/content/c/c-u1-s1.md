@@ -23,7 +23,46 @@ I/O Functions, Indentation & Comments)
 • Memory Layout (Text, Data, BSS, Heap, Stack)
 • I/O Functions, Indentation & Comments
 
-> 🖼️ **Figure 1: Master Topic Map outlining the complete Unit-I syllabus structure across Problem Solving Techniques**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 TAXONOMY OF COMPUTATIONAL PROBLEMS &amp; LOGIC PARADIGMS</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="200" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="15" width="720" height="170" rx="8" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="380" y="38" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1e40af" text-anchor="middle">5 Major Classes of Computational Problems</text>
+      <!-- 5 Classes -->
+      <g transform="translate(35, 55)">
+        <rect x="0" y="0" width="130" height="65" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="65" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e40af" text-anchor="middle">1. Decision</text>
+        <text x="65" y="42" font-family="Inter, sans-serif" font-size="9" fill="#1e3a8a" text-anchor="middle">Answers YES / NO</text>
+        <text x="65" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Is N Prime?</text>
+
+        <rect x="140" y="0" width="130" height="65" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <text x="205" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#92400e" text-anchor="middle">2. Search</text>
+        <text x="205" y="42" font-family="Inter, sans-serif" font-size="9" fill="#78350f" text-anchor="middle">Finds valid solution</text>
+        <text x="205" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Linear / Binary search</text>
+
+        <rect x="280" y="0" width="130" height="65" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="345" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#166534" text-anchor="middle">3. Counting</text>
+        <text x="345" y="42" font-family="Inter, sans-serif" font-size="9" fill="#14532d" text-anchor="middle">Counts valid configs</text>
+        <text x="345" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Permutations / Subsets</text>
+
+        <rect x="420" y="0" width="130" height="65" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="485" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#991b1b" text-anchor="middle">4. Optimization</text>
+        <text x="485" y="42" font-family="Inter, sans-serif" font-size="9" fill="#991b1b" text-anchor="middle">Finds BEST solution</text>
+        <text x="485" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Shortest Path / TSP</text>
+
+        <rect x="560" y="0" width="130" height="65" rx="6" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1.5"/>
+        <text x="625" y="25" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#6b21a8" text-anchor="middle">5. Function</text>
+        <text x="625" y="42" font-family="Inter, sans-serif" font-size="9" fill="#6b21a8" text-anchor="middle">Computes output y</text>
+        <text x="625" y="55" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">y = f(x) [e.g. Factorial]</text>
+      </g>
+      <text x="380" y="155" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#0f172a" text-anchor="middle">Reasoning: Deductive (General Rule 🠆 Specific Fact) vs. Inductive (Specific Observations 🠆 General Pattern)</text>
+    </svg>
+  </div>
+</div>
+
 
 and Introduction to C Programming.
 
@@ -243,3 +282,54 @@ A Decision Diamond has exactly one entry line and two (or three) clearly labeled
 Avoid crossing flow lines; use labeled circular On-Page Connectors (e.g., A) if diagrams
 become complex.
 - **Unit-I:** Programming Fundamentals & Problem Solving • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Euclidean Algorithm for Greatest Common Divisor (GCD)
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 48, b = 18;
+    int original_a = a, original_b = b;
+    int remainder;
+
+    printf("Calculating GCD for %d and %d:
+", a, b);
+    while (b != 0) {
+        remainder = a % b;
+        printf("  Step: a = %2d, b = %2d, remainder = %2d
+", a, b, remainder);
+        a = b;
+        b = remainder;
+    }
+    printf("Greatest Common Divisor (GCD) of %d and %d is: %d
+", 
+           original_a, original_b, a);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Calculating GCD for 48 and 18:
+  Step: a = 48, b = 18, remainder = 12
+  Step: a = 18, b = 12, remainder =  6
+  Step: a = 12, b =  6, remainder =  0
+Greatest Common Divisor (GCD) of 48 and 18 is: 6
+```
+
+**Walkthrough & Execution Notes:**
+Guaranteed logarithmic convergence O(log(min(a,b))). Demonstrates the Knuth Finiteness criterion.
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **An algorithm is language-independent: identical logic runs in C, C++, Python, or Java.**
+- **Flowcharts must strictly use directional arrows. Undirected lines result in exam deduction.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Infinite loops violating the Finiteness property.**
+- **Using rectangles for decisions (decisions must always use diamonds).**
+

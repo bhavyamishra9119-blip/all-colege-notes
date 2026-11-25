@@ -139,7 +139,41 @@ Local Max
 Plateau
 Global Max
 
-> 🖼️ **Figure 5: Worked A* Search Optimal Path Graph and Hill Climbing Pitfalls (Local Maximum & Plateau)**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 A* HEURISTIC SEARCH & ADMISSIBILITY CONDITION</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="200" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="15" width="720" height="170" rx="8" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="380" y="38" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1e40af" text-anchor="middle">The A* Evaluation Function: f(n) = g(n) + h(n)</text>
+      <!-- Formula Breakdown -->
+      <g transform="translate(60, 55)">
+        <rect x="0" y="0" width="200" height="70" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="100" y="25" font-family="Courier, monospace" font-size="16" font-weight="bold" fill="#1e40af" text-anchor="middle">g(n)</text>
+        <text x="100" y="45" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Exact Past Cost</text>
+        <text x="100" y="60" font-family="Inter, sans-serif" font-size="9.5" fill="#475569" text-anchor="middle">From start state to node n</text>
+
+        <text x="215" y="40" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">+</text>
+
+        <rect x="230" y="0" width="200" height="70" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <text x="330" y="25" font-family="Courier, monospace" font-size="16" font-weight="bold" fill="#92400e" text-anchor="middle">h(n)</text>
+        <text x="330" y="45" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#78350f" text-anchor="middle">Heuristic Future Estimate</text>
+        <text x="330" y="60" font-family="Inter, sans-serif" font-size="9.5" fill="#475569" text-anchor="middle">Estimated cost from n to Goal</text>
+
+        <text x="445" y="40" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#0f172a">=</text>
+
+        <rect x="460" y="0" width="180" height="70" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="550" y="25" font-family="Courier, monospace" font-size="16" font-weight="bold" fill="#166534" text-anchor="middle">f(n)</text>
+        <text x="550" y="45" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#14532d" text-anchor="middle">Total Estimated Cost</text>
+        <text x="550" y="60" font-family="Inter, sans-serif" font-size="9.5" fill="#475569" text-anchor="middle">Via node n to Goal</text>
+      </g>
+      <text x="380" y="155" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">Admissibility Condition: 0 ≤ h(n) ≤ h*(n) [Heuristic must NEVER overestimate true cost!]</text>
+      <text x="380" y="172" font-family="Inter, sans-serif" font-size="10" fill="#0f172a" text-anchor="middle">If h(n) is admissible, Tree-Search A* is GUARANTEED to be Complete and Optimal!</text>
+    </svg>
+  </div>
+</div>
+
 
 Heuristic
 Algorithm
@@ -160,3 +194,15 @@ h(n)
 No No Tiny O(1) RAM; trapped by local
 maxima
 Fundamentals of
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **A* search is guaranteed optimal and complete if the heuristic function h(n) is admissible (never overestimates true cost to goal).**
+> - **Breadth-First Search (BFS) uses a FIFO Queue and is optimal for uniform step costs; Depth-First Search (DFS) uses a LIFO Stack.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Designing an inadmissible heuristic in A* search (causes sub-optimal path selection).**
+> - **Failing to maintain a visited/explored set in graph search, leading to infinite loops in cyclic state spaces.**
+

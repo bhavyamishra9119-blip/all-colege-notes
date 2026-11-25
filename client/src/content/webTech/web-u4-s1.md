@@ -234,3 +234,42 @@ page only)
 Maximum (reusable across
 all linked pages)
 Fundamentals of Web Technologies • Unit-IV: CSS Study Notes
+
+---
+
+#### 💻 Written Code Example & Layout: CSS Syntax, Rule-Sets & Three Inclusion Methods
+
+<!-- CSS Syntax, Rule-Sets & Three Inclusion Methods -->
+```html
+<!-- 1. Inline CSS -->
+<p style="color: #2563eb; font-weight: bold;">Inline styled text</p>
+
+<!-- 2. Internal CSS block in <head> -->
+<!-- 3. External CSS link -->
+<link rel="stylesheet" href="styles.css">
+<div class="card-box">External stylesheet styled container</div>
+```
+```css
+/* CSS Rule-Set: Selector + Declaration Block */
+.card-box {
+    background-color: #f8fafc; /* Property: Value */
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 12px;
+    color: #1e293b;
+}
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Demonstrates CSS syntax with selectors, properties, and values, comparing inline, internal, and external inclusion.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Cascade priority: Inline Style > ID Selector > Class/Attribute Selector > Element Selector.**
+- **External CSS is preferred in production for caching and separation of concerns.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Overusing !important to bypass cascade hierarchy.**
+- **Missing semicolons between CSS declarations breaking subsequent rules.**
+

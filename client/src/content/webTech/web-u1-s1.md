@@ -31,7 +31,72 @@ Transfer Protocol (HTTP) • Searching & Web-Casting Techniques
 • Web-Casting (Push/Pull)
 • Streaming, RSS & Unicast
 
-> 🖼️ **Figure 1: Master Topic Map covering all eight syllabus modules of Unit-I: Fundamentals of Web Technologies.**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 CLIENT–SERVER WEB ARCHITECTURE & DATA FLOW</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="220" viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="webArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
+        </marker>
+        <marker id="webArrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#16a34a"/>
+        </marker>
+      </defs>
+
+      <!-- Client Side -->
+      <rect x="30" y="45" width="160" height="130" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+      <text x="110" y="75" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">WEB CLIENT</text>
+      <text x="110" y="95" font-family="Inter, sans-serif" font-size="10" fill="#3b82f6" text-anchor="middle">(Web Browser)</text>
+      <rect x="45" y="110" width="130" height="45" rx="4" fill="#ffffff" stroke="#93c5fd" stroke-width="1"/>
+      <text x="110" y="128" font-family="Inter, sans-serif" font-size="9.5" fill="#1e293b" text-anchor="middle">Chrome, Safari, Edge</text>
+      <text x="110" y="142" font-family="Inter, sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Renders HTML, CSS, JS</text>
+
+      <!-- Cloud / Internet Network -->
+      <g transform="translate(260, 45)">
+        <ellipse cx="70" cy="65" rx="60" ry="40" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+        <text x="70" y="60" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">INTERNET</text>
+        <text x="70" y="78" font-family="Inter, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">DNS + TCP/IP</text>
+      </g>
+
+      <!-- Server Side -->
+      <rect x="440" y="45" width="150" height="130" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="515" y="75" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#92400e" text-anchor="middle">WEB SERVER</text>
+      <text x="515" y="95" font-family="Inter, sans-serif" font-size="10" fill="#d97706" text-anchor="middle">(Apache / Nginx)</text>
+      <rect x="455" y="110" width="120" height="45" rx="4" fill="#ffffff" stroke="#fcd34d" stroke-width="1"/>
+      <text x="515" y="128" font-family="Inter, sans-serif" font-size="9.5" fill="#1e293b" text-anchor="middle">Node.js, Python, Java</text>
+      <text x="515" y="142" font-family="Inter, sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Business Logic Routing</text>
+
+      <!-- Database -->
+      <g transform="translate(640, 55)">
+        <rect x="0" y="10" width="90" height="80" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="45" y="45" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#166534" text-anchor="middle">DATABASE</text>
+        <text x="45" y="65" font-family="Inter, sans-serif" font-size="9" fill="#14532d" text-anchor="middle">MySQL / PG</text>
+      </g>
+      <line x1="590" y1="105" x2="635" y2="105" stroke="#16a34a" stroke-width="1.5"/>
+
+      <!-- Arrows -->
+      <!-- Request: Client -> Server -->
+      <path d="M 190 85 L 260 85 L 340 85 L 435 85" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#webArrow)"/>
+      <text x="315" y="75" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#2563eb" text-anchor="middle">1. HTTP GET / POST Request 🠆</text>
+
+      <!-- Response: Server -> Client -->
+      <path d="M 440 135 L 340 135 L 260 135 L 195 135" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#webArrowGreen)"/>
+      <text x="315" y="152" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">🠄 2. HTTP 200 OK Response (HTML/JSON)</text>
+    </svg>
+  </div>
+</div>
+
+| Attribute | The Internet | The World Wide Web (WWW) |
+| :--- | :--- | :--- |
+| **Fundamental Nature** | Global physical network of interconnected computers, cables, routers & satellites | High-level distributed information service operating **on top** of the Internet |
+| **Creation Origin** | ARPANET (1969), DoD / Vint Cerf & Bob Kahn | Invented by Sir Tim Berners-Lee at CERN (1989) |
+| **Primary Protocols** | TCP, IP, UDP, BGP, ICMP | HTTP, HTTPS, WebSocket |
+| **Addressing System** | IP Addresses (e.g. `192.168.1.1` or IPv6) | Uniform Resource Locators (URLs e.g. `https://...`) |
+| **Metaphor** | The physical highway and asphalt roads system | The delivery trucks, courier packages & cars driving on the highway |
+
 
 
 ### 1. Introduction to Internet and World Wide Web (WWW)
@@ -238,3 +303,39 @@ gateways
 personalized recommendations (Amazon,
 Flipkart).
 - **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+
+---
+
+#### 💻 Written Code Example & Layout: Standard HTML5 Page Skeleton with Meta Tags
+
+<!-- Standard HTML5 Page Skeleton with Meta Tags -->
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official B.Tech Web Tech Portal">
+    <title>My First Web Application</title>
+</head>
+<body>
+    <header><h1>Welcome to Web Engineering</h1></header>
+    <main><p>Client-server architecture fundamentals.</p></main>
+    <footer><p>&copy; 2026 University Department</p></footer>
+</body>
+</html>
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Renders a fully responsive page with proper viewport scaling and metadata for search engine crawlers.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **<!DOCTYPE html> triggers HTML5 standards mode in browsers.**
+- **The viewport meta tag is essential for responsive mobile layouts.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Omitting <!DOCTYPE html> triggering Quirks Mode in modern browsers.**
+- **Missing charset='UTF-8' causing character encoding glitches.**
+

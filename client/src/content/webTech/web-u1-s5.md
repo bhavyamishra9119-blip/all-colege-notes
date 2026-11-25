@@ -186,3 +186,42 @@ classes (1xx–5xx).
 Comparison Questions (Internet vs. WWW, Web 1.0–3.0, Push vs. Pull): Always present answers
 in a crisp side-by-side tabular matrix with named comparison criteria rather than loose paragraphs.
 - **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+
+---
+
+#### 💻 Written Code Example & Layout: Semantic Search Engine Meta Tags & JSON-LD Structured Data
+
+<!-- Semantic Search Engine Meta Tags & JSON-LD Structured Data -->
+```html
+<head>
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Web Engineering Course Notes">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://example.com/thumb.jpg">
+
+    <!-- Schema.org JSON-LD for Search Engine Knowledge Graphs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Fundamentals of Web Technologies",
+      "description": "Comprehensive B.Tech First Year curriculum.",
+      "provider": { "@type": "CollegeOrUniversity", "name": "B.Tech University" }
+    }
+    </script>
+</head>
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Enables rich snippets, search engine knowledge card inclusion, and customized social media preview cards on platforms like LinkedIn and Twitter.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Search engines index pages using Crawlers, Indexers, and Ranking Engines.**
+- **Robots.txt controls crawler access; sitemap.xml lists discoverable URLs.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Using 'display: none' keyword stuffing (penalized by search engines).**
+- **Invalid JSON syntax inside ld+json script blocks.**
+

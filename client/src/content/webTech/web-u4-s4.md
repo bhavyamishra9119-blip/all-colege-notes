@@ -206,3 +206,49 @@ directly beneath the marker.
 - **Figure 7.1:** Alignment Geometry of list-style-position: outside vs. list-style-position:
 inside.
 Fundamentals of Web Technologies • Unit-IV: CSS Study Notes
+
+---
+
+#### 💻 Written Code Example & Layout: CSS Positioning Mechanics: Static, Relative, Absolute & Fixed
+
+<!-- CSS Positioning Mechanics: Static, Relative, Absolute & Fixed -->
+```html
+<div class="parent-relative">
+    Parent Container (position: relative)
+    <div class="child-absolute">Absolute Child (top: 5px, right: 5px)</div>
+</div>
+```
+```css
+.parent-relative {
+    position: relative;
+    width: 280px;
+    height: 100px;
+    background: #eff6ff;
+    border: 2px dashed #3b82f6;
+    padding: 10px;
+}
+.child-absolute {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #dc2626;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Demonstrates absolute positioning anchored relative to the nearest positioned ancestor (position: relative).</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **position: fixed is anchored to the viewport and remains visible during scrolling.**
+- **position: absolute looks upward for the nearest ancestor with non-static position.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Using position: absolute without a relative parent, causing the element to anchor to <html>.**
+- **Uncontrolled z-index wars without established stacking contexts.**
+

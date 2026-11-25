@@ -58,7 +58,58 @@ Attributes, Image Mapping, and Frames.
 ### 13. Exam Cheat Sheet
 
 
-> 🖼️ **Figure 1: Complete Syllabus Roadmap of Unit–2 (Basics of HTML)**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 HTML5 DOCUMENT ANATOMY &amp; ELEMENT STRUCTURE</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="220" viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- HTML5 Boilerplate Structure -->
+      <rect x="20" y="15" width="350" height="190" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="195" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">HTML5 Minimal Boilerplate Layout</text>
+      <rect x="35" y="50" width="320" height="22" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+      <text x="45" y="66" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#1e40af">&lt;!DOCTYPE html&gt; (Declares HTML5)</text>
+      <!-- html tag container -->
+      <rect x="35" y="78" width="320" height="115" rx="4" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="45" y="93" font-family="Courier, monospace" font-size="10.5" font-weight="bold" fill="#2563eb">&lt;html lang="en"&gt;</text>
+      <!-- head container -->
+      <rect x="50" y="100" width="290" height="35" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+      <text x="60" y="115" font-family="Courier, monospace" font-size="10" font-weight="bold" fill="#92400e">&lt;head&gt; (Metadata: title, meta charset, link CSS) &lt;/head&gt;</text>
+      <!-- body container -->
+      <rect x="50" y="142" width="290" height="42" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+      <text x="60" y="158" font-family="Courier, monospace" font-size="10" font-weight="bold" fill="#166534">&lt;body&gt; (Visible Web Content: h1, p, table, img)</text>
+      <text x="60" y="174" font-family="Courier, monospace" font-size="10" font-weight="bold" fill="#166534">&lt;/body&gt;</text>
+
+      <!-- Element Breakdown -->
+      <rect x="390" y="15" width="350" height="190" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="565" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">Anatomy of an HTML Element</text>
+      <!-- Code box -->
+      <g transform="translate(410, 65)">
+        <rect x="0" y="0" width="115" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="57" y="25" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#1e40af" text-anchor="middle">&lt;a href="..."&gt;</text>
+        <text x="57" y="55" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#1e40af" text-anchor="middle">Opening Tag + Attr</text>
+
+        <rect x="120" y="0" width="115" height="40" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <text x="177" y="25" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#92400e" text-anchor="middle">Click Here</text>
+        <text x="177" y="55" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">Inner Text Content</text>
+
+        <rect x="240" y="0" width="70" height="40" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="275" y="25" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#991b1b" text-anchor="middle">&lt;/a&gt;</text>
+        <text x="275" y="55" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#991b1b" text-anchor="middle">Closing Tag</text>
+      </g>
+      <text x="565" y="155" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#0f172a" text-anchor="middle">Void (Self-Closing) Elements: No closing tag</text>
+      <text x="565" y="175" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">&lt;br&gt;, &lt;hr&gt;, &lt;img&gt;, &lt;input&gt;, &lt;meta&gt;, &lt;link&gt;</text>
+    </svg>
+  </div>
+</div>
+
+| Element Category | Block-Level Elements | Inline Elements |
+| :--- | :--- | :--- |
+| **Formatting Behavior** | Starts on a **new line**; stacks vertically | Flows horizontally within current text line |
+| **Width Occupation** | Expands to fill **100% of available parent width** | Takes only as much width as its content requires |
+| **Margin / Padding** | Top, bottom, left, and right margins respected | Left/right respected; top/bottom **do not** affect flow |
+| **Typical Tags** | `<div>`, `<p>`, `<h1>`–`<h6>`, `<ul>`, `<ol>`, `<table>` | `<span>`, `<a>`, `<strong>`, `<em>`, `<img>`, `<code>` |
+
 
 
 - **## PART I:** WEBSITE DEVELOPMENT, PUBLISHING, HOSTING & CORE
@@ -222,3 +273,32 @@ Content changes automatically per user, login session, search query, or real-tim
 without manually rewriting HTML!
 - **Examples:** Amazon, Instagram, YouTube, online banking portals, university result portals.
 Fundamentals of Web Technologies • UNIT–2: Basics of HTML
+
+---
+
+#### 💻 Written Code Example & Layout: HTML Headings Hierarchy, Paragraphs & Text Formatting
+
+<!-- HTML Headings Hierarchy, Paragraphs & Text Formatting -->
+```html
+<h1>Main Course Heading (H1 - Exactly One Per Page)</h1>
+<h2>Unit Level Subheading (H2)</h2>
+<h3>Section Concept (H3)</h3>
+<p>HTML paragraph with <strong>bold important terms</strong>, <em>emphasized text</em>, 
+and <mark>highlighted keywords</mark>. Formulas can use H<sub>2</sub>O and x<sup>2</sup>.</p>
+<hr>
+<blockquote>"The Web does not just connect machines, it connects people." - Tim Berners-Lee</blockquote>
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Renders semantic typographic hierarchy, emphasizing content importance for screen readers and search engines.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Use only ONE <h1> element per page to establish the primary semantic topic.**
+- **Heading tags must follow numerical order (do not jump from H1 directly to H4).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Using <b> and <i> for styling instead of CSS (use semantic <strong> and <em>).**
+- **Using heading tags purely to adjust font size.**
+

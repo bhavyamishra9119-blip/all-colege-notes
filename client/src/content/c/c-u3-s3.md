@@ -166,3 +166,49 @@ Copies the values of actual arguments into separate formal parameter variables o
 Modifying formal parameters inside the function has ZERO effect on the caller’s original
 variables (safe against accidental corruption).
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming
+
+---
+
+#### 💻 Working C Code Example: String Manipulation Functions (string.h)
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s1[30] = "Hello";
+    char s2[] = " World";
+    char s3[30];
+
+    printf("Length of s1 ('%s'): %zu\n", s1, strlen(s1));
+    strcat(s1, s2); // Concatenation
+    printf("After strcat: '%s'\n", s1);
+
+    strcpy(s3, s1); // Copy
+    printf("After strcpy s3: '%s'\n", s3);
+
+    int cmp = strcmp("Apple", "Banana");
+    printf("strcmp('Apple', 'Banana'): %d (negative: Apple < Banana)\n", cmp);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Length of s1 ('Hello'): 5
+After strcat: 'Hello World'
+After strcpy s3: 'Hello World'
+strcmp('Apple', 'Banana'): -1 (negative: Apple < Banana)
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **C strings are null-terminated with '\0' at the final index.**
+- **Array buffer size must be at least strlen(str) + 1 to store '\0'.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Buffer overflow when destination array is smaller than source.**
+- **Using == to compare string contents (compares pointers instead of chars).**
+

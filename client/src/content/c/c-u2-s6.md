@@ -176,3 +176,51 @@ For Output / Trace Questions: Construct a column-wise dry-run table tracking eve
 each pass, check operator precedence/associativity carefully, and watch for integer division, short-
 circuiting, and fall-through traps.
 - **Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Unconditional Jumps: Break, Continue & Return
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Loop demonstrating continue (skips 3) and break (stops at 7):\n");
+    for (int i = 1; i <= 10; i++) {
+        if (i == 3) {
+            printf("  (Skip 3)\n");
+            continue; // Skips printing 3
+        }
+        if (i == 7) {
+            printf("  (Break at 7)\n");
+            break;    // Terminates loop early
+        }
+        printf("  Value: %d\n", i);
+    }
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Loop demonstrating continue (skips 3) and break (stops at 7):
+  Value: 1
+  Value: 2
+  (Skip 3)
+  Value: 4
+  Value: 5
+  Value: 6
+  (Break at 7)
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Break exits the innermost enclosing loop or switch.**
+- **Continue skips the remainder of current iteration and proceeds to next.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Using continue inside a while loop without advancing counter (infinite loop).**
+- **Overusing goto causing spaghetti control flow.**
+

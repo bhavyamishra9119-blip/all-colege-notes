@@ -213,3 +213,15 @@ Bird —AKO→ Animal).
 HAS-A / CAN / COLOR: Connects a class or object to its attributes/capabilities (Bird —HAS→
 Wings; Bird —CAN→ Fly).
 Fundamentals of
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **A* search is guaranteed optimal and complete if the heuristic function h(n) is admissible (never overestimates true cost to goal).**
+> - **Breadth-First Search (BFS) uses a FIFO Queue and is optimal for uniform step costs; Depth-First Search (DFS) uses a LIFO Stack.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Designing an inadmissible heuristic in A* search (causes sub-optimal path selection).**
+> - **Failing to maintain a visited/explored set in graph search, leading to infinite loops in cyclic state spaces.**
+

@@ -162,3 +162,53 @@ shape="poly"
 (x1,y1, x2,y2, ...)
 Any irregular polygon
 Fundamentals of Web Technologies • UNIT–2: Basics of HTML
+
+---
+
+#### 💻 Written Code Example & Layout: Accessible HTML Data Tables with Colspan & Rowspan
+
+<!-- Accessible HTML Data Tables with Colspan & Rowspan -->
+```html
+<table border="1" cellpadding="8" cellspacing="0">
+    <caption><strong>Table 1: B.Tech Computer Engineering Grading Scheme</strong></caption>
+    <thead>
+        <tr>
+            <th>Grade</th>
+            <th>Marks Range</th>
+            <th>Grade Point</th>
+            <th>Performance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>A+</td>
+            <td>90 – 100</td>
+            <td>10.0</td>
+            <td rowspan="2">Outstanding</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>80 – 89</td>
+            <td>9.0</td>
+        </tr>
+        <tr>
+            <td colspan="3"><strong>Average Class GPA</strong></td>
+            <td><strong>8.5</strong></td>
+        </tr>
+    </tbody>
+</table>
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Renders a structured, accessible data table with column headers, merged cells across rows (rowspan), and merged summary rows (colspan).</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Tables are for tabular data ONLY; never use tables for page layout (use CSS!).**
+- **Always include <caption>, <thead>, and <th> for screen-reader accessibility.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Confusing rowspan (merging vertical rows) with colspan (merging horizontal columns).**
+- **Missing closing </td> or </tr> tags breaking table layout.**
+

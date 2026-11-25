@@ -195,3 +195,46 @@ grammar)
 "The square circle drank green music." (Valid grammar,
 absurd meaning)
 - **Unit-I:** Programming Fundamentals & Problem Solving • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Six-Section Standard C Program Structure
+
+```c
+#include <stdio.h>   // 1. Link Section (Pre-processor Directive)
+#define PI 3.14159   // 2. Definition Section (Macro)
+
+float global_area;   // 3. Global Declaration Section
+float calculate_area(float radius); // Function Prototype
+
+int main() {         // 4. Main Function Section
+    float r = 5.0;   // Declaration
+    global_area = calculate_area(r); // Execution
+    printf("Radius = %.2f, Calculated Circle Area = %.2f
+", r, global_area);
+    return 0;
+}
+
+float calculate_area(float radius) { // 5. Sub-program / User Function Section
+    return PI * radius * radius;
+}
+```
+
+**Console Output:**
+```text
+Radius = 5.00, Calculated Circle Area = 78.54
+```
+
+**Walkthrough & Execution Notes:**
+Illustrates preprocessing, global scope, main execution entry, and subprogram linkage.
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Compilation pipeline: Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (.exe).**
+- **C is strictly case-sensitive: 'main' is required; 'Main' causes an unresolved external linker error.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Placing a semicolon directly after #define (#define PI 3.14; is an error).**
+- **Missing prototype declarations causing implicit return type warnings.**
+

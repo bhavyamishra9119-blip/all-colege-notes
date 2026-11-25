@@ -18,7 +18,21 @@ Expert &
 Knowledge
 Engineer
 
-> 🖼️ **Figure 5: Complete Functional Architecture and Signal Flow of an Expert System**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 INFERENCE ENGINE STRATEGIES: FORWARD CHAINING VS. BACKWARD CHAINING</div>
+</div>
+
+| Feature / Dimension | Forward Chaining (Data-Driven) | Backward Chaining (Goal-Driven) |
+| :--- | :--- | :--- |
+| **Starting Point** | Begins with **Known Facts** in Working Memory | Begins with a **Hypothesis / Goal** to prove |
+| **Direction of Search** | **Bottom-Up**: Facts $\to$ Match Rules $\to$ Deduce New Facts | **Top-Down**: Goal $\to$ Sub-goals $\to$ Verify Facts |
+| **Rule Matching Phase** | Matches Antecedents (`IF` conditions of rules) | Matches Consequents (`THEN` conclusions of rules) |
+| **Best Suited For...** | Monitoring, planning, predictive control, robotics | **Diagnostic troubleshooting, medical diagnosis** |
+| **Questioning Strategy** | May generate numerous unneeded deductions | Asks **only questions strictly relevant** to the goal |
+| **Real-World Systems** | R1/XCON (Computer system configurator), OPS5 | MYCIN (Bacterial infection diagnostic system), PROLOG |
+
 
 
 ### 4.2 Reasoning Strategies Inside the Inference Engine
@@ -310,3 +324,15 @@ Embedded runs silently inside larger software/hardware (e.g., fraud engines insi
 or flight avionics).
 - **Real-Time vs. Offline ES:** Real-time ES guarantees strict millisecond response deadlines for live
 machinery; Offline ES allows interactive human Q&A without hard timing limits.
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **An Expert System strictly separates domain knowledge (Knowledge Base) from the general problem-solving logic (Inference Engine).**
+> - **Forward Chaining is data-driven (starts from known facts to derive conclusions); Backward Chaining is goal-driven.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Hardcoding domain rules directly into procedural algorithms instead of the declarative knowledge base.**
+> - **Confusing procedural knowledge (step-by-step how-to) with declarative knowledge (what-is facts).**
+

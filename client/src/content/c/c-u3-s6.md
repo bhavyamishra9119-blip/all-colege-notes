@@ -126,3 +126,46 @@ procedure design
 Avoid global variables between modules; pass
 data via parameters & return values.
 Computational & Problem Solving in C • UNIT–3: Data Handling & Modular Programming
+
+---
+
+#### 💻 Working C Code Example: Storage Classes: Auto, Static, Register & Extern
+
+```c
+#include <stdio.h>
+
+void counter_demo() {
+    int auto_var = 0;         // re-allocated on stack every call
+    static int static_var = 0; // preserved across all calls in .data
+
+    auto_var++;
+    static_var++;
+    printf("auto_var = %d | static_var = %d\n", auto_var, static_var);
+}
+
+int main() {
+    printf("Call 1: "); counter_demo();
+    printf("Call 2: "); counter_demo();
+    printf("Call 3: "); counter_demo();
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Call 1: auto_var = 1 | static_var = 1
+Call 2: auto_var = 1 | static_var = 2
+Call 3: auto_var = 1 | static_var = 3
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Static variables retain values across function invocations.**
+- **Register keyword requests CPU register storage for hot variables.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Applying the address-of operator (&) to a register variable.**
+- **Redefining extern variables with conflicting types across modules.**
+

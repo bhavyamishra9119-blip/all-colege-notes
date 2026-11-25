@@ -145,3 +145,53 @@ structural credit before reading the bullet points.
 - **Complexity & Dry-Run Questions:** Show the exact loop-count equation before simplifying to Big-O,
 and use a neat column-wise trace table for every dry run.
 - **Unit-I:** Programming Fundamentals & Problem Solving • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Step-by-Step Tracing & Dry-Run Variable Table
+
+```c
+#include <stdio.h>
+
+int main() {
+    int n = 5;
+    long long fact = 1;
+
+    printf("Dry-Run Trace for Factorial(%d):
+", n);
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
+        printf("  Iteration %d: i = %d, fact = %lld
+", i, i, fact);
+    }
+
+    printf("Final Result: %d! = %lld
+", n, fact);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Dry-Run Trace for Factorial(5):
+  Iteration 1: i = 1, fact = 1
+  Iteration 2: i = 2, fact = 2
+  Iteration 3: i = 3, fact = 6
+  Iteration 4: i = 4, fact = 24
+  Iteration 5: i = 5, fact = 120
+Final Result: 5! = 120
+```
+
+**Walkthrough & Execution Notes:**
+Manual dry-run tracking confirms loop invariants and termination state.
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Dry runs catch off-by-one boundary errors (< vs <=) prior to machine compilation.**
+- **Tracing tables must include loop counter, condition outcome, and all updated accumulators.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Failure to initialize accumulator variables (e.g. sum=0, fact=1).**
+- **Incrementing loop counters inside the body when already specified in the for header.**
+

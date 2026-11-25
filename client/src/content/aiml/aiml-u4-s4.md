@@ -164,3 +164,15 @@ T2 Milk, Bread
 T3 Milk, Eggs
 T4 Bread, Butter
 T5 Milk, Bread, Butter, Eggs
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **Supervised learning trains on labeled data (inputs + targets); Unsupervised learning discovers hidden patterns in unlabeled data.**
+> - **High Bias causes Underfitting (model too simple); High Variance causes Overfitting (model memorizes noise).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Data leakage: Evaluating machine learning models on training data rather than an isolated test set.**
+> - **Confusing correlation with causation in feature importance.**
+

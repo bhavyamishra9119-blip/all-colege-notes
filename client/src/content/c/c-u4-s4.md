@@ -93,3 +93,47 @@ step.
 block, copies existing data (min(old, new)), frees the old block, and returns the new base
 address. Extra expanded bytes hold garbage.
 Computational & Problem Solving in C • Unit-IV Study Notes
+
+---
+
+#### 💻 Working C Code Example: Structures: Member Access and Structure Padding
+
+```c
+#include <stdio.h>
+
+struct Student {
+    int id;        // 4 bytes
+    char grade;    // 1 byte + 3 bytes padding
+    float gpa;     // 4 bytes
+};
+
+int main() {
+    struct Student s1 = {101, 'A', 3.85f};
+
+    printf("Student ID:    %d\n", s1.id);
+    printf("Student Grade: %c\n", s1.grade);
+    printf("Student GPA:   %.2f\n", s1.gpa);
+    printf("sizeof(struct Student): %zu bytes (with padding)\n", sizeof(s1));
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Student ID:    101
+Student Grade: A
+Student GPA:   3.85
+sizeof(struct Student): 12 bytes (with padding)
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Structure members are accessed using the dot (.) operator.**
+- **Pointers to structures use the arrow (->) operator: ptr->id.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Assuming sizeof(struct) is strictly the sum of member sizes (compiler adds padding!).**
+- **Comparing structure variables with == (illegal in C; compare field-by-field).**
+

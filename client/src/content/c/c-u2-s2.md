@@ -277,3 +277,50 @@ preprocessor directive #include, the C Preprocessor literally copies and pastes 
 contents of the specified .h file into the source code before actual compilation begins. Notice that
 #include is a preprocessor directive, so it MUST NOT end with a semicolon.
 - **Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Arithmetic, Relational & Bitwise Operator Precedence
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a = 12, b = 5; // 12 = 1100_2, 5 = 0101_2
+    printf("Arithmetic: a + b = %d, a %% b = %d
+", a + b, a % b);
+    printf("Bitwise AND (a & b): %d (0100_2)
+", a & b);
+    printf("Bitwise OR  (a | b): %d (1101_2)
+", a | b);
+    printf("Bitwise XOR (a ^ b): %d (1001_2)
+", a ^ b);
+    printf("Shift Left  (a << 1): %d (multiply by 2)
+", a << 1);
+    printf("Shift Right (a >> 1): %d (divide by 2)
+", a >> 1);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Arithmetic: a + b = 17, a % b = 2
+Bitwise AND (a & b): 4 (0100_2)
+Bitwise OR  (a | b): 13 (1101_2)
+Bitwise XOR (a ^ b): 9 (1001_2)
+Shift Left  (a << 1): 24 (multiply by 2)
+Shift Right (a >> 1): 6 (divide by 2)
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Bitwise shift left (x << k) computes x * 2^k.**
+- **Logical operators short-circuit; bitwise operators evaluate both sides.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Modulus operator (%) cannot be applied to floating-point numbers.**
+- **Confusing bitwise & with logical &&.**
+

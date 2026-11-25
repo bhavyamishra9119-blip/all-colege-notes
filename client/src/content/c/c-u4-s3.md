@@ -156,3 +156,51 @@ into variable addresses; returns matched item count, or EOF (-1) at end of file.
 4. int fclose(FILE *fp); — Flushes buffered RAM data to disk and releases the OS handle;
 returns 0 on success or EOF on error. Omitting it risks data truncation.
 Computational & Problem Solving in C • Unit-IV Study Notes
+
+---
+
+#### 💻 Working C Code Example: Dynamic Memory Allocation: malloc, realloc and free
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n = 3;
+    int *arr = (int*)malloc(n * sizeof(int));
+    if (arr == NULL) { printf("Allocation failed\n"); return 1; }
+
+    for (int i = 0; i < n; i++) arr[i] = (i + 1) * 10;
+    printf("Initial 3 Elements: %d %d %d\n", arr[0], arr[1], arr[2]);
+
+    // Resize array to 5 elements
+    n = 5;
+    arr = (int*)realloc(arr, n * sizeof(int));
+    arr[3] = 40; arr[4] = 50;
+    printf("Resized 5 Elements: ");
+    for (int i = 0; i < n; i++) printf("%d ", arr[i]);
+    printf("\n");
+
+    free(arr); // Deallocate heap memory
+    arr = NULL;
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Initial 3 Elements: 10 20 30
+Resized 5 Elements: 10 20 30 40 50
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **malloc leaves memory uninitialized; calloc zeroes out all allocated bytes.**
+- **Always verify if pointer is NULL after allocation before using it.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Memory leaks caused by forgetting to call free().**
+- **Double-freeing memory causing heap corruption.**
+

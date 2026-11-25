@@ -267,3 +267,15 @@ AskDISHA, ChatGPT
 Waymo Robo-taxi, Autonomous
 Drones, Warehouse Robots
 - **Unit-I:** Foundations of Artificial Intelligence • Fundamentals of AIML
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **Modern AI defines intelligence primarily as Acting Rationally (maximizing expected utility), rather than acting humanly.**
+> - **PEAS stands for Performance measure, Environment, Actuators, and Sensors.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Believing that the Turing Test requires physical embodiment (it is strictly text-terminal based to prevent visual bias).**
+> - **Confusing Artificial General Intelligence (AGI) with Narrow/Weak AI.**
+

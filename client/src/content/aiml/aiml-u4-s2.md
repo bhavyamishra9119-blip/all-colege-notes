@@ -151,7 +151,21 @@ Drift Retraining
 - **Standard Dataset Split:** Training Set (70%) Val 15% Test 15%
 - **Iterative Lifecycle:** Model quality is continuously validated & updated as live data evolves
 
-> 🖼️ **Figure 5: Complete 8-Stage Machine Learning Workflow, Iterative Retraining Loop, and Dataset Split**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 SUPERVISED LEARNING: CLASSIFICATION VS. REGRESSION</div>
+</div>
+
+| Attribute | Classification | Regression |
+| :--- | :--- | :--- |
+| **Target Variable Type** | **Discrete / Categorical Classes** (Finite labels) | **Continuous / Numerical Quantity** (Infinite real values) |
+| **Mathematical Nature** | Maps input vector to class probabilities $P(Y=k \mid X)$ | Maps input vector to real-valued scalar $\hat{y} \in \mathbb{R}$ |
+| **Visual Output Model** | **Decision Boundary** partitioning feature space | **Best-Fit Regression Line / Curve / Hyperplane** |
+| **Evaluation Metrics** | Accuracy, Precision, Recall, F1-Score, ROC-AUC | Mean Squared Error (MSE), RMSE, Mean Absolute Error (MAE), $R^2$ |
+| **Example Problems** | Cancer detection (Malignant/Benign), Sentiment analysis | Predicting stock price, estimating house value, temperature |
+| **Representative Algorithms**| Logistic Regression, Support Vector Machines, Random Forest | Linear Regression, Polynomial Regression, Ridge, Lasso |
+
 
 
 - **### 4.2 Crucial Lifecycle Pitfalls:** Underfitting vs. Optimal Fit vs. Overfitting
@@ -170,7 +184,51 @@ Generalizes well!
 (c) Overfitting
 Memorizes noise (High Var.)
 
-> 🖼️ **Figure 6: Visual Diagnosis of Underfitting, Optimal Generalization, and Overfitting**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 BIAS-VARIANCE TRADEOFF: UNDERFITTING VS. OPTIMAL FIT VS. OVERFITTING</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="200" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Underfitting -->
+      <rect x="20" y="15" width="220" height="170" rx="8" fill="#f8fafc" stroke="#dc2626" stroke-width="1.5"/>
+      <text x="130" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle">Underfitting (High Bias)</text>
+      <!-- Diagram -->
+      <line x1="40" y1="140" x2="210" y2="140" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="50" y1="50" x2="50" y2="150" stroke="#cbd5e1" stroke-width="1"/>
+      <path d="M 60 130 L 200 65" fill="none" stroke="#dc2626" stroke-width="2"/>
+      <text x="130" y="160" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#0f172a" text-anchor="middle">Model Too Simple (Underfit)</text>
+      <text x="130" y="175" font-family="Inter, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">High Train Error &amp; High Test Error</text>
+
+      <!-- Optimal Fit -->
+      <rect x="270" y="15" width="220" height="170" rx="8" fill="#f8fafc" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="380" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">Optimal Fit (Just Right)</text>
+      <!-- Diagram -->
+      <line x1="290" y1="140" x2="460" y2="140" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="300" y1="50" x2="300" y2="150" stroke="#cbd5e1" stroke-width="1"/>
+      <path d="M 310 135 Q 380 60, 450 75" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+      <text x="380" y="160" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#0f172a" text-anchor="middle">Balances Bias &amp; Variance</text>
+      <text x="380" y="175" font-family="Inter, sans-serif" font-size="9" fill="#166534" text-anchor="middle">Low Train Error &amp; Low Test Error</text>
+
+      <!-- Overfitting -->
+      <rect x="520" y="15" width="220" height="170" rx="8" fill="#f8fafc" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="630" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#1e40af" text-anchor="middle">Overfitting (High Variance)</text>
+      <!-- Diagram -->
+      <line x1="540" y1="140" x2="710" y2="140" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="550" y1="50" x2="550" y2="150" stroke="#cbd5e1" stroke-width="1"/>
+      <path d="M 560 130 Q 575 60, 590 120 T 630 70 T 670 125 T 700 65" fill="none" stroke="#2563eb" stroke-width="2"/>
+      <text x="630" y="160" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#0f172a" text-anchor="middle">Memorizes Training Noise</text>
+      <text x="630" y="175" font-family="Inter, sans-serif" font-size="9" fill="#1e40af" text-anchor="middle">Zero Train Error, Huge Test Error!</text>
+    </svg>
+  </div>
+</div>
+
+| Model State | Bias Level | Variance Level | Training Error | Testing Error | Corrective Engineering Action |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Underfitting** | **High Bias** | Low Variance | High | High | Increase model complexity, engineer polynomial features, reduce regularization |
+| **Optimal Fit** | **Low Bias** | **Low Variance** | Low | Low | Model generalizes cleanly to unseen real-world data |
+| **Overfitting** | Low Bias | **High Variance** | Near Zero ($0\%$) | **Very High** | Add Regularization ($L_1/L_2$), collect more data, apply Dropout, prune decision trees |
+
 
 
 
@@ -223,3 +281,15 @@ Euclidean distance) to all points, finds the k closest neighbors, and assigns th
 among them.
 - **Practical Tip:** Requires feature scaling; choosing an odd k (e.g., k = 3, 5) avoids tie votes in
 binary tasks.
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **Supervised learning trains on labeled data (inputs + targets); Unsupervised learning discovers hidden patterns in unlabeled data.**
+> - **High Bias causes Underfitting (model too simple); High Variance causes Overfitting (model memorizes noise).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Data leakage: Evaluating machine learning models on training data rather than an isolated test set.**
+> - **Confusing correlation with causation in feature importance.**
+

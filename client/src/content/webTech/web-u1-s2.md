@@ -139,7 +139,25 @@ https:// www.btech.edu.in :443 /notes/wt.html ?unit=1&v=2 #http
 
 (Page Anchor)
 
-> 🖼️ **Figure 3: (A) Complete hardware, ISP, and DNS connection chain; (B) Six structural components of a standard**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 EVOLUTION OF THE WEB: WEB 1.0 VS. WEB 2.0 VS. WEB 3.0</div>
+</div>
+
+| Web Generation | Era / Timeline | Defining Characteristic | Interaction Paradigm | Underlying Technologies | Example Platforms |
+| :--- | :---: | :--- | :--- | :--- | :--- |
+| **Web 1.0** | $1991 - 2004$ | **"Read-Only Web"** | Passive consumption of static content | Pure HTML, basic CSS, CGI scripts | Personal homepages, Yahoo! Directory |
+| **Web 2.0** | $2004 - \text{Present}$ | **"Read-Write Interactive Web"**| Active user-generated content, collaboration | AJAX, JavaScript, REST APIs, SPA | YouTube, Wikipedia, Facebook, Twitter |
+| **Web 3.0** | Emerging Era | **"Read-Write-Execute Decentralized"** | Semantic data understanding, decentralization | Smart Contracts, Blockchain, AI, IPFS | Decentralized apps (dApps), Solid pods |
+
+| Attribute | Static Web Pages | Dynamic Web Pages |
+| :--- | :--- | :--- |
+| **Page Content** | Pre-written and identical for every user | Generated in real-time according to user query, session & database |
+| **Development Complexity**| Simple HTML and CSS files | Backend scripts (Node.js, Python, PHP) + Database (SQL) |
+| **Server Workload** | Ultra-light (Server directly streams static files) | Higher (Requires query execution, rendering & compilation) |
+| **Loading Speed** | Extremely fast, easily cached on CDN edges | Slightly higher latency due to server-side computation |
+
 
 URL.
 
@@ -253,3 +271,38 @@ SpiderMonkey).
 value pairs for sessions), Browser Cache (stores static files locally to speed up repeat visits),
 LocalStorage, and IndexedDB.
 - **Unit-I:** Fundamentals of Web Technologies • B.Tech Exam-Ready Study Notes
+
+---
+
+#### 💻 Written Code Example & Layout: HTTP Request & Response Headers Demonstration
+
+<!-- HTTP Request & Response Headers Demonstration -->
+```html
+<!-- HTTP GET Request Structure Example -->
+GET /api/v1/students?dept=CSE HTTP/1.1
+Host: university.edu
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1Ni...
+
+<!-- HTTP Response Headers Example -->
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 256
+Cache-Control: max-age=3600, public
+Set-Cookie: session_id=xyz789; Secure; HttpOnly
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Demonstrates standard client-server message format with protocol headers, authentication bearer tokens, and caching directives.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **HTTP is stateless: sessions and cookies maintain client continuity.**
+- **HTTPS runs over TLS Port 443; plain HTTP runs over Port 80.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Transmitting sensitive passwords via GET query string (use POST!).**
+- **Confusing 401 Unauthorized (unauthenticated) with 403 Forbidden (unauthorized).**
+

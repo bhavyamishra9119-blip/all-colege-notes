@@ -164,3 +164,44 @@ Only 1 member valid at a time
 > 📊 **Table 2.1: Comprehensive Comparison Matrix — Structure vs. Union**
 
 Computational & Problem Solving in C • Unit-IV Study Notes
+
+---
+
+#### 💻 Working C Code Example: Pointer Arithmetic & Array Navigation
+
+```c
+#include <stdio.h>
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int *ptr = arr; // arr decays to &arr[0]
+
+    printf("Traversing array via pointer arithmetic:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("*(ptr + %d) = %d at address %p\n", i, *(ptr + i), (void*)(ptr + i));
+    }
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Traversing array via pointer arithmetic:
+*(ptr + 0) = 10 at address 0x7ffd50
+*(ptr + 1) = 20 at address 0x7ffd54
+*(ptr + 2) = 30 at address 0x7ffd58
+*(ptr + 3) = 40 at address 0x7ffd5c
+*(ptr + 4) = 50 at address 0x7ffd60
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Pointer arithmetic scales by sizeof(type): (ptr + 1) advances 4 bytes for int.**
+- **arr[i] is syntactically equivalent to *(arr + i).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Incrementing array name directly (arr++ is illegal; arr is a constant pointer).**
+- **Subtracting pointers pointing to elements of different arrays.**
+

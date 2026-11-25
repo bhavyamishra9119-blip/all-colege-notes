@@ -92,7 +92,43 @@ line-height
 (Leading Box)
 indent
 ← letter-spacing gap
-- **Figure 3.1:** CSS Typography Anatomy Showing Baseline, x-Height, Ascender/Descender, Leading (line-
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 CSS SPECIFICITY HIERARCHY LADDER: (INLINE, ID, CLASS, ELEMENT)</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="200" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ladder Tiers from Top to Bottom -->
+      <g transform="translate(40, 20)">
+        <rect x="0" y="0" width="680" height="28" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="100" y="19" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#991b1b">Tier 1: !important</text>
+        <text x="350" y="19" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#dc2626">color: red !important;</text>
+        <text x="600" y="19" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#991b1b">Overrides all rules</text>
+
+        <rect x="0" y="33" width="680" height="28" rx="4" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="100" y="52" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#9a3412">Tier 2: Inline Styles</text>
+        <text x="350" y="52" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#c2410c">&lt;h1 style="color: blue"&gt;</text>
+        <text x="600" y="52" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#9a3412">(1, 0, 0, 0)</text>
+
+        <rect x="0" y="66" width="680" height="28" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <text x="100" y="85" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#92400e">Tier 3: ID Selectors</text>
+        <text x="350" y="85" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#d97706">#header, #main-nav</text>
+        <text x="600" y="85" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#92400e">(0, 1, 0, 0)</text>
+
+        <rect x="0" y="99" width="680" height="28" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="100" y="118" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#166534">Tier 4: Class / Pseudo-Class</text>
+        <text x="350" y="118" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#16a34a">.btn, :hover, [type="text"]</text>
+        <text x="600" y="118" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#166534">(0, 0, 1, 0)</text>
+
+        <rect x="0" y="132" width="680" height="28" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="100" y="151" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e40af">Tier 5: Element / Type</text>
+        <text x="350" y="151" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#2563eb">h1, p, div, li, ::before</text>
+        <text x="600" y="151" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#1e40af">(0, 0, 0, 1)</text>
+      </g>
+    </svg>
+  </div>
+</div>
+
 height), and Indentation.
 
 > 📊 **Table 3.1: Absolute vs. Relative CSS Font-Size Units & Standard Constants**
@@ -196,3 +232,46 @@ vertical radii).
 - **Size Keywords:** closest-side, farthest-side, closest-corner, farthest-corner
 (default).
 Fundamentals of Web Technologies • Unit-IV: CSS Study Notes
+
+---
+
+#### 💻 Written Code Example & Layout: CSS Typography, Google Web Fonts & Color Systems
+
+<!-- CSS Typography, Google Web Fonts & Color Systems -->
+```html
+<div class="typography-card">
+    <h2 class="title">Web Typography Anatomy</h2>
+    <p class="body-text">Demonstrates font-family stacks, rem vs em sizing, line-height, letter-spacing, and text-transform.</p>
+</div>
+```
+```css
+.typography-card {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+.title {
+    font-size: 1.5rem; /* 24px based on 16px root */
+    font-weight: 700;
+    color: #1e40af;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+}
+.body-text {
+    font-size: 0.95rem;
+    line-height: 1.6; /* Optimal readability */
+    color: rgba(30, 41, 59, 0.85); /* Alpha transparency */
+}
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Applies typography rules with modular rem units, readable line-height, and transparent color definitions.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **rem is relative to root (<html>) font size; em is relative to immediate parent.**
+- **Always provide a generic fallback font (serif, sans-serif, monospace).**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Setting font-size in fixed pixels (px) preventing user browser zoom accessibility.**
+- **Line-height under 1.2 causing cramped, unreadable text lines.**
+

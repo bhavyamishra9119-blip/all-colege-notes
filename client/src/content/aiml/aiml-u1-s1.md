@@ -60,7 +60,60 @@ Cities) • Use Cases (Virtual Assistants, Autonomous Systems, Chatbots)
 - **• Use Case:** Autonomous Sys.
 - **• Use Case:** Chatbots
 
-> 🖼️ **Figure 1: Master Topic Map covering every syllabus module of Unit-I: Foundations of Artificial Intelligence.**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 TAXONOMY OF AI: CONCENTRIC RELATIONSHIP & TURING TEST ARCHITECTURE</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="230" viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg">
+      <!-- Concentric Circles Panel -->
+      <rect x="20" y="15" width="350" height="200" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="195" y="38" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1e40af" text-anchor="middle">AI vs. ML vs. DL Hierarchy</text>
+      <!-- AI Outer Circle -->
+      <circle cx="195" cy="125" r="75" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+      <text x="195" y="70" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#1e40af" text-anchor="middle">ARTIFICIAL INTELLIGENCE (1956)</text>
+      <text x="195" y="84" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Broad discipline of machines simulating human intelligence</text>
+      <!-- ML Middle Circle -->
+      <circle cx="195" cy="135" r="50" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="195" y="105" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#92400e" text-anchor="middle">MACHINE LEARNING (1980s)</text>
+      <text x="195" y="118" font-family="Inter, sans-serif" font-size="8" fill="#78350f" text-anchor="middle">Statistical algorithms that learn patterns from data</text>
+      <!-- DL Inner Circle -->
+      <circle cx="195" cy="150" r="28" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="195" y="146" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">DEEP</text>
+      <text x="195" y="158" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#166534" text-anchor="middle">LEARNING</text>
+      <text x="195" y="202" font-family="Inter, sans-serif" font-size="10" fill="#475569" text-anchor="middle">Deep Multi-Layer Neural Networks (2010s+)</text>
+
+      <!-- Turing Test Setup -->
+      <rect x="390" y="15" width="350" height="200" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="565" y="38" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1e40af" text-anchor="middle">Alan Turing's Imitation Game (1950)</text>
+      <!-- Human Interrogator (C) -->
+      <rect x="420" y="80" width="80" height="65" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="460" y="105" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">Human Judge</text>
+      <text x="460" y="122" font-family="Inter, sans-serif" font-size="9" fill="#1e40af" text-anchor="middle">(Interrogator C)</text>
+      <!-- Separator Wall -->
+      <line x1="530" y1="55" x2="530" y2="175" stroke="#dc2626" stroke-width="3" stroke-dasharray="4,3"/>
+      <text x="530" y="50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#dc2626" text-anchor="middle">WALL</text>
+      <!-- Respondent A (Human) -->
+      <rect x="560" y="60" width="150" height="42" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="635" y="78" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#92400e" text-anchor="middle">Room A: Real Human</text>
+      <text x="635" y="92" font-family="Inter, sans-serif" font-size="8.5" fill="#78350f" text-anchor="middle">Responds truthfully via teletype</text>
+      <!-- Respondent B (AI System) -->
+      <rect x="560" y="120" width="150" height="42" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="635" y="138" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">Room B: AI System</text>
+      <text x="635" y="152" font-family="Inter, sans-serif" font-size="8.5" fill="#14532d" text-anchor="middle">Attempts to fool the interrogator</text>
+      <text x="565" y="195" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#0f172a" text-anchor="middle">Pass Condition: Judge cannot reliably tell machine from human</text>
+    </svg>
+  </div>
+</div>
+
+| Comparison Parameter | Human Intelligence | Artificial Intelligence |
+| :--- | :--- | :--- |
+| **Information Processing Substrate** | Biological neurons ($10^{11}$ neurons, $10^{14}$ synapses)| Digital silicon microprocessors (Transistors, GPUs, TPUs) |
+| **Processing Speed** | Slow electrochemical nerve conduction ($\approx 100\text{ m/s}$)| High-frequency optical/silicon speed ($3 \times 10^8\text{ m/s}$, GHz clocks) |
+| **Generalization & Commonsense** | High commonsense, intuitive leaps, emotional context | Brittle; struggles with general out-of-distribution reasoning |
+| **Fatigue & Degradation** | Prone to fatigue, stress, emotional bias, forgetfulness | Operates $24/7/365$ with zero fatigue and perfect repeatability |
+| **Scalability & Replication** | Cannot clone biological minds across machines | Near-instant model weights replication and distributed scaling |
+
 
 
 ### 1. Evolution and Definition of Artificial Intelligence (AI)
@@ -355,3 +408,15 @@ today automatically via Convolutional Neural Networks — CNNs).
 
 each object is located.
 - **Unit-I:** Foundations of Artificial Intelligence • Fundamentals of AIML
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **Modern AI defines intelligence primarily as Acting Rationally (maximizing expected utility), rather than acting humanly.**
+> - **PEAS stands for Performance measure, Environment, Actuators, and Sensors.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Believing that the Turing Test requires physical embodiment (it is strictly text-terminal based to prevent visual bias).**
+> - **Confusing Artificial General Intelligence (AGI) with Narrow/Weak AI.**
+

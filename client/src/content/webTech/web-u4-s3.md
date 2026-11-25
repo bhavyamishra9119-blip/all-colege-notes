@@ -87,7 +87,39 @@ border-box (Modern)
 CSS width = Content +
 Padding + Border total.
 Box size stays exact!
-- **Figure 5.1:** CSS Box Model Layers and Comparison of box-sizing: content-box vs. border-box.
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 THE CSS BOX MODEL &amp; DIMENSIONAL CALCULATION FORMULA</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="220" viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer Margin Box -->
+      <rect x="80" y="20" width="600" height="175" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-dasharray="4,3" stroke-width="2"/>
+      <text x="100" y="42" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#c2410c">MARGIN (Clears area outside border; transparent)</text>
+
+      <!-- Border Box -->
+      <rect x="120" y="50" width="520" height="120" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+      <text x="140" y="70" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#92400e">BORDER (Goes around padding and content)</text>
+
+      <!-- Padding Box -->
+      <rect x="160" y="78" width="440" height="75" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="180" y="96" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#166534">PADDING (Clears an area around the content)</text>
+
+      <!-- Content Box -->
+      <rect x="220" y="105" width="320" height="35" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="380" y="127" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">CONTENT (Text, Images, Video) [width × height]</text>
+
+      <text x="380" y="210" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#0f172a" text-anchor="middle">Total Rendered Width = width + padding-left + padding-right + border-left + border-right + margin-left + margin-right</text>
+    </svg>
+  </div>
+</div>
+
+| CSS Layout Model | Dimensionality | Primary Design Use Case | Browser Positioning Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Normal Flow (Block/Inline)**| 1D Vertical Stacking | Standard text articles, linear document flows | Default static document flow |
+| **CSS Flexbox (`display: flex`)**| **1-Dimensional** (Row OR Column) | Navbars, button groups, card alignments, modal centers | Main-axis (`justify-content`) &amp; Cross-axis (`align-items`) |
+| **CSS Grid (`display: grid`)** | **2-Dimensional** (Rows AND Columns) | Master dashboard templates, photo galleries, magazine grids | `grid-template-columns` and `grid-template-rows` tracks |
+
 Fundamentals of Web Technologies • Unit-IV: CSS Study Notes
 
 Box Model Exact Dimension Equations (Exam-Critical):
@@ -178,3 +210,41 @@ used to turn inline <a> links into button-like boxes (inline-block) or hide elem
 element completely from the layout tree (zero space reserved); visibility: hidden hides the
 element visually while preserving its empty layout box.
 Fundamentals of Web Technologies • Unit-IV: CSS Study Notes
+
+---
+
+#### 💻 Written Code Example & Layout: CSS Box Model: content-box vs border-box
+
+<!-- CSS Box Model: content-box vs border-box -->
+```html
+<div class="box content-box">Box 1: content-box (Width 200 + 40 pad + 10 border = 250px!)</div>
+<div class="box border-box">Box 2: border-box (Width stays strictly 200px!)</div>
+```
+```css
+.box {
+    width: 200px;
+    height: 80px;
+    padding: 20px;
+    border: 5px solid #2563eb;
+    margin: 10px 0;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 11px;
+}
+.content-box { box-sizing: content-box; background: #ea580c; }
+.border-box  { box-sizing: border-box;  background: #16a34a; }
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Visually contrasts default content-box with modern border-box where padding and borders are absorbed inside the specified width.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Total width in content-box = width + padding-left + padding-right + border-left + border-right.**
+- **Best Practice: apply * { box-sizing: border-box; } globally across all projects.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Forgetting that margins can collapse vertically between adjacent elements.**
+- **Expecting percentage widths to fit when padding is added under content-box.**
+

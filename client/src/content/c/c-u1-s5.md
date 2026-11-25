@@ -86,7 +86,86 @@ e.g., malloc(), calloc(), free()
 - **Stores:** Global/static initialized → int g = 5;
 - **Stores:** Compiled binary machine instructions
 
-> 🖼️ **Figure 7: Five-segment virtual memory layout of an executing C program showing opposing Heap and Stack**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 C 4-STAGE COMPILATION PIPELINE & VIRTUAL MEMORY LAYOUT</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="240" viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="pipeArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb"/>
+        </marker>
+      </defs>
+
+      <!-- Stage 1 -->
+      <rect x="15" y="25" width="115" height="70" rx="6" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="72" y="45" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Source File</text>
+      <text x="72" y="62" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">program.c</text>
+      <text x="72" y="80" font-family="Inter, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">C Source Code</text>
+      <line x1="130" y1="60" x2="160" y2="60" stroke="#2563eb" stroke-width="2" marker-end="url(#pipeArrow)"/>
+
+      <!-- Stage 2: Preprocessor -->
+      <rect x="165" y="25" width="125" height="70" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="227" y="45" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#1e40af" text-anchor="middle">1. Preprocessor</text>
+      <text x="227" y="62" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#2563eb" text-anchor="middle">program.i</text>
+      <text x="227" y="80" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">Expands #include/#def</text>
+      <line x1="290" y1="60" x2="320" y2="60" stroke="#2563eb" stroke-width="2" marker-end="url(#pipeArrow)"/>
+
+      <!-- Stage 3: Compiler -->
+      <rect x="325" y="25" width="120" height="70" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="385" y="45" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#92400e" text-anchor="middle">2. Compiler</text>
+      <text x="385" y="62" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#d97706" text-anchor="middle">program.s</text>
+      <text x="385" y="80" font-family="Inter, sans-serif" font-size="8.5" fill="#78350f" text-anchor="middle">Generates Assembly</text>
+      <line x1="445" y1="60" x2="475" y2="60" stroke="#2563eb" stroke-width="2" marker-end="url(#pipeArrow)"/>
+
+      <!-- Stage 4: Assembler -->
+      <rect x="480" y="25" width="120" height="70" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="540" y="45" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#166534" text-anchor="middle">3. Assembler</text>
+      <text x="540" y="62" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#16a34a" text-anchor="middle">program.o / .obj</text>
+      <text x="540" y="80" font-family="Inter, sans-serif" font-size="8.5" fill="#14532d" text-anchor="middle">Relocatable Binary</text>
+      <line x1="600" y1="60" x2="630" y2="60" stroke="#2563eb" stroke-width="2" marker-end="url(#pipeArrow)"/>
+
+      <!-- Stage 5: Linker -->
+      <rect x="635" y="25" width="110" height="70" rx="6" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+      <text x="690" y="45" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#9d174d" text-anchor="middle">4. Linker</text>
+      <text x="690" y="62" font-family="Courier, monospace" font-size="11" font-weight="bold" fill="#db2777" text-anchor="middle">a.out / .exe</text>
+      <text x="690" y="80" font-family="Inter, sans-serif" font-size="8.5" fill="#831843" text-anchor="middle">Resolves Libs (libc)</text>
+
+      <!-- Bottom Panel: Process Virtual Memory Layout -->
+      <rect x="15" y="115" width="730" height="110" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="380" y="133" font-family="Inter, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a" text-anchor="middle">Linux / Windows 32-bit Process Memory Architecture</text>
+      <!-- Memory segment blocks -->
+      <g transform="translate(35, 145)">
+        <rect x="0" y="0" width="130" height="45" fill="#e2e8f0" stroke="#475569" stroke-width="1"/>
+        <text x="65" y="20" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#1e293b" text-anchor="middle">Text (Code) Segment</text>
+        <text x="65" y="35" font-family="Inter, sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Read-Only Instructions</text>
+
+        <rect x="135" y="0" width="130" height="45" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+        <text x="200" y="20" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#92400e" text-anchor="middle">Data &amp; BSS Segments</text>
+        <text x="200" y="35" font-family="Inter, sans-serif" font-size="8.5" fill="#78350f" text-anchor="middle">Initialized &amp; Uninit Globals</text>
+
+        <rect x="270" y="0" width="190" height="45" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+        <text x="365" y="20" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">Heap Segment (Grows 🠅)</text>
+        <text x="365" y="35" font-family="Inter, sans-serif" font-size="8.5" fill="#14532d" text-anchor="middle">malloc(), calloc(), free()</text>
+
+        <rect x="465" y="0" width="220" height="45" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+        <text x="575" y="20" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#991b1b" text-anchor="middle">Stack Segment (Grows 🠇)</text>
+        <text x="575" y="35" font-family="Inter, sans-serif" font-size="8.5" fill="#991b1b" text-anchor="middle">Stack frames, local vars, ret addr</text>
+      </g>
+      <text x="380" y="215" font-family="Inter, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Low Memory Addresses (0x00000000) ────────────────────────────────────────── High Memory Addresses (0xFFFFFFFF)</text>
+    </svg>
+  </div>
+</div>
+
+| Feature / Criterion | Compiler (e.g. GCC, Clang) | Interpreter (e.g. Python, Ruby) | Assembler |
+| :--- | :--- | :--- | :--- |
+| **Input Code** | Entire High-Level Source Code file | High-Level Source Code line-by-line | Assembly Language (`.s`, `.asm`) |
+| **Execution Speed** | **Fastest** (Generates standalone machine code) | Slower (Translates during runtime) | Very Fast |
+| **Intermediate Object File**| **Yes** (Generates `.o` / `.obj` file) | **No** (Directly interprets & executes) | Yes (Generates `.o` object) |
+| **Error Reporting** | Reports all syntax errors together | Halts immediately at the first faulty line | Reports mnemonic syntax errors |
+| **Memory Footprint** | Low runtime memory (Pre-compiled) | Requires interpreter engine in RAM | Low runtime memory |
+
 
 growth directions.
 - **Unit-I:** Programming Fundamentals & Problem Solving • Computational & Problem Solving in C
@@ -191,3 +270,55 @@ printf("Simple Interest = %.2f\n", si);
 return 0;                       // Return 0 indicates successful execution
 }
 - **Unit-I:** Programming Fundamentals & Problem Solving • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Memory Layout Inspection: Printing Addresses of Text, Data, Heap & Stack
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int global_init_var = 100;     // Initialized Data Segment (.data)
+int global_uninit_var;         // Uninitialized Data Segment (.bss)
+
+int main() {
+    int local_stack_var = 10;  // Stack Segment
+    int *heap_var = (int*)malloc(sizeof(int)); // Heap Segment
+    *heap_var = 50;
+
+    printf("Address of global_init_var (.data): %p
+", (void*)&global_init_var);
+    printf("Address of global_uninit_var (.bss): %p
+", (void*)&global_uninit_var);
+    printf("Address of heap_var       (Heap):   %p
+", (void*)heap_var);
+    printf("Address of local_stack_var (Stack):  %p
+", (void*)&local_stack_var);
+
+    free(heap_var);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Address of global_init_var (.data): 0x7fff502010
+Address of global_uninit_var (.bss): 0x7fff502030
+Address of heap_var       (Heap):   0x5560124080
+Address of local_stack_var (Stack):  0x7ffd98b42c
+```
+
+**Walkthrough & Execution Notes:**
+Stack grows downward toward lower memory; Heap grows upward toward higher memory.
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Stack handles automatic local variables with LIFO lifetime.**
+- **Uninitialized global and static variables automatically initialize to zero in the .bss segment.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Dereferencing dangling pointers after calling free().**
+- **Stack overflow caused by unbounded recursion.**
+

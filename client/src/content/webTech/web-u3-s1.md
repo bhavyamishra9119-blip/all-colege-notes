@@ -50,7 +50,53 @@ Articles & Footer
 
 (Bar, Line, Pie)
 
-> 🖼️ **Figure 1: Complete Syllabus Roadmap of Unit–3 (HTML5)**
+
+
+<div class="visual-enrichment-card">
+  <div class="visual-card-header">📊 HTML4 DIV-SOUP VS. HTML5 SEMANTIC PAGE ARCHITECTURE</div>
+  <div class="visual-diagram-container">
+    <svg width="100%" height="230" viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg">
+      <!-- HTML4 Legacy Div Soup -->
+      <rect x="20" y="15" width="340" height="200" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="190" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#64748b" text-anchor="middle">HTML4 Legacy: Non-Semantic "Div Soup"</text>
+      <rect x="40" y="50" width="300" height="25" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+      <text x="190" y="67" font-family="Courier, monospace" font-size="10" fill="#334155" text-anchor="middle">&lt;div id="header"&gt; / &lt;div id="nav"&gt;</text>
+      <!-- Center -->
+      <rect x="40" y="80" width="200" height="75" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+      <text x="140" y="115" font-family="Courier, monospace" font-size="10" fill="#334155" text-anchor="middle">&lt;div id="content"&gt;</text>
+      <rect x="245" y="80" width="95" height="75" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+      <text x="292" y="115" font-family="Courier, monospace" font-size="10" fill="#334155" text-anchor="middle">&lt;div id="sidebar"&gt;</text>
+      <rect x="40" y="160" width="300" height="25" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+      <text x="190" y="177" font-family="Courier, monospace" font-size="10" fill="#334155" text-anchor="middle">&lt;div id="footer"&gt;</text>
+      <text x="190" y="205" font-family="Inter, sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">❌ Meaningless to Screen Readers &amp; Search Engine Crawlers</text>
+
+      <!-- HTML5 Semantic Page Layout -->
+      <rect x="380" y="15" width="360" height="200" rx="8" fill="#f8fafc" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="560" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">HTML5 Modern Semantic Layout</text>
+      <rect x="400" y="50" width="320" height="20" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+      <text x="560" y="64" font-family="Courier, monospace" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">&lt;header&gt; (Branding / Logo)</text>
+      <rect x="400" y="73" width="320" height="18" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+      <text x="560" y="86" font-family="Courier, monospace" font-size="9.5" font-weight="bold" fill="#1d4ed8" text-anchor="middle">&lt;nav&gt; (Primary Navigation Links)</text>
+      <!-- Main & Aside -->
+      <rect x="400" y="94" width="220" height="65" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+      <text x="510" y="118" font-family="Courier, monospace" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">&lt;main&gt;</text>
+      <text x="510" y="135" font-family="Courier, monospace" font-size="9.5" fill="#166534" text-anchor="middle">&lt;article&gt; / &lt;section&gt;</text>
+      <rect x="625" y="94" width="95" height="65" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+      <text x="672" y="125" font-family="Courier, monospace" font-size="10" font-weight="bold" fill="#92400e" text-anchor="middle">&lt;aside&gt;</text>
+      <text x="672" y="140" font-family="Inter, sans-serif" font-size="8.5" fill="#78350f" text-anchor="middle">Sidebar/Ads</text>
+      <rect x="400" y="162" width="320" height="20" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1"/>
+      <text x="560" y="176" font-family="Courier, monospace" font-size="10" font-weight="bold" fill="#6b21a8" text-anchor="middle">&lt;footer&gt; (Copyright, Legal, Contact)</text>
+      <text x="560" y="205" font-family="Inter, sans-serif" font-size="9.5" font-weight="bold" fill="#166534" text-anchor="middle">✔ Superior SEO, WCAG Accessibility &amp; Screen Reader Parsing</text>
+    </svg>
+  </div>
+</div>
+
+| Storage Mechanism | Storage Capacity | Expiration / Lifetime | Sent with Every HTTP Request? | Typical Use Case |
+| :--- | :--- | :--- | :--- | :--- |
+| **`localStorage`** | **$5\text{ MB} - 10\text{ MB}$** per origin | **Permanent** (Until explicitly cleared via JS) | **No** (Client-side access only) | Theme settings, cached offline notes, user preferences |
+| **`sessionStorage`**| **$5\text{ MB}$** per origin | **Tab Session Only** (Wiped when tab closes) | **No** (Client-side access only) | Multi-step form wizards, active test progress |
+| **HTTP Cookies** | **$4\text{ KB}$** maximum per cookie | Configurable (`Expires` / `Max-Age`) | **Yes** (Automatically sent in HTTP header) | User auth JWT session tokens, tracking IDs |
+
 
 
 - **## PART I:** INTRODUCTION, HTML4 LIMITATIONS, SEMANTIC LAYOUT &
@@ -248,3 +294,42 @@ Defines a thematic grouping of related content within a document (e.g., Chapters
 "About Us", "Features", "Contact").
 - **Key Exam Rule:** Almost always includes its own heading (<h2>–<h6>); use <div> only when
 you need a purely visual CSS styling wrapper with no thematic meaning.
+
+---
+
+#### 💻 Written Code Example & Layout: HTML5 Semantic Page Architecture Layout
+
+<!-- HTML5 Semantic Page Architecture Layout -->
+```html
+<div class="semantic-container">
+    <header><h1>University Engineering Portal</h1></header>
+    <nav><ul><li><a href="#home">Home</a></li><li><a href="#courses">Courses</a></li></ul></nav>
+    <main>
+        <article>
+            <h2>Lecture 1: Web Architecture</h2>
+            <p>Article body containing syllabus concepts.</p>
+        </article>
+        <aside><h3>Related Links</h3><p>Prerequisites: C Programming</p></aside>
+    </main>
+    <footer><p>&copy; 2026 Academic Engineering</p></footer>
+</div>
+```
+```css
+header, nav, main, footer { padding: 10px; margin: 4px 0; border: 1px solid #cbd5e1; }
+header { background: #eff6ff; } nav { background: #f1f5f9; }
+main { display: flex; gap: 10px; } article { flex: 3; } aside { flex: 1; background: #fffbeb; }
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Demonstrates modern HTML5 semantic elements (header, nav, main, article, aside, footer) replacing non-semantic div-soup.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **HTML5 semantic elements describe their meaning to both browser and developer.**
+- **Only one <main> element can appear per document.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Using multiple <main> elements on a single page.**
+- **Using <section> or <article> purely as styling wrappers instead of <div>.**
+

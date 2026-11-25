@@ -166,3 +166,45 @@ font, fillText(txt, x,
 y)
 Sets fill/stroke color or gradient, sets font size/family, and
 renders crisp text labels
+
+---
+
+#### 💻 Written Code Example & Layout: HTML5 2D Canvas Graphics API Drawing
+
+<!-- HTML5 2D Canvas Graphics API Drawing -->
+```html
+<canvas id="myCanvas" width="300" height="120" style="border: 1px solid #cbd5e1;"></canvas>
+```
+```javascript
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+// Draw blue rectangle
+ctx.fillStyle = '#3b82f6';
+ctx.fillRect(20, 20, 100, 70);
+
+// Draw red circular arc
+ctx.beginPath();
+ctx.arc(190, 55, 35, 0, 2 * Math.PI);
+ctx.fillStyle = '#ef4444';
+ctx.fill();
+
+// Draw text
+ctx.fillStyle = '#0f172a';
+ctx.font = '12px sans-serif';
+ctx.fillText('Canvas 2D API', 150, 105);
+```
+
+**Visual Rendered Behavior:**
+<div class='pdf-callout' style='background: #f0fdf4; border-left-color: #16a34a;'>🌐 <strong>Browser Output:</strong> Draws procedural raster graphics, shapes, gradients, and text directly onto the pixel canvas buffer using JavaScript.</div>
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **Canvas is raster-based (pixel manipulation); SVG is vector-based (XML elements).**
+- **Canvas graphics do not exist as DOM elements and cannot be styled with CSS.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Setting canvas width/height via CSS instead of HTML attributes (causes distortion).**
+- **Forgetting ctx.beginPath() before drawing new paths causing bleed.**
+

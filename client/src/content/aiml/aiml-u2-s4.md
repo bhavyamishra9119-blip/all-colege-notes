@@ -154,3 +154,15 @@ The 6 Standard Components of Any Script (Must Memorize for Exams!):
 - **6. 6. Results:** Final facts true after the script ends (Customer is no longer hungry; Restaurant has
 more money).
 Fundamentals of
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+> - **A* search is guaranteed optimal and complete if the heuristic function h(n) is admissible (never overestimates true cost to goal).**
+> - **Breadth-First Search (BFS) uses a FIFO Queue and is optimal for uniform step costs; Depth-First Search (DFS) uses a LIFO Stack.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+> - **Designing an inadmissible heuristic in A* search (causes sub-optimal path selection).**
+> - **Failing to maintain a visited/explored set in graph search, leading to infinite loops in cyclic state spaces.**
+

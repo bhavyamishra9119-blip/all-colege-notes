@@ -184,3 +184,49 @@ no exit condition guards it).
 - **Why goto Is Generally Discouraged:** Overuse destroys structured programming discipline,
 creating tangled "spaghetti code" that is hard to trace, debug, and maintain.
 - **Unit-II:** Core Programming Concepts & Control Structures • Computational & Problem Solving in C
+
+---
+
+#### 💻 Working C Code Example: Looping Controls: While, Do-While & For Comparison
+
+```c
+#include <stdio.h>
+
+int main() {
+    int sum_for = 0, sum_while = 0;
+
+    for (int i = 1; i <= 5; i++) sum_for += i;
+
+    int j = 1;
+    while (j <= 5) { sum_while += j; j++; }
+
+    // Do-while guarantees at least 1 execution
+    int k = 10;
+    printf("Do-While test with k=10 (condition k < 5): ");
+    do {
+        printf("Executes once! k = %d\n", k);
+        k++;
+    } while (k < 5);
+
+    printf("For sum = %d, While sum = %d\n", sum_for, sum_while);
+    return 0;
+}
+```
+
+**Console Output:**
+```text
+Do-While test with k=10 (condition k < 5): Executes once! k = 10
+For sum = 15, While sum = 15
+```
+
+
+> 📌 **IMPORTANT NOTES & EXAM HIGHLIGHTS:**
+> 
+- **While and For are pre-test (entry-controlled) loops.**
+- **Do-while is a post-test (exit-controlled) loop requiring trailing semicolon.**
+
+> ⚠️ **MISTAKES TO AVOID:**
+> 
+- **Placing semicolon after for header: for(...);**
+- **Missing loop update causing an infinite loop.**
+
