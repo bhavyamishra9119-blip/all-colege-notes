@@ -11,9 +11,9 @@ import { Download, Smartphone, Shield, Zap, Star, CheckCircle, ExternalLink, Inf
 
 /* ─── APK METADATA — UPDATE THIS WHEN YOU RELEASE A NEW APK ─────────────── */
 const APK_FILE  = '/downloads/campus-notes.apk';
-const APK_VERSION = '1.3.0';
-const APK_DATE    = 'October 2026';
-const APK_SIZE    = '~22 MB';
+const APK_VERSION = '1.4.0';
+const APK_DATE    = 'November 2026';
+const APK_SIZE    = '~41 MB';
 /* ─────────────────────────────────────────────────────────────────────────── */
 
 const FEATURES = [
